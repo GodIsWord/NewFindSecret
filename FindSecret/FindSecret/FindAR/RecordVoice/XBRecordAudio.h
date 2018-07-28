@@ -33,7 +33,7 @@
 /**
  @return 录音音频文件地址
  */
-+(NSString*)recordPath;
++(NSString*)audioPath;
 
 /**
  开始录音

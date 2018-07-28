@@ -7,7 +7,6 @@
 //
 
 #import "XBTextEditController.h"
-#import "XBTextEditView.h"
 #import "XBMacroDefinition.h"
 #import "XBTextStyleController.h"
 @interface XBTextEditController ()<UITextViewDelegate,TextStyleDelegate>

@@ -17,6 +17,8 @@
 		E601964B210C21830046D1FA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E601964A210C21830046D1FA /* AVFoundation.framework */; };
 		E601964E210C3A300046D1FA /* XBPlayAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = E601964D210C3A300046D1FA /* XBPlayAudio.m */; };
 		E6019651210C48280046D1FA /* XBRecordAudioToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6019650210C48280046D1FA /* XBRecordAudioToastView.m */; };
+		E6019659210C4EE40046D1FA /* XBRecorderTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6019657210C4EE40046D1FA /* XBRecorderTestViewController.m */; };
+		E601965A210C4EE40046D1FA /* XBRecorderTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6019658210C4EE40046D1FA /* XBRecorderTestViewController.xib */; };
 		E60E3B59210C0FF000C5BFBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B58210C0FF000C5BFBB /* AppDelegate.m */; };
 		E60E3B5C210C0FF000C5BFBB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B5B210C0FF000C5BFBB /* ViewController.m */; };
 		E60E3B5F210C0FF000C5BFBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B5D210C0FF000C5BFBB /* Main.storyboard */; };
@@ -46,6 +48,9 @@
 		E601964D210C3A300046D1FA /* XBPlayAudio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBPlayAudio.m; sourceTree = "<group>"; };
 		E601964F210C48280046D1FA /* XBRecordAudioToastView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBRecordAudioToastView.h; sourceTree = "<group>"; };
 		E6019650210C48280046D1FA /* XBRecordAudioToastView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecordAudioToastView.m; sourceTree = "<group>"; };
+		E6019656210C4EE40046D1FA /* XBRecorderTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBRecorderTestViewController.h; sourceTree = "<group>"; };
+		E6019657210C4EE40046D1FA /* XBRecorderTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecorderTestViewController.m; sourceTree = "<group>"; };
+		E6019658210C4EE40046D1FA /* XBRecorderTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBRecorderTestViewController.xib; sourceTree = "<group>"; };
 		E60E3B54210C0FEF00C5BFBB /* FindSecret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindSecret.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E60E3B57210C0FF000C5BFBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E60E3B58210C0FF000C5BFBB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -139,6 +144,9 @@
 				E601964D210C3A300046D1FA /* XBPlayAudio.m */,
 				E601964F210C48280046D1FA /* XBRecordAudioToastView.h */,
 				E6019650210C48280046D1FA /* XBRecordAudioToastView.m */,
+				E6019656210C4EE40046D1FA /* XBRecorderTestViewController.h */,
+				E6019657210C4EE40046D1FA /* XBRecorderTestViewController.m */,
+				E6019658210C4EE40046D1FA /* XBRecorderTestViewController.xib */,
 			);
 			path = RecordVoice;
 			sourceTree = "<group>";
@@ -249,6 +257,7 @@
 				BEA19C64210C4D730039086F /* drag.jpg in Resources */,
 				E60E3B61210C0FF100C5BFBB /* Assets.xcassets in Resources */,
 				E60E3B5F210C0FF000C5BFBB /* Main.storyboard in Resources */,
+				E601965A210C4EE40046D1FA /* XBRecorderTestViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +279,7 @@
 				CAE74404210C59CD000D05B7 /* XBTextStyleController.m in Sources */,
 				CAE74401210C40AA000D05B7 /* XBRecordAudio.m in Sources */,
 				E60E3B59210C0FF000C5BFBB /* AppDelegate.m in Sources */,
+				E6019659210C4EE40046D1FA /* XBRecorderTestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,9 +420,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PXL86E7953;
+				DEVELOPMENT_TEAM = PAYLCQUNUP;
 				INFOPLIST_FILE = FindSecret/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Test.FindSecret;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -425,9 +435,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PXL86E7953;
+				DEVELOPMENT_TEAM = PAYLCQUNUP;
 				INFOPLIST_FILE = FindSecret/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Test.FindSecret;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -11,13 +11,10 @@
 
 @interface XBPlayAudio()<AVAudioPlayerDelegate>
 
-@property (nonatomic,strong) AVAudioPlayer *audioPlayer;
-
+@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 @property (nonatomic, assign) NSTimeInterval currentTime;
-
 @property (nonatomic,assign,readwrite) NSTimeInterval duration;
 @property (nonatomic,assign,readwrite) long audioSize;
-
 
 @end
 
@@ -26,11 +23,20 @@
 -(instancetype)initWithContentOfURL:(NSURL *)url error:(NSError *)error{
     self = [super init];
     if (self) {
-        _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-        if(!error) [_audioPlayer prepareToPlay];
-        _audioPlayer.delegate = self;
+        _url = url;
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error: nil];
     }
     return self;
+}
+-(AVAudioPlayer *)audioPlayer
+{
+    if (!_audioPlayer) {
+        NSError *error;
+        _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:_url error:&error];
+        [_audioPlayer prepareToPlay];
+        _audioPlayer.delegate = self;
+    }
+    return _audioPlayer;
 }
 
 -(CGFloat)duration{
@@ -42,9 +48,9 @@
 }
 
 -(void)play{
-    if (self.audioPlayer.isPlaying) {
-        [self stop];
-    }
+//    if (self.audioPlayer.isPlaying) {
+//        [self stop];
+//    }
     [self.audioPlayer play];
 }
 
@@ -59,6 +65,36 @@
 
 -(void)stop{
     [self.audioPlayer stop];
+}
+
+/**
+ @return 当前音量大小0-1
+ */
+-(double) currentVolume{
+    
+    [self.audioPlayer updateMeters];
+    double powerVoice = pow(10, (0.05 * [self.audioPlayer peakPowerForChannel:0]));
+    
+    float   level;
+    float   minDecibels = -80.0f;
+    
+    if (powerVoice < minDecibels){
+        level = 0.0f;
+    }
+    else if (powerVoice >= 0.0f){
+        level = 1.0f;
+    }
+    else{
+        float   root            = 2.0f;
+        float   minAmp          = powf(10.0f, 0.05f * minDecibels);
+        float   inverseAmpRange = 1.0f / (1.0f - minAmp);
+        float   amp             = powf(10.0f, 0.05f * powerVoice);
+        float   adjAmp          = (amp - minAmp) * inverseAmpRange;
+        
+        level = powf(adjAmp, 1.0f / root);
+    }
+    
+    return powerVoice;
 }
 
 /**

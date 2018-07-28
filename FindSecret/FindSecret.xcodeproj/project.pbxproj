@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BEA19C64210C4D730039086F /* drag.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BEA19C63210C4D730039086F /* drag.jpg */; };
+		BEA19C67210C4EE10039086F /* XBVideoIntervalChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA19C66210C4EE10039086F /* XBVideoIntervalChooseView.m */; };
 		BEF23A24210C17C90061F74C /* XBVideoEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF23A23210C17C90061F74C /* XBVideoEditController.m */; };
 		CAE743FB210C1B5A000D05B7 /* XBTextEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE743FA210C1B5A000D05B7 /* XBTextEditView.m */; };
 		E6019644210C18C40046D1FA /* UIView+XBFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E6019643210C18C40046D1FA /* UIView+XBFrame.m */; };
@@ -24,10 +26,11 @@
 
 /* Begin PBXFileReference section */
 		BEA19C62210C25E20039086F /* XBMacroDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBMacroDefinition.h; sourceTree = "<group>"; };
+		BEA19C63210C4D730039086F /* drag.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = drag.jpg; sourceTree = "<group>"; };
+		BEA19C65210C4EE10039086F /* XBVideoIntervalChooseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBVideoIntervalChooseView.h; sourceTree = "<group>"; };
+		BEA19C66210C4EE10039086F /* XBVideoIntervalChooseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBVideoIntervalChooseView.m; sourceTree = "<group>"; };
 		BEF23A22210C17C90061F74C /* XBVideoEditController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBVideoEditController.h; sourceTree = "<group>"; };
 		BEF23A23210C17C90061F74C /* XBVideoEditController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBVideoEditController.m; sourceTree = "<group>"; };
-		E6019642210C18C40046D1FA /* UIView+XBFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+XBFrame.h"; sourceTree = "<group>"; };
-		E6019643210C18C40046D1FA /* UIView+XBFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+XBFrame.m"; sourceTree = "<group>"; };
 		CAE743F9210C1B5A000D05B7 /* XBTextEditView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBTextEditView.h; sourceTree = "<group>"; };
 		CAE743FA210C1B5A000D05B7 /* XBTextEditView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBTextEditView.m; sourceTree = "<group>"; };
 		E6019642210C18C40046D1FA /* UIView+XBFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+XBFrame.h"; sourceTree = "<group>"; };
@@ -68,6 +71,9 @@
 			children = (
 				BEF23A22210C17C90061F74C /* XBVideoEditController.h */,
 				BEF23A23210C17C90061F74C /* XBVideoEditController.m */,
+				BEA19C65210C4EE10039086F /* XBVideoIntervalChooseView.h */,
+				BEA19C66210C4EE10039086F /* XBVideoIntervalChooseView.m */,
+				BEA19C63210C4D730039086F /* drag.jpg */,
 			);
 			path = VideoEdit;
 			sourceTree = "<group>";
@@ -217,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */,
+				BEA19C64210C4D730039086F /* drag.jpg in Resources */,
 				E60E3B61210C0FF100C5BFBB /* Assets.xcassets in Resources */,
 				E60E3B5F210C0FF000C5BFBB /* Main.storyboard in Resources */,
 			);
@@ -233,6 +240,7 @@
 				E60E3B5C210C0FF000C5BFBB /* ViewController.m in Sources */,
 				BEF23A24210C17C90061F74C /* XBVideoEditController.m in Sources */,
 				E601964E210C3A300046D1FA /* XBPlayAudio.m in Sources */,
+				BEA19C67210C4EE10039086F /* XBVideoIntervalChooseView.m in Sources */,
 				E6019651210C48280046D1FA /* XBRecordAudioToastView.m in Sources */,
 				E60E3B67210C0FF100C5BFBB /* main.m in Sources */,
 				CAE743FB210C1B5A000D05B7 /* XBTextEditView.m in Sources */,
@@ -378,7 +386,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PAYLCQUNUP;
+				DEVELOPMENT_TEAM = PXL86E7953;
 				INFOPLIST_FILE = FindSecret/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -393,7 +401,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PAYLCQUNUP;
+				DEVELOPMENT_TEAM = PXL86E7953;
 				INFOPLIST_FILE = FindSecret/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

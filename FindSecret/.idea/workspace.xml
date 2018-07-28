@@ -10,56 +10,137 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_943576b8c2e34d7b99877c98e86ecb125b30cc60" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_f07cab74f8476e3d6c512e812762d98792730ff9" />
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="XBVideoEditController.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="51" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
+            <state relative-caret-position="210">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XBMacroDefinition.h" pinned="false" current-in-tab="true">
+      <file leaf-file-name="XBMacroDefinition.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/XBMacroDefinition.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
-              <caret line="21" column="20" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+              <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XBVideoEditController.m" pinned="false" current-in-tab="false">
+      <file leaf-file-name="XBVideoEditController.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-263">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="390">
+              <caret line="157" column="1" selection-start-line="157" selection-start-column="1" selection-end-line="157" selection-end-column="1" />
               <folding>
-                <element signature="e#133#166#0" expanded="true" />
+                <element signature="e#0#2#0" />
+                <element signature="e#324#727#0" />
+                <element signature="e#767#839#0" />
+                <element signature="e#841#1070#0" />
+                <element signature="e#1071#1268#0" />
+                <element signature="e#1270#1503#0" />
+                <element signature="e#1504#1697#0" />
+                <element signature="e#1699#1745#0" />
+                <element signature="e#1700#3367#0" />
+                <element signature="e#1950#1990#0" />
+                <element signature="e#3369#3445#0" />
+                <element signature="e#3446#3932#0" />
+                <element signature="e#3935#4847#0" />
+                <element signature="e#4797#4829#1" />
+                <element signature="e#4897#5083#0" />
+                <element signature="e#5086#5504#0" />
+                <element signature="e#5822#5861#0" />
+                <element signature="e#5540#5690#0" />
+                <element signature="e#5545#5863#0" />
+                <element signature="e#5862#5928#0" />
+                <element signature="e#5929#6027#0" />
+                <element signature="e#6053#7007#0" />
+                <element signature="e#855#948#0" />
+                <element signature="e#1198#1227#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AVAudioSession.h" pinned="false" current-in-tab="false">
-        <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AVFoundation.framework/Frameworks/AVFAudio.framework/Headers/AVAudioSession.h">
+      <file leaf-file-name="ViewController.m" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FindSecret/ViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="373" column="31" selection-start-line="373" selection-start-column="31" selection-end-line="373" selection-end-column="31" />
+            <state relative-caret-position="331">
+              <caret line="47" column="75" selection-start-line="47" selection-start-column="75" selection-end-line="47" selection-end-column="75" />
+              <folding>
+                <element signature="e#139#165#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.m" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FindSecret/main.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AVPlayer.h" pinned="false" current-in-tab="false">
+        <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVPlayer.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="239">
+              <caret line="335" column="24" selection-start-line="335" selection-start-column="24" selection-end-line="335" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CMTime.h" pinned="false" current-in-tab="false">
+        <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMedia.framework/Headers/CMTime.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-705">
+              <caret line="117" column="22" selection-start-line="117" selection-start-column="16" selection-end-line="117" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UIBarButtonItem.h" pinned="false" current-in-tab="false">
+        <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIBarButtonItem.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="217">
+              <caret line="25" column="29" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UIInterface.h" pinned="false" current-in-tab="false">
+        <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIInterface.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+              <folding>
+                <element signature="e#98#131#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>CMTime</find>
+      <find>MediaWithInfo</find>
+    </findStrings>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.h" />
-        <option value="$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.m" />
         <option value="$PROJECT_DIR$/FindSecret/FindAR/XBMacroDefinition.h" />
+        <option value="$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.h" />
+        <option value="$PROJECT_DIR$/FindSecret/ViewController.m" />
+        <option value="$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.m" />
       </list>
     </option>
   </component>
@@ -100,6 +181,13 @@
               <item name="FindSecret" type="fcab9f18:XcodeViewNode" />
               <item name="FindAR" type="fcab9f18:XcodeViewNode" />
             </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="FindSecret" type="1d218c8b:XcodeProjectNode" />
+              <item name="FindSecret" type="fcab9f18:XcodeViewNode" />
+              <item name="FindAR" type="fcab9f18:XcodeViewNode" />
+              <item name="VideoEdit" type="fcab9f18:XcodeViewNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -128,7 +216,7 @@
   <component name="RunManager">
     <configuration name="FindSecret" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FindSecret" TARGET_NAME="FindSecret" CONFIG_NAME="Debug" SCHEME_NAME="FindSecret" IS_LOCATION_SIMULATION_ALLOWED="true" RUN_TARGET_PROJECT_NAME="FindSecret" RUN_TARGET_NAME="FindSecret" MAKE_ACTIVE="TRUE">
       <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
-        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+        <REVEAL_SETTINGS autoInject="true" autoInstall="true" askToEnableAutoInstall="true" />
       </EXTENSION>
     </configuration>
   </component>
@@ -142,18 +230,19 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1532748892712</updated>
-      <workItem from="1532748895823" duration="2867000" />
+      <workItem from="1532748895823" duration="7720000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2867000" />
+    <option name="totallyTimeSpent" value="7720000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="202" width="1440" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49964765" weight="0.2542373" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.32849604" />
       <window_info anchor="right" id="IDEtalk" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5003524" side_tool="true" weight="0.2542373" />
@@ -161,10 +250,10 @@
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" weight="0.4661017" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32909605" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.70316625" visible="true" weight="0.33547926" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.70316625" visible="true" weight="0.26680973" />
       <window_info anchor="bottom" id="IDEtalk Messages" />
-      <window_info id="Structure" order="1" sideWeight="0.29683378" side_tool="true" visible="true" weight="0.33547926" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Structure" order="1" sideWeight="0.29683378" side_tool="true" visible="true" weight="0.26680973" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.0" />
       <window_info id="Favorites" order="3" sideWeight="0.5037594" side_tool="true" weight="0.2501762" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -173,7 +262,6 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.32909605" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,6 +269,11 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AVFoundation.framework/Frameworks/AVFAudio.framework/Headers/AVAudioSession.h">
@@ -190,27 +283,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.m">
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIBarButtonItem.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-263">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="217">
+          <caret line="25" column="29" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIInterface.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
           <folding>
-            <element signature="e#133#166#0" expanded="true" />
+            <element signature="e#98#131#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.h">
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMedia.framework/Headers/CMTime.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="51" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
+        <state relative-caret-position="-705">
+          <caret line="117" column="22" selection-start-line="117" selection-start-column="16" selection-end-line="117" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIImagePickerController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="58" column="64" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVPlayer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="335" column="24" selection-start-line="335" selection-start-column="24" selection-end-line="335" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindSecret/main.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/XBMacroDefinition.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="21" column="20" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindSecret/ViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="47" column="75" selection-start-line="47" selection-start-column="75" selection-end-line="47" selection-end-column="75" />
+          <folding>
+            <element signature="e#139#165#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="157" column="1" selection-start-line="157" selection-start-column="1" selection-end-line="157" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#2#0" />
+            <element signature="e#324#727#0" />
+            <element signature="e#767#839#0" />
+            <element signature="e#841#1070#0" />
+            <element signature="e#1071#1268#0" />
+            <element signature="e#1270#1503#0" />
+            <element signature="e#1504#1697#0" />
+            <element signature="e#1699#1745#0" />
+            <element signature="e#1700#3367#0" />
+            <element signature="e#1950#1990#0" />
+            <element signature="e#3369#3445#0" />
+            <element signature="e#3446#3932#0" />
+            <element signature="e#3935#4847#0" />
+            <element signature="e#4797#4829#1" />
+            <element signature="e#4897#5083#0" />
+            <element signature="e#5086#5504#0" />
+            <element signature="e#5822#5861#0" />
+            <element signature="e#5540#5690#0" />
+            <element signature="e#5545#5863#0" />
+            <element signature="e#5862#5928#0" />
+            <element signature="e#5929#6027#0" />
+            <element signature="e#6053#7007#0" />
+            <element signature="e#855#948#0" />
+            <element signature="e#1198#1227#0" />
+          </folding>
         </state>
       </provider>
     </entry>

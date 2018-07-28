@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "XBVideoEditController.h"
 #import <MobileCoreServices/UTCoreTypes.h>
+#import "XBVideoEditController.h"
 #import "XBTextEditView.h"
 @interface ViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, strong) NSDictionary *userInfo;
@@ -44,7 +45,12 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     NSLog(@"%@",info);
     self.userInfo = info;
-    [picker dismissViewControllerAnimated:YES completion:nil];
+    [picker dismissViewControllerAnimated:YES completion:^{
+
+        XBVideoEditController *videoEditController =[[XBVideoEditController alloc] init];
+        videoEditController.videoUrl = info[UIImagePickerControllerMediaURL];
+        [self presentViewController:videoEditController animated:YES completion:nil];
+    }];
 }
 
 - (void)gotoTextEdit{

@@ -11,19 +11,28 @@
 
 @interface XBRecordAudio()<AVAudioRecorderDelegate>
 
-@property (nonatomic,assign,readwrite) CGFloat duration;//录音时间
-@property (nonatomic,assign,readwrite) CGFloat audioSize;//录音时间
-
 @property (nonatomic,strong) AVAudioRecorder *audioRecorder;
+
+@property (nonatomic,assign,readwrite) NSTimeInterval duration;//录音时间
+@property (nonatomic,assign,readwrite) long audioSize;//录音文件大小
 
 @end
 
 @implementation XBRecordAudio
 
+-(void)setMaxDuration:(CGFloat)maxDuration{
+    _maxDuration = maxDuration;
+    [self.audioRecorder recordForDuration:maxDuration];
+}
+
 - (AVAudioRecorder *)audioRecorder{
     if (!_audioRecorder) {
+        
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error: nil];
+
+        
         //创建录音文件保存路径
-        NSURL *url=[NSURL URLWithString:[self recordPath]];
+        NSURL *url=[NSURL URLWithString:[XBRecordAudio recordPath]];
         //创建录音格式设置
         NSDictionary *setting=[self getAudioSetting];
         //创建录音机
@@ -41,6 +50,7 @@
     }
     return _audioRecorder;
 }
+
 /**
  *  取得录音文件设置
  *
@@ -51,15 +61,15 @@
     //录音设置
     NSMutableDictionary *recordSettings = [[NSMutableDictionary alloc] init];
     //录音格式 无法使用
-    [recordSettings setValue :[NSNumber numberWithInt:kAudioFormatLinearPCM] forKey: AVFormatIDKey];
+    [recordSettings setValue:@(kAudioFormatLinearPCM) forKey:AVFormatIDKey];
     //采样率 11025 确保转换成mp3格式不失真
-    [recordSettings setValue :[NSNumber numberWithFloat:11025.0] forKey: AVSampleRateKey];
+    [recordSettings setValue:@(11025) forKey:AVSampleRateKey];
     //通道数
-    [recordSettings setValue :[NSNumber numberWithInt:2] forKey: AVNumberOfChannelsKey];
+    [recordSettings setValue:@(2) forKey:AVNumberOfChannelsKey];
     //线性采样位数
-    [recordSettings setValue :[NSNumber numberWithInt:8] forKey: AVLinearPCMBitDepthKey];
+    [recordSettings setValue:@(8) forKey:AVLinearPCMBitDepthKey];
     //音频质量,采样质量
-    [recordSettings setValue:[NSNumber numberWithInt:AVAudioQualityMedium] forKey:AVEncoderAudioQualityKey];
+    [recordSettings setValue:@(AVAudioQualityMedium) forKey:AVEncoderAudioQualityKey];
     
     return recordSettings;
 }
@@ -81,16 +91,13 @@
     float   level;
     float   minDecibels = -80.0f;
     
-    if (powerVoice < minDecibels)
-    {
+    if (powerVoice < minDecibels){
         level = 0.0f;
     }
-    else if (powerVoice >= 0.0f)
-    {
+    else if (powerVoice >= 0.0f){
         level = 1.0f;
     }
-    else
-    {
+    else{
         float   root            = 2.0f;
         float   minAmp          = powf(10.0f, 0.05f * minDecibels);
         float   inverseAmpRange = 1.0f / (1.0f - minAmp);
@@ -104,6 +111,9 @@
 }
 
 -(void)start{
+    if (self.audioRecorder.recording) {
+        [self cancel];
+    }
     [self.audioRecorder record];
 }
 
@@ -116,23 +126,51 @@
     [self.audioRecorder deleteRecording];
 }
 
--(NSString*)recordPath{
++(NSString*)recordPath{
     return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"recorder.caf"];
 }
 
--(void)playRecorder{
+/**
+ @return 文件大小 k
+ */
+-(long)fileSize{
+    
+    NSString *strPath = [XBRecordAudio recordPath];
+    
+    NSFileManager *manager = [NSFileManager defaultManager];
+    long long size = 0;
+    if (![manager fileExistsAtPath:strPath]) {
+        return size;
+    }
+    NSError *error = nil;
+    NSDictionary *fileDic = [manager attributesOfItemAtPath:strPath error:&error];
+    if (error) {
+        NSLog(@"error:%@",error);
+        return size;
+    }
+    size = [fileDic fileSize];
+    
+    return size/1024;
     
 }
 
 #pragma mark --delegate
+//录音失败
 -(void)audioRecorderEncodeErrorDidOccur:(AVAudioRecorder *)recorder error:(NSError *)error
 {
-    
+    if ([self.delegate respondsToSelector:@selector(audioRecorderEncodeErrorDidOccur:error:)]) {
+        [self.delegate audioRecorderEncodeErrorDidOccur:self error:error];
+    }
 }
 
 -(void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
 {
+    self.duration = self.audioRecorder.currentTime;
+    self.audioSize = [self fileSize];
     
+    if ([self.delegate respondsToSelector:@selector(audioRecorderDidFinishRecording:successfully:)]) {
+        [self.delegate audioRecorderDidFinishRecording:self successfully:flag];
+    }
 }
 
 

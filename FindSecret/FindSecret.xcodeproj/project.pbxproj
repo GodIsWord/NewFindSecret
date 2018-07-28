@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BEA19C60210C1E740039086F /* XBVideoEditController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEA19C5F210C1E740039086F /* XBVideoEditController.xib */; };
 		BEF23A24210C17C90061F74C /* XBVideoEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF23A23210C17C90061F74C /* XBVideoEditController.m */; };
 		CAE743FB210C1B5A000D05B7 /* XBTextEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE743FA210C1B5A000D05B7 /* XBTextEditView.m */; };
+		E6019644210C18C40046D1FA /* UIView+XBFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E6019643210C18C40046D1FA /* UIView+XBFrame.m */; };
 		E60E3B59210C0FF000C5BFBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B58210C0FF000C5BFBB /* AppDelegate.m */; };
 		E60E3B5C210C0FF000C5BFBB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B5B210C0FF000C5BFBB /* ViewController.m */; };
 		E60E3B5F210C0FF000C5BFBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B5D210C0FF000C5BFBB /* Main.storyboard */; };
@@ -18,10 +20,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BEA19C5F210C1E740039086F /* XBVideoEditController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBVideoEditController.xib; sourceTree = "<group>"; };
+		BEA19C62210C25E20039086F /* XBMacroDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBMacroDefinition.h; sourceTree = "<group>"; };
 		BEF23A22210C17C90061F74C /* XBVideoEditController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBVideoEditController.h; sourceTree = "<group>"; };
 		BEF23A23210C17C90061F74C /* XBVideoEditController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBVideoEditController.m; sourceTree = "<group>"; };
 		CAE743F9210C1B5A000D05B7 /* XBTextEditView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBTextEditView.h; sourceTree = "<group>"; };
 		CAE743FA210C1B5A000D05B7 /* XBTextEditView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBTextEditView.m; sourceTree = "<group>"; };
+
+		E6019642210C18C40046D1FA /* UIView+XBFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+XBFrame.h"; sourceTree = "<group>"; };
+		E6019643210C18C40046D1FA /* UIView+XBFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+XBFrame.m"; sourceTree = "<group>"; };
+
 		E60E3B54210C0FEF00C5BFBB /* FindSecret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindSecret.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E60E3B57210C0FF000C5BFBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E60E3B58210C0FF000C5BFBB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -50,6 +58,7 @@
 			children = (
 				BEF23A22210C17C90061F74C /* XBVideoEditController.h */,
 				BEF23A23210C17C90061F74C /* XBVideoEditController.m */,
+				BEA19C5F210C1E740039086F /* XBVideoEditController.xib */,
 			);
 			path = VideoEdit;
 			sourceTree = "<group>";
@@ -67,9 +76,23 @@
 			isa = PBXGroup;
 			children = (
 				CAE743F8210C1A53000D05B7 /* TextEdit */,
+				BEA19C62210C25E20039086F /* XBMacroDefinition.h */,
+
 				BEF23A21210C17B80061F74C /* VideoEdit */,
+
+				E6019641210C16E50046D1FA /* common */,
+
 			);
 			path = FindAR;
+			sourceTree = "<group>";
+		};
+		E6019641210C16E50046D1FA /* common */ = {
+			isa = PBXGroup;
+			children = (
+				E6019642210C18C40046D1FA /* UIView+XBFrame.h */,
+				E6019643210C18C40046D1FA /* UIView+XBFrame.m */,
+			);
+			path = common;
 			sourceTree = "<group>";
 		};
 		E60E3B4B210C0FEF00C5BFBB = {
@@ -133,7 +156,7 @@
 			attributes = {
 				CLASSPREFIX = XB;
 				LastUpgradeCheck = 0940;
-				ORGANIZATIONNAME = yidezhang;
+				ORGANIZATIONNAME = Mac;
 				TargetAttributes = {
 					E60E3B53210C0FEF00C5BFBB = {
 						CreatedOnToolsVersion = 9.4;
@@ -165,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */,
+				BEA19C60210C1E740039086F /* XBVideoEditController.xib in Resources */,
 				E60E3B61210C0FF100C5BFBB /* Assets.xcassets in Resources */,
 				E60E3B5F210C0FF000C5BFBB /* Main.storyboard in Resources */,
 			);
@@ -177,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6019644210C18C40046D1FA /* UIView+XBFrame.m in Sources */,
 				E60E3B5C210C0FF000C5BFBB /* ViewController.m in Sources */,
 				BEF23A24210C17C90061F74C /* XBVideoEditController.m in Sources */,
 				E60E3B67210C0FF100C5BFBB /* main.m in Sources */,

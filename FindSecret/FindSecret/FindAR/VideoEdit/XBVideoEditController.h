@@ -3,11 +3,12 @@
 //  FindSecret
 //
 //  Created by 9f on 2018/7/28.
-//  Copyright © 2018年 yidezhang. All rights reserved.
+//  Copyright © 2018年 Mac. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface XBVideoEditController : NSObject
-
+@interface XBVideoEditController : UIViewController
+@property (nonatomic, assign) BOOL isEidt;
+@property (nonatomic, strong) NSURL *videoUrl;
 @end

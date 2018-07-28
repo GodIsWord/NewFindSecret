@@ -8,6 +8,7 @@
 
 #import "XBVideoEditController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "XBMacroDefinition.h"
 
 @interface XBVideoEditController ()
 @property (nonatomic, strong) AVPlayerLayer *playerLayer;

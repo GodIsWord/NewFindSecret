@@ -25,22 +25,20 @@
     if (self) {
         _url = url;
         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error: nil];
+        [[AVAudioSession sharedInstance] setActive:YES error:nil];
     }
     return self;
-}
--(AVAudioPlayer *)audioPlayer
-{
-    if (!_audioPlayer) {
-        NSError *error;
-        _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:_url error:&error];
-        [_audioPlayer prepareToPlay];
-        _audioPlayer.delegate = self;
-    }
-    return _audioPlayer;
 }
 
 -(CGFloat)duration{
     return self.audioPlayer.duration;
+}
+
+-(NSTimeInterval)currentTime{
+    if (self.audioPlayer.isPlaying) {
+        _currentTime = self.audioPlayer.currentTime;
+    }
+    return _currentTime;
 }
 
 -(long)audioSize{
@@ -48,21 +46,18 @@
 }
 
 -(void)play{
-//    if (self.audioPlayer.isPlaying) {
-//        [self stop];
-//    }
+    self.audioPlayer = nil;
+    NSError *error;
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:_url error:&error];
+    self.audioPlayer.meteringEnabled = YES;
+    [self.audioPlayer prepareToPlay];
+    self.audioPlayer.delegate = self;
     [self.audioPlayer play];
 }
 
 -(void)pause{
-    self.currentTime = self.audioPlayer.currentTime;
     [self.audioPlayer pause];
 }
-
--(void)resume{
-    [self.audioPlayer playAtTime:self.currentTime];
-}
-
 -(void)stop{
     [self.audioPlayer stop];
 }
@@ -76,7 +71,7 @@
     double powerVoice = pow(10, (0.05 * [self.audioPlayer peakPowerForChannel:0]));
     
     float   level;
-    float   minDecibels = -80.0f;
+    float   minDecibels = -60.0f;
     
     if (powerVoice < minDecibels){
         level = 0.0f;
@@ -123,6 +118,7 @@
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer*)player successfully:(BOOL)flag{
     //播放结束时执行的动作
+    self.audioPlayer = nil;
 }
 - (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer*)player error:(NSError *)error{
     //解码错误执行的动作

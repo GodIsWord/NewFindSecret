@@ -29,7 +29,7 @@
     if (@available(iOS 10.0, *)) {
         self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1 repeats:YES block:^(NSTimer * _Nonnull timer) {
             weakSelf.recorderLabel.text = [NSString stringWithFormat:@"录音 音频：%.2f 时长:%.2f,size:%ld",[weakSelf.recorder currentVolume],weakSelf.recorder.duration,weakSelf.recorder.audioSize];
-            weakSelf.playLabel.text = [NSString stringWithFormat:@"播放 音频：%.2f 时长:%.2f,size:%ld",[weakSelf.player currentVolume],weakSelf.player.duration,weakSelf.player.audioSize];
+            weakSelf.playLabel.text = [NSString stringWithFormat:@"播放 音频：%.2f 时长:%.2f,size:%ld 目前时间:%f",[weakSelf.player currentVolume],weakSelf.player.duration,weakSelf.player.audioSize,weakSelf.player.currentTime];
         }];
     } else {
         // Fallback on earlier versions
@@ -49,7 +49,7 @@
     switch (sender.selectedSegmentIndex) {
         case 0:
         {
-            
+            [self.player play];
             
         }
             break;
@@ -60,12 +60,12 @@
             break;
         case 2:
         {
-            [self.player play];
+            [self.player resume];
         }
             break;
         case 3:
         {
-            [self.player stop];
+            [self.player pause];
         }
             break;
         case 4:

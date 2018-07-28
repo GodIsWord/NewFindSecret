@@ -18,6 +18,7 @@
 		E6019651210C48280046D1FA /* XBRecordAudioToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6019650210C48280046D1FA /* XBRecordAudioToastView.m */; };
 		E6019659210C4EE40046D1FA /* XBRecorderTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6019657210C4EE40046D1FA /* XBRecorderTestViewController.m */; };
 		E601965A210C4EE40046D1FA /* XBRecorderTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6019658210C4EE40046D1FA /* XBRecorderTestViewController.xib */; };
+		E601965D210C688A0046D1FA /* XBRecordAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = E601965C210C688A0046D1FA /* XBRecordAudio.m */; };
 		E60E3B59210C0FF000C5BFBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B58210C0FF000C5BFBB /* AppDelegate.m */; };
 		E60E3B5C210C0FF000C5BFBB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B5B210C0FF000C5BFBB /* ViewController.m */; };
 		E60E3B5F210C0FF000C5BFBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B5D210C0FF000C5BFBB /* Main.storyboard */; };
@@ -48,6 +49,8 @@
 		E6019656210C4EE40046D1FA /* XBRecorderTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBRecorderTestViewController.h; sourceTree = "<group>"; };
 		E6019657210C4EE40046D1FA /* XBRecorderTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecorderTestViewController.m; sourceTree = "<group>"; };
 		E6019658210C4EE40046D1FA /* XBRecorderTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBRecorderTestViewController.xib; sourceTree = "<group>"; };
+		E601965B210C688A0046D1FA /* XBRecordAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBRecordAudio.h; sourceTree = "<group>"; };
+		E601965C210C688A0046D1FA /* XBRecordAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBRecordAudio.m; sourceTree = "<group>"; };
 		E60E3B54210C0FEF00C5BFBB /* FindSecret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindSecret.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E60E3B57210C0FF000C5BFBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E60E3B58210C0FF000C5BFBB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 		E6019645210C1ADD0046D1FA /* RecordVoice */ = {
 			isa = PBXGroup;
 			children = (
+				E601965B210C688A0046D1FA /* XBRecordAudio.h */,
+				E601965C210C688A0046D1FA /* XBRecordAudio.m */,
 				E601964C210C3A300046D1FA /* XBPlayAudio.h */,
 				E601964D210C3A300046D1FA /* XBPlayAudio.m */,
 				E601964F210C48280046D1FA /* XBRecordAudioToastView.h */,
@@ -264,6 +269,7 @@
 				E6019651210C48280046D1FA /* XBRecordAudioToastView.m in Sources */,
 				E60E3B67210C0FF100C5BFBB /* main.m in Sources */,
 				CAE74404210C59CD000D05B7 /* XBTextStyleController.m in Sources */,
+				E601965D210C688A0046D1FA /* XBRecordAudio.m in Sources */,
 				E60E3B59210C0FF000C5BFBB /* AppDelegate.m in Sources */,
 				E6019659210C4EE40046D1FA /* XBRecorderTestViewController.m in Sources */,
 			);

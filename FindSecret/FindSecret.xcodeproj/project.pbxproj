@@ -39,6 +39,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E6019640210C16880046D1FA /* FindAR */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FindAR;
+			sourceTree = "<group>";
+		};
 		E60E3B4B210C0FEF00C5BFBB = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +65,7 @@
 		E60E3B56210C0FEF00C5BFBB /* FindSecret */ = {
 			isa = PBXGroup;
 			children = (
+				E6019640210C16880046D1FA /* FindAR */,
 				E60E3B57210C0FF000C5BFBB /* AppDelegate.h */,
 				E60E3B58210C0FF000C5BFBB /* AppDelegate.m */,
 				E60E3B5A210C0FF000C5BFBB /* ViewController.h */,

@@ -7,15 +7,33 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+
+@class XBRecordAudio;
+
+@protocol XBRecordAudioDelegate<NSObject>
+
+@optional
+-(void)audioRecorderEncodeErrorDidOccur:(XBRecordAudio *)recorder error:(NSError *)error;
+-(void)audioRecorderDidFinishRecording:(XBRecordAudio *)recorder successfully:(BOOL)flag;
+
+
+@end
 
 @interface XBRecordAudio : NSObject
 
-@property (nonatomic,assign) CGFloat maxDuration;//最大录音时间
-@property (nonatomic,assign) CGFloat maxSize;//最大录音文件大小
-@property (nonatomic,assign,readonly) CGFloat duration;//录音时间
-@property (nonatomic,assign,readonly) CGFloat audioSize;//录音时间
+@property (nonatomic,assign) NSTimeInterval maxDuration;//最大录音时间
 
+
+@property (nonatomic,assign,readonly) NSTimeInterval duration;//录音时间
+@property (nonatomic,assign,readonly) long audioSize;//录音文件大小
+
+@property(assign, nullable) id<XBRecordAudioDelegate> delegate;
+
+
+/**
+ @return 录音音频文件地址
+ */
++(NSString*)recordPath;
 
 /**
  开始录音
@@ -38,10 +56,6 @@
 -(double) currentVolume;
 
 
-/**
- 播放录音
- */
--(void)playRecorder;
 
 
 @end

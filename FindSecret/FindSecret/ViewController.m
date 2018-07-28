@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "XBVideoEditController.h"
 #import <MobileCoreServices/UTCoreTypes.h>
+#import "XBTextEditView.h"
 @interface ViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, strong) NSDictionary *userInfo;
 
@@ -23,6 +24,8 @@
 - (IBAction)changedValue:(UISegmentedControl *)sender {
     if (sender.selectedSegmentIndex == 2) {
         [self gotoVideoEdit];
+    }else if (sender.selectedSegmentIndex == 1) {
+        [self gotoTextEdit];
     }
 }
 - (void)gotoVideoEdit{
@@ -44,5 +47,10 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)gotoTextEdit{
+    XBTextEditView *textXB = [[XBTextEditView alloc] init];
+    [textXB showTextView];
+    
+}
 
 @end

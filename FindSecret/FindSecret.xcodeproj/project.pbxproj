@@ -11,6 +11,8 @@
 		BEF23A24210C17C90061F74C /* XBVideoEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF23A23210C17C90061F74C /* XBVideoEditController.m */; };
 		CAE743FB210C1B5A000D05B7 /* XBTextEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE743FA210C1B5A000D05B7 /* XBTextEditView.m */; };
 		E6019644210C18C40046D1FA /* UIView+XBFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E6019643210C18C40046D1FA /* UIView+XBFrame.m */; };
+		E6019648210C1C030046D1FA /* XBRecordAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = E6019647210C1C030046D1FA /* XBRecordAudio.m */; };
+		E601964B210C21830046D1FA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E601964A210C21830046D1FA /* AVFoundation.framework */; };
 		E60E3B59210C0FF000C5BFBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B58210C0FF000C5BFBB /* AppDelegate.m */; };
 		E60E3B5C210C0FF000C5BFBB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B5B210C0FF000C5BFBB /* ViewController.m */; };
 		E60E3B5F210C0FF000C5BFBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B5D210C0FF000C5BFBB /* Main.storyboard */; };
@@ -28,6 +30,9 @@
 		CAE743FA210C1B5A000D05B7 /* XBTextEditView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBTextEditView.m; sourceTree = "<group>"; };
 		E6019642210C18C40046D1FA /* UIView+XBFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+XBFrame.h"; sourceTree = "<group>"; };
 		E6019643210C18C40046D1FA /* UIView+XBFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+XBFrame.m"; sourceTree = "<group>"; };
+		E6019646210C1C030046D1FA /* XBRecordAudio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBRecordAudio.h; sourceTree = "<group>"; };
+		E6019647210C1C030046D1FA /* XBRecordAudio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecordAudio.m; sourceTree = "<group>"; };
+		E601964A210C21830046D1FA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E60E3B54210C0FEF00C5BFBB /* FindSecret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindSecret.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E60E3B57210C0FF000C5BFBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E60E3B58210C0FF000C5BFBB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -45,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E601964B210C21830046D1FA /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,11 +96,29 @@
 			path = common;
 			sourceTree = "<group>";
 		};
+		E6019645210C1ADD0046D1FA /* RecordVoice */ = {
+			isa = PBXGroup;
+			children = (
+				E6019646210C1C030046D1FA /* XBRecordAudio.h */,
+				E6019647210C1C030046D1FA /* XBRecordAudio.m */,
+			);
+			path = RecordVoice;
+			sourceTree = "<group>";
+		};
+		E6019649210C21830046D1FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E601964A210C21830046D1FA /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E60E3B4B210C0FEF00C5BFBB = {
 			isa = PBXGroup;
 			children = (
 				E60E3B56210C0FEF00C5BFBB /* FindSecret */,
 				E60E3B55210C0FEF00C5BFBB /* Products */,
+				E6019649210C21830046D1FA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -202,6 +226,7 @@
 				E60E3B67210C0FF100C5BFBB /* main.m in Sources */,
 				CAE743FB210C1B5A000D05B7 /* XBTextEditView.m in Sources */,
 				E60E3B59210C0FF000C5BFBB /* AppDelegate.m in Sources */,
+				E6019648210C1C030046D1FA /* XBRecordAudio.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,7 +367,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PXL86E7953;
+				DEVELOPMENT_TEAM = PAYLCQUNUP;
 				INFOPLIST_FILE = FindSecret/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -357,7 +382,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PXL86E7953;
+				DEVELOPMENT_TEAM = PAYLCQUNUP;
 				INFOPLIST_FILE = FindSecret/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

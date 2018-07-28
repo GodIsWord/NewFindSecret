@@ -7,8 +7,9 @@
 //
 
 #import "ViewController.h"
-
-@interface ViewController ()
+#import <MobileCoreServices/UTCoreTypes.h>
+@interface ViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@property (nonatomic, strong) NSDictionary *userInfo;
 
 @end
 
@@ -18,11 +19,28 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
+- (IBAction)changedValue:(UISegmentedControl *)sender {
+    if (sender.selectedSegmentIndex == 2) {
+        [self gotoVideoEdit];
+    }
+}
+- (void)gotoVideoEdit{
+    UIImagePickerController *pick = [[UIImagePickerController alloc] init];
+    pick.mediaTypes = @[(NSString *)kUTTypeImage, (NSString *)kUTTypeMovie];
+    pick.videoQuality = UIImagePickerControllerQualityTypeMedium;
+    pick.delegate = self;
+    [self presentViewController:pick animated:YES completion:nil];
+}
 
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    NSLog(@"Cancel");
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    NSLog(@"%@",info);
+    self.userInfo = info;
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 

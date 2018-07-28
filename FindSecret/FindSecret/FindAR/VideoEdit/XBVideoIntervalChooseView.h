@@ -10,4 +10,5 @@
 
 @interface XBVideoIntervalChooseView : UIView
 - (void)updateVideoWithUrl:(NSURL *)url;
+- (void)animatedWithSeconds:(CGFloat)seconds;
 @end

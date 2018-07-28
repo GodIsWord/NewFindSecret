@@ -60,7 +60,7 @@
             break;
         case 2:
         {
-            [self.player resume];
+//            [self.player resume];
         }
             break;
         case 3:

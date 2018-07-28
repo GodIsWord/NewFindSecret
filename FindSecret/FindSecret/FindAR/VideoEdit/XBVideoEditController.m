@@ -23,6 +23,7 @@
 @property (nonatomic, strong) UIToolbar *toolbar;
 @property (nonatomic, assign) BOOL statusBarHidden;
 @property (nonatomic, assign) BOOL viewDidAppear;
+@property (nonatomic, strong) id playTimeObserver;
 
 @end
 
@@ -43,7 +44,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (self.player.timeControlStatus == AVPlayerTimeControlStatusPaused) {
+    if (self.player.rate == 0) {
         [self replayWhenViewDidAppear];
     }
 }
@@ -57,7 +58,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    if (self.player.timeControlStatus == AVPlayerTimeControlStatusPlaying) {
+    if (self.player.rate != 0) {
         [self.player pause];
     }
 }
@@ -94,7 +95,7 @@
     self.playerItem = [[AVPlayerItem alloc] initWithURL:self.videoUrl];
     [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
     self.player = [[AVPlayer alloc] initWithPlayerItem:self.playerItem];
-    [self.player addObserver:self forKeyPath:@"timeControlStatus" options:NSKeyValueObservingOptionNew context:nil];
+    [self.player addObserver:self forKeyPath:@"rate" options:NSKeyValueObservingOptionNew context:nil];
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
     CGFloat scale = CGRectGetWidth(self.view.bounds) / CGRectGetHeight(self.view.bounds);
     CGRect playLayerFrame;
@@ -104,6 +105,27 @@
     playLayerFrame.origin.x = (CGRectGetWidth(self.view.bounds) - playLayerFrame.size.width) / 2.0;
     self.playerLayer.frame = playLayerFrame;
     [self.view.layer addSublayer:self.playerLayer];
+    
+    
+//    __weak typeof(self)WeakSelf = self;
+    
+    // 观察间隔, CMTime 为30分之一秒
+    self.playTimeObserver = [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 24.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+        
+//        NSLog(@"current seconds :%f",CMTimeGetSeconds(time));
+        
+        
+//        if (_touchMode != TouchPlayerViewModeHorizontal) {
+//            // 获取 item 当前播放秒
+//            float currentPlayTime = (double)item.currentTime.value/ item.currentTime.timescale;
+//            // 更新slider, 如果正在滑动则不更新
+//            if (_isSliding == NO) {
+//                [WeakSelf updateVideoSlider:currentPlayTime];
+//            }
+//        } else {
+//            return;
+//        }
+    }];
 
 }
 
@@ -128,6 +150,7 @@
     CGRect frame;
     self.toolbar = [[UIToolbar alloc] init];
     self.toolbar.barStyle = UIBarStyleBlack;
+    frame.origin.x = 0;
     frame.origin.y = CGRectGetHeight(self.view.bounds) - BOTTOM_MARGIN - kToolBarHeight;
     frame.size.width = CGRectGetWidth(self.view.bounds);
     frame.size.height = kToolBarHeight;
@@ -140,7 +163,8 @@
 }
 
 - (void)invalidatePlay {
-    [self.player removeObserver:self forKeyPath:@"timeControlStatus"];
+    [self.player removeTimeObserver:self.playTimeObserver];
+    [self.player removeObserver:self forKeyPath:@"rate"];
     [self.player pause];
     [self.playerItem removeObserver:self forKeyPath:@"status"];
 }
@@ -201,9 +225,13 @@
             default:
                 break;
         }
-    } else if ([keyPath isEqualToString:@"timeControlStatus"]) {
-        if (self.player.timeControlStatus == AVPlayerTimeControlStatusPaused) {
-            [self replayWhenViewDidAppear];
+    } else if ([keyPath isEqualToString:@"rate"]) {
+        if (@available(iOS 10.0, *)) {
+            if (self.player.rate == 0) {
+                [self replayWhenViewDidAppear];
+            }
+        } else {
+            // Fallback on earlier versions
         }
     }
 }

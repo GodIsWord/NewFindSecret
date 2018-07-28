@@ -40,7 +40,6 @@
 		CAE74406210C5E06000D05B7 /* XBTextEditController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBTextEditController.m; sourceTree = "<group>"; };
 		E6019642210C18C40046D1FA /* UIView+XBFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+XBFrame.h"; sourceTree = "<group>"; };
 		E6019643210C18C40046D1FA /* UIView+XBFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+XBFrame.m"; sourceTree = "<group>"; };
-		E6019647210C1C030046D1FA /* XBRecordAudio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecordAudio.m; sourceTree = "<group>"; };
 		E601964A210C21830046D1FA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E601964C210C3A300046D1FA /* XBPlayAudio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBPlayAudio.h; sourceTree = "<group>"; };
 		E601964D210C3A300046D1FA /* XBPlayAudio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBPlayAudio.m; sourceTree = "<group>"; };
@@ -101,7 +100,6 @@
 		CAE743FC210C4061000D05B7 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				E6019647210C1C030046D1FA /* XBRecordAudio.m */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -412,7 +410,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PAYLCQUNUP;
+				DEVELOPMENT_TEAM = PXL86E7953;
 				INFOPLIST_FILE = FindSecret/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -427,7 +425,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PAYLCQUNUP;
+				DEVELOPMENT_TEAM = PXL86E7953;
 				INFOPLIST_FILE = FindSecret/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

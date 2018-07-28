@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "XBMacroDefinition.h"
 #import <objc/runtime.h>
+#import "XBVideoIntervalChooseView.h"
 
 #define kToolBarHeight 44.0f
 #define kEditAreaViewHeight 60.0f
@@ -18,7 +19,7 @@
 @property (nonatomic, strong) AVPlayerItem *playerItem;
 @property (nonatomic, strong) AVPlayer *player;
 @property (nonatomic, strong) AVPlayerLayer *playerLayer;
-@property (nonatomic, strong) UIView *editView;
+@property (nonatomic, strong) XBVideoIntervalChooseView *editView;
 @property (nonatomic, strong) UIToolbar *toolbar;
 @property (nonatomic, assign) BOOL statusBarHidden;
 @property (nonatomic, assign) BOOL viewDidAppear;
@@ -98,7 +99,7 @@
     CGFloat scale = CGRectGetWidth(self.view.bounds) / CGRectGetHeight(self.view.bounds);
     CGRect playLayerFrame;
     playLayerFrame.origin.y = TOP_MARGIN + 8;
-    playLayerFrame.size.height = self.editView.frame.origin.y - TOP_MARGIN - 8;
+    playLayerFrame.size.height = self.editView.frame.origin.y - TOP_MARGIN - 8 - 8;
     playLayerFrame.size.width = playLayerFrame.size.height * scale;
     playLayerFrame.origin.x = (CGRectGetWidth(self.view.bounds) - playLayerFrame.size.width) / 2.0;
     self.playerLayer.frame = playLayerFrame;
@@ -113,13 +114,13 @@
 
 - (void)setupEditView {
     CGRect frame;
-    self.editView = [[UIView alloc] init];
-    self.editView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
     frame.origin.x = 0;
     frame.origin.y = CGRectGetHeight(self.view.bounds) - BOTTOM_MARGIN - kToolBarHeight - kEditAreaViewHeight;
     frame.size.width = CGRectGetWidth(self.view.bounds);
     frame.size.height = kEditAreaViewHeight;
-    self.editView.frame = frame;
+    self.editView = [[XBVideoIntervalChooseView alloc] initWithFrame:frame];
+    self.editView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
+    [self.editView updateVideoWithUrl:self.videoUrl];
     [self.view addSubview:self.editView];
 }
 
@@ -136,8 +137,6 @@
     UIBarButtonItem *fixItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
     [self.toolbar setItems:@[cancelItem, fixItem, doneItem] animated:NO];
-
-
 }
 
 - (void)invalidatePlay {

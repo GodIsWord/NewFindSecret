@@ -18,14 +18,15 @@
 @property (nonatomic, strong) UIButton *textButton;
 @property (nonatomic, strong) UIButton *colorButton;
 @property (nonatomic, strong) UILabel *placeholder;
+@property (nonatomic, strong) UIWindow * window;
 @end
 
 @implementation XBTextEditView
 
 
 - (void)showTextView{
-    UIWindow * window = [UIApplication sharedApplication].keyWindow;
-    [window addSubview: self];
+    self.window = [UIApplication sharedApplication].keyWindow;
+    [self.window addSubview: self];
     
     [UIView animateWithDuration:0.75 animations:^{
         self.backGroundView.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.7f];
@@ -77,7 +78,7 @@
         
         self.textButton = [[UIButton alloc]init];
         [self.contentView addSubview: self.textButton];
-        [self.textButton addTarget:self action:@selector(dismissAlertWindow) forControlEvents:UIControlEventTouchUpInside];
+        [self.textButton addTarget:self action:@selector(selectTextStyle) forControlEvents:UIControlEventTouchUpInside];
         self.textButton.frame = CGRectMake(10, 185, 60, 30);
         [self.textButton setTitle:@"字体" forState:UIControlStateNormal];
         [self.textButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -86,7 +87,7 @@
         
         self.colorButton = [[UIButton alloc]init];
         [self.contentView addSubview: self.colorButton];
-        [self.colorButton addTarget:self action:@selector(dismissAlertWindow) forControlEvents:UIControlEventTouchUpInside];
+        [self.colorButton addTarget:self action:@selector(selectTextColor) forControlEvents:UIControlEventTouchUpInside];
         self.colorButton.frame = CGRectMake(80, 185, 60, 30);
         [self.colorButton setTitle:@"颜色" forState:UIControlStateNormal];
         [self.colorButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
@@ -132,6 +133,13 @@
 -(void)textViewEndEdit{
     [self.editTextView resignFirstResponder];
     
+}
+-(void)selectTextStyle{
+    NSLog(@"选择字体样式");
+
+}
+-(void)selectTextColor{
+    NSLog(@"选择字体颜色");
 }
 #pragma mark - 代理
 // 开始编辑

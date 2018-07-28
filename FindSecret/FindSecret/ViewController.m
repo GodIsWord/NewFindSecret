@@ -11,6 +11,7 @@
 #import <MobileCoreServices/UTCoreTypes.h>
 #import "XBVideoEditController.h"
 #import "XBTextEditView.h"
+#import "XBTextEditController.h"
 @interface ViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, strong) NSDictionary *userInfo;
 
@@ -26,7 +27,9 @@
     if (sender.selectedSegmentIndex == 2) {
         [self gotoVideoEdit];
     }else if (sender.selectedSegmentIndex == 1) {
-        [self gotoTextEdit];
+        XBTextEditController *a  = [[XBTextEditController alloc]init];
+        a.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        [self presentViewController:a animated:NO completion:nil];
     }
 }
 - (void)gotoVideoEdit{
@@ -46,7 +49,7 @@
     NSLog(@"%@",info);
     self.userInfo = info;
     [picker dismissViewControllerAnimated:YES completion:^{
-
+        
         XBVideoEditController *videoEditController =[[XBVideoEditController alloc] init];
         videoEditController.videoUrl = info[UIImagePickerControllerMediaURL];
         [self presentViewController:videoEditController animated:YES completion:nil];

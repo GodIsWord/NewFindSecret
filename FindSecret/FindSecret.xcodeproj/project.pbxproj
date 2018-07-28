@@ -10,8 +10,8 @@
 		BEA19C60210C1E740039086F /* XBVideoEditController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEA19C5F210C1E740039086F /* XBVideoEditController.xib */; };
 		BEF23A24210C17C90061F74C /* XBVideoEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF23A23210C17C90061F74C /* XBVideoEditController.m */; };
 		CAE743FB210C1B5A000D05B7 /* XBTextEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE743FA210C1B5A000D05B7 /* XBTextEditView.m */; };
+		CAE74401210C40AA000D05B7 /* XBRecordAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE743FF210C408B000D05B7 /* XBRecordAudio.m */; };
 		E6019644210C18C40046D1FA /* UIView+XBFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E6019643210C18C40046D1FA /* UIView+XBFrame.m */; };
-		E6019648210C1C030046D1FA /* XBRecordAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = E6019647210C1C030046D1FA /* XBRecordAudio.m */; };
 		E601964B210C21830046D1FA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E601964A210C21830046D1FA /* AVFoundation.framework */; };
 		E60E3B59210C0FF000C5BFBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B58210C0FF000C5BFBB /* AppDelegate.m */; };
 		E60E3B5C210C0FF000C5BFBB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B5B210C0FF000C5BFBB /* ViewController.m */; };
@@ -28,9 +28,10 @@
 		BEF23A23210C17C90061F74C /* XBVideoEditController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBVideoEditController.m; sourceTree = "<group>"; };
 		CAE743F9210C1B5A000D05B7 /* XBTextEditView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBTextEditView.h; sourceTree = "<group>"; };
 		CAE743FA210C1B5A000D05B7 /* XBTextEditView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBTextEditView.m; sourceTree = "<group>"; };
+		CAE743FE210C408B000D05B7 /* XBRecordAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBRecordAudio.h; sourceTree = "<group>"; };
+		CAE743FF210C408B000D05B7 /* XBRecordAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBRecordAudio.m; sourceTree = "<group>"; };
 		E6019642210C18C40046D1FA /* UIView+XBFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+XBFrame.h"; sourceTree = "<group>"; };
 		E6019643210C18C40046D1FA /* UIView+XBFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+XBFrame.m"; sourceTree = "<group>"; };
-		E6019646210C1C030046D1FA /* XBRecordAudio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBRecordAudio.h; sourceTree = "<group>"; };
 		E6019647210C1C030046D1FA /* XBRecordAudio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecordAudio.m; sourceTree = "<group>"; };
 		E601964A210C21830046D1FA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E60E3B54210C0FEF00C5BFBB /* FindSecret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindSecret.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,9 +77,27 @@
 			path = TextEdit;
 			sourceTree = "<group>";
 		};
+		CAE743FC210C4061000D05B7 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				E6019647210C1C030046D1FA /* XBRecordAudio.m */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		CAE743FD210C408B000D05B7 /* RecordVoice */ = {
+			isa = PBXGroup;
+			children = (
+				CAE743FE210C408B000D05B7 /* XBRecordAudio.h */,
+				CAE743FF210C408B000D05B7 /* XBRecordAudio.m */,
+			);
+			path = RecordVoice;
+			sourceTree = "<group>";
+		};
 		E6019640210C16880046D1FA /* FindAR */ = {
 			isa = PBXGroup;
 			children = (
+				CAE743FD210C408B000D05B7 /* RecordVoice */,
 				BEA19C62210C25E20039086F /* XBMacroDefinition.h */,
 				CAE743F8210C1A53000D05B7 /* TextEdit */,
 				BEF23A21210C17B80061F74C /* VideoEdit */,
@@ -96,15 +115,6 @@
 			path = common;
 			sourceTree = "<group>";
 		};
-		E6019645210C1ADD0046D1FA /* RecordVoice */ = {
-			isa = PBXGroup;
-			children = (
-				E6019646210C1C030046D1FA /* XBRecordAudio.h */,
-				E6019647210C1C030046D1FA /* XBRecordAudio.m */,
-			);
-			path = RecordVoice;
-			sourceTree = "<group>";
-		};
 		E6019649210C21830046D1FA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +129,7 @@
 				E60E3B56210C0FEF00C5BFBB /* FindSecret */,
 				E60E3B55210C0FEF00C5BFBB /* Products */,
 				E6019649210C21830046D1FA /* Frameworks */,
+				CAE743FC210C4061000D05B7 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -225,8 +236,8 @@
 				BEF23A24210C17C90061F74C /* XBVideoEditController.m in Sources */,
 				E60E3B67210C0FF100C5BFBB /* main.m in Sources */,
 				CAE743FB210C1B5A000D05B7 /* XBTextEditView.m in Sources */,
+				CAE74401210C40AA000D05B7 /* XBRecordAudio.m in Sources */,
 				E60E3B59210C0FF000C5BFBB /* AppDelegate.m in Sources */,
-				E6019648210C1C030046D1FA /* XBRecordAudio.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

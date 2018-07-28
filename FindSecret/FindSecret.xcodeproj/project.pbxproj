@@ -26,10 +26,8 @@
 		BEF23A23210C17C90061F74C /* XBVideoEditController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBVideoEditController.m; sourceTree = "<group>"; };
 		CAE743F9210C1B5A000D05B7 /* XBTextEditView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBTextEditView.h; sourceTree = "<group>"; };
 		CAE743FA210C1B5A000D05B7 /* XBTextEditView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBTextEditView.m; sourceTree = "<group>"; };
-
 		E6019642210C18C40046D1FA /* UIView+XBFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+XBFrame.h"; sourceTree = "<group>"; };
 		E6019643210C18C40046D1FA /* UIView+XBFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+XBFrame.m"; sourceTree = "<group>"; };
-
 		E60E3B54210C0FEF00C5BFBB /* FindSecret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindSecret.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E60E3B57210C0FF000C5BFBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E60E3B58210C0FF000C5BFBB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -75,13 +73,10 @@
 		E6019640210C16880046D1FA /* FindAR */ = {
 			isa = PBXGroup;
 			children = (
-				CAE743F8210C1A53000D05B7 /* TextEdit */,
 				BEA19C62210C25E20039086F /* XBMacroDefinition.h */,
-
+				CAE743F8210C1A53000D05B7 /* TextEdit */,
 				BEF23A21210C17B80061F74C /* VideoEdit */,
-
 				E6019641210C16E50046D1FA /* common */,
-
 			);
 			path = FindAR;
 			sourceTree = "<group>";

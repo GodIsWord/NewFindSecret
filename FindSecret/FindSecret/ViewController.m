@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "XBVideoEditController.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 @interface ViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, strong) NSDictionary *userInfo;

@@ -15,7 +15,7 @@
 #define kToolBarHeight 44.0f
 #define kEditAreaViewHeight 60.0f
 
-@interface XBVideoEditController ()
+@interface XBVideoEditController () <XBVideoIntervalChooseViewDelegate>
 @property (nonatomic, strong) AVPlayerItem *playerItem;
 @property (nonatomic, strong) AVPlayer *player;
 @property (nonatomic, strong) AVPlayerLayer *playerLayer;
@@ -24,6 +24,9 @@
 @property (nonatomic, assign) BOOL statusBarHidden;
 @property (nonatomic, assign) BOOL viewDidAppear;
 @property (nonatomic, strong) id playTimeObserver;
+@property (nonatomic, strong) id playBoundaryTimeObserver;
+@property (nonatomic, assign) CMTime startTime;
+@property (nonatomic, assign) CMTime stopTime;
 
 @end
 
@@ -69,6 +72,7 @@
 
 - (void)initialize {
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoDidPlayToEndTimeNotification) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
 
     if (self.videoUrl.absoluteString.length == 0) {
         __weak typeof(self) wself = self;
@@ -108,10 +112,9 @@
     
     
 //    __weak typeof(self)WeakSelf = self;
-    
     // 观察间隔, CMTime 为30分之一秒
-    self.playTimeObserver = [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 24.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
-        
+//    self.playTimeObserver = [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 24.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+    
 //        NSLog(@"current seconds :%f",CMTimeGetSeconds(time));
         
         
@@ -125,7 +128,7 @@
 //        } else {
 //            return;
 //        }
-    }];
+//    }];
 
 }
 
@@ -143,6 +146,7 @@
     self.editView = [[XBVideoIntervalChooseView alloc] initWithFrame:frame];
     self.editView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
     [self.editView updateVideoWithUrl:self.videoUrl];
+    self.editView.delegate = self;
     [self.view addSubview:self.editView];
 }
 
@@ -162,8 +166,39 @@
     [self.toolbar setItems:@[cancelItem, fixItem, doneItem] animated:NO];
 }
 
+//addBoundaryTimeObserverForTimes
+- (void)playInBoundaryForm:(CMTime)fromTime to:(CMTime)toTime{
+    self.startTime = fromTime;
+    self.stopTime = toTime;
+    self.isEidt = NO;
+    if (self.playBoundaryTimeObserver) {
+        [self.player removeTimeObserver:self.playBoundaryTimeObserver];
+        self.playBoundaryTimeObserver = nil;
+    }
+    if (self.player.rate != 0) {
+        [self.player pause];
+    }
+    [self.player seekToTime:self.startTime];
+    [self.player play];
+    __weak typeof(self)wself = self;
+    self.playBoundaryTimeObserver = [self.player addBoundaryTimeObserverForTimes:@[[NSValue valueWithCMTime:self.stopTime]] queue:dispatch_get_main_queue() usingBlock:^{
+        NSLog(@"从 %@ 开始播放 ---- %@ ",[NSValue valueWithCMTime:fromTime],[NSValue valueWithCMTime:toTime]);
+        [wself.player pause];
+        [wself.player seekToTime:wself.startTime];
+        [wself.player play];
+    }];
+
+}
+
+- (void)videoDidPlayToEndTimeNotification {
+    [self replayWhenViewDidAppear];
+}
 - (void)invalidatePlay {
-    [self.player removeTimeObserver:self.playTimeObserver];
+//    [self.player removeTimeObserver:self.playTimeObserver];
+    if (self.playBoundaryTimeObserver) {
+        [self.player removeTimeObserver:self.playBoundaryTimeObserver];
+        self.playBoundaryTimeObserver = nil;
+    }
     [self.player removeObserver:self forKeyPath:@"rate"];
     [self.player pause];
     [self.playerItem removeObserver:self forKeyPath:@"status"];
@@ -185,8 +220,8 @@
 }
 
 - (void)replayWhenViewDidAppear {
-    if (self.viewDidAppear) {
-        [self.player seekToTime:CMTimeMake(0, 1)];
+    if (self.viewDidAppear && !self.isEidt) {
+        [self.player seekToTime:self.startTime];
         [self.player play];
     }
 }
@@ -206,6 +241,31 @@
     return UIStatusBarAnimationSlide;
 }
 
+#pragma mark - XBVideoIntervalChooseViewDelegate
+
+- (void)videoIntervalChooseViewEventEdittingBegan {
+    self.isEidt = YES;
+    [self.player pause];
+}
+
+- (void)videoIntervalChooseViewSeekToCMTime:(CMTime)time {
+    [self.player seekToTime:time];
+}
+
+- (void)videoIntervalChooseViewEventEdittingEnded {
+   
+    
+}
+- (void)videoThumImagesDidLoad {
+    NSLog(@"预览图截取完毕");
+}
+- (void)videoShouldPlayFrom:(CMTime)fromTime to:(CMTime)toTime{
+    [self playInBoundaryForm:fromTime to:toTime];
+}
+
+
+
+
 #pragma mark - Observe
 
 - (void)observeValueForKeyPath:(nullable NSString *)keyPath ofObject:(nullable id)object change:(nullable NSDictionary<NSKeyValueChangeKey, id> *)change context:(nullable void *)context {
@@ -216,7 +276,6 @@
                 break;
             case AVPlayerItemStatusReadyToPlay: {
                 NSLog(@"AVPlayerItemStatusReadyToPlay");
-                [self.player play];
                 break;
             }
             case AVPlayerItemStatusFailed:
@@ -225,14 +284,8 @@
             default:
                 break;
         }
-    } else if ([keyPath isEqualToString:@"rate"]) {
-        if (@available(iOS 10.0, *)) {
-            if (self.player.rate == 0) {
-                [self replayWhenViewDidAppear];
-            }
-        } else {
-            // Fallback on earlier versions
-        }
+    }else if ([keyPath isEqualToString:@"rate"]) {
+        NSLog(@"播放状态 ----- %@",change[NSKeyValueChangeNewKey]);
     }
 }
 

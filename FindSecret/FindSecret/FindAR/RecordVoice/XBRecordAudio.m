@@ -24,6 +24,17 @@
     _maxDuration = maxDuration;
     [self.audioRecorder recordForDuration:maxDuration];
 }
+-(NSTimeInterval)duration{
+    if (self.audioRecorder.isRecording) {
+        return self.audioRecorder.currentTime;
+    }else{
+        return _duration;
+    }
+}
+
+-(long)audioSize{
+    return [XBRecordAudio fileSize];
+}
 
 - (AVAudioRecorder *)audioRecorder{
     if (!_audioRecorder) {
@@ -36,9 +47,9 @@
         //创建录音格式设置
         NSDictionary *setting=[self getAudioSetting];
         //创建录音机
-        NSError *error=nil;
+        NSError *error = nil;
         
-        _audioRecorder=[[AVAudioRecorder alloc]initWithURL:url settings:setting error:&error];
+        _audioRecorder = [[AVAudioRecorder alloc]initWithURL:url settings:setting error:&error];
         _audioRecorder.delegate=self;
         _audioRecorder.meteringEnabled=YES;//如果要监控声波则必须设置为YES
         if (error) {
@@ -63,13 +74,14 @@
     //录音格式 无法使用
     [recordSettings setValue:@(kAudioFormatLinearPCM) forKey:AVFormatIDKey];
     //采样率 11025 确保转换成mp3格式不失真
-    [recordSettings setValue:@(11025) forKey:AVSampleRateKey];
+    [recordSettings setValue:@(4410) forKey:AVSampleRateKey];
     //通道数
     [recordSettings setValue:@(2) forKey:AVNumberOfChannelsKey];
     //线性采样位数
     [recordSettings setValue:@(8) forKey:AVLinearPCMBitDepthKey];
     //音频质量,采样质量
-    [recordSettings setValue:@(AVAudioQualityMedium) forKey:AVEncoderAudioQualityKey];
+    [recordSettings setValue:@(AVAudioQualityMax) forKey:AVEncoderAudioQualityKey];
+    [recordSettings setValue:@(128000) forKey:AVEncoderBitRateKey];
     
     return recordSettings;
 }
@@ -81,12 +93,7 @@
 -(double) currentVolume{
 
     [self.audioRecorder updateMeters];
-    NSInteger count = self.audioRecorder.channelAssignments.count;
-    double powerVoice = 0;
-    for (int i=0; i<count; i++) {
-        powerVoice += pow(10, (0.05 * [self.audioRecorder peakPowerForChannel:0]));
-    }
-    powerVoice /= count;
+    double powerVoice = pow(10, (0.05 * [self.audioRecorder peakPowerForChannel:0]));
     
     float   level;
     float   minDecibels = -80.0f;
@@ -112,7 +119,7 @@
 
 -(void)start{
     if (self.audioRecorder.recording) {
-        [self cancel];
+//        [self cancel];
     }
     [self.audioRecorder record];
 }
@@ -130,10 +137,14 @@
     return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"recorder.caf"];
 }
 
++(NSString *)audioPath{
+    return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"player.caf"];
+}
+
 /**
  @return 文件大小 k
  */
--(long)fileSize{
++(long)fileSize{
     
     NSString *strPath = [XBRecordAudio recordPath];
     
@@ -166,7 +177,12 @@
 -(void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
 {
     self.duration = self.audioRecorder.currentTime;
-    self.audioSize = [self fileSize];
+    
+    NSFileManager *manager = [NSFileManager defaultManager];
+    NSError *error;
+    [manager removeItemAtPath:[XBRecordAudio audioPath] error:&error];
+    [manager createFileAtPath:[XBRecordAudio audioPath] contents:[NSData dataWithContentsOfFile:[XBRecordAudio recordPath]] attributes:nil];
+    NSLog(@"flag:%d,error:%@",flag,error);
     
     if ([self.delegate respondsToSelector:@selector(audioRecorderDidFinishRecording:successfully:)]) {
         [self.delegate audioRecorderDidFinishRecording:self successfully:flag];

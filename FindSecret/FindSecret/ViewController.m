@@ -10,10 +10,13 @@
 #import "XBVideoEditController.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 #import "XBVideoEditController.h"
-
 #import "XBTextEditController.h"
+#import "XBTextEditController.h"
+//#import "XBRecorderTestViewController.h"
+
 @interface ViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, strong) NSDictionary *userInfo;
+
 
 @end
 
@@ -22,14 +25,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
 }
+
+- (IBAction)goRecorder:(id)sender {
+//    XBRecorderTestViewController *controller = [[XBRecorderTestViewController alloc] init];
+//    [self presentViewController:controller animated:YES completion:nil];
+}
+
 - (IBAction)changedValue:(UISegmentedControl *)sender {
     if (sender.selectedSegmentIndex == 2) {
         [self gotoVideoEdit];
     }else if (sender.selectedSegmentIndex == 1) {
-        XBTextEditController *a  = [[XBTextEditController alloc]init];
-        a.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        [self presentViewController:a animated:NO completion:nil];
+        [self gotoTextEdit];
     }
 }
 - (void)gotoVideoEdit{
@@ -46,14 +54,18 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
-    NSLog(@"%@",info);
     self.userInfo = info;
     [picker dismissViewControllerAnimated:YES completion:^{
-        
         XBVideoEditController *videoEditController =[[XBVideoEditController alloc] init];
         videoEditController.videoUrl = info[UIImagePickerControllerMediaURL];
         [self presentViewController:videoEditController animated:YES completion:nil];
     }];
+
+}
+- (void)gotoTextEdit{
+    XBTextEditController *textXB = [[XBTextEditController alloc] init];
+     [self presentViewController:textXB animated:YES completion:nil];
+    
 }
 
 

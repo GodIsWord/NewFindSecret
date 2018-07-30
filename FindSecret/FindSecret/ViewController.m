@@ -10,7 +10,7 @@
 #import "XBVideoEditController.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 #import "XBVideoEditController.h"
-#import "XBTextEditView.h"
+
 #import "XBTextEditController.h"
 @interface ViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, strong) NSDictionary *userInfo;
@@ -56,10 +56,5 @@
     }];
 }
 
-- (void)gotoTextEdit{
-    XBTextEditView *textXB = [[XBTextEditView alloc] init];
-    [textXB showTextView];
-    
-}
 
 @end

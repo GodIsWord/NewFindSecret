@@ -7,10 +7,10 @@
 //
 
 #import "XBTextEditController.h"
-#import "XBTextEditView.h"
 #import "XBMacroDefinition.h"
 #import "XBTextStyleController.h"
-@interface XBTextEditController ()<UITextViewDelegate,TextStyleDelegate>
+#import "XBTextColorController.h"
+@interface XBTextEditController ()<UITextViewDelegate,TextStyleDelegate,TextColorDelegate>
 @property (nonatomic, strong) UIView *backGroundView;
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) UIButton *cancelButton;
@@ -126,12 +126,19 @@
     
 }
 -(void)selectTextColor{
-    NSLog(@"选择字体颜色");
+    XBTextColorController  *textColor = [[XBTextColorController alloc]init];
+    textColor.delegate = self;
+    [self presentViewController:textColor animated:YES completion:nil];
+    
 }
 #pragma mark - 代理
 
 -(void)showTextStyle:(NSString *)fontName{
     self.editTextView.font = [UIFont fontWithName:fontName size:16];
+}
+-(void)showTextColor:(UIColor *)_color{
+    self.editTextView.textColor = _color;
+
 }
 // 开始编辑
 - (void)textViewDidBeginEditing:(UITextView *)textView{

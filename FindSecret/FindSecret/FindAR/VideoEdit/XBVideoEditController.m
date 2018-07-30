@@ -138,13 +138,11 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
     frame.size.height = 44;
     if (!self.confirmToolbar) {
         self.confirmToolbar = [[UIToolbar alloc] initWithFrame:frame];
-        self.confirmToolbar.barStyle = UIBarStyleBlack;
-        self.confirmToolbar.barTintColor = [UIColor clearColor];
         UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(switchEditStatus)];
         UIBarButtonItem *fixItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
         UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
         [self.confirmToolbar setItems:@[cancelItem, fixItem, doneItem] animated:NO];
-        self.confirmToolbar.backgroundColor = [UIColor clearColor];
+        [self.confirmToolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
         self.confirmToolbar.hidden = YES;
         [self.view addSubview:self.confirmToolbar];
     }

@@ -15,7 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        
+        // 应该有黑白
         NSArray *array = [NSArray arrayWithObjects:@"红", @"橙", @"黄", @"绿", @"蓝", @"靛", @"紫", nil];
 
         for (int i=1; i<8; i++) {

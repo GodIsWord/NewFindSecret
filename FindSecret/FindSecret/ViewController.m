@@ -64,7 +64,9 @@
 }
 - (void)gotoTextEdit{
     XBTextEditController *textXB = [[XBTextEditController alloc] init];
-     [self presentViewController:textXB animated:YES completion:nil];
+  
+    textXB.modalPresentationStyle = UIModalPresentationCurrentContext;
+     [self presentViewController:textXB animated:NO completion:nil];
     
 }
 

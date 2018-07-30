@@ -41,12 +41,21 @@
                                     <action selector="goRecorder:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D7D-BS-a6T"/>
                                 </connections>
                             </button>
+                            <toolbar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWO-QK-3RR">
+                                <rect key="frame" x="0.0" y="146" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Item" id="mV8-MZ-3MG"/>
+                                </items>
+                                <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5kk-bN-HfC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6bt-Zf-eNx"/>
                             <constraint firstItem="5kk-bN-HfC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Bqa-wu-8Hl"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="N44-Kw-SgS"/>
                     </view>
                     <navigationItem key="navigationItem" id="35W-ZA-YE8"/>
                 </viewController>

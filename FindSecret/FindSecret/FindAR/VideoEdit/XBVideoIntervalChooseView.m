@@ -52,6 +52,8 @@
 
 @property (nonatomic, assign) CGRect leftFrameOrgin;
 @property (nonatomic, assign) CGRect rightFrameOrgin;
+
+@property (nonatomic, strong) CALayer *targetLayer;
 @end
 @implementation XBVideoIntervalChooseView
 
@@ -91,6 +93,7 @@
     self.intervalLayer.frame = CGRectMake(self.contentInsets.left - borderWidth,  self.contentInsets.top - borderWidth, self.bounds.size.width - self.contentInsets.left - self.contentInsets.right + 2 * borderWidth, self.bounds.size.height - self.contentInsets.top - self.contentInsets.bottom + 2*borderWidth);
     [self.layer addSublayer:self.intervalLayer];
     
+    
     CGFloat controlViewWidth = 10.0;
     
     self.leftControlImageView = [[UIImageView alloc] init];
@@ -121,9 +124,6 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
     
     if ([keyPath isEqualToString:@"center"]) {
-    
-        NSLog(@"%@",change);
-        
         [self caculateProgressRateWithControlView:object];
     }
     
@@ -154,6 +154,30 @@
     return CMTimeMakeWithSeconds(second, self.timescale);
 }
 
+- (void)animatedWithSeconds:(CGFloat)seconds {
+    
+    if (self.targetLayer.hidden) {
+        self.targetLayer.hidden = NO;
+    }
+    
+    
+    if (!self.targetLayer) {
+        self.targetLayer = [CALayer new];
+        self.targetLayer.backgroundColor = [UIColor yellowColor].CGColor;
+        self.targetLayer.frame = CGRectMake(self.contentInsets.left - 4,  self.contentInsets.top, 4, self.bounds.size.height - self.contentInsets.top - self.contentInsets.bottom);
+        [self.layer addSublayer:self.targetLayer];
+    }
+    
+    CGFloat duration = seconds * self.speed + self.contentInsets.left;
+    NSLog(@"current seconds :%f",duration);
+    CGPoint point = [self.colletionView convertPoint:CGPointMake(duration, 0) toView:self];
+    CGRect frame = self.targetLayer.frame;
+    frame.origin.x = point.x;
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
+    self.targetLayer.frame = frame;
+    [CATransaction commit];
+}
 
 
 
@@ -212,6 +236,7 @@
     
     switch (recognizer.state) {
         case UIGestureRecognizerStateBegan:
+            self.targetLayer.hidden = YES;
             if ([self.delegate respondsToSelector:@selector(videoIntervalChooseViewEventEdittingBegan)]) {
                 [self.delegate videoIntervalChooseViewEventEdittingBegan];
             }
@@ -338,6 +363,7 @@
 #pragma mark - ScrollViewDelegate
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    self.targetLayer.hidden = YES;
     if ([self.delegate respondsToSelector:@selector(videoIntervalChooseViewEventEdittingBegan)]) {
         [self.delegate videoIntervalChooseViewEventEdittingBegan];
     }

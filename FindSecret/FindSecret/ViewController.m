@@ -29,8 +29,8 @@
 }
 
 - (IBAction)goRecorder:(id)sender {
-//    XBRecorderTestViewController *controller = [[XBRecorderTestViewController alloc] init];
-//    [self presentViewController:controller animated:YES completion:nil];
+    //    XBRecorderTestViewController *controller = [[XBRecorderTestViewController alloc] init];
+    //    [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (IBAction)changedValue:(UISegmentedControl *)sender {
@@ -60,13 +60,14 @@
         videoEditController.videoUrl = info[UIImagePickerControllerMediaURL];
         [self presentViewController:videoEditController animated:YES completion:nil];
     }];
-
+    
 }
 - (void)gotoTextEdit{
     XBTextEditController *textXB = [[XBTextEditController alloc] init];
-  
-    textXB.modalPresentationStyle = UIModalPresentationCurrentContext;
-     [self presentViewController:textXB animated:NO completion:nil];
+    
+    textXB.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    
+    [self presentViewController:textXB animated:NO completion:nil];
     
 }
 

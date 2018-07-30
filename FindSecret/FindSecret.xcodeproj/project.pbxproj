@@ -19,10 +19,9 @@
 		CAE7448A210EB272000D05B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CAE74477210EB272000D05B7 /* InfoPlist.strings */; };
 		CAE7448C210EB272000D05B7 /* Palette.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE7447C210EB272000D05B7 /* Palette.m */; };
 		CAE7448E210EB272000D05B7 /* SevenColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE74480210EB272000D05B7 /* SevenColorView.m */; };
-		CAE7448F210EB272000D05B7 /* 全色.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE74481210EB272000D05B7 /* 全色.png */; };
-		CAE74490210EB272000D05B7 /* 全色@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE74482210EB272000D05B7 /* 全色@2x.png */; };
 		CAE74491210EB272000D05B7 /* 调色板-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CAE74483210EB272000D05B7 /* 调色板-Info.plist */; };
 		CAE74495210EB332000D05B7 /* XBTextColorController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE74485210EB272000D05B7 /* XBTextColorController.m */; };
+		CAE74509210EE4E4000D05B7 /* palette.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE74508210EE4E3000D05B7 /* palette.png */; };
 		E6019644210C18C40046D1FA /* UIView+XBFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E6019643210C18C40046D1FA /* UIView+XBFrame.m */; };
 		E601964B210C21830046D1FA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E601964A210C21830046D1FA /* AVFoundation.framework */; };
 		E601964E210C3A300046D1FA /* XBPlayAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = E601964D210C3A300046D1FA /* XBPlayAudio.m */; };
@@ -57,11 +56,10 @@
 		CAE7447C210EB272000D05B7 /* Palette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Palette.m; sourceTree = "<group>"; };
 		CAE7447F210EB272000D05B7 /* SevenColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SevenColorView.h; sourceTree = "<group>"; };
 		CAE74480210EB272000D05B7 /* SevenColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SevenColorView.m; sourceTree = "<group>"; };
-		CAE74481210EB272000D05B7 /* 全色.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "全色.png"; sourceTree = "<group>"; };
-		CAE74482210EB272000D05B7 /* 全色@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "全色@2x.png"; sourceTree = "<group>"; };
 		CAE74483210EB272000D05B7 /* 调色板-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "调色板-Info.plist"; sourceTree = "<group>"; };
 		CAE74484210EB272000D05B7 /* 调色板-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "调色板-Prefix.pch"; sourceTree = "<group>"; };
 		CAE74485210EB272000D05B7 /* XBTextColorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBTextColorController.m; sourceTree = "<group>"; };
+		CAE74508210EE4E3000D05B7 /* palette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette.png; sourceTree = "<group>"; };
 		E6019642210C18C40046D1FA /* UIView+XBFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+XBFrame.h"; sourceTree = "<group>"; };
 		E6019643210C18C40046D1FA /* UIView+XBFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+XBFrame.m"; sourceTree = "<group>"; };
 		E6019647210C1C030046D1FA /* XBRecordAudio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecordAudio.m; sourceTree = "<group>"; };
@@ -148,8 +146,7 @@
 				CAE7447C210EB272000D05B7 /* Palette.m */,
 				CAE7447F210EB272000D05B7 /* SevenColorView.h */,
 				CAE74480210EB272000D05B7 /* SevenColorView.m */,
-				CAE74481210EB272000D05B7 /* 全色.png */,
-				CAE74482210EB272000D05B7 /* 全色@2x.png */,
+				CAE74508210EE4E3000D05B7 /* palette.png */,
 				CAE74483210EB272000D05B7 /* 调色板-Info.plist */,
 				CAE74484210EB272000D05B7 /* 调色板-Prefix.pch */,
 			);
@@ -292,15 +289,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */,
+				CAE74509210EE4E4000D05B7 /* palette.png in Resources */,
 				CAE74491210EB272000D05B7 /* 调色板-Info.plist in Resources */,
 				CAE7448A210EB272000D05B7 /* InfoPlist.strings in Resources */,
 				CAE74488210EB272000D05B7 /* Default.png in Resources */,
 				BEA19C64210C4D730039086F /* drag.jpg in Resources */,
 				E60E3B61210C0FF100C5BFBB /* Assets.xcassets in Resources */,
-				CAE7448F210EB272000D05B7 /* 全色.png in Resources */,
 				CAE74487210EB272000D05B7 /* Default-568h@2x.png in Resources */,
 				CAE74489210EB272000D05B7 /* Default@2x.png in Resources */,
-				CAE74490210EB272000D05B7 /* 全色@2x.png in Resources */,
 				E60E3B5F210C0FF000C5BFBB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

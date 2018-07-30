@@ -9,6 +9,7 @@
 #import "XBTextColorController.h"
 
 @interface XBTextColorController ()
+@property (nonatomic, strong) UIColor *selectColor;
 
 @end
 
@@ -21,12 +22,25 @@
     
     self.view.backgroundColor = [UIColor grayColor];
     
-    palette = [[Palette alloc]initWithFrame:CGRectMake(40, 80, 240, 240)];
-    palette.paletteDelegate = self;
+    displayView = [[UIView alloc]initWithFrame:CGRectMake(10, 40, 40, 40)];
+    [self.view addSubview:displayView];
+    displayView.backgroundColor = [UIColor blackColor];
+    
+    palette = [[Palette alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-100, 80, 200, 200)];
     [self.view addSubview:palette];
     
+    __weak typeof(self) weakSelf = self;
+    palette.currentColorBlock = ^(UIColor *color){
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if ([strongSelf.delegate respondsToSelector:@selector(showTextColor:)]) {
+            displayView.backgroundColor = color;
+            strongSelf.selectColor = color;
+            
+        }
+        
+    };
     
-    sevenColorView = [[SevenColorView alloc]initWithFrame:CGRectMake(0, 360, 320, 65)];
+    sevenColorView = [[SevenColorView alloc]initWithFrame:CGRectMake(30, 360, 320, 105)];
     
     sevenColorView.sevenColorViewDelegate = self;
     [self.view addSubview:sevenColorView];
@@ -37,30 +51,34 @@
     [sureButton setTitle:@"确定" forState:UIControlStateNormal];
     [sureButton addTarget:self action:@selector(sureButtonDidClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:sureButton];
+    
+    UIButton *cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(30, 460, 50, 50)];
+    [cancelButton setTitle:@"取消" forState:UIControlStateNormal];
+    [cancelButton addTarget:self action:@selector(cancelButtonDidClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:cancelButton];
+    
+    
+}
+
+-(void)cancelButtonDidClicked{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 -(void)sureButtonDidClicked{
+    if ([self.delegate respondsToSelector:@selector(showTextColor:)]) {
+        [self.delegate showTextColor:self.selectColor];
+        displayView.backgroundColor = self.selectColor;
+        
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 #pragma mark -- 代理
--(void)changeTextColor:(UIColor *)color{
-    if ([self.delegate respondsToSelector:@selector(showTextColor:)]) {
-        [self.delegate showTextColor:color];
-    }
-}
 
-- (void)changeColor:(UIColor *)_color{
-    
-    if ([self.delegate respondsToSelector:@selector(showTextColor:)]) {
-        [self.delegate showTextColor:_color];
-    }
-    
-    
-}
 - (void)sevenColorViewChangeColor:(UIColor *)_color{
+    self.selectColor = _color;
+    displayView.backgroundColor = _color;
     
-    if ([self.delegate respondsToSelector:@selector(showTextColor:)]) {
-        [self.delegate showTextColor:_color];
-    }
+    
 }
 @end

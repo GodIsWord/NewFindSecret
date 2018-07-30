@@ -15,13 +15,12 @@
 - (void)showTextColor:(UIColor *)_color;
 
 @end
-@interface XBTextColorController : UIViewController<PaletteDelegate,SevenColorViewDelegate>
+@interface XBTextColorController : UIViewController<SevenColorViewDelegate>
 {
 
     Palette *palette;
     SevenColorView *sevenColorView;
-    
+    UIView *displayView;
 }
 @property (strong, nonatomic) id<TextColorDelegate> delegate;
-- (void)changeTextColor:(UIColor *)color;
 @end

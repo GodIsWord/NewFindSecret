@@ -8,24 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol PaletteDelegate
-@required
+@interface Palette : UIImageView
 
-@optional
-
-- (void)changeColor:(UIColor *)_color;
-
-@end
-
-@interface Palette : UIView{
-    UIImageView *imageView;
-    UIView *v;
-}
-
-@property(strong,nonatomic)UIImage *image;
-
-@property (strong, nonatomic) id<PaletteDelegate> paletteDelegate;
-
-- (void)logTouchInfo:(UITouch *)touch;
+@property (copy, nonatomic) void(^currentColorBlock)(UIColor *color);
 
 @end

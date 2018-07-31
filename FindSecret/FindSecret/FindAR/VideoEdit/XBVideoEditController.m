@@ -200,6 +200,7 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
     }
     self.playerLayer.frame = playLayerFrame;
     
+    [self.view bringSubviewToFront:self.confirmToolbar];
 }
 
 

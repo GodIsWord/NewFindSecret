@@ -15,6 +15,7 @@
 
 @property (nonatomic,assign,readwrite) NSTimeInterval duration;//录音时间
 @property (nonatomic,assign,readwrite) long audioSize;//录音文件大小
+@property (nonatomic,assign,readwrite) double currentVolume;//当前音量大小 0-1之间
 
 @end
 
@@ -86,7 +87,6 @@
     return recordSettings;
 }
 
-
 /**
  @return 当前音量大小0-1
  */
@@ -114,12 +114,14 @@
         level = powf(adjAmp, 1.0f / root);
     }
     
+    _currentVolume = powerVoice;
+    
     return powerVoice;
 }
 
 -(void)start{
     if (self.audioRecorder.recording) {
-//        [self cancel];
+        [self cancel];
     }
     [self.audioRecorder record];
 }

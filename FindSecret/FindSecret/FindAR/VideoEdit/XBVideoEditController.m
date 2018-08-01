@@ -22,19 +22,19 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
 };
 
 @interface XBVideoEditController () <XBVideoIntervalChooseViewDelegate>
-@property (nonatomic, strong) AVPlayerItem *playerItem;
-@property (nonatomic, strong) AVPlayer *player;
-@property (nonatomic, strong) AVPlayerLayer *playerLayer;
-@property (nonatomic, strong) XBVideoIntervalChooseView *editView;
-@property (nonatomic, strong) UIToolbar *confirmToolbar;
-@property (nonatomic, strong) UIToolbar *editToolbar;
-@property (nonatomic, assign) BOOL statusBarHidden;
-@property (nonatomic, assign) BOOL viewDidAppear;
-@property (nonatomic, strong) id playTimeObserver;
-@property (nonatomic, strong) id playBoundaryTimeObserver;
-@property (nonatomic, assign) CMTime startTime;
-@property (nonatomic, assign) CMTime stopTime;
-@property (nonatomic, assign) BOOL checkStatus;
+@property(nonatomic, strong) AVPlayerItem *playerItem;
+@property(nonatomic, strong) AVPlayer *player;
+@property(nonatomic, strong) AVPlayerLayer *playerLayer;
+@property(nonatomic, strong) XBVideoIntervalChooseView *editView;
+@property(nonatomic, strong) UIToolbar *confirmToolbar;
+@property(nonatomic, strong) UIToolbar *editToolbar;
+@property(nonatomic, assign) BOOL statusBarHidden;
+@property(nonatomic, assign) BOOL viewDidAppear;
+@property(nonatomic, strong) id playTimeObserver;
+@property(nonatomic, strong) id playBoundaryTimeObserver;
+@property(nonatomic, assign) CMTime startTime;
+@property(nonatomic, assign) CMTime stopTime;
+@property(nonatomic, assign) BOOL checkStatus;
 
 @end
 
@@ -78,10 +78,10 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
 }
 
 - (void)initialize {
-    
-    
+
+
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoDidPlayToEndTimeNotification) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
 
     if (self.videoUrl.absoluteString.length == 0) {
@@ -106,16 +106,16 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
 
     // MARK: 初始化 播放视图
 
-    
-    
-    __weak typeof(self)weakSelf = self;
+
+
+    __weak typeof(self) weakSelf = self;
 //     观察间隔, CMTime 为30分之一秒
     self.playTimeObserver = [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 60) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
         if (weakSelf.isEidt) {
             return;
         }
         [weakSelf.editView animatedWithSeconds:CMTimeGetSeconds(time)];
-        
+
 //        if (_touchMode != TouchPlayerViewModeHorizontal) {
 //            // 获取 item 当前播放秒
 //            float currentPlayTime = (double)item.currentTime.value/ item.currentTime.timescale;
@@ -130,7 +130,7 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
 }
 
 - (void)updateSubViewsWithStatus:(XBVideoEditStatus)status {
-    
+
     CGRect frame;
     frame.origin.x = 0;
     frame.origin.y = TOP_MARGIN;
@@ -146,9 +146,9 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
         self.confirmToolbar.hidden = YES;
         [self.view addSubview:self.confirmToolbar];
     }
-    
+
     self.confirmToolbar.hidden = status == XBVideoEditStatusEdit;
-    
+
     frame.origin.y = CGRectGetHeight(self.view.bounds) - BOTTOM_MARGIN - kToolBarHeight - kEditAreaViewHeight;
     frame.size.height = kEditAreaViewHeight;
     if (!self.editView) {
@@ -158,10 +158,10 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
         self.editView.delegate = self;
         [self.view addSubview:self.editView];
     }
-    
+
     self.editView.hidden = status == XBVideoEditStatusConfirm;
-    
-    
+
+
     frame.origin.y += kEditAreaViewHeight;
     frame.size.width = CGRectGetWidth(self.view.bounds);
     frame.size.height = kToolBarHeight;
@@ -178,7 +178,7 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
     }
 
     self.editToolbar.hidden = status == XBVideoEditStatusConfirm;
-    
+
     CGRect playLayerFrame;
     if (status == XBVideoEditStatusEdit) {
         CGFloat scale = CGRectGetWidth(self.view.bounds) / CGRectGetHeight(self.view.bounds);
@@ -189,7 +189,7 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
     } else {
         playLayerFrame = self.view.bounds;
     }
-    
+
     if (!self.playerLayer) {
         self.playerItem = [[AVPlayerItem alloc] initWithURL:self.videoUrl];
         [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
@@ -199,14 +199,13 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
         [self.view.layer addSublayer:self.playerLayer];
     }
     self.playerLayer.frame = playLayerFrame;
-    
+
     [self.view bringSubviewToFront:self.confirmToolbar];
 }
 
 
-
 //addBoundaryTimeObserverForTimes
-- (void)playInBoundaryForm:(CMTime)fromTime to:(CMTime)toTime{
+- (void)playInBoundaryForm:(CMTime)fromTime to:(CMTime)toTime {
     self.startTime = fromTime;
     self.stopTime = toTime;
     self.isEidt = NO;
@@ -219,9 +218,9 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
     }
     [self.player seekToTime:self.startTime];
     [self.player play];
-    __weak typeof(self)wself = self;
+    __weak typeof(self) wself = self;
     self.playBoundaryTimeObserver = [self.player addBoundaryTimeObserverForTimes:@[[NSValue valueWithCMTime:self.stopTime]] queue:dispatch_get_main_queue() usingBlock:^{
-        NSLog(@"从 %@ 开始播放 ---- %@ ",[NSValue valueWithCMTime:fromTime],[NSValue valueWithCMTime:toTime]);
+        NSLog(@"从 %@ 开始播放 ---- %@ ", [NSValue valueWithCMTime:fromTime], [NSValue valueWithCMTime:toTime]);
         [wself.player pause];
         [wself.player seekToTime:wself.startTime];
         [wself.player play];
@@ -233,6 +232,7 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
 - (void)videoDidPlayToEndTimeNotification {
     [self replayWhenViewDidAppear];
 }
+
 - (void)invalidatePlay {
 //    [self.player removeTimeObserver:self.playTimeObserver];
     if (self.playBoundaryTimeObserver) {
@@ -247,6 +247,7 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
 - (void)switchEditStatus {
     [self updateSubViewsWithStatus:XBVideoEditStatusEdit];
 }
+
 - (void)switchConfirmStatus {
     [self updateSubViewsWithStatus:XBVideoEditStatusConfirm];
 }
@@ -269,18 +270,18 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
         NSError *error;
         [[NSFileManager defaultManager] removeItemAtPath:tempVideoPath error:&error];
         if (error) {
-            NSLog(@"remve %@ error:%@",tempVideoPath,error);
+            NSLog(@"remve %@ error:%@", tempVideoPath, error);
         } else {
-            NSLog(@"remve %@ success!",tempVideoPath);
+            NSLog(@"remve %@ success!", tempVideoPath);
         }
     }
-    
+
     AVAsset *asset = [AVAsset assetWithURL:self.videoUrl];
-    AVAssetExportSession *exportSession  = [AVAssetExportSession exportSessionWithAsset:asset presetName:AVAssetExportPresetPassthrough];
+    AVAssetExportSession *exportSession = [AVAssetExportSession exportSessionWithAsset:asset presetName:AVAssetExportPresetPassthrough];
     NSURL *tempUrl = [NSURL fileURLWithPath:tempVideoPath];
     exportSession.outputURL = tempUrl;
     exportSession.outputFileType = AVFileTypeQuickTimeMovie;
-    
+
     CGFloat startSecond = CMTimeGetSeconds(self.startTime);
     CGFloat stopSecond = CMTimeGetSeconds(self.stopTime);
     CMTime durationTime = CMTimeMakeWithSeconds(stopSecond - startSecond, self.startTime.timescale);
@@ -288,7 +289,7 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
     [exportSession exportAsynchronouslyWithCompletionHandler:^{
         switch (exportSession.status) {
             case AVAssetExportSessionStatusFailed:
-                NSLog(@"导出失败 %@",exportSession.error);
+                NSLog(@"导出失败 %@", exportSession.error);
                 break;
             case AVAssetExportSessionStatusWaiting:
                 NSLog(@"等等...");
@@ -300,20 +301,18 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
                 NSLog(@"客观别着急");
                 break;
             case AVAssetExportSessionStatusUnknown:
-                NSLog(@"未知原因 %@",exportSession.error);
+                NSLog(@"未知原因 %@", exportSession.error);
                 break;
             case AVAssetExportSessionStatusCompleted:
-                NSLog(@"到处完成 %@",tempUrl);
+                NSLog(@"到处完成 %@", tempUrl);
                 [self showAlertWithMessage:tempVideoPath completion:nil];
                 break;
             default:
                 break;
         }
     }];
-    
-    
-    
-    
+
+
 }
 
 - (void)replayWhenViewDidAppear {
@@ -350,17 +349,17 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
 }
 
 - (void)videoIntervalChooseViewEventEdittingEnded {
-   
-    
+
+
 }
+
 - (void)videoThumImagesDidLoad {
     NSLog(@"预览图截取完毕");
 }
-- (void)videoShouldPlayFrom:(CMTime)fromTime to:(CMTime)toTime{
+
+- (void)videoShouldPlayFrom:(CMTime)fromTime to:(CMTime)toTime {
     [self playInBoundaryForm:fromTime to:toTime];
 }
-
-
 
 
 #pragma mark - Observe
@@ -381,8 +380,8 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
             default:
                 break;
         }
-    }else if ([keyPath isEqualToString:@"rate"]) {
-        NSLog(@"播放状态 ----- %@",change[NSKeyValueChangeNewKey]);
+    } else if ([keyPath isEqualToString:@"rate"]) {
+        NSLog(@"播放状态 ----- %@", change[NSKeyValueChangeNewKey]);
     }
 }
 

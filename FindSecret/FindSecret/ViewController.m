@@ -14,8 +14,8 @@
 #import "XBTextEditController.h"
 #import "XBRecorderTestViewController.h"
 
-@interface ViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
-@property (nonatomic, strong) NSDictionary *userInfo;
+@interface ViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@property(nonatomic, strong) NSDictionary *userInfo;
 
 
 @end
@@ -25,11 +25,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
+
 }
 
 - (IBAction)goRecorder:(id)sender {
-        XBRecorderTestViewController *controller = [[XBRecorderTestViewController alloc] init];
+    XBRecorderTestViewController *controller = [[XBRecorderTestViewController alloc] init];
 //        [self presentViewController:controller animated:YES completion:nil];
     [self.navigationController pushViewController:controller animated:YES];
 }
@@ -37,39 +37,41 @@
 - (IBAction)changedValue:(UISegmentedControl *)sender {
     if (sender.selectedSegmentIndex == 2) {
         [self gotoVideoEdit];
-    }else if (sender.selectedSegmentIndex == 1) {
+    } else if (sender.selectedSegmentIndex == 1) {
         [self gotoTextEdit];
     }
 }
-- (void)gotoVideoEdit{
+
+- (void)gotoVideoEdit {
     UIImagePickerController *pick = [[UIImagePickerController alloc] init];
-    pick.mediaTypes = @[(NSString *)kUTTypeImage, (NSString *)kUTTypeMovie];
+    pick.mediaTypes = @[(NSString *) kUTTypeImage, (NSString *) kUTTypeMovie];
     pick.videoQuality = UIImagePickerControllerQualityTypeMedium;
     pick.delegate = self;
     [self presentViewController:pick animated:YES completion:nil];
 }
 
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     NSLog(@"Cancel");
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *, id> *)info {
     self.userInfo = info;
     [picker dismissViewControllerAnimated:YES completion:^{
-        XBVideoEditController *videoEditController =[[XBVideoEditController alloc] init];
+        XBVideoEditController *videoEditController = [[XBVideoEditController alloc] init];
         videoEditController.videoUrl = info[UIImagePickerControllerMediaURL];
         [self presentViewController:videoEditController animated:YES completion:nil];
     }];
-    
+
 }
-- (void)gotoTextEdit{
+
+- (void)gotoTextEdit {
     XBTextEditController *textXB = [[XBTextEditController alloc] init];
-    
+
     textXB.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    
+
     [self presentViewController:textXB animated:NO completion:nil];
-    
+
 }
 
 

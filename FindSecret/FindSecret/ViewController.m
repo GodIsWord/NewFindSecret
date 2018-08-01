@@ -12,7 +12,7 @@
 #import "XBVideoEditController.h"
 #import "XBTextEditController.h"
 #import "XBTextEditController.h"
-//#import "XBRecorderTestViewController.h"
+#import "XBRecorderTestViewController.h"
 
 @interface ViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, strong) NSDictionary *userInfo;
@@ -29,8 +29,9 @@
 }
 
 - (IBAction)goRecorder:(id)sender {
-    //    XBRecorderTestViewController *controller = [[XBRecorderTestViewController alloc] init];
-    //    [self presentViewController:controller animated:YES completion:nil];
+        XBRecorderTestViewController *controller = [[XBRecorderTestViewController alloc] init];
+//        [self presentViewController:controller animated:YES completion:nil];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (IBAction)changedValue:(UISegmentedControl *)sender {

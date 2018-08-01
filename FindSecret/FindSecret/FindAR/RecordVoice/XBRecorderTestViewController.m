@@ -2,75 +2,96 @@
 //  XBRecorderTestViewController.m
 //  FindSecret
 //
-//  Created by yidezhang on 2018/7/28.
+//  Created by yidezhang on 2018/7/31.
 //  Copyright © 2018年 Mac. All rights reserved.
 //
 
 #import "XBRecorderTestViewController.h"
+
+#import "XBRecordAudioView.h"
 #import "XBRecordAudio.h"
 #import "XBPlayAudio.h"
 
+#import "XBTimer.h"
+
 @interface XBRecorderTestViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *recorderLabel;
-@property (weak, nonatomic) IBOutlet UILabel *playLabel;
-@property (nonatomic,strong) XBRecordAudio *recorder;
-@property (nonatomic,strong) XBPlayAudio *player;
-@property (nonatomic,strong) NSTimer *timer;
+
+@property(nonatomic,strong) XBRecordAudio *recorder;
+@property(nonatomic,strong) XBPlayAudio *audioPlayer;
+
+@property(nonatomic,strong) XBTimer *timer;
+
+
 @end
 
 @implementation XBRecorderTestViewController
 
+static int type = 0;
+
+-(void)dealloc{
+    NSLog(@"dealloc");
+    [self.timer invalidate];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    [self initData];
+    // Do any additional setup after loading the view.
     
-    __weak typeof(self) weakSelf = self;
-    if (@available(iOS 10.0, *)) {
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1 repeats:YES block:^(NSTimer * _Nonnull timer) {
-            weakSelf.recorderLabel.text = [NSString stringWithFormat:@"录音 音频：%.2f 时长:%.2f,size:%ld",[weakSelf.recorder currentVolume],weakSelf.recorder.duration,weakSelf.recorder.audioSize];
-            weakSelf.playLabel.text = [NSString stringWithFormat:@"播放 音频：%.2f 时长:%.2f,size:%ld 目前时间:%f",[weakSelf.player currentVolume],weakSelf.player.duration,weakSelf.player.audioSize,weakSelf.player.currentTime];
-        }];
-    } else {
-        // Fallback on earlier versions
-    }
+    self.view.backgroundColor = [UIColor greenColor];
     
-}
-
-
-
--(void)initData{
     self.recorder = [[XBRecordAudio alloc] init];
-    self.player = [[XBPlayAudio alloc] initWithContentOfURL:[NSURL URLWithString:[XBRecordAudio audioPath]] error:nil];
+    self.audioPlayer = [[XBPlayAudio alloc] init];
+    
+    [self initSubbview];
 }
 
-- (IBAction)testRecorder:(UISegmentedControl *)sender {
+-(void)initSubbview{
+    CGFloat screenHeight = UIScreen.mainScreen.bounds.size.height;
+    CGFloat screenWidth = UIScreen.mainScreen.bounds.size.width;
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.backgroundColor = [UIColor lightGrayColor];
+    [btn setTitle:@"开始录音" forState:UIControlStateNormal];
+    [btn setTitle:@"关闭录音" forState:UIControlStateSelected];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    btn.frame = CGRectMake(0, screenHeight-44, screenWidth, 44);
+    [self.view addSubview:btn];
     
-    switch (sender.selectedSegmentIndex) {
+    [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+//    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress)];
+//    [btn addGestureRecognizer:longPress];
+    
+
+    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn1.backgroundColor = [UIColor lightGrayColor];
+    [btn1 setTitle:@"开始播放" forState:UIControlStateNormal];
+    [btn1 setTitle:@"停止播放" forState:UIControlStateSelected];
+    [btn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    btn1.frame = CGRectMake(0, screenHeight-144, screenWidth, 44);
+    [self.view addSubview:btn1];
+    
+    [btn1 addTarget:self action:@selector(btnVoiceAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.timer = [XBTimer timerWithTimeInterval:0.01 target:self selector:@selector(timerAction) repeats:YES];
+    
+    [self.timer fire];
+}
+
+-(void)timerAction{
+    switch (type) {
         case 0:
         {
-            [self.player play];
-            
+            [XBRecordAudioView hidden];
         }
             break;
         case 1:
         {
-            [self.recorder stop];
+            [XBRecordAudioView showWithVolume:self.recorder.currentVolume];
         }
             break;
         case 2:
         {
-//            [self.player resume];
-        }
-            break;
-        case 3:
-        {
-            [self.player pause];
-        }
-            break;
-        case 4:
-        {
-            [self.recorder start];
+            [XBRecordAudioView showWithVolume:self.audioPlayer.currentVolume];
         }
             break;
             
@@ -78,6 +99,32 @@
             break;
     }
     
+}
+
+-(void)longPress{
+//    [self.recorder start];
+}
+
+
+-(void)btnAction:(UIButton*)btn{
+    btn.selected = !btn.selected;
+    if (btn.selected) {
+        [self.recorder start];
+        type = 1;
+    }else{
+        [self.recorder stop];
+        type = 0;
+    }
+}
+-(void)btnVoiceAction:(UIButton*)btn{
+    btn.selected = !btn.selected;
+    if (btn.selected) {
+        [self.audioPlayer playWithContentOfURL:[NSURL URLWithString:[XBRecordAudio audioPath]] error:nil];
+        type = 2;
+    }else{
+        [self.audioPlayer stop];
+        type = 0;
+    }
 }
 
 @end

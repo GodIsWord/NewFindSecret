@@ -20,17 +20,16 @@
 
 @implementation XBPlayAudio
 
--(instancetype)initWithContentOfURL:(NSURL *)url error:(NSError *)error{
+-(instancetype)init{
     self = [super init];
     if (self) {
-        _url = url;
         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error: nil];
         [[AVAudioSession sharedInstance] setActive:YES error:nil];
     }
     return self;
 }
 
--(CGFloat)duration{
+-(NSTimeInterval)duration{
     return self.audioPlayer.duration;
 }
 
@@ -45,9 +44,9 @@
     return [self fileSize];
 }
 
--(void)play{
+-(void)playWithContentOfURL:(nonnull NSURL*)url error:(NSError*)error{
+    _url = url;
     self.audioPlayer = nil;
-    NSError *error;
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:_url error:&error];
     self.audioPlayer.meteringEnabled = YES;
     [self.audioPlayer prepareToPlay];

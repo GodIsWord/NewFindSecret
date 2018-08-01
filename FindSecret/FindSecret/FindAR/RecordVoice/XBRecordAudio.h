@@ -27,6 +27,8 @@
 @property (nonatomic,assign,readonly) NSTimeInterval duration;//录音时间
 @property (nonatomic,assign,readonly) long audioSize;//录音文件大小
 
+@property (nonatomic,assign,readonly) double currentVolume;//当前音量大小 0-1之间
+
 @property(assign, nullable) id<XBRecordAudioDelegate> delegate;
 
 
@@ -49,12 +51,6 @@
  取消录音
  */
 -(void)cancel;
-
-/**
- @return 当前音量大小 0-1之间
- */
--(double) currentVolume;
-
 
 
 

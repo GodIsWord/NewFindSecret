@@ -16,9 +16,7 @@
 
 @property (nonatomic, strong) NSURL *url;
 
--(instancetype)initWithContentOfURL:(nonnull NSURL*)url error:(NSError*)error;
-
-- (void)play;
+- (void)playWithContentOfURL:(nonnull NSURL*)url error:(NSError*)error;
 - (void)stop;
 - (void)pause;
 

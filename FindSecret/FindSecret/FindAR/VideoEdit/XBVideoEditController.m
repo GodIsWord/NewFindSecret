@@ -15,18 +15,26 @@
 #define kToolBarHeight 44.0f
 #define kEditAreaViewHeight 60.0f
 
+
+typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
+    XBVideoEditStatusEdit,
+    XBVideoEditStatusConfirm
+};
+
 @interface XBVideoEditController () <XBVideoIntervalChooseViewDelegate>
 @property (nonatomic, strong) AVPlayerItem *playerItem;
 @property (nonatomic, strong) AVPlayer *player;
 @property (nonatomic, strong) AVPlayerLayer *playerLayer;
 @property (nonatomic, strong) XBVideoIntervalChooseView *editView;
-@property (nonatomic, strong) UIToolbar *toolbar;
+@property (nonatomic, strong) UIToolbar *confirmToolbar;
+@property (nonatomic, strong) UIToolbar *editToolbar;
 @property (nonatomic, assign) BOOL statusBarHidden;
 @property (nonatomic, assign) BOOL viewDidAppear;
 @property (nonatomic, strong) id playTimeObserver;
 @property (nonatomic, strong) id playBoundaryTimeObserver;
 @property (nonatomic, assign) CMTime startTime;
 @property (nonatomic, assign) CMTime stopTime;
+@property (nonatomic, assign) BOOL checkStatus;
 
 @end
 
@@ -35,7 +43,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initialize];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -71,7 +78,10 @@
 }
 
 - (void)initialize {
+    
+    
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoDidPlayToEndTimeNotification) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
 
     if (self.videoUrl.absoluteString.length == 0) {
@@ -81,42 +91,30 @@
         }];
         return;
     }
-    [self setupSubViews];
+    [self updateSubViewsWithStatus:XBVideoEditStatusEdit];
 
-    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-    NSError *error;
-    [audioSession setActive:YES error:&error];
-    if (error) {
-        NSLog(@"active error: %@", error);
-    }
-    [audioSession setCategory:AVAudioSessionCategoryPlayback error:&error];
-    if (error) {
-        NSLog(@"Category error: %@", error);
-    }
+//    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+//    NSError *error;
+//    [audioSession setActive:YES error:&error];
+//    if (error) {
+//        NSLog(@"active error: %@", error);
+//    }
+//    [audioSession setCategory:AVAudioSessionCategoryPlayback error:&error];
+//    if (error) {
+//        NSLog(@"Category error: %@", error);
+//    }
 
     // MARK: 初始化 播放视图
 
-    self.playerItem = [[AVPlayerItem alloc] initWithURL:self.videoUrl];
-    [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
-    self.player = [[AVPlayer alloc] initWithPlayerItem:self.playerItem];
-    [self.player addObserver:self forKeyPath:@"rate" options:NSKeyValueObservingOptionNew context:nil];
-    self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
-    CGFloat scale = CGRectGetWidth(self.view.bounds) / CGRectGetHeight(self.view.bounds);
-    CGRect playLayerFrame;
-    playLayerFrame.origin.y = TOP_MARGIN + 8;
-    playLayerFrame.size.height = self.editView.frame.origin.y - TOP_MARGIN - 8 - 8;
-    playLayerFrame.size.width = playLayerFrame.size.height * scale;
-    playLayerFrame.origin.x = (CGRectGetWidth(self.view.bounds) - playLayerFrame.size.width) / 2.0;
-    self.playerLayer.frame = playLayerFrame;
-    [self.view.layer addSublayer:self.playerLayer];
     
     
-//    __weak typeof(self)WeakSelf = self;
-    // 观察间隔, CMTime 为30分之一秒
-//    self.playTimeObserver = [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 24.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
-    
-//        NSLog(@"current seconds :%f",CMTimeGetSeconds(time));
-        
+    __weak typeof(self)weakSelf = self;
+//     观察间隔, CMTime 为30分之一秒
+    self.playTimeObserver = [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 60) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+        if (weakSelf.isEidt) {
+            return;
+        }
+        [weakSelf.editView animatedWithSeconds:CMTimeGetSeconds(time)];
         
 //        if (_touchMode != TouchPlayerViewModeHorizontal) {
 //            // 获取 item 当前播放秒
@@ -128,43 +126,84 @@
 //        } else {
 //            return;
 //        }
-//    }];
-
+    }];
 }
 
-- (void)setupSubViews {
-    [self setupEditView];
-    [self setupToolbar];
-}
-
-- (void)setupEditView {
+- (void)updateSubViewsWithStatus:(XBVideoEditStatus)status {
+    
     CGRect frame;
     frame.origin.x = 0;
-    frame.origin.y = CGRectGetHeight(self.view.bounds) - BOTTOM_MARGIN - kToolBarHeight - kEditAreaViewHeight;
+    frame.origin.y = TOP_MARGIN;
     frame.size.width = CGRectGetWidth(self.view.bounds);
+    frame.size.height = 44;
+    if (!self.confirmToolbar) {
+        self.confirmToolbar = [[UIToolbar alloc] initWithFrame:frame];
+        UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(switchEditStatus)];
+        UIBarButtonItem *fixItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+        UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
+        [self.confirmToolbar setItems:@[cancelItem, fixItem, doneItem] animated:NO];
+        [self.confirmToolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+        self.confirmToolbar.hidden = YES;
+        [self.view addSubview:self.confirmToolbar];
+    }
+    
+    self.confirmToolbar.hidden = status == XBVideoEditStatusEdit;
+    
+    frame.origin.y = CGRectGetHeight(self.view.bounds) - BOTTOM_MARGIN - kToolBarHeight - kEditAreaViewHeight;
     frame.size.height = kEditAreaViewHeight;
-    self.editView = [[XBVideoIntervalChooseView alloc] initWithFrame:frame];
-    self.editView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
-    [self.editView updateVideoWithUrl:self.videoUrl];
-    self.editView.delegate = self;
-    [self.view addSubview:self.editView];
-}
-
-- (void)setupToolbar {
-    CGRect frame;
-    self.toolbar = [[UIToolbar alloc] init];
-    self.toolbar.barStyle = UIBarStyleBlack;
-    frame.origin.x = 0;
-    frame.origin.y = CGRectGetHeight(self.view.bounds) - BOTTOM_MARGIN - kToolBarHeight;
+    if (!self.editView) {
+        self.editView = [[XBVideoIntervalChooseView alloc] initWithFrame:frame];
+        self.editView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
+        [self.editView updateVideoWithUrl:self.videoUrl];
+        self.editView.delegate = self;
+        [self.view addSubview:self.editView];
+    }
+    
+    self.editView.hidden = status == XBVideoEditStatusConfirm;
+    
+    
+    frame.origin.y += kEditAreaViewHeight;
     frame.size.width = CGRectGetWidth(self.view.bounds);
     frame.size.height = kToolBarHeight;
-    self.toolbar.frame = frame;
-    [self.view addSubview:self.toolbar];
-    UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(goBack)];
-    UIBarButtonItem *fixItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
-    [self.toolbar setItems:@[cancelItem, fixItem, doneItem] animated:NO];
+
+    if (!self.editToolbar) {
+        self.editToolbar = [[UIToolbar alloc] init];
+        self.editToolbar.barStyle = UIBarStyleBlack;
+        self.editToolbar.frame = frame;
+        [self.view addSubview:self.editToolbar];
+        UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(goBack)];
+        UIBarButtonItem *fixItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+        UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(switchConfirmStatus)];
+        [self.editToolbar setItems:@[cancelItem, fixItem, doneItem] animated:NO];
+    }
+
+    self.editToolbar.hidden = status == XBVideoEditStatusConfirm;
+    
+    CGRect playLayerFrame;
+    if (status == XBVideoEditStatusEdit) {
+        CGFloat scale = CGRectGetWidth(self.view.bounds) / CGRectGetHeight(self.view.bounds);
+        playLayerFrame.origin.y = TOP_MARGIN + 8;
+        playLayerFrame.size.height = self.editView.frame.origin.y - TOP_MARGIN - 8 - 8;
+        playLayerFrame.size.width = playLayerFrame.size.height * scale;
+        playLayerFrame.origin.x = (CGRectGetWidth(self.view.bounds) - playLayerFrame.size.width) / 2.0;
+    } else {
+        playLayerFrame = self.view.bounds;
+    }
+    
+    if (!self.playerLayer) {
+        self.playerItem = [[AVPlayerItem alloc] initWithURL:self.videoUrl];
+        [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+        self.player = [[AVPlayer alloc] initWithPlayerItem:self.playerItem];
+        [self.player addObserver:self forKeyPath:@"rate" options:NSKeyValueObservingOptionNew context:nil];
+        self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
+        [self.view.layer addSublayer:self.playerLayer];
+    }
+    self.playerLayer.frame = playLayerFrame;
+    
+    [self.view bringSubviewToFront:self.confirmToolbar];
 }
+
+
 
 //addBoundaryTimeObserverForTimes
 - (void)playInBoundaryForm:(CMTime)fromTime to:(CMTime)toTime{
@@ -190,6 +229,7 @@
 
 }
 
+
 - (void)videoDidPlayToEndTimeNotification {
     [self replayWhenViewDidAppear];
 }
@@ -202,6 +242,13 @@
     [self.player removeObserver:self forKeyPath:@"rate"];
     [self.player pause];
     [self.playerItem removeObserver:self forKeyPath:@"status"];
+}
+
+- (void)switchEditStatus {
+    [self updateSubViewsWithStatus:XBVideoEditStatusEdit];
+}
+- (void)switchConfirmStatus {
+    [self updateSubViewsWithStatus:XBVideoEditStatusConfirm];
 }
 
 - (void)goBack {
@@ -217,6 +264,56 @@
 
 - (void)done {
     NSLog(@"如果有回调的话");
+    NSString *tempVideoPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"tmpMov.mov"];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:tempVideoPath]) {
+        NSError *error;
+        [[NSFileManager defaultManager] removeItemAtPath:tempVideoPath error:&error];
+        if (error) {
+            NSLog(@"remve %@ error:%@",tempVideoPath,error);
+        } else {
+            NSLog(@"remve %@ success!",tempVideoPath);
+        }
+    }
+    
+    AVAsset *asset = [AVAsset assetWithURL:self.videoUrl];
+    AVAssetExportSession *exportSession  = [AVAssetExportSession exportSessionWithAsset:asset presetName:AVAssetExportPresetPassthrough];
+    NSURL *tempUrl = [NSURL fileURLWithPath:tempVideoPath];
+    exportSession.outputURL = tempUrl;
+    exportSession.outputFileType = AVFileTypeQuickTimeMovie;
+    
+    CGFloat startSecond = CMTimeGetSeconds(self.startTime);
+    CGFloat stopSecond = CMTimeGetSeconds(self.stopTime);
+    CMTime durationTime = CMTimeMakeWithSeconds(stopSecond - startSecond, self.startTime.timescale);
+    exportSession.timeRange = CMTimeRangeMake(self.startTime, durationTime);
+    [exportSession exportAsynchronouslyWithCompletionHandler:^{
+        switch (exportSession.status) {
+            case AVAssetExportSessionStatusFailed:
+                NSLog(@"导出失败 %@",exportSession.error);
+                break;
+            case AVAssetExportSessionStatusWaiting:
+                NSLog(@"等等...");
+                break;
+            case AVAssetExportSessionStatusCancelled:
+                NSLog(@"取消");
+                break;
+            case AVAssetExportSessionStatusExporting:
+                NSLog(@"客观别着急");
+                break;
+            case AVAssetExportSessionStatusUnknown:
+                NSLog(@"未知原因 %@",exportSession.error);
+                break;
+            case AVAssetExportSessionStatusCompleted:
+                NSLog(@"到处完成 %@",tempUrl);
+                [self showAlertWithMessage:tempVideoPath completion:nil];
+                break;
+            default:
+                break;
+        }
+    }];
+    
+    
+    
+    
 }
 
 - (void)replayWhenViewDidAppear {

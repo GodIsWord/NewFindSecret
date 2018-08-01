@@ -1,5 +1,5 @@
 //
-//  XBRecorderTestViewController.h
+//  XBRecordAudioView.h
 //  FindSecret
 //
 //  Created by yidezhang on 2018/7/31.
@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XBRecorderTestViewController : UIViewController
+@interface XBRecordAudioView : UIView
+
++(void)showWithVolume:(double)volume;
+
++(void)hidden;
 
 @end

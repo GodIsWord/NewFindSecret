@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface XBTextEditController : UIViewController
+@property (nonatomic, copy) NSString *text;
+@property (nonatomic, strong) UIColor *textColor;
+@property (nonatomic, copy) NSString *textStyle;
 
 @end

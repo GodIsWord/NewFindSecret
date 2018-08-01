@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8529BFE2210CDD4E007E90C9 /* UIView+XBEnlargeEdge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8529BFE1210CDD4E007E90C9 /* UIView+XBEnlargeEdge.m */; };
+		857616602111F5020091E7C1 /* XBMakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8576165E2111F5020091E7C1 /* XBMakeViewController.m */; };
+		857616642111FAA10091E7C1 /* XBMakeToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 857616632111FAA10091E7C1 /* XBMakeToolView.m */; };
+		857616662111FAAD0091E7C1 /* XBMakeToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 857616652111FAAD0091E7C1 /* XBMakeToolView.xib */; };
 		BEA19C64210C4D730039086F /* drag.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BEA19C63210C4D730039086F /* drag.jpg */; };
 		BEA19C67210C4EE10039086F /* XBVideoIntervalChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA19C66210C4EE10039086F /* XBVideoIntervalChooseView.m */; };
 		BEF23A24210C17C90061F74C /* XBVideoEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF23A23210C17C90061F74C /* XBVideoEditController.m */; };
@@ -44,6 +47,11 @@
 /* Begin PBXFileReference section */
 		8529BFE0210CDD4E007E90C9 /* UIView+XBEnlargeEdge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+XBEnlargeEdge.h"; sourceTree = "<group>"; };
 		8529BFE1210CDD4E007E90C9 /* UIView+XBEnlargeEdge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+XBEnlargeEdge.m"; sourceTree = "<group>"; };
+		8576165D2111F5020091E7C1 /* XBMakeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBMakeViewController.h; sourceTree = "<group>"; };
+		8576165E2111F5020091E7C1 /* XBMakeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBMakeViewController.m; sourceTree = "<group>"; };
+		857616622111FAA10091E7C1 /* XBMakeToolView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBMakeToolView.h; sourceTree = "<group>"; };
+		857616632111FAA10091E7C1 /* XBMakeToolView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBMakeToolView.m; sourceTree = "<group>"; };
+		857616652111FAAD0091E7C1 /* XBMakeToolView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBMakeToolView.xib; sourceTree = "<group>"; };
 		BEA19C62210C25E20039086F /* XBMacroDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBMacroDefinition.h; sourceTree = "<group>"; };
 		BEA19C63210C4D730039086F /* drag.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = drag.jpg; sourceTree = "<group>"; };
 		BEA19C65210C4EE10039086F /* XBVideoIntervalChooseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBVideoIntervalChooseView.h; sourceTree = "<group>"; };
@@ -112,6 +120,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8576165B2111F4AA0091E7C1 /* Make */ = {
+			isa = PBXGroup;
+			children = (
+				8576165D2111F5020091E7C1 /* XBMakeViewController.h */,
+				8576165E2111F5020091E7C1 /* XBMakeViewController.m */,
+			);
+			path = Make;
+			sourceTree = "<group>";
+		};
 		BEF23A21210C17B80061F74C /* VideoEdit */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				BEA19C62210C25E20039086F /* XBMacroDefinition.h */,
+				8576165B2111F4AA0091E7C1 /* Make */,
 				CAE7450A211150B1000D05B7 /* NextStep */,
 				CAE743F8210C1A53000D05B7 /* TextEdit */,
 				E6019645210C1ADD0046D1FA /* RecordVoice */,
@@ -200,6 +218,9 @@
 				E64807C0210FFB8500050124 /* XBTimer.m */,
 				E6C8EB3A211055CB00ED53E2 /* XBWeakProxy.h */,
 				E6C8EB3B211055CB00ED53E2 /* XBWeakProxy.m */,
+				857616622111FAA10091E7C1 /* XBMakeToolView.h */,
+				857616632111FAA10091E7C1 /* XBMakeToolView.m */,
+				857616652111FAAD0091E7C1 /* XBMakeToolView.xib */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -322,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */,
+				857616662111FAAD0091E7C1 /* XBMakeToolView.xib in Resources */,
 				CAE74509210EE4E4000D05B7 /* palette.png in Resources */,
 				CAE74491210EB272000D05B7 /* 调色板-Info.plist in Resources */,
 				CAE7448A210EB272000D05B7 /* InfoPlist.strings in Resources */,
@@ -343,6 +365,7 @@
 			files = (
 				E6C8EB3C211055CB00ED53E2 /* XBWeakProxy.m in Sources */,
 				CAE745102111513D000D05B7 /* XBWhoCanSeeController.m in Sources */,
+				857616642111FAA10091E7C1 /* XBMakeToolView.m in Sources */,
 				E6C8EB2F21104C7200ED53E2 /* XBRecordAudioView.m in Sources */,
 				CAE7451321115158000D05B7 /* XBSelectFriendsController.m in Sources */,
 				E6019644210C18C40046D1FA /* UIView+XBFrame.m in Sources */,
@@ -351,6 +374,7 @@
 				BEF23A24210C17C90061F74C /* XBVideoEditController.m in Sources */,
 				CAE74495210EB332000D05B7 /* XBTextColorController.m in Sources */,
 				E601964E210C3A300046D1FA /* XBPlayAudio.m in Sources */,
+				857616602111F5020091E7C1 /* XBMakeViewController.m in Sources */,
 				E6C8EB3921104E2600ED53E2 /* XBRecorderTestViewController.m in Sources */,
 				CAE7450D2111511A000D05B7 /* XBWhereAreYouController.m in Sources */,
 				CAE74407210C5E06000D05B7 /* XBTextEditController.m in Sources */,

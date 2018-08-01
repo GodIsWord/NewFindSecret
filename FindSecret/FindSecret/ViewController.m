@@ -13,6 +13,7 @@
 #import "XBTextEditController.h"
 #import "XBTextEditController.h"
 #import "XBRecorderTestViewController.h"
+#import "XBMakeViewController.h"
 
 @interface ViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property(nonatomic, strong) NSDictionary *userInfo;
@@ -30,8 +31,8 @@
 
 - (IBAction)goRecorder:(id)sender {
     XBRecorderTestViewController *controller = [[XBRecorderTestViewController alloc] init];
-//        [self presentViewController:controller animated:YES completion:nil];
     [self.navigationController pushViewController:controller animated:YES];
+//        [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (IBAction)changedValue:(UISegmentedControl *)sender {
@@ -43,6 +44,13 @@
 }
 
 - (void)gotoVideoEdit {
+
+    XBMakeViewController *makeViewController = [[XBMakeViewController alloc] init];
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533143165406&di=9f6a1195ec0d8dcf09f46e07cf71beb8&imgtype=jpg&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D3324201526%2C3766957536%26fm%3D214%26gp%3D0.jpg"]];
+    makeViewController.contentImage = [UIImage imageWithData:data];
+    UINavigationController *navigationController1 = [[UINavigationController alloc] initWithRootViewController:makeViewController];
+    [self presentViewController:navigationController1 animated:YES completion:nil];
+    return;
     UIImagePickerController *pick = [[UIImagePickerController alloc] init];
     pick.mediaTypes = @[(NSString *) kUTTypeImage, (NSString *) kUTTypeMovie];
     pick.videoQuality = UIImagePickerControllerQualityTypeMedium;
@@ -51,7 +59,6 @@
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    NSLog(@"Cancel");
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -64,10 +71,8 @@
     }];
 
 }
-
 - (void)gotoTextEdit {
     XBTextEditController *textXB = [[XBTextEditController alloc] init];
-
     textXB.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     textXB.text = @"柱子是🐷";
     textXB.textColor = [UIColor redColor];

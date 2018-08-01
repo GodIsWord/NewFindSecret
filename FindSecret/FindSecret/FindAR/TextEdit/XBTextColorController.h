@@ -22,5 +22,5 @@
     SevenColorView *sevenColorView;
     UIView *displayView;
 }
-@property (strong, nonatomic) id<TextColorDelegate> delegate;
+@property (weak, nonatomic) id<TextColorDelegate> delegate;
 @end

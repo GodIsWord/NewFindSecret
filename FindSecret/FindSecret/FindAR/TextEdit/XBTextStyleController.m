@@ -24,6 +24,9 @@
         NSArray *fontArray = [UIFont fontNamesForFamilyName:familyName];
         [_fontArray addObject:fontArray];
     }
+    
+    static NSString *ID = @"cell";
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
 }
 
 #pragma mark - Table view data source
@@ -45,8 +48,6 @@
     NSInteger row = indexPath.row;
     NSString* fontName = [[_fontArray objectAtIndex:section] objectAtIndex:row];
     
-    static NSString *ID = @"cell";
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.textLabel.text = fontName;
@@ -75,18 +76,14 @@
     if ([self.delegate respondsToSelector:@selector(showTextStyle:)]) {
         [self.delegate showTextStyle:fontName];
     }
-    //    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"字体名称" message:fontName preferredStyle:UIAlertControllerStyleAlert];
-    //    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
-    //    [alert addAction:okAction];
-    //    [self presentViewController:alert animated:YES completion:nil];
-    //
-    NSLog(@"字体名称为：%@",fontName);
+
+//    NSLog(@"字体名称为：%@",fontName);
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
 #pragma mark -- 代理
 -(void)changeTextStyle{
-  
+    
 }
 @end

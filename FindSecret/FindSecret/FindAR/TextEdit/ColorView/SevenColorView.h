@@ -24,6 +24,6 @@
     UILabel *label[7];
 }
 
-@property (strong, nonatomic) id<SevenColorViewDelegate> sevenColorViewDelegate;
+@property (weak, nonatomic) id<SevenColorViewDelegate> sevenColorViewDelegate;
 
 @end

@@ -22,6 +22,9 @@
 		CAE74491210EB272000D05B7 /* 调色板-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CAE74483210EB272000D05B7 /* 调色板-Info.plist */; };
 		CAE74495210EB332000D05B7 /* XBTextColorController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE74485210EB272000D05B7 /* XBTextColorController.m */; };
 		CAE74509210EE4E4000D05B7 /* palette.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE74508210EE4E3000D05B7 /* palette.png */; };
+		CAE7450D2111511A000D05B7 /* XBWhereAreYouController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE7450C2111511A000D05B7 /* XBWhereAreYouController.m */; };
+		CAE745102111513D000D05B7 /* XBWhoCanSeeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE7450F2111513D000D05B7 /* XBWhoCanSeeController.m */; };
+		CAE7451321115158000D05B7 /* XBSelectFriendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE7451221115158000D05B7 /* XBSelectFriendsController.m */; };
 		E6019644210C18C40046D1FA /* UIView+XBFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E6019643210C18C40046D1FA /* UIView+XBFrame.m */; };
 		E601964B210C21830046D1FA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E601964A210C21830046D1FA /* AVFoundation.framework */; };
 		E601964E210C3A300046D1FA /* XBPlayAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = E601964D210C3A300046D1FA /* XBPlayAudio.m */; };
@@ -64,6 +67,12 @@
 		CAE74484210EB272000D05B7 /* 调色板-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "调色板-Prefix.pch"; sourceTree = "<group>"; };
 		CAE74485210EB272000D05B7 /* XBTextColorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBTextColorController.m; sourceTree = "<group>"; };
 		CAE74508210EE4E3000D05B7 /* palette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette.png; sourceTree = "<group>"; };
+		CAE7450B2111511A000D05B7 /* XBWhereAreYouController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBWhereAreYouController.h; sourceTree = "<group>"; };
+		CAE7450C2111511A000D05B7 /* XBWhereAreYouController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBWhereAreYouController.m; sourceTree = "<group>"; };
+		CAE7450E2111513D000D05B7 /* XBWhoCanSeeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBWhoCanSeeController.h; sourceTree = "<group>"; };
+		CAE7450F2111513D000D05B7 /* XBWhoCanSeeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBWhoCanSeeController.m; sourceTree = "<group>"; };
+		CAE7451121115158000D05B7 /* XBSelectFriendsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBSelectFriendsController.h; sourceTree = "<group>"; };
+		CAE7451221115158000D05B7 /* XBSelectFriendsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBSelectFriendsController.m; sourceTree = "<group>"; };
 		E6019642210C18C40046D1FA /* UIView+XBFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+XBFrame.h"; sourceTree = "<group>"; };
 		E6019643210C18C40046D1FA /* UIView+XBFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+XBFrame.m"; sourceTree = "<group>"; };
 		E601964A210C21830046D1FA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -154,10 +163,24 @@
 			path = ColorView;
 			sourceTree = "<group>";
 		};
+		CAE7450A211150B1000D05B7 /* NextStep */ = {
+			isa = PBXGroup;
+			children = (
+				CAE7450B2111511A000D05B7 /* XBWhereAreYouController.h */,
+				CAE7450C2111511A000D05B7 /* XBWhereAreYouController.m */,
+				CAE7450E2111513D000D05B7 /* XBWhoCanSeeController.h */,
+				CAE7450F2111513D000D05B7 /* XBWhoCanSeeController.m */,
+				CAE7451121115158000D05B7 /* XBSelectFriendsController.h */,
+				CAE7451221115158000D05B7 /* XBSelectFriendsController.m */,
+			);
+			path = NextStep;
+			sourceTree = "<group>";
+		};
 		E6019640210C16880046D1FA /* FindAR */ = {
 			isa = PBXGroup;
 			children = (
 				BEA19C62210C25E20039086F /* XBMacroDefinition.h */,
+				CAE7450A211150B1000D05B7 /* NextStep */,
 				CAE743F8210C1A53000D05B7 /* TextEdit */,
 				E6019645210C1ADD0046D1FA /* RecordVoice */,
 				BEF23A21210C17B80061F74C /* VideoEdit */,
@@ -319,7 +342,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6C8EB3C211055CB00ED53E2 /* XBWeakProxy.m in Sources */,
+				CAE745102111513D000D05B7 /* XBWhoCanSeeController.m in Sources */,
 				E6C8EB2F21104C7200ED53E2 /* XBRecordAudioView.m in Sources */,
+				CAE7451321115158000D05B7 /* XBSelectFriendsController.m in Sources */,
 				E6019644210C18C40046D1FA /* UIView+XBFrame.m in Sources */,
 				E60E3B5C210C0FF000C5BFBB /* ViewController.m in Sources */,
 				8529BFE2210CDD4E007E90C9 /* UIView+XBEnlargeEdge.m in Sources */,
@@ -327,6 +352,7 @@
 				CAE74495210EB332000D05B7 /* XBTextColorController.m in Sources */,
 				E601964E210C3A300046D1FA /* XBPlayAudio.m in Sources */,
 				E6C8EB3921104E2600ED53E2 /* XBRecorderTestViewController.m in Sources */,
+				CAE7450D2111511A000D05B7 /* XBWhereAreYouController.m in Sources */,
 				CAE74407210C5E06000D05B7 /* XBTextEditController.m in Sources */,
 				BEA19C67210C4EE10039086F /* XBVideoIntervalChooseView.m in Sources */,
 				CAE7448C210EB272000D05B7 /* Palette.m in Sources */,

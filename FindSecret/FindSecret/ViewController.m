@@ -69,7 +69,9 @@
     XBTextEditController *textXB = [[XBTextEditController alloc] init];
 
     textXB.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-
+    textXB.text = @"柱子是🐷";
+    textXB.textColor = [UIColor redColor];
+    textXB.textStyle = @"";
     [self presentViewController:textXB animated:NO completion:nil];
 
 }

@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.view.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.backGroundView];
     [self createContentView];
@@ -49,6 +49,7 @@
     UILabel *placeholder = [[UILabel alloc] init];
     [self.contentView addSubview:placeholder];
     placeholder.frame = CGRectMake(25, 30, SCREEN_WIDTH - 100 - 26, 20);
+    
     placeholder.text = @"请输入内容";
     self.placeholder = placeholder;
     self.placeholder.font = [UIFont systemFontOfSize:16];
@@ -67,7 +68,12 @@
     self.editTextView.layer.cornerRadius = 10;
     self.editTextView.layer.masksToBounds = YES;
     
-    
+    if (self.text.length>0) {
+        placeholder.hidden = YES;
+        self.editTextView.text = self.text;
+        self.editTextView.textColor = self.textColor;
+        self.editTextView.font = [UIFont fontWithName:self.textStyle size:16];
+    }
     
     self.textButton = [[UIButton alloc]init];
     [self.contentView addSubview: self.textButton];
@@ -108,12 +114,13 @@
     [self.sureButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     self.sureButton.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.sureButton.layer.borderWidth = 0.5;
-
+    
+    
 }
 
 - (void)dismissAlertWindow{
     [self dismissViewControllerAnimated:NO completion:nil];
-
+    
 }
 -(void)textViewEndEdit{
     [self.editTextView resignFirstResponder];
@@ -138,7 +145,7 @@
 }
 -(void)showTextColor:(UIColor *)_color{
     self.editTextView.textColor = _color;
-
+    
 }
 // 开始编辑
 - (void)textViewDidBeginEditing:(UITextView *)textView{
@@ -222,13 +229,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

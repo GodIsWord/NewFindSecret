@@ -64,6 +64,14 @@
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *camera = [UIAlertAction actionWithTitle:@"拍摄" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
+        UIImagePickerController *pick = [[UIImagePickerController alloc] init];
+        pick.mediaTypes = @[(NSString *) kUTTypeMovie];
+        pick.videoQuality = UIImagePickerControllerQualityTypeMedium;
+        pick.sourceType = UIImagePickerControllerSourceTypeCamera;
+        pick.delegate = self;
+        [self presentViewController:pick animated:YES completion:nil];
+        
+        
     }];
     UIAlertAction *album = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         UIImagePickerController *pick = [[UIImagePickerController alloc] init];

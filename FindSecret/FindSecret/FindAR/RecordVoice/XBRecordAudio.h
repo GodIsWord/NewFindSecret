@@ -13,8 +13,8 @@
 @protocol XBRecordAudioDelegate<NSObject>
 
 @optional
--(void)audioRecorderEncodeErrorDidOccur:(XBRecordAudio *)recorder error:(NSError *)error;
--(void)audioRecorderDidFinishRecording:(XBRecordAudio *)recorder successfully:(BOOL)flag;
+-(void)xbAudioRecorderEncodeErrorDidOccur:(XBRecordAudio *)recorder error:(NSError *)error;
+-(void)xbAudioRecorderDidFinishRecording:(XBRecordAudio *)recorder successfully:(BOOL)flag;
 
 
 @end
@@ -29,13 +29,13 @@
 
 @property (nonatomic,assign,readonly) double currentVolume;//当前音量大小 0-1之间
 
-@property(assign, nullable) id<XBRecordAudioDelegate> delegate;
+@property(weak, nonatomic) id<XBRecordAudioDelegate> delegate;
 
 
 /**
  @return 录音音频文件地址
  */
-+(NSString*)audioPath;
++(NSString*)recordPath;
 
 /**
  开始录音

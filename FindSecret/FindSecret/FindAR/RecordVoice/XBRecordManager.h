@@ -10,4 +10,14 @@
 
 @interface XBRecordManager : NSObject
 
+-(void)startRecord;
+
+-(void)endRecord;
+
+-(void)playAudioWithURL:(NSURL*)urlh;
+
+-(void)stopPlay;
+
+-(NSString*)lastAudioPath;
+
 @end

@@ -14,12 +14,16 @@
 
 #import "XBTimer.h"
 
+#import "XBRecordManager.h"
+
 @interface XBRecorderTestViewController ()
 
-@property(nonatomic,strong) XBRecordAudio *recorder;
-@property(nonatomic,strong) XBPlayAudio *audioPlayer;
+//@property(nonatomic,strong) XBRecordAudio *recorder;
+//@property(nonatomic,strong) XBPlayAudio *audioPlayer;
+//
+//@property(nonatomic,strong) XBTimer *timer;
 
-@property(nonatomic,strong) XBTimer *timer;
+@property(nonatomic,strong)XBRecordManager *recorderManager;
 
 
 @end
@@ -30,7 +34,7 @@ static int type = 0;
 
 -(void)dealloc{
     NSLog(@"dealloc");
-    [self.timer invalidate];
+//    [self.timer invalidate];
 }
 
 - (void)viewDidLoad {
@@ -39,8 +43,10 @@ static int type = 0;
     
     self.view.backgroundColor = [UIColor greenColor];
     
-    self.recorder = [[XBRecordAudio alloc] init];
-    self.audioPlayer = [[XBPlayAudio alloc] init];
+//    self.recorder = [[XBRecordAudio alloc] init];
+//    self.audioPlayer = [[XBPlayAudio alloc] init];
+    
+    self.recorderManager = [[XBRecordManager alloc] init];
     
     [self initSubbview];
 }
@@ -71,9 +77,9 @@ static int type = 0;
     
     [btn1 addTarget:self action:@selector(btnVoiceAction:) forControlEvents:UIControlEventTouchUpInside];
     
-    self.timer = [XBTimer timerWithTimeInterval:0.01 target:self selector:@selector(timerAction) repeats:YES];
-    
-    [self.timer fire];
+//    self.timer = [XBTimer timerWithTimeInterval:0.01 target:self selector:@selector(timerAction) repeats:YES];
+//
+//    [self.timer fire];
     
     
     UIView *longPressView = [[UIView alloc] initWithFrame:CGRectMake(0, screenHeight-110, screenWidth, 44)];
@@ -90,17 +96,17 @@ static int type = 0;
     switch (type) {
         case 0:
         {
-            [XBRecordAudioView hidden];
+//            [XBRecordAudioView hidden];
         }
             break;
         case 1:
         {
-            [XBRecordAudioView showWithVolume:self.recorder.currentVolume];
+//            [XBRecordAudioView showWithVolume:self.recorder.currentVolume];
         }
             break;
         case 2:
         {
-            [XBRecordAudioView showWithVolume:self.audioPlayer.currentVolume];
+//            [XBRecordAudioView showWithVolume:self.audioPlayer.currentVolume];
         }
             break;
             
@@ -112,10 +118,10 @@ static int type = 0;
 
 -(void)longPress:(UIGestureRecognizer*)sender{
     if ([sender state] == UIGestureRecognizerStateBegan) {
-         [self.recorder start];
+//         [self.recorder start];
         type = 1;
     }else if([sender state] == UIGestureRecognizerStateEnded){
-        [self.recorder stop];
+//        [self.recorder stop];
         type = 0;
     }
     
@@ -125,21 +131,25 @@ static int type = 0;
 -(void)btnAction:(UIButton*)btn{
     btn.selected = !btn.selected;
     if (btn.selected) {
-        [self.recorder start];
+//        [self.recorder start];
         type = 1;
+        [self.recorderManager startRecord];
     }else{
-        [self.recorder stop];
+//        [self.recorder stop];
         type = 0;
+        [self.recorderManager endRecord];
     }
 }
 -(void)btnVoiceAction:(UIButton*)btn{
     btn.selected = !btn.selected;
     if (btn.selected) {
-        [self.audioPlayer playWithContentOfURL:[NSURL URLWithString:[XBRecordAudio audioPath]] error:nil];
+//        [self.audioPlayer playWithContentOfURL:[NSURL URLWithString:[XBRecordAudio audioPath]] error:nil];
         type = 2;
+        [self.recorderManager playAudioWithURL:[NSURL URLWithString:[self.recorderManager lastAudioPath]]];
     }else{
-        [self.audioPlayer stop];
+//        [self.audioPlayer stop];
         type = 0;
+        [self.recorderManager stopPlay];
     }
 }
 

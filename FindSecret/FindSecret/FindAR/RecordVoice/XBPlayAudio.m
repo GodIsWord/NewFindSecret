@@ -54,6 +54,15 @@
     [self.audioPlayer play];
 }
 
+-(void)play{
+    self.audioPlayer = nil;
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:_url error:nil];
+    self.audioPlayer.meteringEnabled = YES;
+    [self.audioPlayer prepareToPlay];
+    self.audioPlayer.delegate = self;
+    [self.audioPlayer play];
+}
+
 -(void)pause{
     [self.audioPlayer pause];
 }
@@ -118,15 +127,27 @@
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer*)player successfully:(BOOL)flag{
     //播放结束时执行的动作
     self.audioPlayer = nil;
+    if ([self.delegate respondsToSelector:@selector(xbAudioPlayerDidFinishPlaying:successfully:)]) {
+        [self.delegate xbAudioPlayerDidFinishPlaying:self successfully:flag];
+    }
 }
 - (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer*)player error:(NSError *)error{
     //解码错误执行的动作
+    if ([self.delegate respondsToSelector:@selector(xbAudioPlayerDecodeErrorDidOccur:error:)]) {
+        [self.delegate xbAudioPlayerDecodeErrorDidOccur:self error:error];
+    }
 }
 - (void)audioPlayerBeginInteruption:(AVAudioPlayer*)player{
     //处理中断的代码
+    if ([self.delegate respondsToSelector:@selector(xbAudioPlayerBeginInteruption:)]) {
+        [self.delegate xbAudioPlayerBeginInteruption:self];
+    }
 }
 - (void)audioPlayerEndInteruption:(AVAudioPlayer*)player{
     //处理中断结束的代码
+    if ([self.delegate respondsToSelector:@selector(xbAudioPlayerEndInteruption:)]) {
+        [self.delegate xbAudioPlayerEndInteruption:self];
+    }
 }
 
 

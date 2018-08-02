@@ -98,7 +98,7 @@
 		E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B62210C0FF100C5BFBB /* LaunchScreen.storyboard */; };
 		E60E3B67210C0FF100C5BFBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B66210C0FF100C5BFBB /* main.m */; };
 		E64807C1210FFB8500050124 /* XBTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = E64807C0210FFB8500050124 /* XBTimer.m */; };
-		E6A0BA6A2112928800326AE9 /* XBRecordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A0BA692112928800326AE9 /* XBRecordManager.m */; };
+		E6A0BA6A2112928800326AE9 /* XBAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A0BA692112928800326AE9 /* XBAudioManager.m */; };
 		E6C8EB2F21104C7200ED53E2 /* XBRecordAudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = E64807BD210FF47200050124 /* XBRecordAudioView.m */; };
 		E6C8EB3621104DFB00ED53E2 /* XBRecordAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C8EB3521104DFA00ED53E2 /* XBRecordAudio.m */; };
 		E6C8EB3921104E2600ED53E2 /* XBRecorderTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C8EB3821104E2600ED53E2 /* XBRecorderTestViewController.m */; };
@@ -152,7 +152,6 @@
 		CAE745BF21129C3F000D05B7 /* MPUserDefaultsHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPUserDefaultsHead.h; sourceTree = "<group>"; };
 		CAE745C021129C3F000D05B7 /* ShareKey_mapKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareKey_mapKey.h; sourceTree = "<group>"; };
 		CAE745C121129C3F000D05B7 /* wh_Head.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wh_Head.h; sourceTree = "<group>"; };
-		CAE745C221129C3F000D05B7 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		CAE745C521129C3F000D05B7 /* WXBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXBaseModel.h; sourceTree = "<group>"; };
 		CAE745C621129C3F000D05B7 /* WXBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXBaseModel.m; sourceTree = "<group>"; };
 		CAE745C821129C3F000D05B7 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
@@ -275,8 +274,9 @@
 		E64807BD210FF47200050124 /* XBRecordAudioView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecordAudioView.m; sourceTree = "<group>"; };
 		E64807BF210FFB8500050124 /* XBTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBTimer.h; sourceTree = "<group>"; };
 		E64807C0210FFB8500050124 /* XBTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBTimer.m; sourceTree = "<group>"; };
-		E6A0BA682112928800326AE9 /* XBRecordManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBRecordManager.h; sourceTree = "<group>"; };
-		E6A0BA692112928800326AE9 /* XBRecordManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecordManager.m; sourceTree = "<group>"; };
+		E6A0BA682112928800326AE9 /* XBAudioManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBAudioManager.h; sourceTree = "<group>"; };
+		E6A0BA692112928800326AE9 /* XBAudioManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBAudioManager.m; sourceTree = "<group>"; };
+		E6A0BA6C21131B0700326AE9 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		E6C8EB3421104DFA00ED53E2 /* XBRecordAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBRecordAudio.h; sourceTree = "<group>"; };
 		E6C8EB3521104DFA00ED53E2 /* XBRecordAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBRecordAudio.m; sourceTree = "<group>"; };
 		E6C8EB3721104E2600ED53E2 /* XBRecorderTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBRecorderTestViewController.h; sourceTree = "<group>"; };
@@ -697,8 +697,8 @@
 				E601964D210C3A300046D1FA /* XBPlayAudio.m */,
 				E6C8EB3D21114B4D00ED53E2 /* XBRecordAudioStorage.h */,
 				E6C8EB3E21114B4D00ED53E2 /* XBRecordAudioStorage.m */,
-				E6A0BA682112928800326AE9 /* XBRecordManager.h */,
-				E6A0BA692112928800326AE9 /* XBRecordManager.m */,
+				E6A0BA682112928800326AE9 /* XBAudioManager.h */,
+				E6A0BA692112928800326AE9 /* XBAudioManager.m */,
 				E64807BC210FF47200050124 /* XBRecordAudioView.h */,
 				E64807BD210FF47200050124 /* XBRecordAudioView.m */,
 				E6C8EB3721104E2600ED53E2 /* XBRecorderTestViewController.h */,
@@ -748,7 +748,7 @@
 				E6019640210C16880046D1FA /* FindAR */,
 				E60E3B57210C0FF000C5BFBB /* AppDelegate.h */,
 				E60E3B58210C0FF000C5BFBB /* AppDelegate.m */,
-				CAE745C221129C3F000D05B7 /* PrefixHeader.pch */,
+				E6A0BA6C21131B0700326AE9 /* PrefixHeader.pch */,
 				E60E3B5A210C0FF000C5BFBB /* ViewController.h */,
 				E60E3B5B210C0FF000C5BFBB /* ViewController.m */,
 				E60E3B5D210C0FF000C5BFBB /* Main.storyboard */,
@@ -885,7 +885,7 @@
 				CAE7463E21129C3F000D05B7 /* UISearchBar+MP.m in Sources */,
 				E6C8EB3F21114B4D00ED53E2 /* XBRecordAudioStorage.m in Sources */,
 				CAE7465E21129C3F000D05B7 /* XBNoResultHeadView.m in Sources */,
-				E6A0BA6A2112928800326AE9 /* XBRecordManager.m in Sources */,
+				E6A0BA6A2112928800326AE9 /* XBAudioManager.m in Sources */,
 				CAE7464D21129C3F000D05B7 /* XHActivityIndicatorView.m in Sources */,
 				CAE7463D21129C3F000D05B7 /* UIScrollView+Addition.m in Sources */,
 				CAE74407210C5E06000D05B7 /* XBTextEditController.m in Sources */,
@@ -1068,7 +1068,7 @@
 					"$(PROJECT_DIR)/FindSecret/FindAR/Publish/WhereAreYou/ThirdParty/高德地图",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/huangyanhong/Desktop/NewFindSecret/FindSecret/FindSecret/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/FindSecret/PrefixHeader.pch";
 				INFOPLIST_FILE = FindSecret/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1092,7 +1092,7 @@
 					"$(PROJECT_DIR)/FindSecret/FindAR/Publish/WhereAreYou/ThirdParty/高德地图",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/huangyanhong/Desktop/NewFindSecret/FindSecret/FindSecret/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/FindSecret/PrefixHeader.pch";
 				INFOPLIST_FILE = FindSecret/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

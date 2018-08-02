@@ -1,12 +1,12 @@
 //
-//  XBRecordManager.m
+//  XBAudioManager.m
 //  FindSecret
 //
 //  Created by yidezhang on 2018/8/2.
 //  Copyright © 2018年 Mac. All rights reserved.
 //
 
-#import "XBRecordManager.h"
+#import "XBAudioManager.h"
 
 #import "XBRecordAudio.h"
 #import "XBPlayAudio.h"
@@ -14,7 +14,7 @@
 #import "XBTimer.h"
 #import "XBRecordAudioStorage.h"
 
-@interface XBRecordManager()<XBPlayAudioDelegate,XBRecordAudioDelegate>
+@interface XBAudioManager()<XBPlayAudioDelegate,XBRecordAudioDelegate>
 
 @property(nonatomic,strong) XBRecordAudio *recorder;
 @property(nonatomic,strong) XBPlayAudio *player;
@@ -24,7 +24,7 @@
 @end
 
 
-@implementation XBRecordManager
+@implementation XBAudioManager
 
 -(void)dealloc{
     [_timer invalidate];

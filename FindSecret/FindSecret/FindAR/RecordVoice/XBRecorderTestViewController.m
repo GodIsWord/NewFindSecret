@@ -14,7 +14,7 @@
 
 #import "XBTimer.h"
 
-#import "XBRecordManager.h"
+#import "XBAudioManager.h"
 
 @interface XBRecorderTestViewController ()
 
@@ -23,7 +23,7 @@
 //
 //@property(nonatomic,strong) XBTimer *timer;
 
-@property(nonatomic,strong)XBRecordManager *recorderManager;
+@property(nonatomic,strong)XBAudioManager *recorderManager;
 
 
 @end
@@ -46,7 +46,7 @@ static int type = 0;
 //    self.recorder = [[XBRecordAudio alloc] init];
 //    self.audioPlayer = [[XBPlayAudio alloc] init];
     
-    self.recorderManager = [[XBRecordManager alloc] init];
+    self.recorderManager = [[XBAudioManager alloc] init];
     
     [self initSubbview];
 }

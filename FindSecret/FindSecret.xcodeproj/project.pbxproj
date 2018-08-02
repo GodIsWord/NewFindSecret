@@ -38,10 +38,12 @@
 		E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B62210C0FF100C5BFBB /* LaunchScreen.storyboard */; };
 		E60E3B67210C0FF100C5BFBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B66210C0FF100C5BFBB /* main.m */; };
 		E64807C1210FFB8500050124 /* XBTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = E64807C0210FFB8500050124 /* XBTimer.m */; };
+		E6A0BA6A2112928800326AE9 /* XBRecordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A0BA692112928800326AE9 /* XBRecordManager.m */; };
 		E6C8EB2F21104C7200ED53E2 /* XBRecordAudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = E64807BD210FF47200050124 /* XBRecordAudioView.m */; };
 		E6C8EB3621104DFB00ED53E2 /* XBRecordAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C8EB3521104DFA00ED53E2 /* XBRecordAudio.m */; };
 		E6C8EB3921104E2600ED53E2 /* XBRecorderTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C8EB3821104E2600ED53E2 /* XBRecorderTestViewController.m */; };
 		E6C8EB3C211055CB00ED53E2 /* XBWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C8EB3B211055CB00ED53E2 /* XBWeakProxy.m */; };
+		E6C8EB3F21114B4D00ED53E2 /* XBRecordAudioStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C8EB3E21114B4D00ED53E2 /* XBRecordAudioStorage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,12 +102,16 @@
 		E64807BD210FF47200050124 /* XBRecordAudioView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecordAudioView.m; sourceTree = "<group>"; };
 		E64807BF210FFB8500050124 /* XBTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBTimer.h; sourceTree = "<group>"; };
 		E64807C0210FFB8500050124 /* XBTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBTimer.m; sourceTree = "<group>"; };
+		E6A0BA682112928800326AE9 /* XBRecordManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBRecordManager.h; sourceTree = "<group>"; };
+		E6A0BA692112928800326AE9 /* XBRecordManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecordManager.m; sourceTree = "<group>"; };
 		E6C8EB3421104DFA00ED53E2 /* XBRecordAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBRecordAudio.h; sourceTree = "<group>"; };
 		E6C8EB3521104DFA00ED53E2 /* XBRecordAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBRecordAudio.m; sourceTree = "<group>"; };
 		E6C8EB3721104E2600ED53E2 /* XBRecorderTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBRecorderTestViewController.h; sourceTree = "<group>"; };
 		E6C8EB3821104E2600ED53E2 /* XBRecorderTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecorderTestViewController.m; sourceTree = "<group>"; };
 		E6C8EB3A211055CB00ED53E2 /* XBWeakProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBWeakProxy.h; sourceTree = "<group>"; };
 		E6C8EB3B211055CB00ED53E2 /* XBWeakProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBWeakProxy.m; sourceTree = "<group>"; };
+		E6C8EB3D21114B4D00ED53E2 /* XBRecordAudioStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBRecordAudioStorage.h; sourceTree = "<group>"; };
+		E6C8EB3E21114B4D00ED53E2 /* XBRecordAudioStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecordAudioStorage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +238,10 @@
 				E6C8EB3521104DFA00ED53E2 /* XBRecordAudio.m */,
 				E601964C210C3A300046D1FA /* XBPlayAudio.h */,
 				E601964D210C3A300046D1FA /* XBPlayAudio.m */,
+				E6C8EB3D21114B4D00ED53E2 /* XBRecordAudioStorage.h */,
+				E6C8EB3E21114B4D00ED53E2 /* XBRecordAudioStorage.m */,
+				E6A0BA682112928800326AE9 /* XBRecordManager.h */,
+				E6A0BA692112928800326AE9 /* XBRecordManager.m */,
 				E64807BC210FF47200050124 /* XBRecordAudioView.h */,
 				E64807BD210FF47200050124 /* XBRecordAudioView.m */,
 				E6C8EB3721104E2600ED53E2 /* XBRecorderTestViewController.h */,
@@ -377,6 +387,8 @@
 				857616602111F5020091E7C1 /* XBMakeViewController.m in Sources */,
 				E6C8EB3921104E2600ED53E2 /* XBRecorderTestViewController.m in Sources */,
 				CAE7450D2111511A000D05B7 /* XBWhereAreYouController.m in Sources */,
+				E6C8EB3F21114B4D00ED53E2 /* XBRecordAudioStorage.m in Sources */,
+				E6A0BA6A2112928800326AE9 /* XBRecordManager.m in Sources */,
 				CAE74407210C5E06000D05B7 /* XBTextEditController.m in Sources */,
 				BEA19C67210C4EE10039086F /* XBVideoIntervalChooseView.m in Sources */,
 				CAE7448C210EB272000D05B7 /* Palette.m in Sources */,

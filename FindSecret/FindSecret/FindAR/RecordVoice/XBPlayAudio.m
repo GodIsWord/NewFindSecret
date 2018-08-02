@@ -100,17 +100,17 @@
     NSFileManager *manager = [NSFileManager defaultManager];
     long long size = 0;
     if (![manager fileExistsAtPath:strPath]) {
-        return size;
+        return (long)size;
     }
     NSError *error = nil;
     NSDictionary *fileDic = [manager attributesOfItemAtPath:strPath error:&error];
     if (error) {
         NSLog(@"error:%@",error);
-        return size;
+        return (long)size;
     }
     size = [fileDic fileSize];
     
-    return size/1024;
+    return (long)size/1024;
     
 }
 #pragma mark --- delegate

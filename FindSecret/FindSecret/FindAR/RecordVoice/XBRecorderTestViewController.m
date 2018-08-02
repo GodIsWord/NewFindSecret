@@ -58,8 +58,7 @@ static int type = 0;
     
     [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
     
-//    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress)];
-//    [btn addGestureRecognizer:longPress];
+    
     
 
     UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -75,6 +74,16 @@ static int type = 0;
     self.timer = [XBTimer timerWithTimeInterval:0.01 target:self selector:@selector(timerAction) repeats:YES];
     
     [self.timer fire];
+    
+    
+    UIView *longPressView = [[UIView alloc] initWithFrame:CGRectMake(0, screenHeight-110, screenWidth, 44)];
+    longPressView.backgroundColor = [UIColor blueColor];
+    longPressView.userInteractionEnabled = YES;
+    [self.view addSubview:longPressView];
+    
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
+    [longPressView addGestureRecognizer:longPress];
+    
 }
 
 -(void)timerAction{
@@ -101,8 +110,15 @@ static int type = 0;
     
 }
 
--(void)longPress{
-//    [self.recorder start];
+-(void)longPress:(UIGestureRecognizer*)sender{
+    if ([sender state] == UIGestureRecognizerStateBegan) {
+         [self.recorder start];
+        type = 1;
+    }else if([sender state] == UIGestureRecognizerStateEnded){
+        [self.recorder stop];
+        type = 0;
+    }
+    
 }
 
 

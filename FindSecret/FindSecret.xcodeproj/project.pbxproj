@@ -15,6 +15,8 @@
 		BEA19C67210C4EE10039086F /* XBVideoIntervalChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA19C66210C4EE10039086F /* XBVideoIntervalChooseView.m */; };
 		BEF23A24210C17C90061F74C /* XBVideoEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF23A23210C17C90061F74C /* XBVideoEditController.m */; };
 		CAA183352112E9660032AE81 /* XBPublishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA183342112E9660032AE81 /* XBPublishCell.m */; };
+		CAA183392112F1120032AE81 /* XBSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAA183382112F1120032AE81 /* XBSelectCell.xib */; };
+		CAA1833C2112F60D0032AE81 /* XBSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA1833B2112F60D0032AE81 /* XBSelectCell.m */; };
 		CAE74404210C59CD000D05B7 /* XBTextStyleController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE74403210C59CD000D05B7 /* XBTextStyleController.m */; };
 		CAE74407210C5E06000D05B7 /* XBTextEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE74406210C5E06000D05B7 /* XBTextEditController.m */; };
 		CAE74487210EB272000D05B7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE74474210EB272000D05B7 /* Default-568h@2x.png */; };
@@ -120,6 +122,9 @@
 		BEF23A23210C17C90061F74C /* XBVideoEditController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBVideoEditController.m; sourceTree = "<group>"; };
 		CAA183332112E9660032AE81 /* XBPublishCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBPublishCell.h; sourceTree = "<group>"; };
 		CAA183342112E9660032AE81 /* XBPublishCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBPublishCell.m; sourceTree = "<group>"; };
+		CAA183382112F1120032AE81 /* XBSelectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBSelectCell.xib; sourceTree = "<group>"; };
+		CAA1833A2112F60D0032AE81 /* XBSelectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBSelectCell.h; sourceTree = "<group>"; };
+		CAA1833B2112F60D0032AE81 /* XBSelectCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBSelectCell.m; sourceTree = "<group>"; };
 		CAE74402210C59CD000D05B7 /* XBTextStyleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBTextStyleController.h; sourceTree = "<group>"; };
 		CAE74403210C59CD000D05B7 /* XBTextStyleController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBTextStyleController.m; sourceTree = "<group>"; };
 		CAE74405210C5E06000D05B7 /* XBTextEditController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBTextEditController.h; sourceTree = "<group>"; };
@@ -328,6 +333,27 @@
 			path = VideoEdit;
 			sourceTree = "<group>";
 		};
+		CAA183362112EFC70032AE81 /* WhoCanSee */ = {
+			isa = PBXGroup;
+			children = (
+				CAE7450E2111513D000D05B7 /* XBWhoCanSeeController.h */,
+				CAE7450F2111513D000D05B7 /* XBWhoCanSeeController.m */,
+				CAA183382112F1120032AE81 /* XBSelectCell.xib */,
+				CAA1833A2112F60D0032AE81 /* XBSelectCell.h */,
+				CAA1833B2112F60D0032AE81 /* XBSelectCell.m */,
+			);
+			path = WhoCanSee;
+			sourceTree = "<group>";
+		};
+		CAA183372112EFD90032AE81 /* SelectFriends */ = {
+			isa = PBXGroup;
+			children = (
+				CAE7451121115158000D05B7 /* XBSelectFriendsController.h */,
+				CAE7451221115158000D05B7 /* XBSelectFriendsController.m */,
+			);
+			path = SelectFriends;
+			sourceTree = "<group>";
+		};
 		CAE743F8210C1A53000D05B7 /* TextEdit */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,11 +396,9 @@
 		CAE7450A211150B1000D05B7 /* Publish */ = {
 			isa = PBXGroup;
 			children = (
+				CAA183372112EFD90032AE81 /* SelectFriends */,
+				CAA183362112EFC70032AE81 /* WhoCanSee */,
 				CAE745B921129C3F000D05B7 /* WhereAreYou */,
-				CAE7450E2111513D000D05B7 /* XBWhoCanSeeController.h */,
-				CAE7450F2111513D000D05B7 /* XBWhoCanSeeController.m */,
-				CAE7451121115158000D05B7 /* XBSelectFriendsController.h */,
-				CAE7451221115158000D05B7 /* XBSelectFriendsController.m */,
 				CAE7467B2112D0EF000D05B7 /* XBPublishController.h */,
 				CAE7467C2112D0EF000D05B7 /* XBPublishController.m */,
 				CAA183332112E9660032AE81 /* XBPublishCell.h */,
@@ -796,6 +820,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */,
+				CAA183392112F1120032AE81 /* XBSelectCell.xib in Resources */,
 				857616662111FAAD0091E7C1 /* XBMakeToolView.xib in Resources */,
 				CAE7464021129C3F000D05B7 /* LICENSE in Resources */,
 				CAE7463021129C3F000D05B7 /* MJRefresh.bundle in Resources */,
@@ -826,6 +851,7 @@
 				CAE745102111513D000D05B7 /* XBWhoCanSeeController.m in Sources */,
 				CAE7466521129F45000D05B7 /* XHFoundationCommon.m in Sources */,
 				CAE7465A21129C3F000D05B7 /* XBBaseTableViewController.m in Sources */,
+				CAA1833C2112F60D0032AE81 /* XBSelectCell.m in Sources */,
 				CAE7465021129C3F000D05B7 /* XHJDRefreshView.m in Sources */,
 				CAE7464A21129C3F000D05B7 /* XHSystemTableViewController.m in Sources */,
 				857616642111FAA10091E7C1 /* XBMakeToolView.m in Sources */,

@@ -10,6 +10,7 @@
 #import "XBMacroDefinition.h"
 #import "XBFindNearAddressVC.h"
 #import "XBPublishCell.h"
+#import "XBWhoCanSeeController.h"
 @interface XBPublishController ()<UITextViewDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITextView *editTextView;
 @property (nonatomic, strong) UILabel *placeholder;
@@ -138,6 +139,8 @@
         [self.navigationController pushViewController:vc animated:YES];
         
     }else if (indexPath.row == 1){
+        XBWhoCanSeeController *vc = [XBWhoCanSeeController new];
+        [self.navigationController pushViewController:vc animated:YES];
         
     }else if (indexPath.row == 2){
         

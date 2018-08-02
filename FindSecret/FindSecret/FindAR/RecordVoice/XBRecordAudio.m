@@ -9,6 +9,8 @@
 #import "XBRecordAudio.h"
 #import <AVFoundation/AVFoundation.h>
 
+#import "XBRecordAudioStorage.h"
+
 @interface XBRecordAudio()<AVAudioRecorderDelegate>
 
 @property (nonatomic,strong) AVAudioRecorder *audioRecorder;
@@ -21,7 +23,7 @@
 
 @implementation XBRecordAudio
 
--(void)setMaxDuration:(CGFloat)maxDuration{
+-(void)setMaxDuration:(NSTimeInterval)maxDuration{
     _maxDuration = maxDuration;
     [self.audioRecorder recordForDuration:maxDuration];
 }
@@ -139,10 +141,6 @@
     return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"recorder.caf"];
 }
 
-+(NSString *)audioPath{
-    return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"player.caf"];
-}
-
 /**
  @return 文件大小 k
  */
@@ -153,17 +151,17 @@
     NSFileManager *manager = [NSFileManager defaultManager];
     long long size = 0;
     if (![manager fileExistsAtPath:strPath]) {
-        return size;
+        return (long)size;
     }
     NSError *error = nil;
     NSDictionary *fileDic = [manager attributesOfItemAtPath:strPath error:&error];
     if (error) {
         NSLog(@"error:%@",error);
-        return size;
+        return (long)size;
     }
     size = [fileDic fileSize];
     
-    return size/1024;
+    return (long)size/1024;
     
 }
 
@@ -171,23 +169,19 @@
 //录音失败
 -(void)audioRecorderEncodeErrorDidOccur:(AVAudioRecorder *)recorder error:(NSError *)error
 {
-    if ([self.delegate respondsToSelector:@selector(audioRecorderEncodeErrorDidOccur:error:)]) {
-        [self.delegate audioRecorderEncodeErrorDidOccur:self error:error];
+    if ([self.delegate respondsToSelector:@selector(xbAudioRecorderEncodeErrorDidOccur:error:)]) {
+        [self.delegate xbAudioRecorderEncodeErrorDidOccur:self error:error];
     }
 }
 
 -(void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
 {
     self.duration = self.audioRecorder.currentTime;
+
+    [XBRecordAudioStorage saveAudioWithDataPath:[XBRecordAudio recordPath]];
     
-    NSFileManager *manager = [NSFileManager defaultManager];
-    NSError *error;
-    [manager removeItemAtPath:[XBRecordAudio audioPath] error:&error];
-    [manager createFileAtPath:[XBRecordAudio audioPath] contents:[NSData dataWithContentsOfFile:[XBRecordAudio recordPath]] attributes:nil];
-    NSLog(@"flag:%d,error:%@",flag,error);
-    
-    if ([self.delegate respondsToSelector:@selector(audioRecorderDidFinishRecording:successfully:)]) {
-        [self.delegate audioRecorderDidFinishRecording:self successfully:flag];
+    if ([self.delegate respondsToSelector:@selector(xbAudioRecorderDidFinishRecording:successfully:)]) {
+        [self.delegate xbAudioRecorderDidFinishRecording:self successfully:flag];
     }
 }
 

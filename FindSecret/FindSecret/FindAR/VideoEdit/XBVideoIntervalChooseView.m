@@ -169,7 +169,7 @@
     }
     
     CGFloat duration = seconds * self.speed + self.contentInsets.left;
-    NSLog(@"current seconds :%f",duration);
+    
     CGPoint point = [self.colletionView convertPoint:CGPointMake(duration, 0) toView:self];
     CGRect frame = self.targetLayer.frame;
     frame.origin.x = point.x;
@@ -253,15 +253,17 @@
             
             break;
         }
-        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateEnded:{
             if ([self.delegate respondsToSelector:@selector(videoIntervalChooseViewEventEdittingEnded)]) {
                 [self.delegate videoIntervalChooseViewEventEdittingEnded];
             }
-            if ([self.delegate respondsToSelector:@selector(videoShouldPlayFrom:to:)]) {
-                [self.delegate videoShouldPlayFrom:[self getStartCMTime] to:[self getStopCMTime]];
-            }
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                if ([self.delegate respondsToSelector:@selector(videoShouldPlayFrom:to:)]) {
+                    [self.delegate videoShouldPlayFrom:[self getStartCMTime] to:[self getStopCMTime]];
+                }
+            });
             break;
-
+        }
             
         default:
             break;
@@ -381,15 +383,21 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (decelerate == NO) {
-        if ([self.delegate respondsToSelector:@selector(videoShouldPlayFrom:to:)]) {
-            [self.delegate videoShouldPlayFrom:[self getStartCMTime] to:[self getStopCMTime]];
-        }
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if ([self.delegate respondsToSelector:@selector(videoShouldPlayFrom:to:)]) {
+                [self.delegate videoShouldPlayFrom:[self getStartCMTime] to:[self getStopCMTime]];
+            }
+
+        });
     }
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    if ([self.delegate respondsToSelector:@selector(videoShouldPlayFrom:to:)]) {
-        [self.delegate videoShouldPlayFrom:[self getStartCMTime] to:[self getStopCMTime]];
-    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if ([self.delegate respondsToSelector:@selector(videoShouldPlayFrom:to:)]) {
+            [self.delegate videoShouldPlayFrom:[self getStartCMTime] to:[self getStopCMTime]];
+        }
+        
+    });
 }
 #pragma mark - UICollectionViewDelegateFlowLayout
 

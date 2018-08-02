@@ -111,10 +111,20 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
     __weak typeof(self) weakSelf = self;
 //     观察间隔, CMTime 为30分之一秒
     self.playTimeObserver = [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 60) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+        
+        
+        CMTime currentTime = weakSelf.player.currentItem.currentTime;
+        
+
+        
+        NSLog(@"playTimeObserver :%@",[NSValue valueWithCMTime:currentTime]);
         if (weakSelf.isEidt) {
             return;
         }
-        [weakSelf.editView animatedWithSeconds:CMTimeGetSeconds(time)];
+        
+        
+        
+        [weakSelf.editView animatedWithSeconds:CMTimeGetSeconds(currentTime)];
 
 //        if (_touchMode != TouchPlayerViewModeHorizontal) {
 //            // 获取 item 当前播放秒
@@ -206,6 +216,7 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
 
 //addBoundaryTimeObserverForTimes
 - (void)playInBoundaryForm:(CMTime)fromTime to:(CMTime)toTime {
+
     self.startTime = fromTime;
     self.stopTime = toTime;
     self.isEidt = NO;
@@ -217,6 +228,7 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
         [self.player pause];
     }
     [self.player seekToTime:self.startTime];
+    NSLog(@"seekToTime %@ ", [NSValue valueWithCMTime:fromTime]);
     [self.player play];
     __weak typeof(self) wself = self;
     self.playBoundaryTimeObserver = [self.player addBoundaryTimeObserverForTimes:@[[NSValue valueWithCMTime:self.stopTime]] queue:dispatch_get_main_queue() usingBlock:^{
@@ -234,7 +246,7 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
 }
 
 - (void)invalidatePlay {
-//    [self.player removeTimeObserver:self.playTimeObserver];
+    [self.player removeTimeObserver:self.playTimeObserver];
     if (self.playBoundaryTimeObserver) {
         [self.player removeTimeObserver:self.playBoundaryTimeObserver];
         self.playBoundaryTimeObserver = nil;
@@ -317,6 +329,9 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
 
 - (void)replayWhenViewDidAppear {
     if (self.viewDidAppear && !self.isEidt) {
+        if (CMTIME_IS_INVALID(self.startTime)){
+            return;
+        }
         [self.player seekToTime:self.startTime];
         [self.player play];
     }

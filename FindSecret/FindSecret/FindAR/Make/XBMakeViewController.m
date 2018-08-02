@@ -12,6 +12,7 @@
 #import <MobileCoreServices/UTCoreTypes.h>
 #import "XBVideoEditController.h"
 #import "XBTextEditController.h"
+#import <AVFoundation/AVFoundation.h>
 #import "XBRecorderTestViewController.h"
 @interface XBMakeViewController () <XBMakeToolViewDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, strong) UIToolbar *confirmToolbar;
@@ -74,11 +75,11 @@
         
     }];
     UIAlertAction *album = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        UIImagePickerController *pick = [[UIImagePickerController alloc] init];
-        pick.mediaTypes = @[(NSString *) kUTTypeMovie];
-        pick.videoQuality = UIImagePickerControllerQualityTypeMedium;
-        pick.delegate = self;
-        [self presentViewController:pick animated:YES completion:nil];
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.mediaTypes = @[(NSString *) kUTTypeMovie];
+        picker.videoQuality = UIImagePickerControllerQualityTypeMedium;
+        picker.delegate = self;
+        [self presentViewController:picker animated:YES completion:nil];
 
     }];
     

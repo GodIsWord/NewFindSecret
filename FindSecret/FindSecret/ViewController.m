@@ -15,6 +15,7 @@
 #import "XBRecorderTestViewController.h"
 #import "XBMakeViewController.h"
 #import "XBFindNearAddressVC.h"
+#import "XBPublishController.h"
 @interface ViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property(nonatomic, strong) NSDictionary *userInfo;
 @property (weak,nonatomic) UILabel *addressLabel;
@@ -101,6 +102,18 @@
     contentLabel.textColor = [UIColor lightGrayColor];
     [self.view addSubview:contentLabel];
     self.addressLabel = contentLabel;
+    
+    
+    
+    UIButton *publishBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    publishBtn.backgroundColor = GREENColor;
+    publishBtn.frame = CGRectMake((ScreenWidth - 100)/2, ScreenHeight-200,100, 50);
+    [publishBtn setTitleColor:[UIColor blackColor] forState:0];
+    [publishBtn setTitle:@"我要上天了" forState:0];
+    publishBtn.titleLabel.font = titleFont;
+    [publishBtn addTarget:self action:@selector(publish) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:publishBtn];
 }
 
 
@@ -125,4 +138,9 @@
     [self presentViewController:nav animated:YES completion:nil];
 }
 
+-(void)publish{
+    XBPublishController *vc = [XBPublishController new];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
+}
 @end

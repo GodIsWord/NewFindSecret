@@ -14,6 +14,7 @@
 		BEA19C64210C4D730039086F /* drag.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BEA19C63210C4D730039086F /* drag.jpg */; };
 		BEA19C67210C4EE10039086F /* XBVideoIntervalChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA19C66210C4EE10039086F /* XBVideoIntervalChooseView.m */; };
 		BEF23A24210C17C90061F74C /* XBVideoEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF23A23210C17C90061F74C /* XBVideoEditController.m */; };
+		CAA183352112E9660032AE81 /* XBPublishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA183342112E9660032AE81 /* XBPublishCell.m */; };
 		CAE74404210C59CD000D05B7 /* XBTextStyleController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE74403210C59CD000D05B7 /* XBTextStyleController.m */; };
 		CAE74407210C5E06000D05B7 /* XBTextEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE74406210C5E06000D05B7 /* XBTextEditController.m */; };
 		CAE74487210EB272000D05B7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE74474210EB272000D05B7 /* Default-568h@2x.png */; };
@@ -65,7 +66,6 @@
 		CAE7465321129C3F000D05B7 /* XHRefreshActivityIndicatorContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE7461821129C3F000D05B7 /* XHRefreshActivityIndicatorContainerView.m */; };
 		CAE7465421129C3F000D05B7 /* XHRefreshCircleContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE7461A21129C3F000D05B7 /* XHRefreshCircleContainerView.m */; };
 		CAE7465521129C3F000D05B7 /* XYString.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE7461D21129C3F000D05B7 /* XYString.m */; };
-		CAE7465621129C3F000D05B7 /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE7461F21129C3F000D05B7 /* AMapFoundationKit.framework */; };
 		CAE7465721129C3F000D05B7 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE7462021129C3F000D05B7 /* AMapLocationKit.framework */; };
 		CAE7465921129C3F000D05B7 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE7462221129C3F000D05B7 /* MAMapKit.framework */; };
 		CAE7465A21129C3F000D05B7 /* XBBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE7462521129C3F000D05B7 /* XBBaseTableViewController.m */; };
@@ -84,6 +84,8 @@
 		CAE746762112AC7C000D05B7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE746752112AC7C000D05B7 /* CoreLocation.framework */; };
 		CAE746782112AC86000D05B7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE746772112AC86000D05B7 /* CoreTelephony.framework */; };
 		CAE746792112B704000D05B7 /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE7462121129C3F000D05B7 /* AMapSearchKit.framework */; };
+		CAE7467A2112D0A7000D05B7 /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE7461F21129C3F000D05B7 /* AMapFoundationKit.framework */; };
+		CAE7467D2112D0EF000D05B7 /* XBPublishController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE7467C2112D0EF000D05B7 /* XBPublishController.m */; };
 		E6019644210C18C40046D1FA /* UIView+XBFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E6019643210C18C40046D1FA /* UIView+XBFrame.m */; };
 		E601964B210C21830046D1FA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E601964A210C21830046D1FA /* AVFoundation.framework */; };
 		E601964E210C3A300046D1FA /* XBPlayAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = E601964D210C3A300046D1FA /* XBPlayAudio.m */; };
@@ -116,6 +118,8 @@
 		BEA19C66210C4EE10039086F /* XBVideoIntervalChooseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBVideoIntervalChooseView.m; sourceTree = "<group>"; };
 		BEF23A22210C17C90061F74C /* XBVideoEditController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBVideoEditController.h; sourceTree = "<group>"; };
 		BEF23A23210C17C90061F74C /* XBVideoEditController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBVideoEditController.m; sourceTree = "<group>"; };
+		CAA183332112E9660032AE81 /* XBPublishCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBPublishCell.h; sourceTree = "<group>"; };
+		CAA183342112E9660032AE81 /* XBPublishCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBPublishCell.m; sourceTree = "<group>"; };
 		CAE74402210C59CD000D05B7 /* XBTextStyleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBTextStyleController.h; sourceTree = "<group>"; };
 		CAE74403210C59CD000D05B7 /* XBTextStyleController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBTextStyleController.m; sourceTree = "<group>"; };
 		CAE74405210C5E06000D05B7 /* XBTextEditController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBTextEditController.h; sourceTree = "<group>"; };
@@ -245,6 +249,8 @@
 		CAE746732112AC71000D05B7 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		CAE746752112AC7C000D05B7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CAE746772112AC86000D05B7 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		CAE7467B2112D0EF000D05B7 /* XBPublishController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBPublishController.h; sourceTree = "<group>"; };
+		CAE7467C2112D0EF000D05B7 /* XBPublishController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBPublishController.m; sourceTree = "<group>"; };
 		E6019642210C18C40046D1FA /* UIView+XBFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+XBFrame.h"; sourceTree = "<group>"; };
 		E6019643210C18C40046D1FA /* UIView+XBFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+XBFrame.m"; sourceTree = "<group>"; };
 		E601964A210C21830046D1FA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -290,9 +296,9 @@
 				CAE7466C2112AC34000D05B7 /* libstdc++.6.0.9.tbd in Frameworks */,
 				CAE7466A2112AC26000D05B7 /* libz.tbd in Frameworks */,
 				CAE746682112AC1D000D05B7 /* libc++.tbd in Frameworks */,
+				CAE7467A2112D0A7000D05B7 /* AMapFoundationKit.framework in Frameworks */,
 				CAE7465721129C3F000D05B7 /* AMapLocationKit.framework in Frameworks */,
 				E601964B210C21830046D1FA /* AVFoundation.framework in Frameworks */,
-				CAE7465621129C3F000D05B7 /* AMapFoundationKit.framework in Frameworks */,
 				CAE7465921129C3F000D05B7 /* MAMapKit.framework in Frameworks */,
 				CAE746792112B704000D05B7 /* AMapSearchKit.framework in Frameworks */,
 			);
@@ -361,7 +367,7 @@
 			path = ColorView;
 			sourceTree = "<group>";
 		};
-		CAE7450A211150B1000D05B7 /* NextStep */ = {
+		CAE7450A211150B1000D05B7 /* Publish */ = {
 			isa = PBXGroup;
 			children = (
 				CAE745B921129C3F000D05B7 /* WhereAreYou */,
@@ -369,8 +375,12 @@
 				CAE7450F2111513D000D05B7 /* XBWhoCanSeeController.m */,
 				CAE7451121115158000D05B7 /* XBSelectFriendsController.h */,
 				CAE7451221115158000D05B7 /* XBSelectFriendsController.m */,
+				CAE7467B2112D0EF000D05B7 /* XBPublishController.h */,
+				CAE7467C2112D0EF000D05B7 /* XBPublishController.m */,
+				CAA183332112E9660032AE81 /* XBPublishCell.h */,
+				CAA183342112E9660032AE81 /* XBPublishCell.m */,
 			);
-			path = NextStep;
+			path = Publish;
 			sourceTree = "<group>";
 		};
 		CAE745B921129C3F000D05B7 /* WhereAreYou */ = {
@@ -627,7 +637,7 @@
 			children = (
 				BEA19C62210C25E20039086F /* XBMacroDefinition.h */,
 				8576165B2111F4AA0091E7C1 /* Make */,
-				CAE7450A211150B1000D05B7 /* NextStep */,
+				CAE7450A211150B1000D05B7 /* Publish */,
 				CAE743F8210C1A53000D05B7 /* TextEdit */,
 				E6019645210C1ADD0046D1FA /* RecordVoice */,
 				BEF23A21210C17B80061F74C /* VideoEdit */,
@@ -824,6 +834,7 @@
 				CAE7463F21129C3F000D05B7 /* UIViewExt.m in Sources */,
 				CAE7451321115158000D05B7 /* XBSelectFriendsController.m in Sources */,
 				E6019644210C18C40046D1FA /* UIView+XBFrame.m in Sources */,
+				CAE7467D2112D0EF000D05B7 /* XBPublishController.m in Sources */,
 				CAE7465421129C3F000D05B7 /* XHRefreshCircleContainerView.m in Sources */,
 				CAE7465D21129C3F000D05B7 /* XBFindNearAddressViewModel.m in Sources */,
 				CAE7463421129C3F000D05B7 /* MJRefreshHeaderView.m in Sources */,
@@ -853,6 +864,7 @@
 				CAE7463D21129C3F000D05B7 /* UIScrollView+Addition.m in Sources */,
 				CAE74407210C5E06000D05B7 /* XBTextEditController.m in Sources */,
 				BEA19C67210C4EE10039086F /* XBVideoIntervalChooseView.m in Sources */,
+				CAA183352112E9660032AE81 /* XBPublishCell.m in Sources */,
 				CAE7464521129C3F000D05B7 /* XHPinterestPullRefreshTableViewController.m in Sources */,
 				CAE7464421129C3F000D05B7 /* XHJDPullRefreshTableViewController.m in Sources */,
 				CAE7448C210EB272000D05B7 /* Palette.m in Sources */,
@@ -1027,6 +1039,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/FindSecret/FindAR/NextStep/WhereAreYou/第三方/高德地图",
 					"$(PROJECT_DIR)/FindSecret/FindAR/NextStep/WhereAreYou/ThirdParty/高德地图",
+					"$(PROJECT_DIR)/FindSecret/FindAR/Publish/WhereAreYou/ThirdParty/高德地图",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/huangyanhong/Desktop/NewFindSecret/FindSecret/FindSecret/PrefixHeader.pch;
@@ -1050,6 +1063,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/FindSecret/FindAR/NextStep/WhereAreYou/第三方/高德地图",
 					"$(PROJECT_DIR)/FindSecret/FindAR/NextStep/WhereAreYou/ThirdParty/高德地图",
+					"$(PROJECT_DIR)/FindSecret/FindAR/Publish/WhereAreYou/ThirdParty/高德地图",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/huangyanhong/Desktop/NewFindSecret/FindSecret/FindSecret/PrefixHeader.pch;

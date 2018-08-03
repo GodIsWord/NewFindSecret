@@ -9,8 +9,6 @@
 #import "XBRecordAudio.h"
 #import <AVFoundation/AVFoundation.h>
 
-#import "XBRecordAudioStorage.h"
-
 @interface XBRecordAudio()<AVAudioRecorderDelegate>
 
 @property (nonatomic,strong) AVAudioRecorder *audioRecorder;
@@ -178,8 +176,6 @@
 {
     self.duration = self.audioRecorder.currentTime;
 
-    [XBRecordAudioStorage saveAudioWithDataPath:[XBRecordAudio recordPath]];
-    
     if ([self.delegate respondsToSelector:@selector(xbAudioRecorderDidFinishRecording:successfully:)]) {
         [self.delegate xbAudioRecorderDidFinishRecording:self successfully:flag];
     }

@@ -13,8 +13,8 @@
 @protocol XBAudioManagerRecoderDelegate<NSObject>
 
 @optional
--(void)XBAudioManagerEncodeErrorDidOccur:(XBAudioManager *)recorder error:(NSError *)error;
--(void)XBAudioManagerDidFinishRecording:(XBAudioManager *)recorder successfully:(BOOL)flag;
+-(void)xbAudioManagerEncodeErrorDidOccur:(XBAudioManager *)recorder error:(NSError *)error;
+-(void)xbAudioManagerDidFinishRecording:(XBAudioManager *)recorder successfully:(BOOL)flag;
 
 @end
 
@@ -22,17 +22,20 @@
 
 @optional
 //播放结束时执行的动作
-- (void)XBAudioManagerPlayerDidFinishPlaying:(XBAudioManager*)player successfully:(BOOL)flag;
+- (void)xbAudioManagerPlayerDidFinishPlaying:(XBAudioManager*)player successfully:(BOOL)flag;
 //解码错误执行的动作
-- (void)XBAudioManagerPlayerDecodeErrorDidOccur:(XBAudioManager*)player error:(NSError *)error;
+- (void)xbAudioManagerPlayerDecodeErrorDidOccur:(XBAudioManager*)player error:(NSError *)error;
 //处理中断的代码
-- (void)XBAudioManagerPlayerBeginInteruption:(XBAudioManager*)player;
+- (void)xbAudioManagerPlayerBeginInteruption:(XBAudioManager*)player;
 //处理中断结束的代码
-- (void)XBAudioManagerPlayerEndInteruption:(XBAudioManager*)player;
+- (void)xbAudioManagerPlayerEndInteruption:(XBAudioManager*)player;
 
 @end
 
 @interface XBAudioManager : NSObject
+
+@property(nonatomic,weak) id<XBAudioManagerRecoderDelegate> recordDelegate;
+@property(nonatomic,weak) id<XBAudioManagerPlayDelegate> playDelegate;
 
 -(void)startRecord;
 

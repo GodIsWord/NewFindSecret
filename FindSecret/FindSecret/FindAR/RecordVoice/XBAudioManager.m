@@ -101,27 +101,46 @@
 
 -(void)xbAudioRecorderDidFinishRecording:(XBRecordAudio *)recorder successfully:(BOOL)flag{
     //隐藏声音强度的view
+    [XBRecordAudioStorage saveAudioWithDataPath:[XBRecordAudio recordPath]];
     self.type = 0;
+    if ([self.recordDelegate respondsToSelector:@selector(xbAudioManagerDidFinishRecording:successfully:)]) {
+        [self.recordDelegate xbAudioManagerDidFinishRecording:self successfully:flag];
+    }
 }
 
 -(void)xbAudioRecorderEncodeErrorDidOccur:(XBRecordAudio *)recorder error:(NSError *)error{
     //隐藏声音强度的view
     self.type = 0;
+    if ([self.recordDelegate respondsToSelector:@selector(xbAudioManagerEncodeErrorDidOccur:error:)]) {
+        [self.recordDelegate xbAudioManagerEncodeErrorDidOccur:self error:error];
+    }
 }
 
 
 #pragma mark -- play delegate
 -(void)xbAudioPlayerDidFinishPlaying:(XBPlayAudio *)player successfully:(BOOL)flag{
     self.type = 0;
+    if ([self.playDelegate respondsToSelector:@selector(xbAudioManagerPlayerDidFinishPlaying:successfully:)]) {
+        [self.playDelegate xbAudioManagerPlayerDidFinishPlaying:self successfully:flag];
+    }
 }
 -(void)xbAudioPlayerDecodeErrorDidOccur:(XBPlayAudio *)player error:(NSError *)error{
     self.type = 0;
+    if ([self.playDelegate respondsToSelector:@selector(xbAudioManagerEncodeErrorDidOccur:error:)]) {
+        [self.playDelegate xbAudioManagerPlayerDecodeErrorDidOccur:self error:error];
+    }
 }
 -(void)xbAudioPlayerBeginInteruption:(XBPlayAudio *)player{
     self.type = 0;
+    if ([self.playDelegate respondsToSelector:@selector(xbAudioManagerPlayerBeginInteruption:)]) {
+        [self.playDelegate xbAudioManagerPlayerBeginInteruption:self];
+    }
 }
 -(void)xbAudioPlayerEndInteruption:(XBPlayAudio *)player{
     self.type = 0;
+    if ([self.playDelegate respondsToSelector:@selector(xbAudioManagerPlayerEndInteruption:)]) {
+        [self.playDelegate xbAudioManagerPlayerEndInteruption:self];
+    }
 }
 
 @end

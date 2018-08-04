@@ -254,6 +254,7 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
     [self.player removeObserver:self forKeyPath:@"rate"];
     [self.player pause];
     [self.playerItem removeObserver:self forKeyPath:@"status"];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)switchEditStatus {

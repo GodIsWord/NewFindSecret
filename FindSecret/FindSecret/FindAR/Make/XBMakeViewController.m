@@ -14,6 +14,7 @@
 #import "XBTextEditController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "XBRecorderTestViewController.h"
+#import "XBVideoPreviewViewController.h"
 @interface XBMakeViewController () <XBMakeToolViewDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, strong) UIToolbar *confirmToolbar;
 @property (nonatomic, strong) UIImageView *imageView;
@@ -108,14 +109,28 @@
 }
 
 - (void)goBack{
-    if (self.navigationController.topViewController == self && self.navigationController.viewControllers.firstObject != self) {
-        [self.navigationController popViewControllerAnimated:YES];
-    } else {
-        UIViewController *vc = self.navigationController ?: self;
-        if (vc.presentingViewController) {
-            [vc dismissViewControllerAnimated:YES completion:nil];
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"确认要放弃本次编辑吗？" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+    UIAlertAction *confrom = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        if (self.navigationController.topViewController == self && self.navigationController.viewControllers.firstObject != self) {
+            [self.navigationController popViewControllerAnimated:YES];
+        } else {
+            UIViewController *vc = self.navigationController ?: self;
+            if (vc.presentingViewController) {
+                [vc dismissViewControllerAnimated:YES completion:nil];
+            }
         }
-    }
+
+    }];
+    
+    [alertController addAction:cancel];
+    [alertController addAction:confrom];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+    
 }
 
 
@@ -157,10 +172,15 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *, id> *)info {
     [picker dismissViewControllerAnimated:YES completion:^{
         
+        XBVideoPreviewViewController *vc = [[XBVideoPreviewViewController alloc] init];
+        vc.videoUrl = info[UIImagePickerControllerMediaURL];
+        UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:vc];
+        [self presentViewController:nv animated:YES completion:nil];
+        
         // TODO:这里应该还差一个流程
-        XBVideoEditController *videoEditController = [[XBVideoEditController alloc] init];
-        videoEditController.videoUrl = info[UIImagePickerControllerMediaURL];
-        [self presentViewController:videoEditController animated:YES completion:nil];
+//        XBVideoEditController *videoEditController = [[XBVideoEditController alloc] init];
+//
+//
     }];
     
 }

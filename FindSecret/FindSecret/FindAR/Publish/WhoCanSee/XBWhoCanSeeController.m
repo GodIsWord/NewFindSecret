@@ -18,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
 }
 #pragma mark -  UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -29,17 +31,9 @@
     
     XBSelectCell *cell = [XBSelectCell cellWithTableView:tableView];
     
-   
-    cell.backgroundColor = [UIColor redColor];
     return cell;
 }
 
-
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 0.01;
-}
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 64;
 }

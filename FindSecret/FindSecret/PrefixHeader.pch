@@ -37,6 +37,6 @@
 #import "UIImage+MP.h"
 #import "UIButton+Block.h"
 #import "UIScrollView+Addition.h"
-
+#import "Masonry.h"
 #endif
 #endif /* PrefixHeader_pch */

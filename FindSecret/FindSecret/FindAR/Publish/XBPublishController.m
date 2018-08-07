@@ -11,6 +11,7 @@
 #import "XBFindNearAddressVC.h"
 #import "XBPublishCell.h"
 #import "XBWhoCanSeeController.h"
+#import "XBSelectFriendsController.h"
 @interface XBPublishController ()<UITextViewDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITextView *editTextView;
 @property (nonatomic, strong) UILabel *placeholder;
@@ -143,6 +144,8 @@
         [self.navigationController pushViewController:vc animated:YES];
         
     }else if (indexPath.row == 2){
+        XBSelectFriendsController *vc = [XBSelectFriendsController new];
+        [self.navigationController pushViewController:vc animated:YES];
         
     }
  

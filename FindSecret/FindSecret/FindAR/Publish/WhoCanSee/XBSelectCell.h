@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface XBSelectCell : UITableViewCell
+@property (nonatomic, strong) UILabel *title;
+@property (nonatomic, strong) UILabel *detail;
+@property (nonatomic, strong) UIImageView *pictureImageView;
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 @end

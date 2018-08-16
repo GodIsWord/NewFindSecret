@@ -110,6 +110,8 @@
 		E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B62210C0FF100C5BFBB /* LaunchScreen.storyboard */; };
 		E60E3B67210C0FF100C5BFBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B66210C0FF100C5BFBB /* main.m */; };
 		E64807C1210FFB8500050124 /* XBTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = E64807C0210FFB8500050124 /* XBTimer.m */; };
+		E6671A0721258C1C00592B0F /* XBPointToPointSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6671A0621258C1C00592B0F /* XBPointToPointSendViewController.m */; };
+		E6671A0A21258C5B00592B0F /* XBPointToPointPersonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6671A0921258C5B00592B0F /* XBPointToPointPersonTableViewCell.m */; };
 		E6A0BA6A2112928800326AE9 /* XBAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A0BA692112928800326AE9 /* XBAudioManager.m */; };
 		E6C8EB2F21104C7200ED53E2 /* XBRecordAudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = E64807BD210FF47200050124 /* XBRecordAudioView.m */; };
 		E6C8EB3621104DFB00ED53E2 /* XBRecordAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C8EB3521104DFA00ED53E2 /* XBRecordAudio.m */; };
@@ -314,6 +316,10 @@
 		E64807BD210FF47200050124 /* XBRecordAudioView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecordAudioView.m; sourceTree = "<group>"; };
 		E64807BF210FFB8500050124 /* XBTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBTimer.h; sourceTree = "<group>"; };
 		E64807C0210FFB8500050124 /* XBTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBTimer.m; sourceTree = "<group>"; };
+		E6671A0521258C1C00592B0F /* XBPointToPointSendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBPointToPointSendViewController.h; sourceTree = "<group>"; };
+		E6671A0621258C1C00592B0F /* XBPointToPointSendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBPointToPointSendViewController.m; sourceTree = "<group>"; };
+		E6671A0821258C5B00592B0F /* XBPointToPointPersonTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBPointToPointPersonTableViewCell.h; sourceTree = "<group>"; };
+		E6671A0921258C5B00592B0F /* XBPointToPointPersonTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBPointToPointPersonTableViewCell.m; sourceTree = "<group>"; };
 		E6A0BA682112928800326AE9 /* XBAudioManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBAudioManager.h; sourceTree = "<group>"; };
 		E6A0BA692112928800326AE9 /* XBAudioManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBAudioManager.m; sourceTree = "<group>"; };
 		E6A0BA6C21131B0700326AE9 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -479,6 +485,7 @@
 		CAE7450A211150B1000D05B7 /* Publish */ = {
 			isa = PBXGroup;
 			children = (
+				E6671A0421258C0800592B0F /* PointToPoint */,
 				CAA183372112EFD90032AE81 /* SelectFriends */,
 				CAA183362112EFC70032AE81 /* WhoCanSee */,
 				CAE745B921129C3F000D05B7 /* WhereAreYou */,
@@ -844,6 +851,17 @@
 			path = FindSecret;
 			sourceTree = "<group>";
 		};
+		E6671A0421258C0800592B0F /* PointToPoint */ = {
+			isa = PBXGroup;
+			children = (
+				E6671A0521258C1C00592B0F /* XBPointToPointSendViewController.h */,
+				E6671A0621258C1C00592B0F /* XBPointToPointSendViewController.m */,
+				E6671A0821258C5B00592B0F /* XBPointToPointPersonTableViewCell.h */,
+				E6671A0921258C5B00592B0F /* XBPointToPointPersonTableViewCell.m */,
+			);
+			path = PointToPoint;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -986,6 +1004,7 @@
 				CAE7464521129C3F000D05B7 /* XHPinterestPullRefreshTableViewController.m in Sources */,
 				CAE7464421129C3F000D05B7 /* XHJDPullRefreshTableViewController.m in Sources */,
 				CAE7448C210EB272000D05B7 /* Palette.m in Sources */,
+				E6671A0A21258C5B00592B0F /* XBPointToPointPersonTableViewCell.m in Sources */,
 				E60E3B67210C0FF100C5BFBB /* main.m in Sources */,
 				CAE7464921129C3F000D05B7 /* XHSysatemRefreshTableViewController.m in Sources */,
 				E64807C1210FFB8500050124 /* XBTimer.m in Sources */,
@@ -996,6 +1015,7 @@
 				CAE7463821129C3F000D05B7 /* MKMapView+ZoomLevel.m in Sources */,
 				CAE7463221129C3F000D05B7 /* MJRefreshConst.m in Sources */,
 				CA5450CC211851F8000ABB4B /* View+MASAdditions.m in Sources */,
+				E6671A0721258C1C00592B0F /* XBPointToPointSendViewController.m in Sources */,
 				CAE7448E210EB272000D05B7 /* SevenColorView.m in Sources */,
 				CA5450C9211851F8000ABB4B /* MASViewConstraint.m in Sources */,
 				E6C8EB3621104DFB00ED53E2 /* XBRecordAudio.m in Sources */,

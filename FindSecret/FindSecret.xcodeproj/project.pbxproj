@@ -111,8 +111,6 @@
 		E60E3B67210C0FF100C5BFBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B66210C0FF100C5BFBB /* main.m */; };
 		E64807C1210FFB8500050124 /* XBTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = E64807C0210FFB8500050124 /* XBTimer.m */; };
 		E6A0BA6A2112928800326AE9 /* XBAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A0BA692112928800326AE9 /* XBAudioManager.m */; };
-		E6A0BA762115684B00326AE9 /* XBNearbyPeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A0BA752115684B00326AE9 /* XBNearbyPeopleViewController.m */; };
-		E6A0BA792115686300326AE9 /* XBNearbyContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A0BA782115686300326AE9 /* XBNearbyContentViewController.m */; };
 		E6C8EB2F21104C7200ED53E2 /* XBRecordAudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = E64807BD210FF47200050124 /* XBRecordAudioView.m */; };
 		E6C8EB3621104DFB00ED53E2 /* XBRecordAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C8EB3521104DFA00ED53E2 /* XBRecordAudio.m */; };
 		E6C8EB3921104E2600ED53E2 /* XBRecorderTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C8EB3821104E2600ED53E2 /* XBRecorderTestViewController.m */; };
@@ -319,10 +317,6 @@
 		E6A0BA682112928800326AE9 /* XBAudioManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBAudioManager.h; sourceTree = "<group>"; };
 		E6A0BA692112928800326AE9 /* XBAudioManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBAudioManager.m; sourceTree = "<group>"; };
 		E6A0BA6C21131B0700326AE9 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		E6A0BA742115684B00326AE9 /* XBNearbyPeopleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBNearbyPeopleViewController.h; sourceTree = "<group>"; };
-		E6A0BA752115684B00326AE9 /* XBNearbyPeopleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBNearbyPeopleViewController.m; sourceTree = "<group>"; };
-		E6A0BA772115686300326AE9 /* XBNearbyContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBNearbyContentViewController.h; sourceTree = "<group>"; };
-		E6A0BA782115686300326AE9 /* XBNearbyContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBNearbyContentViewController.m; sourceTree = "<group>"; };
 		E6C8EB3421104DFA00ED53E2 /* XBRecordAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBRecordAudio.h; sourceTree = "<group>"; };
 		E6C8EB3521104DFA00ED53E2 /* XBRecordAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBRecordAudio.m; sourceTree = "<group>"; };
 		E6C8EB3721104E2600ED53E2 /* XBRecorderTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBRecorderTestViewController.h; sourceTree = "<group>"; };
@@ -749,7 +743,6 @@
 			isa = PBXGroup;
 			children = (
 				CA5450A6211851F7000ABB4B /* Masonry */,
-				E6A0BA71211567BC00326AE9 /* ARNearby */,
 				BEA19C62210C25E20039086F /* XBMacroDefinition.h */,
 				8576165B2111F4AA0091E7C1 /* Make */,
 				CAE7450A211150B1000D05B7 /* Publish */,
@@ -851,33 +844,6 @@
 			path = FindSecret;
 			sourceTree = "<group>";
 		};
-		E6A0BA71211567BC00326AE9 /* ARNearby */ = {
-			isa = PBXGroup;
-			children = (
-				E6A0BA722115683900326AE9 /* NearbyContent */,
-				E6A0BA732115683900326AE9 /* NearbyPeople */,
-			);
-			path = ARNearby;
-			sourceTree = "<group>";
-		};
-		E6A0BA722115683900326AE9 /* NearbyContent */ = {
-			isa = PBXGroup;
-			children = (
-				E6A0BA772115686300326AE9 /* XBNearbyContentViewController.h */,
-				E6A0BA782115686300326AE9 /* XBNearbyContentViewController.m */,
-			);
-			path = NearbyContent;
-			sourceTree = "<group>";
-		};
-		E6A0BA732115683900326AE9 /* NearbyPeople */ = {
-			isa = PBXGroup;
-			children = (
-				E6A0BA742115684B00326AE9 /* XBNearbyPeopleViewController.h */,
-				E6A0BA752115684B00326AE9 /* XBNearbyPeopleViewController.m */,
-			);
-			path = NearbyPeople;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -971,7 +937,6 @@
 				E6C8EB3C211055CB00ED53E2 /* XBWeakProxy.m in Sources */,
 				CA5450C4211851F8000ABB4B /* MASCompositeConstraint.m in Sources */,
 				CAE745102111513D000D05B7 /* XBWhoCanSeeController.m in Sources */,
-				E6A0BA762115684B00326AE9 /* XBNearbyPeopleViewController.m in Sources */,
 				CAE7466521129F45000D05B7 /* XHFoundationCommon.m in Sources */,
 				CAE7465A21129C3F000D05B7 /* XBBaseTableViewController.m in Sources */,
 				CA5450C8211851F8000ABB4B /* MASViewAttribute.m in Sources */,
@@ -1009,7 +974,6 @@
 				CAE7465121129C3F000D05B7 /* XHLoadMoreView.m in Sources */,
 				CAE7464E21129C3F000D05B7 /* XHCircleView.m in Sources */,
 				8576169A211569560091E7C1 /* XBVideoPreviewViewController.m in Sources */,
-				E6A0BA792115686300326AE9 /* XBNearbyContentViewController.m in Sources */,
 				CAE7463E21129C3F000D05B7 /* UISearchBar+MP.m in Sources */,
 				E6C8EB3F21114B4D00ED53E2 /* XBRecordAudioStorage.m in Sources */,
 				CAE7465E21129C3F000D05B7 /* XBNoResultHeadView.m in Sources */,

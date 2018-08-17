@@ -13,6 +13,7 @@
 @interface XBPointToPointSendViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong) UITableView *tableView;
+@property(nonatomic,strong) UITextField *textField;
 
 @end
 
@@ -20,12 +21,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
-    
+    [self initTextField];
     [self initTableView];
-    
-    
+}
+
+-(void)initTextField{
+    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 74, ScreenWidth, 60)];
+    textField.placeholder = @"输入昵称";
+    [self.view addSubview:textField];
+    self.textField = textField;
 }
 
 -(void)initTableView{

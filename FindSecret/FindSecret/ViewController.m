@@ -140,7 +140,8 @@
 
 -(void)publish{
     XBPublishController *vc = [XBPublishController new];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
-    [self presentViewController:nav animated:YES completion:nil];
+//    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
+//    [self presentViewController:nav animated:YES completion:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

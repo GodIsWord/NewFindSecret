@@ -55,23 +55,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XBMakeViewController.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="XBMakeViewController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="563">
-              <caret line="230" column="36" lean-forward="true" selection-start-line="230" selection-start-column="36" selection-end-line="230" selection-end-column="36" />
+            <state relative-caret-position="138">
+              <caret line="267" selection-start-line="267" selection-end-line="267" />
               <folding>
                 <element signature="e#135#167#0" expanded="true" />
+                <element signature="e#2330#4161#0" />
+                <element signature="e#4163#4596#0" />
+                <element signature="e#4598#5866#0" />
+                <element signature="e#5868#6587#0" />
+                <element signature="e#6870#7021#0" />
+                <element signature="e#7022#7175#0" />
+                <element signature="e#13628#13756#0" />
+                <element signature="e#13757#13893#0" />
+                <element signature="e#13894#14028#0" />
+                <element signature="e#14029#14213#0" />
+                <element signature="e#14215#14522#0" />
+                <element signature="e#14523#15771#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UIBarButtonItem.h" pinned="false" current-in-tab="false">
-        <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIBarButtonItem.h">
+      <file leaf-file-name="XBMakeContentItemView.m" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/common/XBMakeContentItemView.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="19" column="29" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="29" />
+            <state relative-caret-position="285">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XBMakeContentItemView.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/common/XBMakeContentItemView.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -83,6 +104,7 @@
       <find>CMTime</find>
       <find>MediaWithInfo</find>
       <find>updateToolbarItemsWithTypes</find>
+      <find>XBMakeContentStageCaptureDone</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -93,7 +115,12 @@
         <option value="$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.m" />
         <option value="$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.h" />
         <option value="$PROJECT_DIR$/FindSecret/ViewController.m" />
+        <option value="$PROJECT_DIR$/FindSecret/FindAR/common/XBMakeToolView.m" />
+        <option value="$PROJECT_DIR$/FindSecret/FindAR/TextEdit/XBTextEditController.h" />
+        <option value="$PROJECT_DIR$/FindSecret/FindAR/TextEdit/XBTextEditController.m" />
         <option value="$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.m" />
+        <option value="$PROJECT_DIR$/FindSecret/FindAR/common/XBMakeContentItemView.h" />
+        <option value="$PROJECT_DIR$/FindSecret/FindAR/common/XBMakeContentItemView.m" />
       </list>
     </option>
   </component>
@@ -143,14 +170,14 @@
               <item name="FindSecret" type="1d218c8b:XcodeProjectNode" />
               <item name="FindSecret" type="fcab9f18:XcodeViewNode" />
               <item name="FindAR" type="fcab9f18:XcodeViewNode" />
-              <item name="Make" type="fcab9f18:XcodeViewNode" />
+              <item name="common" type="fcab9f18:XcodeViewNode" />
             </path>
             <path>
               <item name="" type="efc3779f:XcodeRootNode" />
               <item name="FindSecret" type="1d218c8b:XcodeProjectNode" />
               <item name="FindSecret" type="fcab9f18:XcodeViewNode" />
               <item name="FindAR" type="fcab9f18:XcodeViewNode" />
-              <item name="VideoEdit" type="fcab9f18:XcodeViewNode" />
+              <item name="Make" type="fcab9f18:XcodeViewNode" />
             </path>
           </expand>
           <select />
@@ -159,10 +186,11 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="OBJC.PRESERVED_TARGET_SELECTION" value="FindSecret" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++/Objective-C" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -196,29 +224,29 @@
       <workItem from="1532748895823" duration="7720000" />
       <workItem from="1533054575488" duration="662000" />
       <workItem from="1533132410769" duration="831000" />
-      <workItem from="1534524074725" duration="1168000" />
+      <workItem from="1534524074725" duration="4330000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10381000" />
+    <option name="totallyTimeSpent" value="13543000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="36" y="22" width="1244" height="778" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.06534091" visible="true" weight="0.16157556" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.73153406" visible="true" weight="0.29340836" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49964765" weight="0.2542373" />
-      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.49839228" weight="0.32954547" />
+      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.4959807" weight="0.32954547" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="9" sideWeight="0.5016077" side_tool="true" visible="true" weight="0.0" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50321543" side_tool="true" weight="0.32954547" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" weight="0.4661017" />
       <window_info anchor="bottom" x="10" y="204" width="1419" height="442" id="Run" order="2" weight="0.35875705" />
-      <window_info id="Structure" order="1" sideWeight="0.93465906" side_tool="true" visible="true" weight="0.16157556" />
+      <window_info id="Structure" order="1" sideWeight="0.2684659" side_tool="true" visible="true" weight="0.29340836" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32909605" />
       <window_info id="Favorites" order="3" sideWeight="0.5037594" side_tool="true" weight="0.2501762" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49839228" visible="true" weight="0.0" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49678457" visible="true" weight="0.0" />
       <window_info anchor="bottom" id="IDEtalk Messages" order="9" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -238,7 +266,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -320,6 +348,18 @@
           <caret line="12" column="33" lean-forward="true" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
           <folding>
             <element signature="e#135#167#0" expanded="true" />
+            <element signature="e#2330#4161#0" />
+            <element signature="e#4163#4596#0" />
+            <element signature="e#4598#5866#0" />
+            <element signature="e#5868#6587#0" />
+            <element signature="e#6870#7021#0" />
+            <element signature="e#7022#7175#0" />
+            <element signature="e#13628#13756#0" />
+            <element signature="e#13757#13893#0" />
+            <element signature="e#13894#14028#0" />
+            <element signature="e#14029#14213#0" />
+            <element signature="e#14215#14522#0" />
+            <element signature="e#14523#15771#0" />
           </folding>
         </state>
       </provider>
@@ -554,20 +594,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/TextEdit/XBTextEditController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="129" column="7" lean-forward="true" selection-start-line="129" selection-start-column="7" selection-end-line="129" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/common/XBMakeToolView.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="20" lean-forward="true" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/common/XBMakeToolView.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIBarButtonItem.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
+        <state relative-caret-position="-256">
           <caret line="19" column="29" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/TextEdit/XBTextEditController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="230" column="36" lean-forward="true" selection-start-line="230" selection-start-column="36" selection-end-line="230" selection-end-column="36" />
+        <state relative-caret-position="138">
+          <caret line="267" selection-start-line="267" selection-end-line="267" />
           <folding>
             <element signature="e#135#167#0" expanded="true" />
+            <element signature="e#2330#4161#0" />
+            <element signature="e#4163#4596#0" />
+            <element signature="e#4598#5866#0" />
+            <element signature="e#5868#6587#0" />
+            <element signature="e#6870#7021#0" />
+            <element signature="e#7022#7175#0" />
+            <element signature="e#13628#13756#0" />
+            <element signature="e#13757#13893#0" />
+            <element signature="e#13894#14028#0" />
+            <element signature="e#14029#14213#0" />
+            <element signature="e#14215#14522#0" />
+            <element signature="e#14523#15771#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/common/XBMakeContentItemView.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/common/XBMakeContentItemView.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>

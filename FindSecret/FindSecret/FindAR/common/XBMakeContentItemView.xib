@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="XBMakeContentItemView">
+            <rect key="frame" x="0.0" y="0.0" width="352" height="381"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tON-J1-95E">
+                    <rect key="frame" x="0.0" y="0.0" width="352" height="341"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXb-Cq-WLP">
+                    <rect key="frame" x="272" y="341" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="vXb-Cq-WLP" secondAttribute="height" multiplier="1:1" id="hfP-bd-wwZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <state key="normal" title="关闭"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2F-uO-vjG">
+                    <rect key="frame" x="312" y="341" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="M2F-uO-vjG" secondAttribute="height" multiplier="15:15" id="oms-wl-C8Y"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <state key="normal" title="编辑"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="M2F-uO-vjG" secondAttribute="trailing" id="10T-jK-mTc"/>
+                <constraint firstItem="M2F-uO-vjG" firstAttribute="leading" secondItem="vXb-Cq-WLP" secondAttribute="trailing" id="7Et-zN-L4o"/>
+                <constraint firstItem="M2F-uO-vjG" firstAttribute="top" secondItem="tON-J1-95E" secondAttribute="bottom" id="8gm-j7-3tw"/>
+                <constraint firstItem="tON-J1-95E" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Fcb-lJ-vuK"/>
+                <constraint firstAttribute="bottom" secondItem="vXb-Cq-WLP" secondAttribute="bottom" id="HdX-R4-C1D"/>
+                <constraint firstAttribute="bottom" secondItem="M2F-uO-vjG" secondAttribute="bottom" id="SL7-I8-QNf"/>
+                <constraint firstItem="vXb-Cq-WLP" firstAttribute="top" secondItem="tON-J1-95E" secondAttribute="bottom" id="XMl-1J-kLo"/>
+                <constraint firstItem="tON-J1-95E" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cFW-FQ-NoZ"/>
+                <constraint firstAttribute="trailing" secondItem="tON-J1-95E" secondAttribute="trailing" id="fm1-qV-lCU"/>
+                <constraint firstAttribute="bottom" secondItem="tON-J1-95E" secondAttribute="bottom" constant="40" id="xDW-3H-u7d"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="contentView" destination="tON-J1-95E" id="JTL-w7-h78"/>
+                <outletCollection property="gestureRecognizers" destination="6Do-36-FmL" appends="YES" id="uu5-yg-zpI"/>
+            </connections>
+            <point key="canvasLocation" x="22" y="-89.5"/>
+        </view>
+        <panGestureRecognizer minimumNumberOfTouches="1" id="6Do-36-FmL">
+            <connections>
+                <action selector="pan:" destination="iN0-l3-epB" id="sN8-oh-SJ5"/>
+            </connections>
+        </panGestureRecognizer>
+    </objects>
+</document>

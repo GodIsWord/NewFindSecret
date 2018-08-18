@@ -19,21 +19,24 @@
                     <rect key="frame" x="95" y="0.0" width="95" height="171"/>
                     <state key="normal" title="语音"/>
                     <connections>
-                        <action selector="didClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="MYG-46-7kz"/>
+                        <action selector="touchDown:forEvent:" destination="iN0-l3-epB" eventType="touchDown" id="rgc-dm-XX5"/>
+                        <action selector="touchUp:forEvent:" destination="iN0-l3-epB" eventType="touchUpInside" id="ZZW-Q0-y6h"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJ0-I1-0Oz">
                     <rect key="frame" x="190" y="0.0" width="95" height="171"/>
                     <state key="normal" title="视频"/>
                     <connections>
-                        <action selector="didClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="OvL-MG-Iwf"/>
+                        <action selector="touchDown:forEvent:" destination="iN0-l3-epB" eventType="touchDown" id="BQl-S2-hVt"/>
+                        <action selector="touchUp:forEvent:" destination="iN0-l3-epB" eventType="touchUpInside" id="rXO-4r-htE"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z81-0b-LYi">
                     <rect key="frame" x="0.0" y="0.0" width="95" height="171"/>
                     <state key="normal" title="文本"/>
                     <connections>
-                        <action selector="didClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="nkn-cH-zOS"/>
+                        <action selector="touchDown:forEvent:" destination="iN0-l3-epB" eventType="touchDown" id="gmr-iu-lL6"/>
+                        <action selector="touchUp:forEvent:" destination="iN0-l3-epB" eventType="touchUpInside" id="ka5-ld-eyV"/>
                     </connections>
                 </button>
             </subviews>

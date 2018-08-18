@@ -13,26 +13,41 @@
     XBMakeToolView *toolView = [[[UINib nibWithNibName:@"XBMakeToolView" bundle:nil] instantiateWithOwner:nil options:nil] firstObject];
     return toolView;
 }
-- (IBAction)didClick:(UIButton *)sender {
-    
-    if (![self.delegate respondsToSelector:@selector(makeToolView:didClickItemAtIndex:)]) {
+- (IBAction)touchDown:(UIButton *)sender forEvent:(UIEvent *)event {
+    if (![self.delegate respondsToSelector:@selector(makeToolView:didTouchDownItemAtIndex:)]) {
         return;
     }
-    
     switch (sender.tag) {
         case 0:
-            NSLog(@"文本");
-            [self.delegate makeToolView:self didClickItemAtIndex:0];
+            [self.delegate makeToolView:self didTouchDownItemAtIndex:0];
             break;
         case 1:
-            NSLog(@"录音");
-            [self.delegate makeToolView:self didClickItemAtIndex:1];
+            [self.delegate makeToolView:self didTouchDownItemAtIndex:1];
             break;
         case 2:
-            NSLog(@"视频");
-            [self.delegate makeToolView:self didClickItemAtIndex:2];
+            [self.delegate makeToolView:self didTouchDownItemAtIndex:2];
             break;
-    
+            
+        default:
+            break;
+    }
+
+}
+- (IBAction)touchUp:(UIButton *)sender forEvent:(UIEvent *)event {
+    if (![self.delegate respondsToSelector:@selector(makeToolView:didTouchUpAtIndex:)]) {
+        return;
+    }
+    switch (sender.tag) {
+        case 0:
+            [self.delegate makeToolView:self didTouchUpAtIndex:0];
+            break;
+        case 1:
+            [self.delegate makeToolView:self didTouchUpAtIndex:1];
+            break;
+        case 2:
+            [self.delegate makeToolView:self didTouchUpAtIndex:2];
+            break;
+            
         default:
             break;
     }

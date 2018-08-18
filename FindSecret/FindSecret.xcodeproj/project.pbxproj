@@ -13,9 +13,11 @@
 		857616662111FAAD0091E7C1 /* XBMakeToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 857616652111FAAD0091E7C1 /* XBMakeToolView.xib */; };
 		8576169A211569560091E7C1 /* XBVideoPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85761699211569560091E7C1 /* XBVideoPreviewViewController.m */; };
 		85E98D4C21271D0400DDCC56 /* XBRecordControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E98D4B21271D0400DDCC56 /* XBRecordControl.m */; };
+		85E98D4E2127C62B00DDCC56 /* XBMakeContentItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85E98D4D2127C62B00DDCC56 /* XBMakeContentItemView.xib */; };
 		BEA19C64210C4D730039086F /* drag.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BEA19C63210C4D730039086F /* drag.jpg */; };
 		BEA19C67210C4EE10039086F /* XBVideoIntervalChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA19C66210C4EE10039086F /* XBVideoIntervalChooseView.m */; };
 		BEF23A24210C17C90061F74C /* XBVideoEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF23A23210C17C90061F74C /* XBVideoEditController.m */; };
+		C51921C3E062D0586534AE85 /* XBMakeContentItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5192E84211E4017E2540A9E /* XBMakeContentItemView.m */; };
 		CA5450C3211851F8000ABB4B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CA5450A7211851F7000ABB4B /* LICENSE */; };
 		CA5450C4211851F8000ABB4B /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5450AA211851F7000ABB4B /* MASCompositeConstraint.m */; };
 		CA5450C5211851F8000ABB4B /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5450AD211851F7000ABB4B /* MASConstraint.m */; };
@@ -133,12 +135,15 @@
 		85761699211569560091E7C1 /* XBVideoPreviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBVideoPreviewViewController.m; sourceTree = "<group>"; };
 		85E98D4A21271D0400DDCC56 /* XBRecordControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBRecordControl.h; sourceTree = "<group>"; };
 		85E98D4B21271D0400DDCC56 /* XBRecordControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecordControl.m; sourceTree = "<group>"; };
+		85E98D4D2127C62B00DDCC56 /* XBMakeContentItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBMakeContentItemView.xib; sourceTree = "<group>"; };
 		BEA19C62210C25E20039086F /* XBMacroDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBMacroDefinition.h; sourceTree = "<group>"; };
 		BEA19C63210C4D730039086F /* drag.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = drag.jpg; sourceTree = "<group>"; };
 		BEA19C65210C4EE10039086F /* XBVideoIntervalChooseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBVideoIntervalChooseView.h; sourceTree = "<group>"; };
 		BEA19C66210C4EE10039086F /* XBVideoIntervalChooseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBVideoIntervalChooseView.m; sourceTree = "<group>"; };
 		BEF23A22210C17C90061F74C /* XBVideoEditController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBVideoEditController.h; sourceTree = "<group>"; };
 		BEF23A23210C17C90061F74C /* XBVideoEditController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBVideoEditController.m; sourceTree = "<group>"; };
+		C5192292E857232CC73ABB81 /* XBMakeContentItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBMakeContentItemView.h; sourceTree = "<group>"; };
+		C5192E84211E4017E2540A9E /* XBMakeContentItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBMakeContentItemView.m; sourceTree = "<group>"; };
 		CA5450A7211851F7000ABB4B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		CA5450A9211851F7000ABB4B /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		CA5450AA211851F7000ABB4B /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
@@ -780,6 +785,9 @@
 				857616652111FAAD0091E7C1 /* XBMakeToolView.xib */,
 				85E98D4A21271D0400DDCC56 /* XBRecordControl.h */,
 				85E98D4B21271D0400DDCC56 /* XBRecordControl.m */,
+				C5192E84211E4017E2540A9E /* XBMakeContentItemView.m */,
+				C5192292E857232CC73ABB81 /* XBMakeContentItemView.h */,
+				85E98D4D2127C62B00DDCC56 /* XBMakeContentItemView.xib */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -926,6 +934,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85E98D4E2127C62B00DDCC56 /* XBMakeContentItemView.xib in Resources */,
 				E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */,
 				857616662111FAAD0091E7C1 /* XBMakeToolView.xib in Resources */,
 				CAE7464021129C3F000D05B7 /* LICENSE in Resources */,
@@ -1034,6 +1043,7 @@
 				E60E3B59210C0FF000C5BFBB /* AppDelegate.m in Sources */,
 				CAE7463921129C3F000D05B7 /* RequestViewModel.m in Sources */,
 				CAE7464721129C3F000D05B7 /* XHSystemCollectionViewController.m in Sources */,
+				C51921C3E062D0586534AE85 /* XBMakeContentItemView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

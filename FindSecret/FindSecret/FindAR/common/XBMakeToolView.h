@@ -10,7 +10,8 @@
 
 @class XBMakeToolView;
 @protocol XBMakeToolViewDelegate <NSObject>
-- (void)makeToolView:(XBMakeToolView *)makeToolView didClickItemAtIndex:(NSInteger)index;
+- (void)makeToolView:(XBMakeToolView *)makeToolView didTouchDownItemAtIndex:(NSInteger)index;
+- (void)makeToolView:(XBMakeToolView *)makeToolView didTouchUpAtIndex:(NSInteger)index;
 @end
 
 @interface XBMakeToolView : UIView

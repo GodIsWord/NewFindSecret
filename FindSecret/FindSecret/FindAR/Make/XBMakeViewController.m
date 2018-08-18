@@ -15,6 +15,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import "XBRecorderTestViewController.h"
 #import "XBVideoPreviewViewController.h"
+#import "XBMakeContentItemView.h"
+#import "XBAudioManager.h"
 
 
 typedef NS_ENUM(NSUInteger, XBMakeToolbarItemType) {
@@ -29,7 +31,6 @@ typedef NS_ENUM(NSUInteger, XBMakeToolbarItemType) {
 
 typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     XBMakeContentStageCapture,
-    XBMakeContentStageCaptureDone,
     XBMakeContentStageCaptureAddContent,
 };
 
@@ -48,7 +49,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 @end
 
 
-@interface XBMakeViewController () <XBMakeToolViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface XBMakeViewController () <XBMakeToolViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate,XBAudioManagerPlayDelegate,XBAudioManagerRecoderDelegate>
 @property(nonatomic, strong) XBMakeToolbar *topToolbar;
 @property(nonatomic, strong) UIImageView *imageView;
 @property(nonatomic, strong) XBMakeToolView *toolView;
@@ -60,30 +61,26 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 @property(nonatomic, strong) UIButton *captureBtn;
 
 @property(nonatomic, assign) XBMakeContentStage stage;
+@property(nonatomic, strong) XBAudioManager *audioMgr;
 @end
 
 @implementation XBMakeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // 初始化预览图层
     [self initCapture];
     // UI 初始化
     [self initTopToolBar];
-
     // 切换到拍照模式
     [self switchCaptureMode];
-    return;
+    
+    // 录音
+    self.audioMgr = [XBAudioManager new];
+    self.audioMgr.playDelegate = self;
+    self.audioMgr.recordDelegate = self;
 
-    CGRect frame;
-
-
-    CGFloat toolViewWidth = 100;
-    CGFloat toolViewHeight = 30;
-    self.toolView = [XBMakeToolView toolView];
-    self.toolView.delegate = self;
-    self.toolView.frame = CGRectMake((CGRectGetWidth(self.view.frame) - toolViewWidth) / 2, CGRectGetHeight(self.view.frame) - BOTTOM_MARGIN - 20 - toolViewHeight, toolViewWidth, toolViewHeight);
-    [self.view addSubview:self.toolView];
 }
 
 - (void)initCapture {
@@ -176,6 +173,9 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     }
     self.captureBtn.hidden = NO;
 
+    // 隐藏添加的工具条
+    self.toolView.hidden = YES;
+
 }
 
 - (void)captureImage {
@@ -200,7 +200,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     }
     dispatch_async(dispatch_get_main_queue(), ^{
 
-        self.stage = XBMakeContentStageCaptureDone;
+        self.stage = XBMakeContentStageCaptureAddContent;
 
         [self updateToolbarItemsWithTypes:@[@(XBMakeToolbarItemTypeCancel), @(XBMakeToolbarItemTypeNextFlexibleSpace), @(XBMakeToolbarItemTypeConfirm)]];
 
@@ -214,10 +214,27 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
             [self.view insertSubview:self.imageView atIndex:0];
         }
 
+        // 停止捕捉
         self.imageView.image = image;
         self.captureLayer.hidden = YES;
         self.captureBtn.hidden = YES;
-        [self.session stopRunning];//停止捕捉
+        [self.session stopRunning];
+
+
+
+        CGFloat toolViewWidth = 200;
+        CGFloat toolViewHeight = 60;
+        if (!self.toolView) {
+            self.toolView = [XBMakeToolView toolView];
+            self.toolView.delegate = self;
+        }
+        if (!self.toolView.superview) {
+            self.toolView.frame = CGRectMake((CGRectGetWidth(self.view.frame) - toolViewWidth) / 2, CGRectGetHeight(self.view.frame) - BOTTOM_MARGIN - 20 - toolViewHeight, toolViewWidth, toolViewHeight);
+            [self.view addSubview:self.toolView];
+        }
+        self.toolView.hidden = NO;
+
+
     });
 }
 
@@ -268,17 +285,20 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 }
 
 - (void)addRecordVoice {
-    XBRecorderTestViewController *controller = [[XBRecorderTestViewController alloc] init];
-    [self.navigationController pushViewController:controller animated:YES];
+    
 }
 
 - (void)addText {
-    XBTextEditController *textXB = [[XBTextEditController alloc] init];
-    textXB.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    textXB.text = @"小白是🐷";
-    textXB.textColor = [UIColor redColor];
-    textXB.textStyle = @"";
-    [self presentViewController:textXB animated:NO completion:nil];
+    XBTextEditController *textEditController = [[XBTextEditController alloc] init];
+    textEditController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    textEditController.text = @"小白是🐷";
+    textEditController.textColor = [UIColor redColor];
+    textEditController.textStyle = @"";
+    textEditController.callback = ^(NSAttributedString *content) {
+        XBMakeContentItemView *itemVIew = [XBMakeContentItemView contentItemViewWithAttributedString:content];
+        [self.view addSubview:itemVIew];
+    };
+    [self presentViewController:textEditController animated:NO completion:nil];
 }
 
 - (void)goBack {
@@ -317,21 +337,31 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 #pragma mark - XBMakeToolViewDelegate
 
-- (void)makeToolView:(XBMakeToolView *)makeToolView didClickItemAtIndex:(NSInteger)index {
+//- (void)makeToolView:(XBMakeToolView *)makeToolView didClickItemAtIndex:(NSInteger)index {
+//}
+
+- (void)makeToolView:(XBMakeToolView *)makeToolView didTouchDownItemAtIndex:(NSInteger)index {
+    if (index == 1) {
+        [self.audioMgr startRecord];
+    }
+}
+
+- (void)makeToolView:(XBMakeToolView *)makeToolView didTouchUpAtIndex:(NSInteger)index {
     switch (index) {
         case 0:
             [self addText];
             break;
         case 1:
-            [self addRecordVoice];
+            [self.audioMgr endRecord];
             break;
         case 2:
             [self addVideo];
             break;
-
+            
         default:
             break;
     }
+
 }
 
 
@@ -356,7 +386,33 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 }
 
-#pragma mark -
+#pragma mark - XBAudioManagerPlayDelegate,XBAudioManagerRecoderDelegate
+
+
+-(void)xbAudioManagerEncodeErrorDidOccur:(XBAudioManager *)recorder error:(NSError *)error {
+    NSLog(@"%s %@",__func__,error);
+}
+-(void)xbAudioManagerDidFinishRecording:(XBAudioManager *)recorder successfully:(BOOL)flag {
+    NSString *filePath = [recorder lastAudioPath];
+    NSLog(@"%s",__func__);
+}
+//播放结束时执行的动作
+- (void)xbAudioManagerPlayerDidFinishPlaying:(XBAudioManager*)player successfully:(BOOL)flag {
+    NSLog(@"%s",__func__);
+}
+//解码错误执行的动作
+- (void)xbAudioManagerPlayerDecodeErrorDidOccur:(XBAudioManager*)player error:(NSError *)error {
+    NSLog(@"%s %@",__func__,error);
+}
+//处理中断的代码
+- (void)xbAudioManagerPlayerBeginInteruption:(XBAudioManager*)player {
+    NSLog(@"%s",__func__);
+}
+//处理中断结束的代码
+- (void)xbAudioManagerPlayerEndInteruption:(XBAudioManager*)player {
+    NSLog(@"%s",__func__);
+}
+
 
 - (void)updateToolbarItemsWithTypes:(NSArray *)types {
 
@@ -411,13 +467,13 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 - (void)cancelAction {
 
-    if (self.stage == XBMakeContentStageCaptureDone) {
+    if (self.stage == XBMakeContentStageCaptureAddContent) {
         [self switchCaptureMode];
     }
 }
 
 
-#pragma mark -
+#pragma mark - Camera
 
 - (BOOL)isCameraAvailable {
     return [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];

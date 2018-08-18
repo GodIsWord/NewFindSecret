@@ -95,7 +95,7 @@
     
     self.cancelButton = [[UIButton alloc]init];
     [self.contentView addSubview: self.cancelButton];
-    [self.cancelButton addTarget:self action:@selector(dismissAlertWindow) forControlEvents:UIControlEventTouchUpInside];
+    [self.cancelButton addTarget:self action:@selector(dismissAlertWindow:) forControlEvents:UIControlEventTouchUpInside];
     self.cancelButton.frame = CGRectMake(0, (SCREEN_WIDTH - 100)*1.25-49, (SCREEN_WIDTH - 100)/2, 49);
     [self.cancelButton setTitle:@"取消" forState:UIControlStateNormal];
     [self.cancelButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
@@ -108,7 +108,8 @@
     
     self.sureButton = [[UIButton alloc]init];
     [self.contentView addSubview: self.sureButton];
-    [self.sureButton addTarget:self action:@selector(dismissAlertWindow) forControlEvents:UIControlEventTouchUpInside];
+    self.sureButton.tag = 1;
+    [self.sureButton addTarget:self action:@selector(dismissAlertWindow:) forControlEvents:UIControlEventTouchUpInside];
     self.sureButton.frame = CGRectMake((SCREEN_WIDTH - 100)/2,(SCREEN_WIDTH - 100)*1.25-49, (SCREEN_WIDTH - 100)/2, 49);
     [self.sureButton setTitle:@"确定" forState:UIControlStateNormal];
     [self.sureButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
@@ -118,9 +119,16 @@
     
 }
 
-- (void)dismissAlertWindow{
-    [self dismissViewControllerAnimated:NO completion:nil];
-    
+- (void)dismissAlertWindow:(UIButton *)sender{
+    __weak typeof(self)wSelf = self;
+    [self dismissViewControllerAnimated:NO completion:^{
+        if (sender.tag == 1) {
+            if (wSelf.callback) {
+                wSelf.callback(wSelf.editTextView.attributedText);
+            }
+        }
+    }];
+
 }
 -(void)textViewEndEdit{
     [self.editTextView resignFirstResponder];

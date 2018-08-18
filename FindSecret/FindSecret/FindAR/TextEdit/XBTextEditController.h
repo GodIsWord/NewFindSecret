@@ -12,5 +12,5 @@
 @property (nonatomic, copy) NSString *text;
 @property (nonatomic, strong) UIColor *textColor;
 @property (nonatomic, copy) NSString *textStyle;
-
+@property (nonatomic, copy) void (^callback) (NSAttributedString *content);
 @end

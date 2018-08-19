@@ -122,6 +122,17 @@
     return (long)size/1024;
     
 }
+
++(NSTimeInterval)durationWithPath:(nullable NSString *)path{
+    
+    if(!path) return 0;
+    NSDictionary *options = @{AVURLAssetPreferPreciseDurationAndTimingKey: @YES};
+    AVURLAsset *audioAsset = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:path] options:options];
+    CMTime audioDuration = audioAsset.duration;
+    NSTimeInterval audioDurationSeconds = CMTimeGetSeconds(audioDuration);
+    
+    return audioDurationSeconds;
+}
 #pragma mark --- delegate
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer*)player successfully:(BOOL)flag{

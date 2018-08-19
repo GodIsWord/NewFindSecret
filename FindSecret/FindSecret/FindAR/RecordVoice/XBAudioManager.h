@@ -41,10 +41,21 @@
 
 -(void)endRecord;
 
--(void)playAudioWithURL:(NSURL*)urlh;
+-(void)playAudioWithURL:(NSURL*)url;
 
 -(void)stopPlay;
 
 -(NSString*)lastAudioPath;
 
+-(NSTimeInterval) lastAudioDuration;
+
+-(NSTimeInterval) audioDurationWithPath:(nullable NSString*)path;
+
 @end
+
+
+
+
+
+
+

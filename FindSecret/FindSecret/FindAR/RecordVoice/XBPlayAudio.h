@@ -47,4 +47,15 @@
  */
 -(double) currentVolume;
 
+
++(NSTimeInterval)durationWithPath:(nullable NSString*)path;
+
+
 @end
+
+
+
+
+
+
+

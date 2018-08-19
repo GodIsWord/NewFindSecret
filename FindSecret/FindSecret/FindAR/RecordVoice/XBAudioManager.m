@@ -101,6 +101,17 @@
     return [XBRecordAudioStorage lastRecorderPath];
 }
 
+-(NSTimeInterval) lastAudioDuration{
+    return [self audioDurationWithPath:[self lastAudioPath]];
+}
+
+-(NSTimeInterval) audioDurationWithPath:(nullable NSString*)path{
+    
+    if(![XBRecordAudioStorage fileExist:path]) return 0;
+    
+    return [XBPlayAudio durationWithPath:path];
+}
+
 #pragma mark -- record delegate
 
 -(void)xbAudioRecorderDidFinishRecording:(XBRecordAudio *)recorder successfully:(BOOL)flag{

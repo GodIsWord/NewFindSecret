@@ -18,4 +18,6 @@
 
 +(BOOL)saveAudioWithDataPath:(NSString*)path;
 
++(BOOL)fileExist:(NSString*)path;
+
 @end

@@ -39,6 +39,8 @@
     
     XBRecordAudioView *view = [self shareInstance];
     
+    view.userInteractionEnabled = YES;
+    
     if (!view.superview){
         UIWindow *window = [UIApplication sharedApplication].delegate.window;
         [window addSubview:view];
@@ -47,14 +49,31 @@
         imageView.backgroundColor = [UIColor redColor];
         [view addSubview:imageView];
         view.volumeImage = imageView;
+        imageView.userInteractionEnabled = YES;
+        
         
         UIButton *btnCancle = [UIButton buttonWithType:UIButtonTypeCustom];
         btnCancle.frame = CGRectMake(0, imageView.xb_bottom, view.xb_width/2, view.xb_height-imageView.xb_bottom);
+        [btnCancle setTitle:@"取消" forState:UIControlStateNormal];
+        btnCancle.backgroundColor = [UIColor blueColor];
+        [view addSubview:btnCancle];
+        [btnCancle addActionHandler:^(NSInteger tag) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:XBRecordAudioViewCancleMessage object:nil];
+        }];
+        
+        UIButton *btnOK = [UIButton buttonWithType:UIButtonTypeCustom];
+        btnOK.frame = CGRectMake(btnCancle.xb_right, imageView.xb_bottom, view.xb_width/2, view.xb_height-imageView.xb_bottom);
+        [btnOK setTitle:@"确定" forState:UIControlStateNormal];
+        btnOK.backgroundColor = [UIColor blueColor];
+        [view addSubview:btnOK];
+        [btnOK addActionHandler:^(NSInteger tag) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:XBRecordAudioViewOkMessage object:nil];
+        }];
         
     }
     
-    view.volumeImage.xb_height = (view.xb_height-10)*volume;
-    view.volumeImage.xb_y = view.xb_height-10-(view.xb_height-10)*(volume);
+    view.volumeImage.xb_height = (view.xb_height-45)*volume;
+    view.volumeImage.xb_y = view.xb_height-45-(view.xb_height-45)*(volume);
     
     
 }

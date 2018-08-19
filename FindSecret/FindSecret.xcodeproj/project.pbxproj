@@ -1189,8 +1189,6 @@
 				DEVELOPMENT_TEAM = PAYLCQUNUP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/FindSecret/FindAR/NextStep/WhereAreYou/第三方/高德地图",
-					"$(PROJECT_DIR)/FindSecret/FindAR/NextStep/WhereAreYou/ThirdParty/高德地图",
 					"$(PROJECT_DIR)/FindSecret/FindAR/Publish/WhereAreYou/ThirdParty/高德地图",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1213,8 +1211,6 @@
 				DEVELOPMENT_TEAM = PAYLCQUNUP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/FindSecret/FindAR/NextStep/WhereAreYou/第三方/高德地图",
-					"$(PROJECT_DIR)/FindSecret/FindAR/NextStep/WhereAreYou/ThirdParty/高德地图",
 					"$(PROJECT_DIR)/FindSecret/FindAR/Publish/WhereAreYou/ThirdParty/高德地图",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

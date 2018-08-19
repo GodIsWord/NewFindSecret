@@ -9,4 +9,5 @@
 @interface XBMakeContentItemView : UIView
 
 + (instancetype)contentItemViewWithAttributedString:(NSAttributedString *)attributedString;
++ (instancetype)contentItemViewWithVideoUrl:(NSURL *)videoUrl;
 @end

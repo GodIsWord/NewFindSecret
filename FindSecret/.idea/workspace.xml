@@ -17,7 +17,7 @@
         <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.h">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -31,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XBVideoEditController.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="XBVideoEditController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="273" column="28" selection-start-line="273" selection-start-column="28" selection-end-line="273" selection-end-column="28" />
+            <state relative-caret-position="282">
+              <caret line="278" column="28" selection-start-line="278" selection-start-column="28" selection-end-line="278" selection-end-column="28" />
               <folding>
                 <element signature="e#0#2#0" />
               </folding>
@@ -46,8 +46,8 @@
       <file leaf-file-name="ViewController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FindSecret/ViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
-              <caret line="49" column="67" selection-start-line="49" selection-start-column="67" selection-end-line="49" selection-end-column="67" />
+            <state relative-caret-position="720">
+              <caret line="48" column="67" selection-start-line="48" selection-start-column="67" selection-end-line="48" selection-end-column="67" />
               <folding>
                 <element signature="e#139#165#0" expanded="true" />
               </folding>
@@ -58,8 +58,8 @@
       <file leaf-file-name="XBMakeViewController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1923">
-              <caret line="277" selection-start-line="277" selection-end-line="277" />
+            <state relative-caret-position="1908">
+              <caret line="276" selection-start-line="276" selection-end-line="276" />
               <folding>
                 <element signature="e#135#167#0" expanded="true" />
                 <element signature="e#13628#13756#0" />
@@ -73,11 +73,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XBMakeContentItemView.m" pinned="false" current-in-tab="false">
+      <file leaf-file-name="XBMakeContentItemView.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/common/XBMakeContentItemView.m">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="2" lean-forward="true" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+              <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -113,8 +113,8 @@
         <option value="$PROJECT_DIR$/FindSecret/FindAR/TextEdit/XBTextEditController.m" />
         <option value="$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.m" />
         <option value="$PROJECT_DIR$/FindSecret/FindAR/common/XBMakeContentItemView.h" />
-        <option value="$PROJECT_DIR$/FindSecret/FindAR/common/XBMakeContentItemView.m" />
         <option value="$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.m" />
+        <option value="$PROJECT_DIR$/FindSecret/FindAR/common/XBMakeContentItemView.m" />
       </list>
     </option>
   </component>
@@ -181,6 +181,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="OBJC.PRESERVED_TARGET_SELECTION" value="FindSecret" />
+    <property name="SearchEverywhereHistoryKey" value="XBMakeContentItemView&#9;FILE&#9;file:///Users/pillar/Desktop/NewFindSecret/FindSecret/FindSecret/FindAR/common/XBMakeContentItemView.m" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -218,12 +219,12 @@
       <workItem from="1532748895823" duration="7720000" />
       <workItem from="1533054575488" duration="662000" />
       <workItem from="1533132410769" duration="831000" />
-      <workItem from="1534524074725" duration="4952000" />
+      <workItem from="1534524074725" duration="5092000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14165000" />
+    <option name="totallyTimeSpent" value="14305000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="36" y="22" width="1244" height="778" extended-state="6" />
@@ -523,7 +524,7 @@
     <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.h">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
@@ -536,8 +537,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FindSecret/ViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="49" column="67" selection-start-line="49" selection-start-column="67" selection-end-line="49" selection-end-column="67" />
+        <state relative-caret-position="720">
+          <caret line="48" column="67" selection-start-line="48" selection-start-column="67" selection-end-line="48" selection-end-column="67" />
           <folding>
             <element signature="e#139#165#0" expanded="true" />
           </folding>
@@ -609,8 +610,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1923">
-          <caret line="277" selection-start-line="277" selection-end-line="277" />
+        <state relative-caret-position="1908">
+          <caret line="276" selection-start-line="276" selection-end-line="276" />
           <folding>
             <element signature="e#135#167#0" expanded="true" />
             <element signature="e#13628#13756#0" />
@@ -630,20 +631,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/common/XBMakeContentItemView.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="2" lean-forward="true" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="273" column="28" selection-start-line="273" selection-start-column="28" selection-end-line="273" selection-end-column="28" />
+        <state relative-caret-position="282">
+          <caret line="278" column="28" selection-start-line="278" selection-start-column="28" selection-end-line="278" selection-end-column="28" />
           <folding>
             <element signature="e#0#2#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/common/XBMakeContentItemView.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
         </state>
       </provider>
     </entry>

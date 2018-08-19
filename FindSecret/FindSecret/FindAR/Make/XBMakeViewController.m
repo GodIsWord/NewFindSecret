@@ -48,7 +48,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 @end
 
 
-@interface XBMakeViewController () <XBMakeToolViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate,XBAudioManagerPlayDelegate,XBAudioManagerRecoderDelegate>
+@interface XBMakeViewController () <XBMakeToolViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate,XBAudioManagerPlayDelegate,XBAudioManagerRecoderDelegate, XBVideoEditControllerDelegate>
 @property(nonatomic, strong) XBMakeToolbar *topToolbar;
 @property(nonatomic, strong) UIImageView *imageView;
 @property(nonatomic, strong) XBMakeToolView *toolView;
@@ -75,10 +75,10 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     // 切换到拍照模式
     [self switchCaptureMode];
     
-    // 录音
-//    self.audioMgr = [XBAudioManager new];
-//    self.audioMgr.playDelegate = self;
-//    self.audioMgr.recordDelegate = self;
+//     录音
+    self.audioMgr = [XBAudioManager new];
+    self.audioMgr.playDelegate = self;
+    self.audioMgr.recordDelegate = self;
 
 }
 
@@ -333,9 +333,6 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 #pragma mark - XBMakeToolViewDelegate
 
-//- (void)makeToolView:(XBMakeToolView *)makeToolView didClickItemAtIndex:(NSInteger)index {
-//}
-
 - (void)makeToolView:(XBMakeToolView *)makeToolView didTouchDownItemAtIndex:(NSInteger)index {
     if (index == 1) {
         [self.audioMgr startRecord];
@@ -372,11 +369,9 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
         XBVideoEditController *vc = [[XBVideoEditController alloc] init];
         vc.videoUrl = info[UIImagePickerControllerMediaURL];
+        vc.delegate = self;
         UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:vc];
         [self presentViewController:nv animated:YES completion:nil];
-        // TODO:这里应该还差一个流程
-//
-//
     }];
 
 }
@@ -408,6 +403,16 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     NSLog(@"%s",__func__);
 }
 
+#pragma mark - XBVideoEditControllerDelegate
+
+- (void)videoEditController:(XBVideoEditController *)videoEditController didProcessingCompletedWithVideoUrl:(NSURL *)url{
+    
+    XBMakeContentItemView *itemVIew = [XBMakeContentItemView contentItemViewWithVideoUrl:url];
+    [self.view addSubview:itemVIew];
+
+}
+
+#pragma mark - toolbar
 
 - (void)updateToolbarItemsWithTypes:(NSArray *)types {
 
@@ -462,6 +467,12 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 - (void)cancelAction {
 
+    // 移除所有的附加视图
+    for (UIView *view in self.view.subviews) {
+        if ([view isKindOfClass:[XBMakeContentItemView class]]) {
+            [view removeFromSuperview];
+        }
+    }
     if (self.stage == XBMakeContentStageCaptureAddContent) {
         [self switchCaptureMode];
     }

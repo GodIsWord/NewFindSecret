@@ -366,10 +366,16 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
             case AVAssetExportSessionStatusUnknown:
                 NSLog(@"未知原因 %@", exportSession.error);
                 break;
-            case AVAssetExportSessionStatusCompleted:
+            case AVAssetExportSessionStatusCompleted:{
                 NSLog(@"到处完成 %@", tempUrl);
-                [self showAlertWithMessage:tempVideoPath completion:nil];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if ([self.delegate respondsToSelector:@selector(videoEditController:didProcessingCompletedWithVideoUrl:)]) {
+                        [self.delegate videoEditController:self didProcessingCompletedWithVideoUrl:tempUrl];
+                    }
+                    [self goBack];
+                });
                 break;
+            }
             default:
                 break;
         }

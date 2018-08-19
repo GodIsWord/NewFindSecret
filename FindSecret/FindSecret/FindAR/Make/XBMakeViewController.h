@@ -9,5 +9,4 @@
 #import <UIKit/UIKit.h>
 
 @interface XBMakeViewController : UIViewController
-@property  (nonatomic, strong) UIImage *contentImage;
 @end

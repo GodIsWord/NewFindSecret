@@ -11,7 +11,6 @@
 		857616602111F5020091E7C1 /* XBMakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8576165E2111F5020091E7C1 /* XBMakeViewController.m */; };
 		857616642111FAA10091E7C1 /* XBMakeToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 857616632111FAA10091E7C1 /* XBMakeToolView.m */; };
 		857616662111FAAD0091E7C1 /* XBMakeToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 857616652111FAAD0091E7C1 /* XBMakeToolView.xib */; };
-		8576169A211569560091E7C1 /* XBVideoPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85761699211569560091E7C1 /* XBVideoPreviewViewController.m */; };
 		85E98D4C21271D0400DDCC56 /* XBRecordControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E98D4B21271D0400DDCC56 /* XBRecordControl.m */; };
 		85E98D4E2127C62B00DDCC56 /* XBMakeContentItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85E98D4D2127C62B00DDCC56 /* XBMakeContentItemView.xib */; };
 		BEA19C64210C4D730039086F /* drag.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BEA19C63210C4D730039086F /* drag.jpg */; };
@@ -131,8 +130,6 @@
 		857616622111FAA10091E7C1 /* XBMakeToolView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBMakeToolView.h; sourceTree = "<group>"; };
 		857616632111FAA10091E7C1 /* XBMakeToolView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBMakeToolView.m; sourceTree = "<group>"; };
 		857616652111FAAD0091E7C1 /* XBMakeToolView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBMakeToolView.xib; sourceTree = "<group>"; };
-		85761698211569560091E7C1 /* XBVideoPreviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBVideoPreviewViewController.h; sourceTree = "<group>"; };
-		85761699211569560091E7C1 /* XBVideoPreviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBVideoPreviewViewController.m; sourceTree = "<group>"; };
 		85E98D4A21271D0400DDCC56 /* XBRecordControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBRecordControl.h; sourceTree = "<group>"; };
 		85E98D4B21271D0400DDCC56 /* XBRecordControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecordControl.m; sourceTree = "<group>"; };
 		85E98D4D2127C62B00DDCC56 /* XBMakeContentItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBMakeContentItemView.xib; sourceTree = "<group>"; };
@@ -383,8 +380,6 @@
 				BEA19C65210C4EE10039086F /* XBVideoIntervalChooseView.h */,
 				BEA19C66210C4EE10039086F /* XBVideoIntervalChooseView.m */,
 				BEA19C63210C4D730039086F /* drag.jpg */,
-				85761698211569560091E7C1 /* XBVideoPreviewViewController.h */,
-				85761699211569560091E7C1 /* XBVideoPreviewViewController.m */,
 			);
 			path = VideoEdit;
 			sourceTree = "<group>";
@@ -1006,7 +1001,6 @@
 				CAE7464F21129C3F000D05B7 /* XHCircularProgressView.m in Sources */,
 				CAE7465121129C3F000D05B7 /* XHLoadMoreView.m in Sources */,
 				CAE7464E21129C3F000D05B7 /* XHCircleView.m in Sources */,
-				8576169A211569560091E7C1 /* XBVideoPreviewViewController.m in Sources */,
 				CAE7463E21129C3F000D05B7 /* UISearchBar+MP.m in Sources */,
 				E6C8EB3F21114B4D00ED53E2 /* XBRecordAudioStorage.m in Sources */,
 				CAE7465E21129C3F000D05B7 /* XBNoResultHeadView.m in Sources */,

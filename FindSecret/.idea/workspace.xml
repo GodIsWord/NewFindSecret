@@ -10,7 +10,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_958aa9d067568b2ce2cb9b513200e893792d7234" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_8e3ec57027e3f39887b4086a1d189ed880649c8a" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="XBVideoEditController.h" pinned="false" current-in-tab="false">
@@ -31,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XBVideoEditController.m" pinned="false" current-in-tab="false">
+      <file leaf-file-name="XBVideoEditController.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3825">
-              <caret line="255" column="4" selection-start-line="255" selection-start-column="4" selection-end-line="262" />
+            <state relative-caret-position="207">
+              <caret line="273" column="28" selection-start-line="273" selection-start-column="28" selection-end-line="273" selection-end-column="28" />
               <folding>
                 <element signature="e#0#2#0" />
               </folding>
@@ -58,16 +58,10 @@
       <file leaf-file-name="XBMakeViewController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="267" selection-start-line="267" selection-end-line="267" />
+            <state relative-caret-position="1923">
+              <caret line="277" selection-start-line="277" selection-end-line="277" />
               <folding>
                 <element signature="e#135#167#0" expanded="true" />
-                <element signature="e#2330#4161#0" />
-                <element signature="e#4163#4596#0" />
-                <element signature="e#4598#5866#0" />
-                <element signature="e#5868#6587#0" />
-                <element signature="e#6870#7021#0" />
-                <element signature="e#7022#7175#0" />
                 <element signature="e#13628#13756#0" />
                 <element signature="e#13757#13893#0" />
                 <element signature="e#13894#14028#0" />
@@ -79,11 +73,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XBMakeContentItemView.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="XBMakeContentItemView.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/common/XBMakeContentItemView.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="45">
+              <caret line="3" column="2" lean-forward="true" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -112,7 +106,6 @@
       <list>
         <option value="$PROJECT_DIR$/FindSecret/FindAR/XBMacroDefinition.h" />
         <option value="$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.h" />
-        <option value="$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.m" />
         <option value="$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.h" />
         <option value="$PROJECT_DIR$/FindSecret/ViewController.m" />
         <option value="$PROJECT_DIR$/FindSecret/FindAR/common/XBMakeToolView.m" />
@@ -121,6 +114,7 @@
         <option value="$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.m" />
         <option value="$PROJECT_DIR$/FindSecret/FindAR/common/XBMakeContentItemView.h" />
         <option value="$PROJECT_DIR$/FindSecret/FindAR/common/XBMakeContentItemView.m" />
+        <option value="$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.m" />
       </list>
     </option>
   </component>
@@ -170,14 +164,14 @@
               <item name="FindSecret" type="1d218c8b:XcodeProjectNode" />
               <item name="FindSecret" type="fcab9f18:XcodeViewNode" />
               <item name="FindAR" type="fcab9f18:XcodeViewNode" />
-              <item name="common" type="fcab9f18:XcodeViewNode" />
+              <item name="Make" type="fcab9f18:XcodeViewNode" />
             </path>
             <path>
               <item name="" type="efc3779f:XcodeRootNode" />
               <item name="FindSecret" type="1d218c8b:XcodeProjectNode" />
               <item name="FindSecret" type="fcab9f18:XcodeViewNode" />
               <item name="FindAR" type="fcab9f18:XcodeViewNode" />
-              <item name="Make" type="fcab9f18:XcodeViewNode" />
+              <item name="VideoEdit" type="fcab9f18:XcodeViewNode" />
             </path>
           </expand>
           <select />
@@ -224,12 +218,12 @@
       <workItem from="1532748895823" duration="7720000" />
       <workItem from="1533054575488" duration="662000" />
       <workItem from="1533132410769" duration="831000" />
-      <workItem from="1534524074725" duration="4330000" />
+      <workItem from="1534524074725" duration="4952000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13543000" />
+    <option name="totallyTimeSpent" value="14165000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="36" y="22" width="1244" height="778" extended-state="6" />
@@ -348,12 +342,6 @@
           <caret line="12" column="33" lean-forward="true" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
           <folding>
             <element signature="e#135#167#0" expanded="true" />
-            <element signature="e#2330#4161#0" />
-            <element signature="e#4163#4596#0" />
-            <element signature="e#4598#5866#0" />
-            <element signature="e#5868#6587#0" />
-            <element signature="e#6870#7021#0" />
-            <element signature="e#7022#7175#0" />
             <element signature="e#13628#13756#0" />
             <element signature="e#13757#13893#0" />
             <element signature="e#13894#14028#0" />
@@ -546,16 +534,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3825">
-          <caret line="255" column="4" selection-start-line="255" selection-start-column="4" selection-end-line="262" />
-          <folding>
-            <element signature="e#0#2#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FindSecret/ViewController.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
@@ -631,16 +609,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="267" selection-start-line="267" selection-end-line="267" />
+        <state relative-caret-position="1923">
+          <caret line="277" selection-start-line="277" selection-end-line="277" />
           <folding>
             <element signature="e#135#167#0" expanded="true" />
-            <element signature="e#2330#4161#0" />
-            <element signature="e#4163#4596#0" />
-            <element signature="e#4598#5866#0" />
-            <element signature="e#5868#6587#0" />
-            <element signature="e#6870#7021#0" />
-            <element signature="e#7022#7175#0" />
             <element signature="e#13628#13756#0" />
             <element signature="e#13757#13893#0" />
             <element signature="e#13894#14028#0" />
@@ -660,8 +632,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/common/XBMakeContentItemView.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="45">
+          <caret line="3" column="2" lean-forward="true" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="273" column="28" selection-start-line="273" selection-start-column="28" selection-end-line="273" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#2#0" />
+          </folding>
         </state>
       </provider>
     </entry>

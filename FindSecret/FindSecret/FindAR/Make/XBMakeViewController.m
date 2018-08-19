@@ -77,9 +77,9 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     [self switchCaptureMode];
     
     // 录音
-    self.audioMgr = [XBAudioManager new];
-    self.audioMgr.playDelegate = self;
-    self.audioMgr.recordDelegate = self;
+//    self.audioMgr = [XBAudioManager new];
+//    self.audioMgr.playDelegate = self;
+//    self.audioMgr.recordDelegate = self;
 
 }
 
@@ -266,7 +266,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     UIAlertAction *album = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         picker.mediaTypes = @[(NSString *) kUTTypeMovie];
-        picker.videoQuality = UIImagePickerControllerQualityTypeMedium;
+        picker.videoQuality = UIImagePickerControllerQualityTypeHigh;
         picker.delegate = self;
         [self presentViewController:picker animated:YES completion:nil];
 
@@ -291,9 +291,6 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 - (void)addText {
     XBTextEditController *textEditController = [[XBTextEditController alloc] init];
     textEditController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    textEditController.text = @"小白是🐷";
-    textEditController.textColor = [UIColor redColor];
-    textEditController.textStyle = @"";
     textEditController.callback = ^(NSAttributedString *content) {
         XBMakeContentItemView *itemVIew = [XBMakeContentItemView contentItemViewWithAttributedString:content];
         [self.view addSubview:itemVIew];
@@ -374,12 +371,11 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *, id> *)info {
     [picker dismissViewControllerAnimated:YES completion:^{
 
-        XBVideoPreviewViewController *vc = [[XBVideoPreviewViewController alloc] init];
+        XBVideoEditController *vc = [[XBVideoEditController alloc] init];
         vc.videoUrl = info[UIImagePickerControllerMediaURL];
         UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:vc];
         [self presentViewController:nv animated:YES completion:nil];
         // TODO:这里应该还差一个流程
-//        XBVideoEditController *videoEditController = [[XBVideoEditController alloc] init];
 //
 //
     }];

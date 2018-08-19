@@ -90,14 +90,14 @@
     self.intervalLayer = [[CALayer alloc] init];
     self.intervalLayer.borderColor = [UIColor yellowColor].CGColor;
     self.intervalLayer.borderWidth = borderWidth;
-    self.intervalLayer.frame = CGRectMake(self.contentInsets.left - borderWidth,  self.contentInsets.top - borderWidth, self.bounds.size.width - self.contentInsets.left - self.contentInsets.right + 2 * borderWidth, self.bounds.size.height - self.contentInsets.top - self.contentInsets.bottom + 2*borderWidth);
+    self.intervalLayer.frame = CGRectMake(self.contentInsets.left,  self.contentInsets.top - borderWidth, self.bounds.size.width - self.contentInsets.left - self.contentInsets.right, self.bounds.size.height - self.contentInsets.top - self.contentInsets.bottom + 2*borderWidth);
     [self.layer addSublayer:self.intervalLayer];
     
     
     CGFloat controlViewWidth = 10.0;
     
     self.leftControlImageView = [[UIImageView alloc] init];
-    self.leftControlImageView.backgroundColor = [UIColor yellowColor];
+    self.leftControlImageView.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.3];
     self.leftControlImageView.userInteractionEnabled = YES;
     self.leftControlImageView.frame = CGRectMake(CGRectGetMinX(self.intervalLayer.frame) - controlViewWidth + borderWidth, self.intervalLayer.frame.origin.y, controlViewWidth, self.intervalLayer.bounds.size.height);
     self.leftControlImageView.xb_enlargeEdge = UIEdgeInsetsMake(0, 4, 0, 8);
@@ -109,7 +109,7 @@
 
     
     self.rightControlImageView = [[UIImageView alloc] init];
-    self.rightControlImageView.backgroundColor = [UIColor yellowColor];
+    self.rightControlImageView.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.3];
     self.rightControlImageView.userInteractionEnabled = YES;
     self.rightControlImageView.frame = CGRectMake(CGRectGetMaxX(self.intervalLayer.frame) -  borderWidth, self.intervalLayer.frame.origin.y, controlViewWidth, self.intervalLayer.bounds.size.height);
     self.rightControlImageView.xb_enlargeEdge = UIEdgeInsetsMake(0, 8, 0, 4);
@@ -142,14 +142,14 @@
 }
 
 - (CMTime)getStartCMTime {
-    CGRect converFrame = [self convertRect:self.leftControlImageView.frame toView:self.colletionView];
-    CGFloat value = CGRectGetMaxX(converFrame) - self.contentInsets.left;
+    CGRect converFrame = [self convertRect:self.intervalLayer.frame toView:self.colletionView];
+    CGFloat value = CGRectGetMinX(converFrame) -  self.contentInsets.left;
     CGFloat second = value / self.speed;
     return CMTimeMakeWithSeconds(second, self.timescale);
 }
 - (CMTime)getStopCMTime {
-    CGRect converFrame = [self convertRect:self.rightControlImageView.frame toView:self.colletionView];
-    CGFloat value = CGRectGetMinX(converFrame) - self.contentInsets.left;
+    CGRect converFrame = [self convertRect:self.intervalLayer.frame toView:self.colletionView];
+    CGFloat value = CGRectGetMaxX(converFrame) -  self.contentInsets.left;
     CGFloat second = value / self.speed;
     return CMTimeMakeWithSeconds(second, self.timescale);
 }
@@ -161,10 +161,12 @@
     }
     
     
+    CGFloat width = self.intervalLayer.borderWidth;
+    
     if (!self.targetLayer) {
         self.targetLayer = [CALayer new];
         self.targetLayer.backgroundColor = [UIColor yellowColor].CGColor;
-        self.targetLayer.frame = CGRectMake(self.contentInsets.left - 4,  self.contentInsets.top, 4, self.bounds.size.height - self.contentInsets.top - self.contentInsets.bottom);
+        self.targetLayer.frame = CGRectMake(self.contentInsets.left,  self.contentInsets.top, width, self.bounds.size.height - self.contentInsets.top - self.contentInsets.bottom);
         [self.layer addSublayer:self.targetLayer];
     }
     
@@ -274,7 +276,7 @@
 - (void)updateVideoWithUrl:(NSURL *)url {
     // 读取新的
     self.videoUrl = url;
-    AVURLAsset *videoAsset = [AVURLAsset assetWithURL:url];
+    AVURLAsset *videoAsset = [AVURLAsset URLAssetWithURL:url options:@{AVURLAssetPreferPreciseDurationAndTimingKey:@(NO)}];
     // 保存帧率
     self.timescale = videoAsset.duration.timescale;
     

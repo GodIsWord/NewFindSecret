@@ -17,32 +17,77 @@
 
 
 typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
+    XBVideoEditStatusLimit,
     XBVideoEditStatusEdit,
     XBVideoEditStatusConfirm
 };
 
 @interface XBVideoEditController () <XBVideoIntervalChooseViewDelegate>
-@property(nonatomic, strong) AVPlayerItem *playerItem;
-@property(nonatomic, strong) AVPlayer *player;
-@property(nonatomic, strong) AVPlayerLayer *playerLayer;
+@property(nonatomic, strong, readwrite) AVPlayerItem *playerItem;
+@property(nonatomic, strong, readwrite) AVPlayer *player;
+@property(nonatomic, strong, readwrite) AVPlayerLayer *playerLayer;
 @property(nonatomic, strong) XBVideoIntervalChooseView *editView;
-@property(nonatomic, strong) UIToolbar *confirmToolbar;
-@property(nonatomic, strong) UIToolbar *editToolbar;
+
+
 @property(nonatomic, assign) BOOL statusBarHidden;
 @property(nonatomic, assign) BOOL viewDidAppear;
 @property(nonatomic, strong) id playTimeObserver;
 @property(nonatomic, strong) id playBoundaryTimeObserver;
 @property(nonatomic, assign) CMTime startTime;
 @property(nonatomic, assign) CMTime stopTime;
-@property(nonatomic, assign) BOOL checkStatus;
+@property(nonatomic, assign) CMTime totalTime;
 
+@property(nonatomic, assign) XBVideoEditStatus editStatus;
+
+@property(nonatomic, strong) UIView *navigationBarView;
+@property(nonatomic, strong) UIToolbar *confirmToolbar;
+@property(nonatomic, assign) BOOL isExceedTheLimit;
+@property(nonatomic, assign) BOOL isPlaying;
+@property(nonatomic, strong) UIView *bottomBarView;
+@property(nonatomic, strong) UIToolbar *editToolbar;
 @end
 
 @implementation XBVideoEditController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initialize];
+    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoDidPlayToEndTimeNotification) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
+    // 点击手势
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didClickedContentView:)];
+    [self.view addGestureRecognizer:tapGestureRecognizer];
+
+    // 容错
+    if (self.videoUrl.absoluteString.length == 0) {
+        __weak typeof(self) wself = self;
+        [self showAlertWithMessage:@"视频源出错,请重新选择" completion:^{
+            [wself goBack];
+        }];
+        return;
+    }
+
+    // 初始化
+    self.playerItem = [[AVPlayerItem alloc] initWithURL:self.videoUrl];
+    [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+    self.player = [[AVPlayer alloc] initWithPlayerItem:self.playerItem];
+    [self.player addObserver:self forKeyPath:@"rate" options:NSKeyValueObservingOptionNew context:nil];
+    self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
+    [self.view.layer addSublayer:self.playerLayer];
+
+    // 初始化全局的播放试图
+
+    self.isExceedTheLimit ? [self updateSubViewsToLimitStatus] : [self updateSubViewsToConfirmStatus];
+
+
+    // 状态栏
+    [self.navigationBarView addSubview:self.confirmToolbar];
+    [self.view addSubview:self.navigationBarView];
+
+    // 底部工具栏
+    [self.bottomBarView addSubview:self.editToolbar];
+    [self.view addSubview:self.bottomBarView];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -54,7 +99,7 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (self.player.rate == 0) {
+    if (self.player.rate == 0 && self.editStatus != XBVideoEditStatusLimit) {
         [self replayWhenViewDidAppear];
     }
 }
@@ -77,143 +122,147 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
     [self invalidatePlay];
 }
 
-- (void)initialize {
+- (void)setVideoUrl:(NSURL *)videoUrl {
+    _videoUrl = videoUrl;
+    AVURLAsset *videoAsset = [AVURLAsset URLAssetWithURL:videoUrl options:@{AVURLAssetPreferPreciseDurationAndTimingKey: @(NO)}];
+    // 保存帧率
+    self.isExceedTheLimit = CMTimeGetSeconds(videoAsset.duration) > 10.0;
+    self.totalTime = videoAsset.duration;
+    self.startTime = CMTimeMake(0, videoAsset.duration.timescale);
+    self.stopTime = videoAsset.duration;
 
 
-    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoDidPlayToEndTimeNotification) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
-
-    if (self.videoUrl.absoluteString.length == 0) {
-        __weak typeof(self) wself = self;
-        [self showAlertWithMessage:@"视频源出错,请重新选择" completion:^{
-            [wself goBack];
-        }];
-        return;
-    }
-    [self updateSubViewsWithStatus:XBVideoEditStatusEdit];
-
-//    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-//    NSError *error;
-//    [audioSession setActive:YES error:&error];
-//    if (error) {
-//        NSLog(@"active error: %@", error);
-//    }
-//    [audioSession setCategory:AVAudioSessionCategoryPlayback error:&error];
-//    if (error) {
-//        NSLog(@"Category error: %@", error);
-//    }
-
-    // MARK: 初始化 播放视图
-
-
-
-    __weak typeof(self) weakSelf = self;
-//     观察间隔, CMTime 为30分之一秒
-    self.playTimeObserver = [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 60) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
-        
-        
-        CMTime currentTime = weakSelf.player.currentItem.currentTime;
-        
-
-        
-        NSLog(@"playTimeObserver :%@",[NSValue valueWithCMTime:currentTime]);
-        if (weakSelf.isEidt) {
-            return;
-        }
-        
-        
-        
-        [weakSelf.editView animatedWithSeconds:CMTimeGetSeconds(currentTime)];
-
-//        if (_touchMode != TouchPlayerViewModeHorizontal) {
-//            // 获取 item 当前播放秒
-//            float currentPlayTime = (double)item.currentTime.value/ item.currentTime.timescale;
-//            // 更新slider, 如果正在滑动则不更新
-//            if (_isSliding == NO) {
-//                [WeakSelf updateVideoSlider:currentPlayTime];
-//            }
-//        } else {
-//            return;
-//        }
-    }];
 }
 
-- (void)updateSubViewsWithStatus:(XBVideoEditStatus)status {
+- (void)didClickedContentView:(UITapGestureRecognizer *)tapGestureRecognizer {
+    CGPoint point = [tapGestureRecognizer locationInView:tapGestureRecognizer.view];
+    if (CGRectContainsPoint(self.playerLayer.frame, point)) {
+        if (self.editStatus == XBVideoEditStatusLimit) {
+            self.isPlaying = !self.isPlaying;
+            self.isPlaying ? [self.player play] : [self.player pause];
+        }
+    }
+}
 
-    CGRect frame;
-    frame.origin.x = 0;
-    frame.origin.y = TOP_MARGIN;
-    frame.size.width = CGRectGetWidth(self.view.bounds);
-    frame.size.height = 44;
-    if (!self.confirmToolbar) {
-        self.confirmToolbar = [[UIToolbar alloc] initWithFrame:frame];
-        UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(switchEditStatus)];
-        UIBarButtonItem *fixItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-        UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
-        [self.confirmToolbar setItems:@[cancelItem, fixItem, doneItem] animated:NO];
-        [self.confirmToolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
-        self.confirmToolbar.hidden = YES;
-        [self.view addSubview:self.confirmToolbar];
+- (void)updateSubViewsToLimitStatus {
+
+    self.editStatus = XBVideoEditStatusLimit;
+
+    // 更新状态栏
+    self.navigationBarView.hidden = NO;
+
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    UIBarButtonItem *fixItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *title = [[UIBarButtonItem alloc] initWithTitle:@"选择视频" style:UIBarButtonItemStylePlain target:nil action:nil];
+    UIBarButtonItem *fixItem1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *none = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    none.width = 42;
+
+    [self.confirmToolbar setItems:@[back, fixItem, title, fixItem1, none] animated:NO];
+
+    self.playerLayer.frame = self.view.bounds;
+
+    self.startTime = CMTimeMake(0, self.totalTime.timescale);
+    self.stopTime = self.totalTime;;
+    self.isEidt = NO;
+
+    self.isPlaying = NO;
+    [self.player pause];
+    [self.player seekToTime:kCMTimeZero toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
+    
+    if (self.playTimeObserver) {
+        [self.player removeTimeObserver:self.playTimeObserver];
+        self.playTimeObserver = nil;
+
     }
 
-    self.confirmToolbar.hidden = status == XBVideoEditStatusEdit;
+    if (self.playBoundaryTimeObserver) {
+        [self.player removeTimeObserver:self.playBoundaryTimeObserver];
+        self.playBoundaryTimeObserver = nil;
+    }
 
-    frame.origin.y = CGRectGetHeight(self.view.bounds) - BOTTOM_MARGIN - kToolBarHeight - kEditAreaViewHeight;
-    frame.size.height = kEditAreaViewHeight;
-    if (!self.editView) {
-        self.editView = [[XBVideoIntervalChooseView alloc] initWithFrame:frame];
-        self.editView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
-        [self.editView updateVideoWithUrl:self.videoUrl];
-        self.editView.delegate = self;
+
+    if (_editView) {
+        _editView.hidden = YES;
+    }
+
+    self.bottomBarView.hidden = NO;
+    
+    UIBarButtonItem *des = [[UIBarButtonItem alloc] initWithTitle:@"只能上传10秒内的视频" style:UIBarButtonItemStylePlain target:nil action:nil];
+    UIBarButtonItem *fixItem3 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *edit = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(updateSubViewsToEditStatus)];
+
+    [self.editToolbar setItems:@[des, fixItem3, edit] animated:NO];
+}
+
+- (void)updateSubViewsToEditStatus {
+    self.editStatus = XBVideoEditStatusEdit;
+
+    self.navigationBarView.hidden = YES;
+
+
+    if (!self.editView.superview) {
         [self.view addSubview:self.editView];
     }
+    [self.editView updateVideoWithUrl:self.videoUrl];
+    self.editView.delegate = self;
+    self.editView.hidden = NO;
 
-    self.editView.hidden = status == XBVideoEditStatusConfirm;
-
-
-    frame.origin.y += kEditAreaViewHeight;
-    frame.size.width = CGRectGetWidth(self.view.bounds);
-    frame.size.height = kToolBarHeight;
-
-    if (!self.editToolbar) {
-        self.editToolbar = [[UIToolbar alloc] init];
-        self.editToolbar.barStyle = UIBarStyleBlack;
-        self.editToolbar.frame = frame;
-        [self.view addSubview:self.editToolbar];
-        UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(goBack)];
-        UIBarButtonItem *fixItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-        UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(switchConfirmStatus)];
-        [self.editToolbar setItems:@[cancelItem, fixItem, doneItem] animated:NO];
-    }
-
-    self.editToolbar.hidden = status == XBVideoEditStatusConfirm;
 
     CGRect playLayerFrame;
-    if (status == XBVideoEditStatusEdit) {
-        CGFloat scale = CGRectGetWidth(self.view.bounds) / CGRectGetHeight(self.view.bounds);
-        playLayerFrame.origin.y = TOP_MARGIN + 8;
-        playLayerFrame.size.height = self.editView.frame.origin.y - TOP_MARGIN - 8 - 8;
-        playLayerFrame.size.width = playLayerFrame.size.height * scale;
-        playLayerFrame.origin.x = (CGRectGetWidth(self.view.bounds) - playLayerFrame.size.width) / 2.0;
-    } else {
-        playLayerFrame = self.view.bounds;
-    }
-
-    if (!self.playerLayer) {
-        self.playerItem = [[AVPlayerItem alloc] initWithURL:self.videoUrl];
-        [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
-        self.player = [[AVPlayer alloc] initWithPlayerItem:self.playerItem];
-        [self.player addObserver:self forKeyPath:@"rate" options:NSKeyValueObservingOptionNew context:nil];
-        self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
-        [self.view.layer addSublayer:self.playerLayer];
-    }
+    CGFloat scale = CGRectGetWidth(self.view.bounds) / CGRectGetHeight(self.view.bounds);
+    playLayerFrame.origin.y = TOP_MARGIN + 8;
+    playLayerFrame.size.height = self.editView.frame.origin.y - TOP_MARGIN - 8 - 8;
+    playLayerFrame.size.width = playLayerFrame.size.height * scale;
+    playLayerFrame.origin.x = (CGRectGetWidth(self.view.bounds) - playLayerFrame.size.width) / 2.0;
     self.playerLayer.frame = playLayerFrame;
 
-    [self.view bringSubviewToFront:self.confirmToolbar];
+
+    self.bottomBarView.hidden = NO;
+    UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(editCancelAction)];
+    UIBarButtonItem *flexibleSpaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(updateSubViewsToConfirmStatus)];
+    [self.editToolbar setItems:@[cancelItem, flexibleSpaceItem, doneItem] animated:NO];
+
+    
+    if (!self.playTimeObserver) {
+        __weak typeof(self) weakSelf = self;
+        self.playTimeObserver = [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 60) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+            if (weakSelf.editStatus == XBVideoEditStatusLimit || weakSelf.isEidt) {
+                return ;
+            }
+            CGFloat currentSecond = CMTimeGetSeconds(time);
+            CGFloat startSecond = CMTimeGetSeconds(weakSelf.startTime);
+            CGFloat stopSecond = CMTimeGetSeconds(weakSelf.stopTime);
+            if (currentSecond < startSecond || currentSecond > stopSecond) {
+                return;
+            }
+            [weakSelf.editView animatedWithSeconds:currentSecond];
+        }];
+    }
 }
 
+- (void)updateSubViewsToConfirmStatus {
+    self.editStatus = XBVideoEditStatusConfirm;
+    self.navigationBarView.hidden = NO;
+    UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(confirmCancelAction)];
+    UIBarButtonItem *flexibleSpaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(confirm)];
+    [self.confirmToolbar setItems:@[cancelItem, flexibleSpaceItem, doneItem] animated:NO];
 
+    self.playerLayer.frame = self.view.bounds;
+
+    self.editView.hidden = YES;
+    self.bottomBarView.hidden = YES;
+}
+
+- (void)confirmCancelAction {
+    if (self.isExceedTheLimit) {
+        [self updateSubViewsToEditStatus];
+    }else {
+        [self goBack];
+    }
+}
 //addBoundaryTimeObserverForTimes
 - (void)playInBoundaryForm:(CMTime)fromTime to:(CMTime)toTime {
 
@@ -224,29 +273,38 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
         [self.player removeTimeObserver:self.playBoundaryTimeObserver];
         self.playBoundaryTimeObserver = nil;
     }
-    if (self.player.rate != 0) {
-        [self.player pause];
-    }
-    [self.player seekToTime:self.startTime];
-    NSLog(@"seekToTime %@ ", [NSValue valueWithCMTime:fromTime]);
-    [self.player play];
     __weak typeof(self) wself = self;
-    self.playBoundaryTimeObserver = [self.player addBoundaryTimeObserverForTimes:@[[NSValue valueWithCMTime:self.stopTime]] queue:dispatch_get_main_queue() usingBlock:^{
-        NSLog(@"从 %@ 开始播放 ---- %@ ", [NSValue valueWithCMTime:fromTime], [NSValue valueWithCMTime:toTime]);
-        [wself.player pause];
-        [wself.player seekToTime:wself.startTime];
+    self.playBoundaryTimeObserver = [self.player addBoundaryTimeObserverForTimes:@[[NSValue valueWithCMTime:toTime]] queue:dispatch_get_main_queue() usingBlock:^{
+        [wself.player seekToTime:wself.startTime toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
         [wself.player play];
     }];
+    
+    [self.player seekToTime:fromTime toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
+    [self.player play];
 
+
+}
+
+- (void)editCancelAction {
+    if (self.isExceedTheLimit) {
+        [self updateSubViewsToLimitStatus];
+    } else {
+        [self goBack];
+    }
 }
 
 
 - (void)videoDidPlayToEndTimeNotification {
-    [self replayWhenViewDidAppear];
+    if (self.editStatus == XBVideoEditStatusEdit || self.editStatus == XBVideoEditStatusConfirm) {
+        [self replayWhenViewDidAppear];
+    }
 }
 
 - (void)invalidatePlay {
-    [self.player removeTimeObserver:self.playTimeObserver];
+    if (self.playTimeObserver) {
+        [self.player removeTimeObserver:self.playTimeObserver];
+        self.playTimeObserver = nil;
+    }
     if (self.playBoundaryTimeObserver) {
         [self.player removeTimeObserver:self.playBoundaryTimeObserver];
         self.playBoundaryTimeObserver = nil;
@@ -255,14 +313,6 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
     [self.player pause];
     [self.playerItem removeObserver:self forKeyPath:@"status"];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (void)switchEditStatus {
-    [self updateSubViewsWithStatus:XBVideoEditStatusEdit];
-}
-
-- (void)switchConfirmStatus {
-    [self updateSubViewsWithStatus:XBVideoEditStatusConfirm];
 }
 
 - (void)goBack {
@@ -276,7 +326,7 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
     }
 }
 
-- (void)done {
+- (void)confirm {
     NSLog(@"如果有回调的话");
     NSString *tempVideoPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"tmpMov.mov"];
     if ([[NSFileManager defaultManager] fileExistsAtPath:tempVideoPath]) {
@@ -330,10 +380,10 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
 
 - (void)replayWhenViewDidAppear {
     if (self.viewDidAppear && !self.isEidt) {
-        if (CMTIME_IS_INVALID(self.startTime)){
+        if (CMTIME_IS_INVALID(self.startTime)) {
             return;
         }
-        [self.player seekToTime:self.startTime];
+        [self.player seekToTime:self.startTime toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
         [self.player play];
     }
 }
@@ -361,11 +411,10 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
 }
 
 - (void)videoIntervalChooseViewSeekToCMTime:(CMTime)time {
-    [self.player seekToTime:time];
+    [self.player seekToTime:time toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
 }
 
 - (void)videoIntervalChooseViewEventEdittingEnded {
-
 
 }
 
@@ -411,5 +460,48 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
         }
     }]];
     [self presentViewController:alertController animated:YES completion:nil];
+}
+#pragma mark - getter
+
+- (UIView *)navigationBarView {
+    if (!_navigationBarView) {
+        _navigationBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, TOP_MARGIN + kToolBarHeight)];
+        _navigationBarView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.34];
+    }
+    return _navigationBarView;
+}
+
+- (UIToolbar *)confirmToolbar {
+    if (!_confirmToolbar) {
+        _confirmToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, TOP_MARGIN, self.view.bounds.size.width, kToolBarHeight)];
+        [_confirmToolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    }
+    return _confirmToolbar;
+}
+
+- (UIView *)bottomBarView {
+    if (!_bottomBarView) {
+        CGFloat height = BOTTOM_MARGIN + kToolBarHeight;
+        _bottomBarView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - height, self.view.bounds.size.width, height)];
+        _bottomBarView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.34];
+    }
+    return _bottomBarView;
+}
+
+- (UIToolbar *)editToolbar {
+    if (!_editToolbar) {
+        _editToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, kToolBarHeight)];
+        [_editToolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    }
+    return _editToolbar;
+}
+
+- (XBVideoIntervalChooseView *)editView {
+    if (!_editView) {
+        CGFloat y = self.view.bounds.size.height - BOTTOM_MARGIN - kToolBarHeight - kEditAreaViewHeight;
+        _editView = [[XBVideoIntervalChooseView alloc] initWithFrame:CGRectMake(0, y, self.view.bounds.size.width, kEditAreaViewHeight)];
+        _editView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
+    }
+    return _editView;
 }
 @end

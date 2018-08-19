@@ -36,6 +36,7 @@
     self.tableView.backgroundColor = [UIColor whiteColor];
     
     self.titleDataSource = @[@"所在位置",@"谁可以看",@"在哪里可以看"];
+    
 }
 
 #pragma mark -- textView Delegate

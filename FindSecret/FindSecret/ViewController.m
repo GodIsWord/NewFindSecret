@@ -16,9 +16,14 @@
 #import "XBMakeViewController.h"
 #import "XBFindNearAddressVC.h"
 #import "XBPublishController.h"
-@interface ViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@interface ViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource>
+
 @property(nonatomic, strong) NSDictionary *userInfo;
 @property (weak,nonatomic) UILabel *addressLabel;
+
+@property(nonatomic,strong) UITableView *tableView;
+@property(nonatomic,strong) NSArray *dataSource;
 
 
 @end
@@ -28,15 +33,14 @@
 
 
 - (IBAction)goRecorder:(id)sender {
-    XBRecorderTestViewController *controller = [[XBRecorderTestViewController alloc] init];
-    [self.navigationController pushViewController:controller animated:YES];
+    
 }
 
 - (IBAction)changedValue:(UISegmentedControl *)sender {
     if (sender.selectedSegmentIndex == 2) {
-        [self gotoVideoEdit];
+        
     } else if (sender.selectedSegmentIndex == 1) {
-        [self gotoTextEdit];
+        
     }
 }
 
@@ -83,64 +87,111 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    UIFont *titleFont = [UIFont systemFontOfSize:16];
+    [self initDataSource];
+    [self initTableView];
     
-    UIButton *rightBarBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    rightBarBtn.backgroundColor = GREENColor;
-    rightBarBtn.frame = CGRectMake((ScreenWidth - 100)/2, 100,100, 50);
-    [rightBarBtn setTitleColor:[UIColor blackColor] forState:0];
-    [rightBarBtn setTitle:@"选择位置" forState:0];
-    rightBarBtn.titleLabel.font = titleFont;
-    [rightBarBtn addTarget:self action:@selector(initChooseAddress) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.view addSubview:rightBarBtn];
-    
-    UILabel *contentLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, rightBarBtn.bottom+20, ScreenWidth - 40, 0)];
+    UILabel *contentLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 20, ScreenWidth - 40, 0)];
     contentLabel.numberOfLines = 0;
     contentLabel.font = [UIFont systemFontOfSize:16];
     contentLabel.textColor = [UIColor lightGrayColor];
     [self.view addSubview:contentLabel];
     self.addressLabel = contentLabel;
     
-    
-    
-    UIButton *publishBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    publishBtn.backgroundColor = GREENColor;
-    publishBtn.frame = CGRectMake((ScreenWidth - 100)/2, ScreenHeight-200,100, 50);
-    [publishBtn setTitleColor:[UIColor blackColor] forState:0];
-    [publishBtn setTitle:@"我要上天了" forState:0];
-    publishBtn.titleLabel.font = titleFont;
-    [publishBtn addTarget:self action:@selector(publish) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.view addSubview:publishBtn];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)initDataSource{
+    self.dataSource = @[@"小白🐷要上天了",
+                        @"选择位置",
+                        @"测试录音",
+                        @"东北唐山",
+                        @"小白你逗我"];
 }
+
+-(void)initTableView{
+    UITableView *tableVIew = [[UITableView alloc] initWithFrame:CGRectMake(0, 64+80, ScreenWidth, ScreenHeight-80) style:UITableViewStylePlain];
+    tableVIew.delegate = self;
+    tableVIew.dataSource = self;
+    [self.view addSubview:tableVIew];
+    self.tableView = tableVIew;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
+
 - (void)initChooseAddress
 {
     XBFindNearAddressVC *vc = [XBFindNearAddressVC new];
     [vc setReturnBlock:^(NSString *city,NSString *name,NSString *address,CGFloat latitude,CGFloat longitude,NSString *phone,UIImage *img){
         if (name) {
             
-            _addressLabel.width = ScreenWidth - 40;
-            _addressLabel.text = [NSString stringWithFormat:@"longitude = %.10f\nlatitude = %.10f\n%@",longitude,latitude,name];
-            [_addressLabel sizeToFit];
+            self.addressLabel.width = ScreenWidth - 40;
+            self.addressLabel.text = [NSString stringWithFormat:@"longitude = %.10f\nlatitude = %.10f\n%@",longitude,latitude,name];
+            [self.addressLabel sizeToFit];
             
         }
         
     }];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
-    [self presentViewController:nav animated:YES completion:nil];
+//    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
+//    [self presentViewController:nav animated:YES completion:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)publish{
     XBPublishController *vc = [XBPublishController new];
-//    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
-//    [self presentViewController:nav animated:YES completion:nil];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark -  UITableViewDelegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.dataSource.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdent = @"iseng";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdent];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdent];
+    }
+    
+    cell.textLabel.text = self.dataSource[indexPath.row];
+    
+    return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 44;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    switch (indexPath.row) {
+            case 0:
+            {
+                [self publish];
+            }
+            break;
+            case 1:{
+                [self initChooseAddress];
+            }
+            break;
+            case 2:{
+                XBRecorderTestViewController *controller = [[XBRecorderTestViewController alloc] init];
+                [self.navigationController pushViewController:controller animated:YES];
+                
+            }
+            break;
+            case 3:{
+                [self gotoTextEdit];
+            }
+            break;
+            case 4:{
+                [self gotoVideoEdit];
+            }
+            break;
+            
+        default:
+            break;
+    }
 }
 @end

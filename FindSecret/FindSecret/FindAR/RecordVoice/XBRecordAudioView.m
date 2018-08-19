@@ -31,6 +31,7 @@
     });
     
     return audioView;
+
 }
 
 
@@ -46,7 +47,6 @@
         imageView.backgroundColor = [UIColor redColor];
         [view addSubview:imageView];
         view.volumeImage = imageView;
-//        imageView.layer.anchorPoint = CGPointMake(0.5, 1);
         
     }
     

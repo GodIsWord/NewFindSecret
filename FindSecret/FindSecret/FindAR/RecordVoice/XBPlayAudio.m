@@ -127,7 +127,7 @@
     
     if(!path) return 0;
     NSDictionary *options = @{AVURLAssetPreferPreciseDurationAndTimingKey: @YES};
-    AVURLAsset *audioAsset = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:path] options:options];
+    AVURLAsset *audioAsset = [AVURLAsset URLAssetWithURL:[NSURL fileURLWithPath:path] options:options];
     CMTime audioDuration = audioAsset.duration;
     NSTimeInterval audioDurationSeconds = CMTimeGetSeconds(audioDuration);
     

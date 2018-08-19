@@ -124,7 +124,7 @@ static int type = 0;
 //        [self.recorder stop];
         type = 0;
     }
-    
+    NSLog(@"lastAudioDuration:%f",[self.recorderManager lastAudioDuration]);
 }
 
 
@@ -143,11 +143,9 @@ static int type = 0;
 -(void)btnVoiceAction:(UIButton*)btn{
     btn.selected = !btn.selected;
     if (btn.selected) {
-//        [self.audioPlayer playWithContentOfURL:[NSURL URLWithString:[XBRecordAudio audioPath]] error:nil];
         type = 2;
         [self.recorderManager playAudioWithURL:[NSURL URLWithString:[self.recorderManager lastAudioPath]]];
     }else{
-//        [self.audioPlayer stop];
         type = 0;
         [self.recorderManager stopPlay];
     }

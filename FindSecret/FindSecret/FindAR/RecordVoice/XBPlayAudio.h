@@ -15,13 +15,13 @@
 @optional
 
 //播放结束时执行的动作
-- (void)xbAudioPlayerDidFinishPlaying:(XBPlayAudio*_Nullable)player successfully:(BOOL)flag;
+- (void)xbAudioPlayerDidFinishPlaying:(XBPlayAudio*)player successfully:(BOOL)flag;
 //解码错误执行的动作
-- (void)xbAudioPlayerDecodeErrorDidOccur:(XBPlayAudio*_Nullable)player error:(NSError *)error;
+- (void)xbAudioPlayerDecodeErrorDidOccur:(XBPlayAudio*)player error:(NSError *)error;
 //处理中断的代码
-- (void)xbAudioPlayerBeginInteruption:(XBPlayAudio*_Nullable)player;
+- (void)xbAudioPlayerBeginInteruption:(XBPlayAudio*)player;
 //处理中断结束的代码
-- (void)xbAudioPlayerEndInteruption:(XBPlayAudio*_Nullable)player;
+- (void)xbAudioPlayerEndInteruption:(XBPlayAudio*)player;
 
 
 

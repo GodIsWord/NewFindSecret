@@ -68,7 +68,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [UIColor blackColor];
     // 初始化预览图层
     [self initCapture];
     // UI 初始化
@@ -489,6 +489,9 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     }
 }
 
+-(void)dealloc {
+    NSLog(@"%s",__func__);
+}
 
 #pragma mark - Camera
 

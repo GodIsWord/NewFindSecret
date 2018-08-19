@@ -14,7 +14,6 @@
 #import "XBTextEditController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "XBRecorderTestViewController.h"
-#import "XBVideoPreviewViewController.h"
 #import "XBMakeContentItemView.h"
 #import "XBAudioManager.h"
 

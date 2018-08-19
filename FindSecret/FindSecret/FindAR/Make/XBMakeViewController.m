@@ -383,6 +383,12 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 }
 -(void)xbAudioManagerDidFinishRecording:(XBAudioManager *)recorder successfully:(BOOL)flag {
     NSString *filePath = [recorder lastAudioPath];
+    NSTimeInterval interval = [recorder audioDurationWithPath:filePath];
+    NSString *content = [NSString stringWithFormat:@"文件：%@ - %.02f`s",[filePath lastPathComponent],interval];
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:content];
+    XBMakeContentItemView *itemVIew = [XBMakeContentItemView contentItemViewWithAttributedString:str];
+    [self.view addSubview:itemVIew];
+
     NSLog(@"%s",__func__);
 }
 //播放结束时执行的动作

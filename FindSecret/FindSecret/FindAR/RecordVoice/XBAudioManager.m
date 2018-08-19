@@ -49,7 +49,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(recordViewCancleAction) name:XBRecordAudioViewCancleMessage object:nil];
 }
 -(void)timerAction:(NSTimer*)timer{
-    NSLog(@"saffdafdsfsd");
     switch (_type) {
         case 0:
         {

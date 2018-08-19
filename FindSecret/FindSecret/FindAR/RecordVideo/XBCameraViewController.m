@@ -326,7 +326,11 @@ typedef void(^PropertyChangeBlock) (AVCaptureDevice * captureDevice);
         }
     }];
 }
-
+- (void)switchCaptureMode {
+    self.captureMode = !self.captureMode;
+    [self updateSessionConfigure];
+    [self setupUI];
+}
 - (void)dealloc{
     [self.captureSession stopRunning];
     [[NSNotificationCenter defaultCenter] removeObserver:self];

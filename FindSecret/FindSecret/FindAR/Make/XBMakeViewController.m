@@ -16,6 +16,7 @@
 #import "XBRecorderTestViewController.h"
 #import "XBMakeContentItemView.h"
 #import "XBAudioManager.h"
+#import "XBCameraViewController.h"
 
 
 typedef NS_ENUM(NSUInteger, XBMakeToolbarItemType) {
@@ -48,7 +49,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 @end
 
 
-@interface XBMakeViewController () <XBMakeToolViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate,XBAudioManagerPlayDelegate,XBAudioManagerRecoderDelegate, XBVideoEditControllerDelegate>
+@interface XBMakeViewController () <XBMakeToolViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate,XBAudioManagerPlayDelegate,XBAudioManagerRecoderDelegate, XBVideoEditControllerDelegate,XBCameraViewControllerDelegate>
 @property(nonatomic, strong) XBMakeToolbar *topToolbar;
 @property(nonatomic, strong) UIImageView *imageView;
 @property(nonatomic, strong) XBMakeToolView *toolView;
@@ -253,12 +254,10 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *camera = [UIAlertAction actionWithTitle:@"拍摄" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
 
-        UIImagePickerController *pick = [[UIImagePickerController alloc] init];
-        pick.mediaTypes = @[(NSString *) kUTTypeMovie];
-        pick.videoQuality = UIImagePickerControllerQualityTypeMedium;
-        pick.sourceType = UIImagePickerControllerSourceTypeCamera;
-        pick.delegate = self;
-        [self presentViewController:pick animated:YES completion:nil];
+        XBCameraViewController *vc = [[XBCameraViewController alloc] init];
+        vc.captureMode = XBCameraCaptureModeVideo;
+        vc.delegate = self;
+        [self presentViewController:vc animated:YES completion:nil];
 
 
     }];
@@ -407,6 +406,12 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 - (void)videoEditController:(XBVideoEditController *)videoEditController didProcessingCompletedWithVideoUrl:(NSURL *)url{
     
+    XBMakeContentItemView *itemVIew = [XBMakeContentItemView contentItemViewWithVideoUrl:url];
+    [self.view addSubview:itemVIew];
+
+}
+#pragma mark - XBCameraViewControllerDelegate
+- (void)cameraViewController:(XBCameraViewController *)cameraViewController didProcessingCompletedWithVideoUrl:(NSURL *)url {
     XBMakeContentItemView *itemVIew = [XBMakeContentItemView contentItemViewWithVideoUrl:url];
     [self.view addSubview:itemVIew];
 

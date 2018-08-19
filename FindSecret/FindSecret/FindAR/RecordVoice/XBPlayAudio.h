@@ -15,13 +15,13 @@
 @optional
 
 //播放结束时执行的动作
-- (void)xbAudioPlayerDidFinishPlaying:(XBPlayAudio*)player successfully:(BOOL)flag;
+- (void)xbAudioPlayerDidFinishPlaying:(XBPlayAudio*_Nullable)player successfully:(BOOL)flag;
 //解码错误执行的动作
-- (void)xbAudioPlayerDecodeErrorDidOccur:(XBPlayAudio*)player error:(NSError *)error;
+- (void)xbAudioPlayerDecodeErrorDidOccur:(XBPlayAudio*_Nullable)player error:(NSError *)error;
 //处理中断的代码
-- (void)xbAudioPlayerBeginInteruption:(XBPlayAudio*)player;
+- (void)xbAudioPlayerBeginInteruption:(XBPlayAudio*_Nullable)player;
 //处理中断结束的代码
-- (void)xbAudioPlayerEndInteruption:(XBPlayAudio*)player;
+- (void)xbAudioPlayerEndInteruption:(XBPlayAudio*_Nullable)player;
 
 
 
@@ -33,9 +33,9 @@
 @property (nonatomic,assign,readonly) long audioSize;//录音文件大小
 @property (nonatomic,assign,readonly) NSTimeInterval currentTime;//
 
-@property (nonatomic,weak) id<XBPlayAudioDelegate> delegate;
+@property (nonatomic,weak) id <XBPlayAudioDelegate> delegate;
 
-@property (nonatomic, strong) NSURL *url;
+@property (nonatomic, strong) NSURL * url;
 
 - (void)playWithContentOfURL:(nonnull NSURL*)url error:(NSError*)error;
 - (void)play;

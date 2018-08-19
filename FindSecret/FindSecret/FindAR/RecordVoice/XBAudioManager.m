@@ -11,14 +11,14 @@
 #import "XBRecordAudio.h"
 #import "XBPlayAudio.h"
 #import "XBRecordAudioView.h"
-#import "XBTimer.h"
+#import "XBWeakProxy.h"
 #import "XBRecordAudioStorage.h"
 
 @interface XBAudioManager()<XBPlayAudioDelegate,XBRecordAudioDelegate>
 
 @property(nonatomic,strong) XBRecordAudio *recorder;
 @property(nonatomic,strong) XBPlayAudio *player;
-@property(nonatomic,strong) XBTimer *timer;
+@property(nonatomic,strong) NSTimer *timer;
 @property(nonatomic,assign) int type;//0 隐藏 1 录音 2 播放声音
 
 @end
@@ -37,16 +37,18 @@
         _player = [XBPlayAudio new];
         _player.delegate = self;
         _type = 0;
-        _timer = [XBTimer timerWithTimeInterval:0.01 target:self selector:@selector(timerAction:) repeats:YES];
+        _timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(timerAction:) userInfo:nil repeats:YES];
+        [_timer setFireDate:[NSDate distantFuture]];
     }
     return self;
 }
--(void)timerAction:(XBTimer*)timer{
-    NSLog(@"timerAction:type=%d",_type);
+-(void)timerAction:(NSTimer*)timer{
+    NSLog(@"saffdafdsfsd");
     switch (_type) {
         case 0:
         {
             [XBRecordAudioView hidden];
+            [self.timer setFireDate:[NSDate distantFuture]];
         }
             break;
         case 1:
@@ -72,6 +74,7 @@
     }
     [self.recorder start];
     _type = 1;
+    [self.timer setFireDate:[NSDate distantPast]];
 }
 
 -(void)endRecord{
@@ -86,6 +89,7 @@
     }
     [self.player playWithContentOfURL:url error:nil];
     _type = 2;
+    [self.timer setFireDate:[NSDate distantPast]];
 }
 
 -(void)stopPlay{

@@ -126,7 +126,7 @@
     
     UIButton *btn1 = [self rl_BarBtnWithTitle:@"取消"];
     [btn1 addActionHandler:^(NSInteger tag) {
-        [self dismissViewControllerAnimated:YES completion:nil];
+         [self.navigationController popViewControllerAnimated:YES];
     }];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:btn1];
     

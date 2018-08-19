@@ -30,7 +30,6 @@
 - (IBAction)goRecorder:(id)sender {
     XBRecorderTestViewController *controller = [[XBRecorderTestViewController alloc] init];
     [self.navigationController pushViewController:controller animated:YES];
-//        [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (IBAction)changedValue:(UISegmentedControl *)sender {

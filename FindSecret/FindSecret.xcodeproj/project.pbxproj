@@ -99,8 +99,7 @@
 		E601964B210C21830046D1FA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E601964A210C21830046D1FA /* AVFoundation.framework */; };
 		E601964E210C3A300046D1FA /* XBPlayAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = E601964D210C3A300046D1FA /* XBPlayAudio.m */; };
 		E60E3B59210C0FF000C5BFBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B58210C0FF000C5BFBB /* AppDelegate.m */; };
-		E60E3B5C210C0FF000C5BFBB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B5B210C0FF000C5BFBB /* ViewController.m */; };
-		E60E3B5F210C0FF000C5BFBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B5D210C0FF000C5BFBB /* Main.storyboard */; };
+		E60E3B5C210C0FF000C5BFBB /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B5B210C0FF000C5BFBB /* HomeViewController.m */; };
 		E60E3B61210C0FF100C5BFBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B60210C0FF100C5BFBB /* Assets.xcassets */; };
 		E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B62210C0FF100C5BFBB /* LaunchScreen.storyboard */; };
 		E60E3B67210C0FF100C5BFBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B66210C0FF100C5BFBB /* main.m */; };
@@ -129,6 +128,9 @@
 		E695F135212BA12700519A99 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E695F11C212BA12700519A99 /* MJRefreshAutoFooter.m */; };
 		E695F136212BA12700519A99 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = E695F11E212BA12700519A99 /* MJRefreshComponent.m */; };
 		E695F137212BA12700519A99 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E695F121212BA12700519A99 /* README.md */; };
+		E695F148212C291700519A99 /* UnityToiOSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E695F142212C291700519A99 /* UnityToiOSManager.m */; };
+		E695F149212C291700519A99 /* iOSUnityMutually.m in Sources */ = {isa = PBXBuildFile; fileRef = E695F143212C291700519A99 /* iOSUnityMutually.m */; };
+		E695F14A212C291700519A99 /* iOSToUnityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E695F144212C291700519A99 /* iOSToUnityManager.m */; };
 		E6A0BA6A2112928800326AE9 /* XBAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A0BA692112928800326AE9 /* XBAudioManager.m */; };
 		E6C8EB2F21104C7200ED53E2 /* XBRecordAudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = E64807BD210FF47200050124 /* XBRecordAudioView.m */; };
 		E6C8EB3621104DFB00ED53E2 /* XBRecordAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C8EB3521104DFA00ED53E2 /* XBRecordAudio.m */; };
@@ -311,9 +313,8 @@
 		E60E3B54210C0FEF00C5BFBB /* FindSecret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindSecret.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E60E3B57210C0FF000C5BFBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E60E3B58210C0FF000C5BFBB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E60E3B5A210C0FF000C5BFBB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E60E3B5B210C0FF000C5BFBB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		E60E3B5E210C0FF000C5BFBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E60E3B5A210C0FF000C5BFBB /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		E60E3B5B210C0FF000C5BFBB /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		E60E3B60210C0FF100C5BFBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E60E3B63210C0FF100C5BFBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E60E3B65210C0FF100C5BFBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -368,6 +369,12 @@
 		E695F11F212BA12700519A99 /* MJRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooter.h; sourceTree = "<group>"; };
 		E695F120212BA12700519A99 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
 		E695F121212BA12700519A99 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E695F142212C291700519A99 /* UnityToiOSManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnityToiOSManager.m; sourceTree = "<group>"; };
+		E695F143212C291700519A99 /* iOSUnityMutually.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSUnityMutually.m; sourceTree = "<group>"; };
+		E695F144212C291700519A99 /* iOSToUnityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSToUnityManager.m; sourceTree = "<group>"; };
+		E695F145212C291700519A99 /* UnityToiOSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnityToiOSManager.h; sourceTree = "<group>"; };
+		E695F146212C291700519A99 /* iOSUnityMutually.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSUnityMutually.h; sourceTree = "<group>"; };
+		E695F147212C291700519A99 /* iOSToUnityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSToUnityManager.h; sourceTree = "<group>"; };
 		E6A0BA682112928800326AE9 /* XBAudioManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBAudioManager.h; sourceTree = "<group>"; };
 		E6A0BA692112928800326AE9 /* XBAudioManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBAudioManager.m; sourceTree = "<group>"; };
 		E6A0BA6C21131B0700326AE9 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -780,6 +787,7 @@
 		E6019640210C16880046D1FA /* FindAR */ = {
 			isa = PBXGroup;
 			children = (
+				E695F141212C291700519A99 /* iOSUnityMutually */,
 				E695F0F0212BA12700519A99 /* MJRefresh */,
 				85E98D5B21294A7B00DDCC56 /* RecordVideo */,
 				CA5450A6211851F7000ABB4B /* Masonry */,
@@ -878,9 +886,8 @@
 				E60E3B57210C0FF000C5BFBB /* AppDelegate.h */,
 				E60E3B58210C0FF000C5BFBB /* AppDelegate.m */,
 				E6A0BA6C21131B0700326AE9 /* PrefixHeader.pch */,
-				E60E3B5A210C0FF000C5BFBB /* ViewController.h */,
-				E60E3B5B210C0FF000C5BFBB /* ViewController.m */,
-				E60E3B5D210C0FF000C5BFBB /* Main.storyboard */,
+				E60E3B5A210C0FF000C5BFBB /* HomeViewController.h */,
+				E60E3B5B210C0FF000C5BFBB /* HomeViewController.m */,
 				E60E3B60210C0FF100C5BFBB /* Assets.xcassets */,
 				E60E3B62210C0FF100C5BFBB /* LaunchScreen.storyboard */,
 				E60E3B65210C0FF100C5BFBB /* Info.plist */,
@@ -1005,6 +1012,19 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		E695F141212C291700519A99 /* iOSUnityMutually */ = {
+			isa = PBXGroup;
+			children = (
+				E695F147212C291700519A99 /* iOSToUnityManager.h */,
+				E695F144212C291700519A99 /* iOSToUnityManager.m */,
+				E695F146212C291700519A99 /* iOSUnityMutually.h */,
+				E695F143212C291700519A99 /* iOSUnityMutually.m */,
+				E695F145212C291700519A99 /* UnityToiOSManager.h */,
+				E695F142212C291700519A99 /* UnityToiOSManager.m */,
+			);
+			path = iOSUnityMutually;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1082,7 +1102,6 @@
 				CAE7464121129C3F000D05B7 /* README.md in Resources */,
 				CAE74487210EB272000D05B7 /* Default-568h@2x.png in Resources */,
 				CAE74489210EB272000D05B7 /* Default@2x.png in Resources */,
-				E60E3B5F210C0FF000C5BFBB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1120,7 +1139,7 @@
 				CAE7467D2112D0EF000D05B7 /* XBPublishController.m in Sources */,
 				CAE7465421129C3F000D05B7 /* XHRefreshCircleContainerView.m in Sources */,
 				CAE7465D21129C3F000D05B7 /* XBFindNearAddressViewModel.m in Sources */,
-				E60E3B5C210C0FF000C5BFBB /* ViewController.m in Sources */,
+				E60E3B5C210C0FF000C5BFBB /* HomeViewController.m in Sources */,
 				8529BFE2210CDD4E007E90C9 /* UIView+XBEnlargeEdge.m in Sources */,
 				E695F124212BA12700519A99 /* MJRefreshConst.m in Sources */,
 				BEF23A24210C17C90061F74C /* XBVideoEditController.m in Sources */,
@@ -1141,6 +1160,7 @@
 				E6C8EB3921104E2600ED53E2 /* XBRecorderTestViewController.m in Sources */,
 				CAE7464F21129C3F000D05B7 /* XHCircularProgressView.m in Sources */,
 				CAE7465121129C3F000D05B7 /* XHLoadMoreView.m in Sources */,
+				E695F148212C291700519A99 /* UnityToiOSManager.m in Sources */,
 				E695F129212BA12700519A99 /* MJRefreshBackGifFooter.m in Sources */,
 				CAE7464E21129C3F000D05B7 /* XHCircleView.m in Sources */,
 				CAE7463E21129C3F000D05B7 /* UISearchBar+MP.m in Sources */,
@@ -1160,6 +1180,7 @@
 				CAE7448C210EB272000D05B7 /* Palette.m in Sources */,
 				E695F12B212BA12700519A99 /* MJRefreshBackNormalFooter.m in Sources */,
 				E695F130212BA12700519A99 /* MJRefreshStateHeader.m in Sources */,
+				E695F14A212C291700519A99 /* iOSToUnityManager.m in Sources */,
 				E6671A0A21258C5B00592B0F /* XBPointToPointPersonTableViewCell.m in Sources */,
 				E60E3B67210C0FF100C5BFBB /* main.m in Sources */,
 				CAE7464921129C3F000D05B7 /* XHSysatemRefreshTableViewController.m in Sources */,
@@ -1170,6 +1191,7 @@
 				CAE7465C21129C3F000D05B7 /* XBFindNearAddressVC.m in Sources */,
 				E695F12D212BA12700519A99 /* MJRefreshAutoGifFooter.m in Sources */,
 				CAE74404210C59CD000D05B7 /* XBTextStyleController.m in Sources */,
+				E695F149212C291700519A99 /* iOSUnityMutually.m in Sources */,
 				CAE7463821129C3F000D05B7 /* MKMapView+ZoomLevel.m in Sources */,
 				CA5450CC211851F8000ABB4B /* View+MASAdditions.m in Sources */,
 				E6671A0721258C1C00592B0F /* XBPointToPointSendViewController.m in Sources */,
@@ -1200,14 +1222,6 @@
 				CAE74478210EB272000D05B7 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		E60E3B5D210C0FF000C5BFBB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E60E3B5E210C0FF000C5BFBB /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		E60E3B62210C0FF100C5BFBB /* LaunchScreen.storyboard */ = {
@@ -1347,7 +1361,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.9fbank.jjklk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Company.ProductName;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1368,7 +1382,7 @@
 				INFOPLIST_FILE = FindSecret/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.9fbank.jjklk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Company.ProductName;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

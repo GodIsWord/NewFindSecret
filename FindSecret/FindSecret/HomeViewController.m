@@ -6,7 +6,7 @@
 //  Copyright © 2018年 yidezhang. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "HomeViewController.h"
 #import "XBVideoEditController.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 #import "XBVideoEditController.h"
@@ -17,7 +17,7 @@
 #import "XBFindNearAddressVC.h"
 #import "XBPublishController.h"
 
-@interface ViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface HomeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic, strong) NSDictionary *userInfo;
 @property (weak,nonatomic) UILabel *addressLabel;
@@ -28,21 +28,7 @@
 
 @end
 
-@implementation ViewController
-
-
-
-- (IBAction)goRecorder:(id)sender {
-    
-}
-
-- (IBAction)changedValue:(UISegmentedControl *)sender {
-    if (sender.selectedSegmentIndex == 2) {
-        
-    } else if (sender.selectedSegmentIndex == 1) {
-        
-    }
-}
+@implementation HomeViewController
 
 - (void)gotoVideoEdit {
     XBMakeViewController *makeViewController = [[XBMakeViewController alloc] init];

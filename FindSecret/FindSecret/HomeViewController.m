@@ -85,7 +85,7 @@
 }
 
 -(void)initTableView{
-    UITableView *tableVIew = [[UITableView alloc] initWithFrame:CGRectMake(0, 64+80, ScreenWidth, ScreenHeight-80) style:UITableViewStylePlain];
+    UITableView *tableVIew = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight) style:UITableViewStylePlain];
     tableVIew.delegate = self;
     tableVIew.dataSource = self;
     [self.view addSubview:tableVIew];

@@ -124,11 +124,11 @@
 
     if (self.loadMoreRefreshed) {
         // 2.上拉加载更多(进入刷新状态就会调用self的footerRereshing)
-        vi.mj_footer = [MJRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-        vi
-//        vi.footerPullToRefreshText = @"上拉可以加载更多数据了";
-//        vi.footerReleaseToRefreshText = @"松开马上加载更多数据了";
-//        vi.footerRefreshingText = @"正在帮你加载中";
+        MJRefreshAutoStateFooter *footer = [MJRefreshAutoStateFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+        vi.mj_footer = footer;
+        [footer setTitle:@"上拉可以加载更多数据了" forState:MJRefreshStateIdle];
+        [footer setTitle:@"松开马上加载更多数据了" forState:MJRefreshStatePulling];
+        [footer setTitle:@"正在帮你加载中" forState:MJRefreshStateRefreshing];
     }
     
     

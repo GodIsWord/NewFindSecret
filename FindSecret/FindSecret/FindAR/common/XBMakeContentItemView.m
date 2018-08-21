@@ -8,13 +8,17 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface XBMakeContentItemView ()
-@property(weak, nonatomic) IBOutlet UIView *contentView;
 
 @end
 
 
 @implementation XBMakeContentItemView {
 
+}
+- (IBAction)tap:(UITapGestureRecognizer *)sender {
+    if (self.didClicked) {
+        self.didClicked();
+    }
 }
 - (IBAction)pan:(UIPanGestureRecognizer *)recognizer {
 
@@ -73,7 +77,7 @@
 
     CGFloat rate = size.width / size.height;
 
-    CGFloat width = SCREEN_WIDTH / 3.0;
+    CGFloat width = SCREEN_WIDTH / 6.0;
     CGFloat height = width / rate;
 
     size.width = width;

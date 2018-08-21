@@ -58,6 +58,7 @@
             <connections>
                 <outlet property="contentView" destination="tON-J1-95E" id="JTL-w7-h78"/>
                 <outletCollection property="gestureRecognizers" destination="6Do-36-FmL" appends="YES" id="uu5-yg-zpI"/>
+                <outletCollection property="gestureRecognizers" destination="TYN-AJ-NCs" appends="YES" id="vKa-yg-Wwa"/>
             </connections>
             <point key="canvasLocation" x="22" y="-89.5"/>
         </view>
@@ -66,5 +67,10 @@
                 <action selector="pan:" destination="iN0-l3-epB" id="sN8-oh-SJ5"/>
             </connections>
         </panGestureRecognizer>
+        <tapGestureRecognizer id="TYN-AJ-NCs">
+            <connections>
+                <action selector="tap:" destination="iN0-l3-epB" id="JUi-4t-Mjh"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

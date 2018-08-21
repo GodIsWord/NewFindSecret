@@ -223,13 +223,13 @@
         
         self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
         if (self.dataArr.count == 0) {
-            self.tableView.footerHidden = YES;
+            self.tableView.mj_footer.hidden = YES;
             [self layerTableFootViewWithTitle:@"还没有数据哦" andFootViewH:60];
         }else{
             if (response.pois.count==0) {
-                self.tableView.footerHidden = YES;
+                self.tableView.mj_footer.hidden = YES;
             }else{
-                self.tableView.footerHidden = NO;
+                self.tableView.mj_footer.hidden = NO;
             }
         }
         
@@ -347,7 +347,7 @@
         CGFloat tableCH = self.tableView.contentOffset.y;
         CGFloat tableH = self.tableView.contentSize.height;
         if ( fabs(tableH - tableCH) <  ScreenHeight+64){
-            [self.tableView footerBeginRefreshing];
+            [self.tableView.mj_footer endRefreshing];
         }
     }
     

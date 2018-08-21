@@ -93,10 +93,10 @@
     
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     if (self.dataArr.count == 0) {
-        self.tableView.footerHidden = YES;
+        self.tableView.mj_footer.hidden = YES;
         [self layerTableFootViewWithTitle:_nodataTitle andFootViewH:60];
     }else{
-        self.tableView.footerHidden = NO;
+        self.tableView.mj_footer.hidden = NO;
     }
     
 }
@@ -124,10 +124,11 @@
 
     if (self.loadMoreRefreshed) {
         // 2.上拉加载更多(进入刷新状态就会调用self的footerRereshing)
-        [vi addFooterWithTarget:self action:@selector(loadMoreData)];
-        vi.footerPullToRefreshText = @"上拉可以加载更多数据了";
-        vi.footerReleaseToRefreshText = @"松开马上加载更多数据了";
-        vi.footerRefreshingText = @"正在帮你加载中";
+        vi.mj_footer = [MJRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+        vi
+//        vi.footerPullToRefreshText = @"上拉可以加载更多数据了";
+//        vi.footerReleaseToRefreshText = @"松开马上加载更多数据了";
+//        vi.footerRefreshingText = @"正在帮你加载中";
     }
     
     
@@ -138,13 +139,13 @@
         [_refreshCtrol endPullDownRefreshing];
     }
     if (self.loadMoreRefreshed) {
-        [self.tableView footerEndRefreshing];
+        [self.tableView.mj_footer endRefreshing];
     }
 
 }
 - (void)footerEndRefreshing{
     if (self.loadMoreRefreshed) {
-        [self.tableView footerEndRefreshing];
+        [self.tableView.mj_footer endRefreshing];
     }
 }
 #pragma mark - 刷新 XHRefreshControl Delegate
@@ -269,7 +270,7 @@
     _pageNumber = page;
 }
 - (void)setFootHidden:(BOOL)hidden{
-    self.tableView.footerHidden = hidden;
+    self.tableView.mj_footer.hidden = hidden;
 }
 
 #pragma mark -

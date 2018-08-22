@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import <AMapFoundationKit/AMapFoundationKit.h>
 
+#import "HomeViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -18,6 +20,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [AMapServices sharedServices].apiKey = APIKEY;
+    
+    HomeViewController *control = [[HomeViewController alloc] init];
+    
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:control];
+    
+    UIWindow *window  = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    window.rootViewController = navi;
+    self.window = window;
+    [window makeKeyAndVisible];
+    
+    
     return YES;
 }
 

@@ -17,7 +17,8 @@
 #import "XBMakeContentItemView.h"
 #import "XBAudioManager.h"
 #import "XBCameraViewController.h"
-
+#import "XBVideoPreViewController.h"
+#import "UINavigationController+WXSTransition.h"
 
 typedef NS_ENUM(NSUInteger, XBMakeToolbarItemType) {
     XBMakeToolbarItemTypeBack,
@@ -62,6 +63,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 @property(nonatomic, assign) XBMakeContentStage stage;
 @property(nonatomic, strong) XBAudioManager *audioMgr;
+
 @end
 
 @implementation XBMakeViewController
@@ -75,7 +77,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     [self initTopToolBar];
     // 切换到拍照模式
     [self switchCaptureMode];
-    
+        
 //     录音
     self.audioMgr = [XBAudioManager new];
     self.audioMgr.playDelegate = self;
@@ -413,6 +415,18 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 - (void)videoEditController:(XBVideoEditController *)videoEditController didProcessingCompletedWithVideoUrl:(NSURL *)url{
     
     XBMakeContentItemView *itemVIew = [XBMakeContentItemView contentItemViewWithVideoUrl:url];
+    __weak typeof(self)wSelf = self;
+    UIView *startView = itemVIew.contentView;
+    itemVIew.didClicked = ^{
+        XBVideoPreViewController *vc = [[XBVideoPreViewController alloc] init];
+        vc.videoUrl = url;
+        [wSelf wxs_presentViewController:vc makeTransition:^(WXSTransitionProperty *transition) {
+            transition.animationType = WXSTransitionAnimationTypeViewMoveNormalToNextVC;
+            transition.animationTime = 0.3;
+            transition.startView  = startView;
+            transition.targetView = vc.view;
+        }];
+    };
     [self.view addSubview:itemVIew];
 
 }
@@ -554,4 +568,10 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
         }
     }
 }
+
+-(UIView *)viewForZoomTransition:(BOOL)isSource
+{
+    return self.view;
+}
+
 @end

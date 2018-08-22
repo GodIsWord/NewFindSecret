@@ -1,0 +1,36 @@
+NativeForUnity 方法 :
+        切换场景 ( 使用传值方法切换场景 )
+        SceneSwitch("1")
+        1 拍照 2 扫描识别 3 附近的内容 4 附近的人
+
+        开始AR扫描:
+        ScanAR("")
+
+        拍照:
+        Photograph("")
+
+        翻转转摄像头:
+        FlipCamera("")
+
+        加载poi数据
+        ( 包含扫描权限获取 )
+        arResultShow("")
+
+UnityForNative 方法 :
+        Unity启动:
+        u3dStarted()
+
+        显示Toast:
+        showToast("")
+
+        AR云数据获取成功:
+        arCloudSuccess(string metaID)
+
+        AR扫描成功：
+        arResultShowSuccess("")
+        
+        展示AR热点数据：
+        arResultShow("")
+
+        拍照成功:
+        takePhotosSucess("")

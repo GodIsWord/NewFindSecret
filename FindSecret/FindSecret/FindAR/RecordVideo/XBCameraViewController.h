@@ -14,6 +14,7 @@ typedef NS_ENUM(NSUInteger, XBCameraCaptureMode) {
 };
 @class XBCameraViewController;
 @protocol XBCameraViewControllerDelegate <NSObject>
+@optional
 - (void)cameraViewController:(XBCameraViewController *)cameraViewController didProcessingCompletedWithVideoUrl:(NSURL *)url;
 - (void)cameraViewController:(XBCameraViewController *)cameraViewController didProcessingCompletedWithImage:(UIImage *)image;
 @end

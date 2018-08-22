@@ -77,14 +77,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    NSArray *image = @[@"3",@"3",@"3"];
     XBPublishCell *cell = [XBPublishCell cellWithTableView:tableView];
     
     NSString *str = self.titleDataSource[indexPath.row];
     cell.title.text = str;
     cell.title.textColor = [UIColor grayColor];
     
-    cell.pictureImageView.backgroundColor= [UIColor redColor];
-    cell.detail.text = @"🐷";
+    cell.pictureImageView.image = [UIImage imageNamed:image[indexPath.row]];
+    cell.detail.text = @"sss";
     return cell;
 }
 
@@ -102,7 +103,12 @@
     view.backgroundColor = [UIColor whiteColor];
     UILabel *placeholder = [[UILabel alloc] init];
     [view addSubview:placeholder];
-    placeholder.frame = CGRectMake(25, 30, SCREEN_WIDTH - 100 - 26, 20);
+    [placeholder mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(view).offset(35);
+        make.top.equalTo(view).offset(30);
+        make.height.mas_equalTo(20);
+        make.right.equalTo(view).offset(-20);
+    }];
     
     placeholder.text = @"说点什么呢...";
     self.placeholder = placeholder;
@@ -112,7 +118,7 @@
     
     self.editTextView = [[UITextView alloc] init];
     [view addSubview:self.editTextView];
-    self.editTextView.frame = CGRectMake(20, 20, SCREEN_WIDTH-40, 180);
+
     self.editTextView.backgroundColor = [UIColor clearColor];
     self.editTextView.delegate = self;
     self.editTextView.textContainerInset = UIEdgeInsetsMake(10, 10, 10, 10);
@@ -121,6 +127,13 @@
     self.editTextView.layer.borderWidth = 0.5;
     self.editTextView.layer.cornerRadius = 10;
     self.editTextView.layer.masksToBounds = YES;
+
+    [self.editTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(view).offset(20);
+        make.top.equalTo(view).offset(20);
+        make.right.equalTo(view.mas_right).offset(-20);
+        make.height.mas_equalTo(180);
+    }];
     return view;
     
 }

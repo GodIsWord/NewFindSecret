@@ -18,6 +18,9 @@
 		BEA19C67210C4EE10039086F /* XBVideoIntervalChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA19C66210C4EE10039086F /* XBVideoIntervalChooseView.m */; };
 		BEF23A24210C17C90061F74C /* XBVideoEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF23A23210C17C90061F74C /* XBVideoEditController.m */; };
 		C51921C3E062D0586534AE85 /* XBMakeContentItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5192E84211E4017E2540A9E /* XBMakeContentItemView.m */; };
+		CA147A30212C345000F2F2EE /* MicrosoftYaHei.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA147A2F212C319100F2F2EE /* MicrosoftYaHei.ttf */; };
+		CA147A35212D123F00F2F2EE /* SimSun.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA147A33212D10E200F2F2EE /* SimSun.ttf */; };
+		CA147A36212D124100F2F2EE /* Kaiti.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA147A34212D10F300F2F2EE /* Kaiti.ttf */; };
 		CA5450C3211851F8000ABB4B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CA5450A7211851F7000ABB4B /* LICENSE */; };
 		CA5450C4211851F8000ABB4B /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5450AA211851F7000ABB4B /* MASCompositeConstraint.m */; };
 		CA5450C5211851F8000ABB4B /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5450AD211851F7000ABB4B /* MASConstraint.m */; };
@@ -158,6 +161,9 @@
 		BEF23A23210C17C90061F74C /* XBVideoEditController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBVideoEditController.m; sourceTree = "<group>"; };
 		C5192292E857232CC73ABB81 /* XBMakeContentItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBMakeContentItemView.h; sourceTree = "<group>"; };
 		C5192E84211E4017E2540A9E /* XBMakeContentItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBMakeContentItemView.m; sourceTree = "<group>"; };
+		CA147A2F212C319100F2F2EE /* MicrosoftYaHei.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MicrosoftYaHei.ttf; sourceTree = "<group>"; };
+		CA147A33212D10E200F2F2EE /* SimSun.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimSun.ttf; sourceTree = "<group>"; };
+		CA147A34212D10F300F2F2EE /* Kaiti.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kaiti.ttf; sourceTree = "<group>"; };
 		CA5450A7211851F7000ABB4B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		CA5450A9211851F7000ABB4B /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		CA5450AA211851F7000ABB4B /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
@@ -436,6 +442,16 @@
 			path = VideoEdit;
 			sourceTree = "<group>";
 		};
+		CA147A2E212C316500F2F2EE /* ttf */ = {
+			isa = PBXGroup;
+			children = (
+				CA147A33212D10E200F2F2EE /* SimSun.ttf */,
+				CA147A34212D10F300F2F2EE /* Kaiti.ttf */,
+				CA147A2F212C319100F2F2EE /* MicrosoftYaHei.ttf */,
+			);
+			path = ttf;
+			sourceTree = "<group>";
+		};
 		CA5450A6211851F7000ABB4B /* Masonry */ = {
 			isa = PBXGroup;
 			children = (
@@ -501,6 +517,7 @@
 		CAE743F8210C1A53000D05B7 /* TextEdit */ = {
 			isa = PBXGroup;
 			children = (
+				CA147A2E212C316500F2F2EE /* ttf */,
 				CAE74471210EB272000D05B7 /* ColorView */,
 				CAE74485210EB272000D05B7 /* XBTextColorController.m */,
 				CAE74470210EB272000D05B7 /* XBTextColorController.h */,
@@ -1064,6 +1081,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA147A30212C345000F2F2EE /* MicrosoftYaHei.ttf in Resources */,
+				CA147A35212D123F00F2F2EE /* SimSun.ttf in Resources */,
 				85E98D4E2127C62B00DDCC56 /* XBMakeContentItemView.xib in Resources */,
 				E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */,
 				857616662111FAAD0091E7C1 /* XBMakeToolView.xib in Resources */,
@@ -1077,6 +1096,7 @@
 				CAE74488210EB272000D05B7 /* Default.png in Resources */,
 				BEA19C64210C4D730039086F /* drag.jpg in Resources */,
 				CA5450C3211851F8000ABB4B /* LICENSE in Resources */,
+				CA147A36212D124100F2F2EE /* Kaiti.ttf in Resources */,
 				E695F137212BA12700519A99 /* README.md in Resources */,
 				E60E3B61210C0FF100C5BFBB /* Assets.xcassets in Resources */,
 				CAE7464121129C3F000D05B7 /* README.md in Resources */,

@@ -16,8 +16,9 @@
 @property (nonatomic, strong) UIButton *cancelButton;
 @property (nonatomic, strong) UIButton *sureButton;
 @property (nonatomic, strong) UITextView *editTextView;
-@property (nonatomic, strong) UIButton *textButton;
-@property (nonatomic, strong) UIButton *colorButton;
+
+@property (nonatomic, strong) UIButton *textButtonMore;
+@property (nonatomic, strong) UIButton *colorButtonMore;
 @property (nonatomic, strong) UILabel *placeholder;
 @property (nonatomic, strong) UIWindow * window;
 
@@ -48,8 +49,12 @@
     
     UILabel *placeholder = [[UILabel alloc] init];
     [self.contentView addSubview:placeholder];
-    placeholder.frame = CGRectMake(25, 30, SCREEN_WIDTH - 100 - 26, 20);
-    
+    [placeholder mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView).offset(25);
+        make.top.equalTo(self.contentView).offset(30);
+        make.height.mas_equalTo(20);
+        make.right.equalTo(self.contentView).offset(-20);
+    }];
     placeholder.text = @"请输入内容";
     self.placeholder = placeholder;
     self.placeholder.font = [UIFont systemFontOfSize:16];
@@ -58,7 +63,13 @@
     
     self.editTextView = [[UITextView alloc] init];
     [self.contentView addSubview:self.editTextView];
-    self.editTextView.frame = CGRectMake(10, 20, SCREEN_WIDTH - 100-20, 155);
+    
+    [self.editTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView).offset(10);
+        make.top.equalTo(self.contentView).offset(20);
+        make.height.mas_equalTo(155);
+        make.right.equalTo(self.contentView).offset(-20);
+    }];
     self.editTextView.backgroundColor = [UIColor clearColor];
     self.editTextView.delegate = self;
     self.editTextView.textContainerInset = UIEdgeInsetsMake(10, 10, 10, 10);
@@ -71,26 +82,13 @@
     if (self.text.length>0) {
         placeholder.hidden = YES;
         self.editTextView.text = self.text;
-        self.editTextView.textColor = self.textColor;
-        self.editTextView.font = [UIFont fontWithName:self.textStyle size:16];
+        if(self.textColor){
+            self.editTextView.textColor = self.textColor;
+        }
+        if(self.textStyle.length>0){
+            self.editTextView.font = [UIFont fontWithName:self.textStyle size:16];
+        }
     }
-    
-    self.textButton = [[UIButton alloc]init];
-    [self.contentView addSubview: self.textButton];
-    [self.textButton addTarget:self action:@selector(selectTextStyle) forControlEvents:UIControlEventTouchUpInside];
-    self.textButton.frame = CGRectMake(10, 185, 60, 30);
-    [self.textButton setTitle:@"字体" forState:UIControlStateNormal];
-    [self.textButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    
-    
-    
-    self.colorButton = [[UIButton alloc]init];
-    [self.contentView addSubview: self.colorButton];
-    [self.colorButton addTarget:self action:@selector(selectTextColor) forControlEvents:UIControlEventTouchUpInside];
-    self.colorButton.frame = CGRectMake(80, 185, 60, 30);
-    [self.colorButton setTitle:@"颜色" forState:UIControlStateNormal];
-    [self.colorButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    
     
     
     self.cancelButton = [[UIButton alloc]init];
@@ -116,6 +114,77 @@
     self.sureButton.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.sureButton.layer.borderWidth = 0.5;
     
+    [self createTextButton];
+    [self createColorButton];
+}
+-(void)createTextButton{
+    
+    NSArray * array= @[@"宋体",@"楷体",@"雅黑",@"..."];
+    for (int i = 0; i<4; i++) {
+        UIButton *textButton = [[UIButton alloc]init];
+        [self.contentView addSubview: textButton];
+        textButton.tag = 101 + i;
+        [textButton addTarget:self action:@selector(changeTextStyles:) forControlEvents:UIControlEventTouchUpInside];
+        [textButton setTitle:array[i] forState:UIControlStateNormal];
+        [textButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        textButton.layer.masksToBounds = YES;
+        textButton.layer.cornerRadius = 10;
+        textButton.layer.borderWidth = 1;
+        textButton.layer.borderColor = [UIColor grayColor].CGColor;
+        [textButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.contentView.mas_left).offset(10+50*i+3*i);
+            make.width.mas_equalTo(50);
+            make.height.mas_equalTo(30);
+            make.bottom.equalTo(self.cancelButton.mas_top).offset(-25);
+        }];
+        
+        if(textButton.tag == 104){
+            self.textButtonMore = textButton;
+        }
+    }
+    
+}
+-(void)createColorButton{
+    
+    NSArray * array= @[@"",@"",@"",@"",@"",@"..."];
+    for (int i = 0; i<6; i++) {
+        UIButton *colorButton = [[UIButton alloc]init];
+        [self.contentView addSubview: colorButton];
+        [colorButton addTarget:self action:@selector(changeTextColors:) forControlEvents:UIControlEventTouchUpInside];
+        [colorButton setTitle:array[i] forState:UIControlStateNormal];
+        [colorButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    
+        colorButton.tag = 200 + i;
+        [colorButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.contentView.mas_left).offset(10+30*i+5*i);
+            make.width.mas_equalTo(30);
+            make.height.mas_equalTo(30);
+            make.bottom.equalTo(self.textButtonMore.mas_top).offset(-15);
+        }];
+        
+        if(colorButton.tag == 200){
+            colorButton.backgroundColor = [UIColor blueColor];
+            
+        }else if(colorButton.tag == 201){
+            colorButton.backgroundColor = [UIColor redColor];
+            
+        }else if(colorButton.tag == 202){
+            colorButton.backgroundColor = [UIColor orangeColor];
+            
+        }else if(colorButton.tag == 203){
+            colorButton.backgroundColor = [UIColor yellowColor];
+            
+        }else if(colorButton.tag == 204){
+            colorButton.backgroundColor = [UIColor blackColor];
+            
+        }else if(colorButton.tag == 205){
+            colorButton.backgroundColor = [UIColor lightGrayColor];
+            self.colorButtonMore = colorButton;
+            
+        }
+        
+    }
+    
     
 }
 
@@ -128,7 +197,7 @@
             }
         }
     }];
-
+    
 }
 -(void)textViewEndEdit{
     [self.editTextView resignFirstResponder];
@@ -155,6 +224,53 @@
     self.editTextView.textColor = _color;
     
 }
+-(void)changeTextStyles:(UIButton*)sender{
+    
+    for (NSString *fontName in [UIFont familyNames]) {
+        NSLog(@"family:'%@'",fontName);
+        for (NSString *font in [UIFont fontNamesForFamilyName:fontName]) {
+            NSLog(@"\tfont:'%@'", font);
+        }
+        NSLog("=======================");
+    }
+    if(sender.tag == 101){
+        self.editTextView.font = [UIFont fontWithName:@"SimSun" size:16];
+        
+    }else if(sender.tag == 102){
+        self.editTextView.font = [UIFont fontWithName:@"Kaiti" size:16];
+        
+    }else if(sender.tag == 103){
+        self.editTextView.font = [UIFont fontWithName:@"MicrosoftYaHei" size:16];
+        
+    }else if(sender.tag == 104){
+        [self selectTextStyle];
+        
+    }
+}
+
+-(void)changeTextColors:(UIButton*)sender{
+    
+    if(sender.tag == 200){
+        self.editTextView.textColor = [UIColor blueColor];
+        
+    }else if(sender.tag == 201){
+        self.editTextView.textColor= [UIColor redColor];
+        
+    }else if(sender.tag == 202){
+        self.editTextView.textColor = [UIColor orangeColor];
+        
+    }else if(sender.tag == 203){
+        self.editTextView.textColor = [UIColor yellowColor];
+        
+    }else if(sender.tag == 204){
+        self.editTextView.textColor = [UIColor blackColor];
+        
+    }else if(sender.tag == 205){
+        [self selectTextColor];
+        
+    }
+    
+}
 // 开始编辑
 - (void)textViewDidBeginEditing:(UITextView *)textView{
     self.placeholder.hidden = YES;
@@ -178,6 +294,11 @@
 - (void)textViewDidChange:(UITextView *)textView{
     if (textView.text.length == 0) {
         self.placeholder.hidden = NO;
+        //        if(self.textStyle.length>0){
+        //            self.editTextView.font = [UIFont fontWithName:self.textStyle size:16];
+        //        }else{
+        //            self.editTextView.font = [UIFont systemFontOfSize:16];
+        //        }
     }else{
         self.placeholder.hidden = YES;
         
@@ -217,20 +338,14 @@
     return _editTextView;
 }
 
-- (UIButton *)textButton{
-    if (!_textButton) {
-        _textButton =  [[UIButton alloc] init];
+- (UIButton *)textButtonMore{
+    if (!_textButtonMore) {
+        _textButtonMore =  [[UIButton alloc] init];
         
     }
-    return _textButton;
+    return _textButtonMore;
 }
-- (UIButton *)colorButton{
-    if (!_colorButton) {
-        _colorButton =  [[UIButton alloc] init];
-        
-    }
-    return _colorButton;
-}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

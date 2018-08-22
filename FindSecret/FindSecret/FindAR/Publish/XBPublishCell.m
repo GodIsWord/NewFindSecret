@@ -36,16 +36,27 @@
 
     cell.pictureImageView = [[UIImageView alloc]init];
     [cell addSubview:cell.pictureImageView];
-    cell.pictureImageView.frame = CGRectMake(5, 12, 40, 40);
+    [cell.pictureImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.mas_equalTo(25);
+        make.left.equalTo(cell).offset(15);
+        make.centerY.equalTo(cell);
+    }];
     
     cell.title = [[UILabel alloc]init];
     [cell addSubview:cell.title];
-    cell.title.frame = CGRectMake(50, 0, 200, 64);
+    [cell.title mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(cell.pictureImageView.mas_right).offset(10);
+        make.centerY.equalTo(cell);
+    }];
     
     cell.detail = [[UILabel alloc]init];
+    cell.detail.textAlignment = NSTextAlignmentRight;
     [cell addSubview:cell.detail];
-    cell.detail.frame = CGRectMake(cell.width-50, 0, 100, 64);
-
+    [cell.detail mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(cell).offset(-50);
+        make.centerY.equalTo(cell);
+    }];
+    
     
     
     

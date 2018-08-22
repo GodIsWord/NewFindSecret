@@ -6,6 +6,8 @@
 build/
 DerivedData/
 
+/FindSecret/FindARContent/
+
 ## Various settings
 *.pbxuser
 !default.pbxuser

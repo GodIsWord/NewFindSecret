@@ -527,6 +527,16 @@
 			path = WXSTransition;
 			sourceTree = "<group>";
 		};
+		85926176212F058C008D0667 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				CA5450A6211851F7000ABB4B /* Masonry */,
+				E695F0F0212BA12700519A99 /* MJRefresh */,
+				85926141212C694D008D0667 /* WXSTransition */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
 		85E98D5B21294A7B00DDCC56 /* RecordVideo */ = {
 			isa = PBXGroup;
 			children = (
@@ -903,23 +913,21 @@
 		E6019640210C16880046D1FA /* FindAR */ = {
 			isa = PBXGroup;
 			children = (
+				85926176212F058C008D0667 /* Libs */,
 				E695F141212C291700519A99 /* iOSUnityMutually */,
-				E695F0F0212BA12700519A99 /* MJRefresh */,
-				85926141212C694D008D0667 /* WXSTransition */,
 				85E98D5B21294A7B00DDCC56 /* RecordVideo */,
-				CA5450A6211851F7000ABB4B /* Masonry */,
 				BEA19C62210C25E20039086F /* XBMacroDefinition.h */,
 				8576165B2111F4AA0091E7C1 /* Make */,
 				CAE7450A211150B1000D05B7 /* Publish */,
 				CAE743F8210C1A53000D05B7 /* TextEdit */,
 				E6019645210C1ADD0046D1FA /* RecordVoice */,
 				BEF23A21210C17B80061F74C /* VideoEdit */,
-				E6019641210C16E50046D1FA /* common */,
+				E6019641210C16E50046D1FA /* Common */,
 			);
 			path = FindAR;
 			sourceTree = "<group>";
 		};
-		E6019641210C16E50046D1FA /* common */ = {
+		E6019641210C16E50046D1FA /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				E6019642210C18C40046D1FA /* UIView+XBFrame.h */,
@@ -939,7 +947,7 @@
 				C5192292E857232CC73ABB81 /* XBMakeContentItemView.h */,
 				85E98D4D2127C62B00DDCC56 /* XBMakeContentItemView.xib */,
 			);
-			path = common;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		E6019645210C1ADD0046D1FA /* RecordVoice */ = {
@@ -1276,7 +1284,6 @@
 				E695F132212BA12700519A99 /* MJRefreshFooter.m in Sources */,
 				8592616A212C694D008D0667 /* WXSTransitionManager+BrickAnimation.m in Sources */,
 				8592616B212C694D008D0667 /* WXSTransitionManager+FlipAnimation.m in Sources */,
-				CAE7463621129C3F000D05B7 /* UIScrollView+MJRefresh.m in Sources */,
 				E601964E210C3A300046D1FA /* XBPlayAudio.m in Sources */,
 				CAE7463C21129C3F000D05B7 /* UIImage+MP.m in Sources */,
 				85926172212C694D008D0667 /* WXSTransitionManager.m in Sources */,
@@ -1290,7 +1297,6 @@
 				E6C8EB3921104E2600ED53E2 /* XBRecorderTestViewController.m in Sources */,
 				85926169212C694D008D0667 /* WXSTransitionManager+PageAnimation.m in Sources */,
 				85926170212C694D008D0667 /* WXSTransitionManager+CoverAnimation.m in Sources */,
-				CAE7463321129C3F000D05B7 /* MJRefreshFooterView.m in Sources */,
 				CAE7464F21129C3F000D05B7 /* XHCircularProgressView.m in Sources */,
 				CAE7465121129C3F000D05B7 /* XHLoadMoreView.m in Sources */,
 				E695F148212C291700519A99 /* UnityToiOSManager.m in Sources */,
@@ -1330,7 +1336,6 @@
 				E695F149212C291700519A99 /* iOSUnityMutually.m in Sources */,
 				CAE7463821129C3F000D05B7 /* MKMapView+ZoomLevel.m in Sources */,
 				85926174212C694D008D0667 /* WXSTransitionManager+ViewMoveAnimation.m in Sources */,
-				CAE7463221129C3F000D05B7 /* MJRefreshConst.m in Sources */,
 				CA5450CC211851F8000ABB4B /* View+MASAdditions.m in Sources */,
 				E6671A0721258C1C00592B0F /* XBPointToPointSendViewController.m in Sources */,
 				85926171212C694D008D0667 /* WXSTransitionManager+FragmentAnimation.m in Sources */,

@@ -28,7 +28,6 @@
 
 -(void)dealloc{
     [_timer invalidate];
-    [[NSNotificationCenter defaultCenter] removeObserver:self ];
 }
 -(instancetype)init{
     self = [super init];
@@ -40,14 +39,10 @@
         _type = 0;
         _timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(timerAction:) userInfo:nil repeats:YES];
         [_timer setFireDate:[NSDate distantFuture]];
-        [self addObbServe];
     }
     return self;
 }
--(void)addObbServe{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(recordViewOKAction) name:XBRecordAudioViewOkMessage object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(recordViewCancleAction) name:XBRecordAudioViewCancleMessage object:nil];
-}
+
 -(void)timerAction:(NSTimer*)timer{
     NSLog(@"timerAction");
     switch (_type) {

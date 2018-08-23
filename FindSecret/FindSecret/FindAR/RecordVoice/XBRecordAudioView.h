@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-static NSString * const XBRecordAudioViewOkMessage = @"XBRecordAudioViewOkMessage";
-static NSString * const XBRecordAudioViewCancleMessage = @"XBRecordAudioViewCancleMessage";
 
 @interface XBRecordAudioView : UIView
 

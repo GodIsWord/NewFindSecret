@@ -23,7 +23,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         if (!audioView) {
-            audioView = [[XBRecordAudioView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)];
+            audioView = [[XBRecordAudioView alloc] initWithFrame:CGRectMake(0, 0, 100, 150)];
             audioView.xb_centerX = UIScreen.mainScreen.bounds.size.width/2;
             audioView.xb_centerY = UIScreen.mainScreen.bounds.size.height/2;
             audioView.backgroundColor = [UIColor whiteColor];
@@ -41,39 +41,23 @@
     
     view.userInteractionEnabled = YES;
     
+    CGFloat volumeHeight = (view.xb_height-10)*volume;
+    CGFloat volumY = view.xb_height - 10 - volumeHeight;
+    
     if (!view.superview){
         UIWindow *window = [UIApplication sharedApplication].delegate.window;
         [window addSubview:view];
         
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, view.xb_width-20, view.xb_height-45)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, view.xb_width-20, volumeHeight)];
         imageView.backgroundColor = [UIColor redColor];
         [view addSubview:imageView];
         view.volumeImage = imageView;
         imageView.userInteractionEnabled = YES;
         
-        
-        UIButton *btnCancle = [UIButton buttonWithType:UIButtonTypeCustom];
-        btnCancle.frame = CGRectMake(0, imageView.xb_bottom, view.xb_width/2, view.xb_height-imageView.xb_bottom);
-        [btnCancle setTitle:@"取消" forState:UIControlStateNormal];
-        btnCancle.backgroundColor = [UIColor blueColor];
-        [view addSubview:btnCancle];
-        [btnCancle addActionHandler:^(NSInteger tag) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:XBRecordAudioViewCancleMessage object:nil];
-        }];
-        
-        UIButton *btnOK = [UIButton buttonWithType:UIButtonTypeCustom];
-        btnOK.frame = CGRectMake(btnCancle.xb_right, imageView.xb_bottom, view.xb_width/2, view.xb_height-imageView.xb_bottom);
-        [btnOK setTitle:@"确定" forState:UIControlStateNormal];
-        btnOK.backgroundColor = [UIColor blueColor];
-        [view addSubview:btnOK];
-        [btnOK addActionHandler:^(NSInteger tag) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:XBRecordAudioViewOkMessage object:nil];
-        }];
-        
     }
     
-    view.volumeImage.xb_height = (view.xb_height-45)*volume;
-    view.volumeImage.xb_y = view.xb_height-45-(view.xb_height-45)*(volume);
+    view.volumeImage.xb_height = volumeHeight;
+    view.volumeImage.xb_y = volumY;
     
     
 }

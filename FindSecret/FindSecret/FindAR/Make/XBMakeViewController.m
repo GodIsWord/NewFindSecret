@@ -19,6 +19,7 @@
 #import "XBCameraViewController.h"
 #import "XBVideoPreViewController.h"
 #import "UINavigationController+WXSTransition.h"
+#import "MSRecordControl.h"
 
 typedef NS_ENUM(NSUInteger, XBMakeToolbarItemType) {
     XBMakeToolbarItemTypeBack,
@@ -32,6 +33,7 @@ typedef NS_ENUM(NSUInteger, XBMakeToolbarItemType) {
 
 typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     XBMakeContentStageCapture,
+    XBMakeContentStageCaptureConfirm,
     XBMakeContentStageCaptureAddContent,
 };
 
@@ -50,7 +52,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 @end
 
 
-@interface XBMakeViewController () <XBMakeToolViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate,XBAudioManagerPlayDelegate,XBAudioManagerRecoderDelegate, XBVideoEditControllerDelegate,XBCameraViewControllerDelegate>
+@interface XBMakeViewController () <XBMakeToolViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate,XBAudioManagerPlayDelegate,XBAudioManagerRecoderDelegate, XBVideoEditControllerDelegate,XBCameraViewControllerDelegate,MSRecordControlDelegate>
 @property(nonatomic, strong) XBMakeToolbar *topToolbar;
 @property(nonatomic, strong) UIImageView *imageView;
 @property(nonatomic, strong) XBMakeToolView *toolView;
@@ -59,7 +61,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 @property(nonatomic, strong) AVCaptureDeviceInput *captureInput;//输入数据对象
 @property(nonatomic, strong) AVCaptureStillImageOutput *imageOutput;//输出数据对象
 @property(nonatomic, strong) AVCaptureVideoPreviewLayer *captureLayer;//视频预览图层
-@property(nonatomic, strong) UIButton *captureBtn;
+@property(nonatomic, strong) MSRecordControl *captureBtn;
 
 @property(nonatomic, assign) XBMakeContentStage stage;
 @property(nonatomic, strong) XBAudioManager *audioMgr;
@@ -164,10 +166,12 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 
     if (!self.captureBtn) {
-        self.captureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.captureBtn setTitle:@"拍照" forState:UIControlStateNormal];
-        [self.captureBtn addTarget:self action:@selector(captureImage) forControlEvents:UIControlEventTouchUpInside];
-        self.captureBtn.bounds = CGRectMake(0, 0, 80, 40);
+        self.captureBtn = [MSRecordControl controlWithMode:MSRecordControlTap];
+        self.captureBtn.delegate = self;
+        self.captureBtn.bounds = CGRectMake(0, 0, 60, 60);
+        self.captureBtn.layer.cornerRadius = self.captureBtn.bounds.size.width / 2.0;
+        self.captureBtn.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6].CGColor;
+        self.captureBtn.progressBarColor = [UIColor colorWithRed:39.0/255.0 green:39.0/255.0 blue:39.0/255.0 alpha:1];
     }
     if (!self.captureBtn.superview) {
         self.captureBtn.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(self.view.bounds) - 20 - 30);
@@ -330,6 +334,15 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 - (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
     return UIStatusBarAnimationNone;
+}
+
+
+#pragma mark - MSRecordControlDelegate
+
+- (void)recordControl:(MSRecordControl *)recordControl didChangeGestureStatus:(UIGestureRecognizerState)state {
+    if (state == UIGestureRecognizerStateEnded) {
+        [self captureImage];
+    }
 }
 
 #pragma mark - XBMakeToolViewDelegate
@@ -569,9 +582,5 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     }
 }
 
--(UIView *)viewForZoomTransition:(BOOL)isSource
-{
-    return self.view;
-}
 
 @end

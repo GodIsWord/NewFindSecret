@@ -29,7 +29,9 @@
 		85926173212C694D008D0667 /* WXSTransitionManager+SystermAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8592615D212C694D008D0667 /* WXSTransitionManager+SystermAnimation.m */; };
 		85926174212C694D008D0667 /* WXSTransitionManager+ViewMoveAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8592615F212C694D008D0667 /* WXSTransitionManager+ViewMoveAnimation.m */; };
 		85926175212C694D008D0667 /* WXSTransitionProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 85926161212C694D008D0667 /* WXSTransitionProperty.m */; };
-		85E98D4C21271D0400DDCC56 /* XBRecordControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E98D4B21271D0400DDCC56 /* XBRecordControl.m */; };
+		8592617A212F07AB008D0667 /* XBUITestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85926178212F07AB008D0667 /* XBUITestViewController.m */; };
+		8592617B212F07AB008D0667 /* XBUITestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85926179212F07AB008D0667 /* XBUITestViewController.xib */; };
+		859261A321305E43008D0667 /* MSRecordControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 859261A221305E43008D0667 /* MSRecordControl.m */; };
 		85E98D4E2127C62B00DDCC56 /* XBMakeContentItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85E98D4D2127C62B00DDCC56 /* XBMakeContentItemView.xib */; };
 		85E98D5E21294ABC00DDCC56 /* XBCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E98D5D21294ABC00DDCC56 /* XBCameraViewController.m */; };
 		BEA19C64210C4D730039086F /* drag.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BEA19C63210C4D730039086F /* drag.jpg */; };
@@ -205,8 +207,11 @@
 		85926162212C694D008D0667 /* WXSPercentDrivenInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXSPercentDrivenInteractiveTransition.h; sourceTree = "<group>"; };
 		85926163212C694D008D0667 /* UIViewController+WXSTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WXSTransition.h"; sourceTree = "<group>"; };
 		85926164212C694D008D0667 /* WXSTypedefConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXSTypedefConfig.h; sourceTree = "<group>"; };
-		85E98D4A21271D0400DDCC56 /* XBRecordControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBRecordControl.h; sourceTree = "<group>"; };
-		85E98D4B21271D0400DDCC56 /* XBRecordControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecordControl.m; sourceTree = "<group>"; };
+		85926177212F07AB008D0667 /* XBUITestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBUITestViewController.h; sourceTree = "<group>"; };
+		85926178212F07AB008D0667 /* XBUITestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBUITestViewController.m; sourceTree = "<group>"; };
+		85926179212F07AB008D0667 /* XBUITestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBUITestViewController.xib; sourceTree = "<group>"; };
+		859261A121305E43008D0667 /* MSRecordControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRecordControl.h; sourceTree = "<group>"; };
+		859261A221305E43008D0667 /* MSRecordControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRecordControl.m; sourceTree = "<group>"; };
 		85E98D4D2127C62B00DDCC56 /* XBMakeContentItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBMakeContentItemView.xib; sourceTree = "<group>"; };
 		85E98D5C21294ABC00DDCC56 /* XBCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBCameraViewController.h; sourceTree = "<group>"; };
 		85E98D5D21294ABC00DDCC56 /* XBCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBCameraViewController.m; sourceTree = "<group>"; };
@@ -941,8 +946,8 @@
 				857616622111FAA10091E7C1 /* XBMakeToolView.h */,
 				857616632111FAA10091E7C1 /* XBMakeToolView.m */,
 				857616652111FAAD0091E7C1 /* XBMakeToolView.xib */,
-				85E98D4A21271D0400DDCC56 /* XBRecordControl.h */,
-				85E98D4B21271D0400DDCC56 /* XBRecordControl.m */,
+				859261A121305E43008D0667 /* MSRecordControl.h */,
+				859261A221305E43008D0667 /* MSRecordControl.m */,
 				C5192E84211E4017E2540A9E /* XBMakeContentItemView.m */,
 				C5192292E857232CC73ABB81 /* XBMakeContentItemView.h */,
 				85E98D4D2127C62B00DDCC56 /* XBMakeContentItemView.xib */,
@@ -1013,6 +1018,9 @@
 				E6A0BA6C21131B0700326AE9 /* PrefixHeader.pch */,
 				E60E3B5A210C0FF000C5BFBB /* HomeViewController.h */,
 				E60E3B5B210C0FF000C5BFBB /* HomeViewController.m */,
+				85926177212F07AB008D0667 /* XBUITestViewController.h */,
+				85926178212F07AB008D0667 /* XBUITestViewController.m */,
+				85926179212F07AB008D0667 /* XBUITestViewController.xib */,
 				E60E3B60210C0FF100C5BFBB /* Assets.xcassets */,
 				E60E3B62210C0FF100C5BFBB /* LaunchScreen.storyboard */,
 				E60E3B65210C0FF100C5BFBB /* Info.plist */,
@@ -1223,6 +1231,7 @@
 				E695F122212BA12700519A99 /* LICENSE in Resources */,
 				CAE74488210EB272000D05B7 /* Default.png in Resources */,
 				BEA19C64210C4D730039086F /* drag.jpg in Resources */,
+				8592617B212F07AB008D0667 /* XBUITestViewController.xib in Resources */,
 				CA5450C3211851F8000ABB4B /* LICENSE in Resources */,
 				CA147A36212D124100F2F2EE /* Kaiti.ttf in Resources */,
 				E695F137212BA12700519A99 /* README.md in Resources */,
@@ -1246,6 +1255,7 @@
 				CA5450CA211851F8000ABB4B /* NSArray+MASAdditions.m in Sources */,
 				CAE7464621129C3F000D05B7 /* XHPullRefreshTableViewController.m in Sources */,
 				85926168212C694D008D0667 /* UIViewController+WXSTransitionProperty.m in Sources */,
+				8592617A212F07AB008D0667 /* XBUITestViewController.m in Sources */,
 				E6C8EB3C211055CB00ED53E2 /* XBWeakProxy.m in Sources */,
 				CA5450C4211851F8000ABB4B /* MASCompositeConstraint.m in Sources */,
 				CAE745102111513D000D05B7 /* XBWhoCanSeeController.m in Sources */,
@@ -1288,7 +1298,6 @@
 				CAE7463C21129C3F000D05B7 /* UIImage+MP.m in Sources */,
 				85926172212C694D008D0667 /* WXSTransitionManager.m in Sources */,
 				85926166212C694D008D0667 /* WXSTransitionManager+InsideThenPushAnimation.m in Sources */,
-				85E98D4C21271D0400DDCC56 /* XBRecordControl.m in Sources */,
 				CAE7462F21129C3F000D05B7 /* WXBaseModel.m in Sources */,
 				CAE7465221129C3F000D05B7 /* XHPinterestRefreshView.m in Sources */,
 				857616602111F5020091E7C1 /* XBMakeViewController.m in Sources */,
@@ -1338,6 +1347,7 @@
 				85926174212C694D008D0667 /* WXSTransitionManager+ViewMoveAnimation.m in Sources */,
 				CA5450CC211851F8000ABB4B /* View+MASAdditions.m in Sources */,
 				E6671A0721258C1C00592B0F /* XBPointToPointSendViewController.m in Sources */,
+				859261A321305E43008D0667 /* MSRecordControl.m in Sources */,
 				85926171212C694D008D0667 /* WXSTransitionManager+FragmentAnimation.m in Sources */,
 				CAE7448E210EB272000D05B7 /* SevenColorView.m in Sources */,
 				CA5450C9211851F8000ABB4B /* MASViewConstraint.m in Sources */,

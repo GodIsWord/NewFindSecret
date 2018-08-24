@@ -16,7 +16,7 @@
 #import "XBMakeViewController.h"
 #import "XBFindNearAddressVC.h"
 #import "XBPublishController.h"
-
+#import "XBUITestViewController.h"
 @interface HomeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic, strong) NSDictionary *userInfo;
@@ -81,7 +81,8 @@
                         @"选择位置",
                         @"测试录音",
                         @"文字",
-                        @"创作AR内容"];
+                        @"创作AR内容",
+                        @"UI测试"];
 }
 
 -(void)initTableView{
@@ -165,7 +166,14 @@
             case 4:{
                 [self gotoVideoEdit];
             }
+                break;
+            case 5:{
+                XBUITestViewController *vc = [[XBUITestViewController alloc] initWithNibName:@"XBUITestViewController" bundle:nil];
+                [self.navigationController pushViewController:vc animated:YES];
+                
+            }
             break;
+
             
         default:
             break;

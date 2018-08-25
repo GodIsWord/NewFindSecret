@@ -65,6 +65,10 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 @property(nonatomic, assign) XBMakeContentStage stage;
 @property(nonatomic, strong) XBAudioManager *audioMgr;
+@property(nonatomic, strong) UIButton *dismissButton;
+
+@property(nonatomic, strong) UIButton *cancelButton;
+@property(nonatomic, strong) UIButton *confirmButton;
 
 @end
 
@@ -157,12 +161,16 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     //
     self.imageView.image = nil;
 
+    self.cancelButton.hidden = YES;
+    self.confirmButton.hidden = YES;
+
+    
     //开始捕捉
     self.captureLayer.hidden = NO;
     [self.session startRunning];
 
     // 设置tool
-    [self updateToolbarItemsWithTypes:@[@(XBMakeToolbarItemTypeBack), @(XBMakeToolbarItemTypeNextFlexibleSpace), @(XBMakeToolbarItemTypeNextSwapCamera)]];
+    [self updateToolbarItemsWithTypes:@[@(XBMakeToolbarItemTypeNextFlexibleSpace), @(XBMakeToolbarItemTypeNextSwapCamera)]];
 
 
     if (!self.captureBtn) {
@@ -172,11 +180,28 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
         self.captureBtn.layer.cornerRadius = self.captureBtn.bounds.size.width / 2.0;
         self.captureBtn.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6].CGColor;
         self.captureBtn.progressBarColor = [UIColor colorWithRed:39.0/255.0 green:39.0/255.0 blue:39.0/255.0 alpha:1];
+        
+        CALayer *layer = [[CALayer alloc] init];
+        layer.frame = CGRectInset(self.captureBtn.bounds, 8, 8);
+        layer.cornerRadius = layer.bounds.size.width / 2.0;
+        layer.backgroundColor = [UIColor whiteColor].CGColor;
+        [self.captureBtn.layer insertSublayer:layer atIndex:0];
+
+        
     }
+    
+    CGFloat y = CGRectGetMaxY(self.view.bounds) - BOTTOM_MARGIN - 80;
     if (!self.captureBtn.superview) {
-        self.captureBtn.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(self.view.bounds) - 20 - 30);
+        self.captureBtn.center = CGPointMake(CGRectGetMidX(self.view.bounds), y);
         [self.view addSubview:self.captureBtn];
     }
+    
+    if (!self.dismissButton.superview) {
+        self.dismissButton.center = CGPointMake(CGRectGetMidX(self.view.bounds) / 2.0, y);
+        [self.dismissButton addTarget:self action:@selector(dismissNotAlert) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:self.dismissButton];
+    }
+    self.dismissButton.hidden = NO;
     self.captureBtn.hidden = NO;
 
     // 隐藏添加的工具条
@@ -205,29 +230,76 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
         return;
     }
     dispatch_async(dispatch_get_main_queue(), ^{
+        self.stage = XBMakeContentStageCaptureConfirm;
+        self.topToolbar.hidden = YES;
 
-        self.stage = XBMakeContentStageCaptureAddContent;
-
-        [self updateToolbarItemsWithTypes:@[@(XBMakeToolbarItemTypeCancel), @(XBMakeToolbarItemTypeNextFlexibleSpace), @(XBMakeToolbarItemTypeConfirm)]];
-
+        
         if (!self.imageView) {
             self.imageView = [UIImageView new];
             self.imageView.backgroundColor = [UIColor clearColor];
             self.imageView.frame = self.view.bounds;
         }
-
         if (!self.imageView.superview) {
             [self.view insertSubview:self.imageView atIndex:0];
         }
 
-        // 停止捕捉
+
         self.imageView.image = image;
         self.captureLayer.hidden = YES;
         self.captureBtn.hidden = YES;
+        self.dismissButton.hidden = YES;
         [self.session stopRunning];
+        
+        CGPoint center = self.captureBtn.center;
+        if (!self.cancelButton.superview) {
+            [self.cancelButton addTarget:self action:@selector(switchCaptureMode) forControlEvents:UIControlEventTouchUpInside];
+            self.cancelButton.center = CGPointMake(self.view.bounds.size.width / 3.0, center.y);
+            [self.view addSubview:self.cancelButton];
+        }
+        
+        if (!self.confirmButton.superview) {
+            [self.confirmButton addTarget:self action:@selector(switchAddContentMode) forControlEvents:UIControlEventTouchUpInside];
+
+            self.confirmButton.center = CGPointMake(self.view.bounds.size.width / 3.0  * 2, center.y);
+            [self.view addSubview:self.confirmButton];
+        }
+
+        self.cancelButton.hidden = NO;
+        self.confirmButton.hidden = NO;
+    });
+    
+}
 
 
+- (void)switchAddContentMode {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        self.stage = XBMakeContentStageCaptureAddContent;
+        self.cancelButton.hidden = YES;
+        self.confirmButton.hidden = YES;
 
+        
+        [self updateToolbarItemsWithTypes:@[@(XBMakeToolbarItemTypeCancel), @(XBMakeToolbarItemTypeNextFlexibleSpace), @(XBMakeToolbarItemTypeNextStep)]];
+        self.topToolbar.hidden = NO;
+        
+        if (!self.imageView) {
+            self.imageView = [UIImageView new];
+            self.imageView.backgroundColor = [UIColor clearColor];
+            self.imageView.frame = self.view.bounds;
+        }
+        
+        if (!self.imageView.superview) {
+            [self.view insertSubview:self.imageView atIndex:0];
+        }
+        
+        // 停止捕捉
+        self.captureLayer.hidden = YES;
+        self.captureBtn.hidden = YES;
+        self.dismissButton.hidden = YES;
+        [self.session stopRunning];
+        
+        
+        
         CGFloat toolViewWidth = 200;
         CGFloat toolViewHeight = 60;
         if (!self.toolView) {
@@ -239,11 +311,11 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
             [self.view addSubview:self.toolView];
         }
         self.toolView.hidden = NO;
-
-
+        
+        
     });
-}
 
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -308,14 +380,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
     UIAlertAction *confrom = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
 
-        if (self.navigationController.topViewController == self && self.navigationController.viewControllers.firstObject != self) {
-            [self.navigationController popViewControllerAnimated:YES];
-        } else {
-            UIViewController *vc = self.navigationController ?: self;
-            if (vc.presentingViewController) {
-                [vc dismissViewControllerAnimated:YES completion:nil];
-            }
-        }
+        [self dismissNotAlert];
 
     }];
 
@@ -326,7 +391,16 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 
 }
-
+- (void)dismissNotAlert {
+    if (self.navigationController.topViewController == self && self.navigationController.viewControllers.firstObject != self) {
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        UIViewController *vc = self.navigationController ?: self;
+        if (vc.presentingViewController) {
+            [vc dismissViewControllerAnimated:YES completion:nil];
+        }
+    }
+}
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
@@ -464,7 +538,8 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
                 break;
             }
             case XBMakeToolbarItemTypeCancel: {
-                UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction)];
+                //nav_icon_back_white
+                UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"nav_icon_back_white"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction)];
                 [barButtonItems addObject:item];
                 break;
             }
@@ -475,6 +550,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
             }
             case XBMakeToolbarItemTypeNextStep: {
                 UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"下一步" style:UIBarButtonItemStylePlain target:self action:@selector(nextStepAction)];
+                [item setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
                 [barButtonItems addObject:item];
                 break;
             }
@@ -484,7 +560,8 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
                 break;
             }
             case XBMakeToolbarItemTypeNextSwapCamera: {
-                UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"切换摄像头" style:UIBarButtonItemStylePlain target:self action:@selector(swapCamera)];
+                //post_icon_huanjingtou_normal
+                UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"post_icon_huanjingtou_normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(swapCamera)];
                 [barButtonItems addObject:item];
                 break;
             }
@@ -496,7 +573,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 }
 
 - (void)nextStepAction {
-
+    NSLog(@"we don`t talk any more");
 }
 
 - (void)confirmAction {
@@ -581,6 +658,29 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
         }
     }
 }
+- (UIButton *)dismissButton {
+    if (!_dismissButton) {
+        _dismissButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_dismissButton setImage:[UIImage imageNamed:@"post_icon_xiatui_normal"] forState:UIControlStateNormal];
+        _dismissButton.frame = CGRectMake(0, 0, 60, 60);
+    }
+    return _dismissButton;
+}
+- (UIButton *)cancelButton {
+    if (!_cancelButton) {
+        _cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_cancelButton setImage:[UIImage imageNamed:@"post_icon_retake_big"] forState:UIControlStateNormal];
+        _cancelButton.frame = CGRectMake(0, 0, 60, 60);
+    }
+    return _cancelButton;
+}
+- (UIButton *)confirmButton {
+    if (!_confirmButton) {
+        _confirmButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_confirmButton setImage:[UIImage imageNamed:@"post_icon_check_big"] forState:UIControlStateNormal];
+        _confirmButton.frame = CGRectMake(0, 0, 60, 60);
 
-
+    }
+    return _confirmButton;
+}
 @end

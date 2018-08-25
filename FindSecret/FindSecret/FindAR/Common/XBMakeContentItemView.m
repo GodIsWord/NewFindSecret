@@ -20,6 +20,7 @@
         self.didClicked();
     }
 }
+
 - (IBAction)pan:(UIPanGestureRecognizer *)recognizer {
 
     switch (recognizer.state) {
@@ -42,6 +43,7 @@
             break;
     }
 }
+
 - (IBAction)close:(id)sender {
     [self removeFromSuperview];
 }
@@ -83,7 +85,7 @@
     size.width = width;
     size.height = height;
     imageView.frame = CGRectMake(0, 0, size.width, size.height);
-    
+
     size.height += 40;
     view.bounds = (CGRect) {{0, 0}, size};
     view.center = CGPointMake(SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2);

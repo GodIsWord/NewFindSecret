@@ -88,7 +88,7 @@
     
     CGFloat borderWidth = 2.0f;
     self.intervalLayer = [[CALayer alloc] init];
-    self.intervalLayer.borderColor = [UIColor yellowColor].CGColor;
+    self.intervalLayer.borderColor = [UIColor whiteColor].CGColor;
     self.intervalLayer.borderWidth = borderWidth;
     self.intervalLayer.frame = CGRectMake(self.contentInsets.left,  self.contentInsets.top - borderWidth, self.bounds.size.width - self.contentInsets.left - self.contentInsets.right, self.bounds.size.height - self.contentInsets.top - self.contentInsets.bottom + 2*borderWidth);
     [self.layer addSublayer:self.intervalLayer];
@@ -97,7 +97,9 @@
     CGFloat controlViewWidth = 10.0;
     
     self.leftControlImageView = [[UIImageView alloc] init];
-    self.leftControlImageView.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.3];
+    self.leftControlImageView.image = [UIImage imageNamed:@"post_icon_video_left_normal"];
+    self.leftControlImageView.contentMode = UIViewContentModeCenter;
+    self.leftControlImageView.backgroundColor = [UIColor whiteColor];
     self.leftControlImageView.userInteractionEnabled = YES;
     self.leftControlImageView.frame = CGRectMake(CGRectGetMinX(self.intervalLayer.frame) - controlViewWidth + borderWidth, self.intervalLayer.frame.origin.y, controlViewWidth, self.intervalLayer.bounds.size.height);
     self.leftControlImageView.xb_enlargeEdge = UIEdgeInsetsMake(0, 4, 0, 8);
@@ -105,11 +107,21 @@
     [self.leftControlImageView addObserver:self forKeyPath:@"center" options:NSKeyValueObservingOptionNew context:nil];
     UIPanGestureRecognizer *leftGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
     [self.leftControlImageView addGestureRecognizer:leftGesture];
+    
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.leftControlImageView.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerTopLeft cornerRadii:CGSizeMake(8, 8)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = self.leftControlImageView.bounds;
+    maskLayer.path = maskPath.CGPath;
+    self.leftControlImageView.layer.mask = maskLayer;
+    
     self.leftFrameOrgin = self.leftControlImageView.frame;
 
     
     self.rightControlImageView = [[UIImageView alloc] init];
-    self.rightControlImageView.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.3];
+    self.rightControlImageView.image = [UIImage imageNamed:@"post_icon_video_right_normal"];
+    self.rightControlImageView.contentMode = UIViewContentModeCenter;
+
+    self.rightControlImageView.backgroundColor = [UIColor whiteColor];
     self.rightControlImageView.userInteractionEnabled = YES;
     self.rightControlImageView.frame = CGRectMake(CGRectGetMaxX(self.intervalLayer.frame) -  borderWidth, self.intervalLayer.frame.origin.y, controlViewWidth, self.intervalLayer.bounds.size.height);
     self.rightControlImageView.xb_enlargeEdge = UIEdgeInsetsMake(0, 8, 0, 4);
@@ -117,6 +129,13 @@
     [self.rightControlImageView addObserver:self forKeyPath:@"center" options:NSKeyValueObservingOptionNew context:nil];
     UIPanGestureRecognizer *rightGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
     [self.rightControlImageView addGestureRecognizer:rightGesture];
+
+    UIBezierPath *maskPath1 = [UIBezierPath bezierPathWithRoundedRect:self.leftControlImageView.bounds byRoundingCorners:UIRectCornerBottomRight | UIRectCornerTopRight cornerRadii:CGSizeMake(8, 8)];
+    CAShapeLayer *maskLayer1 = [[CAShapeLayer alloc] init];
+    maskLayer1.frame = self.rightControlImageView.bounds;
+    maskLayer1.path = maskPath1.CGPath;
+    self.rightControlImageView.layer.mask = maskLayer1;
+
     self.rightFrameOrgin = self.rightControlImageView.frame;
     
 }
@@ -165,7 +184,7 @@
     
     if (!self.targetLayer) {
         self.targetLayer = [CALayer new];
-        self.targetLayer.backgroundColor = [UIColor yellowColor].CGColor;
+        self.targetLayer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5].CGColor;
         self.targetLayer.frame = CGRectMake(self.contentInsets.left,  self.contentInsets.top, width, self.bounds.size.height - self.contentInsets.top - self.contentInsets.bottom);
         [self.layer addSublayer:self.targetLayer];
     }

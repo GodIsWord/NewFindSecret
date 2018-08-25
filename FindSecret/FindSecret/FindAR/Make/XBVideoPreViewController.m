@@ -45,11 +45,20 @@
     [self.navigationBarView addSubview:self.confirmToolbar];
     [self.view addSubview:self.navigationBarView];
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    [back setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
+    
     [self.confirmToolbar setItems:@[back] animated:NO];
 
-
-    // Do any additional setup after loading the view.
 }
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+- (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
+    return UIStatusBarAnimationNone;
+}
+
 - (void)goBack {
     if (self.navigationController.topViewController == self && self.navigationController.viewControllers.firstObject != self) {
         [self.navigationController popViewControllerAnimated:YES];

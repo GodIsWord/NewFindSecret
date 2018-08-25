@@ -1,11 +1,3 @@
-//
-//  XBMakeViewController.m
-//  FindSecret
-//
-//  Created by pillar on 2018/8/1.
-//  Copyright © 2018年 Mac. All rights reserved.
-//
-
 #import "XBMakeViewController.h"
 #import "XBMacroDefinition.h"
 #import "XBMakeToolView.h"
@@ -13,7 +5,6 @@
 #import "XBVideoEditController.h"
 #import "XBTextEditController.h"
 #import <AVFoundation/AVFoundation.h>
-#import "XBRecorderTestViewController.h"
 #import "XBMakeContentItemView.h"
 #import "XBAudioManager.h"
 #import "XBCameraViewController.h"
@@ -21,22 +12,21 @@
 #import "UINavigationController+WXSTransition.h"
 #import "MSRecordControl.h"
 
+
+
 typedef NS_ENUM(NSUInteger, XBMakeToolbarItemType) {
     XBMakeToolbarItemTypeBack,
     XBMakeToolbarItemTypeCancel,
-    XBMakeToolbarItemTypeConfirm,
     XBMakeToolbarItemTypeNextStep,
-    XBMakeToolbarItemTypeNextFlexibleSpace,
-    XBMakeToolbarItemTypeNextSwapCamera,
+    XBMakeToolbarItemTypeFlexibleSpace,
+    XBMakeToolbarItemTypeSwapCamera,
 };
-
 
 typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     XBMakeContentStageCapture,
     XBMakeContentStageCaptureConfirm,
-    XBMakeContentStageCaptureAddContent,
+    XBMakeContentStageCaptureAddContent
 };
-
 
 @interface XBMakeToolbar : UIToolbar
 @end
@@ -51,25 +41,27 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 }
 @end
 
+@interface XBMakeViewController () <XBMakeToolViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, XBAudioManagerPlayDelegate, XBAudioManagerRecoderDelegate, XBVideoEditControllerDelegate, XBCameraViewControllerDelegate, MSRecordControlDelegate>
+@property (nonatomic, strong) XBMakeToolbar *topToolbar;
+@property (nonatomic, strong) UIImageView *captureImageView;
+@property (nonatomic, strong) XBMakeToolView *toolView;
 
-@interface XBMakeViewController () <XBMakeToolViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate,XBAudioManagerPlayDelegate,XBAudioManagerRecoderDelegate, XBVideoEditControllerDelegate,XBCameraViewControllerDelegate,MSRecordControlDelegate>
-@property(nonatomic, strong) XBMakeToolbar *topToolbar;
-@property(nonatomic, strong) UIImageView *imageView;
-@property(nonatomic, strong) XBMakeToolView *toolView;
+@property (nonatomic, strong) AVCaptureSession *session;
+@property (nonatomic, strong) AVCaptureDeviceInput *captureInput;
+@property (nonatomic, strong) AVCaptureStillImageOutput *imageOutput;
+@property (nonatomic, strong) AVCaptureVideoPreviewLayer *captureLayer;
+@property (nonatomic, strong) MSRecordControl *captureBtn;
 
-@property(nonatomic, strong) AVCaptureSession *session;//媒体管理会话
-@property(nonatomic, strong) AVCaptureDeviceInput *captureInput;//输入数据对象
-@property(nonatomic, strong) AVCaptureStillImageOutput *imageOutput;//输出数据对象
-@property(nonatomic, strong) AVCaptureVideoPreviewLayer *captureLayer;//视频预览图层
-@property(nonatomic, strong) MSRecordControl *captureBtn;
+@property (nonatomic, assign) XBMakeContentStage stage;
+@property (nonatomic, strong) XBAudioManager *audioMgr;
 
-@property(nonatomic, assign) XBMakeContentStage stage;
-@property(nonatomic, strong) XBAudioManager *audioMgr;
-@property(nonatomic, strong) UIButton *dismissButton;
+@property (nonatomic, strong) UIButton *dismissButton;
+@property (nonatomic, strong) UIButton *cancelButton;
+@property (nonatomic, strong) UIButton *confirmButton;
 
-@property(nonatomic, strong) UIButton *cancelButton;
-@property(nonatomic, strong) UIButton *confirmButton;
 
+@property (nonatomic, assign) CGFloat buttonsCenterY;
+@property (nonatomic, assign) CGSize buttonsSize;
 @end
 
 @implementation XBMakeViewController
@@ -77,68 +69,85 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
-    // 初始化预览图层
+    self.buttonsSize = CGSizeMake(60, 60);
+    self.buttonsCenterY = SCREEN_HEIGHT - BOTTOM_MARGIN - 80;
+
     [self initCapture];
-    // UI 初始化
     [self initTopToolBar];
-    // 切换到拍照模式
     [self switchCaptureMode];
-        
-//     录音
+
     self.audioMgr = [XBAudioManager new];
     self.audioMgr.playDelegate = self;
     self.audioMgr.recordDelegate = self;
 
 }
 
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.stage == XBMakeContentStageCapture) {
+        if (![self.session isRunning]) {
+            [self.session startRunning];
+        }
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
+
 - (void)initCapture {
-    //1. 创建媒体管理会话
+
     AVCaptureSession *session = [[AVCaptureSession alloc] init];
     self.session = session;
 
-    // 判断分辨率是否支持1280*720，支持就设置为1280*720
+
     if ([session canSetSessionPreset:AVCaptureSessionPreset1280x720]) {
         session.sessionPreset = AVCaptureSessionPreset1280x720;
     }
-    //2. 获取后置摄像头设备对象
+
     AVCaptureDevice *device = nil;
     NSArray *cameras = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
     for (AVCaptureDevice *camera in cameras) {
-        if (camera.position == AVCaptureDevicePositionBack) {//取得后置摄像头
+        if (camera.position == AVCaptureDevicePositionBack) {
             device = camera;
         }
     }
     if (!device) {
-        NSLog(@"取得后置摄像头错误");
         return;
     }
-    //3. 创建输入数据对象
+
     NSError *error = nil;
-    AVCaptureDeviceInput *captureInput = [[AVCaptureDeviceInput alloc] initWithDevice:device
-                                                                                error:&error];
+    AVCaptureDeviceInput *captureInput = [[AVCaptureDeviceInput alloc] initWithDevice:device error:&error];
     if (error) {
-        NSLog(@"创建输入数据对象错误");
+        NSLog(@"%@", error.localizedDescription);
         return;
     }
     self.captureInput = captureInput;
-    //4. 创建输出数据对象
+
     AVCaptureStillImageOutput *imageOutput = [[AVCaptureStillImageOutput alloc] init];
     NSDictionary *setting = @{AVVideoCodecKey: AVVideoCodecJPEG};
     [imageOutput setOutputSettings:setting];
     self.imageOutput = imageOutput;
 
-    //5. 添加输入数据对象和输出对象到会话中
+
     if ([session canAddInput:captureInput]) {
         [session addInput:captureInput];
     }
     if ([session canAddOutput:imageOutput]) {
         [session addOutput:imageOutput];
     }
-    //6. 创建视频预览图层
+
     AVCaptureVideoPreviewLayer *videoLayer = [AVCaptureVideoPreviewLayer layerWithSession:session];
     videoLayer.frame = self.view.bounds;
     videoLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-    //插入图层在拍照按钮的下方
+
     [self.view.layer addSublayer:videoLayer];
     self.captureLayer = videoLayer;
 
@@ -155,77 +164,81 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     [self.view addSubview:self.topToolbar];
 }
 
+- (void)reCapture {
+    [self switchCaptureMode];
+    if (![self.session isRunning]) {
+        [self.session startRunning];
+    }
+}
 - (void)switchCaptureMode {
 
     self.stage = XBMakeContentStageCapture;
-    //
-    self.imageView.image = nil;
+
+    self.topToolbar.hidden = NO;
+
+    self.captureImageView.image = nil;
+    self.captureImageView.hidden = YES;
 
     self.cancelButton.hidden = YES;
     self.confirmButton.hidden = YES;
 
-    
-    //开始捕捉
+    // 捕获层
     self.captureLayer.hidden = NO;
-    [self.session startRunning];
 
-    // 设置tool
-    [self updateToolbarItemsWithTypes:@[@(XBMakeToolbarItemTypeNextFlexibleSpace), @(XBMakeToolbarItemTypeNextSwapCamera)]];
-
+    // 更新状态栏
+    [self updateToolbarItemsWithTypes:@[@(XBMakeToolbarItemTypeFlexibleSpace), @(XBMakeToolbarItemTypeSwapCamera)]];
 
     if (!self.captureBtn) {
         self.captureBtn = [MSRecordControl controlWithMode:MSRecordControlTap];
         self.captureBtn.delegate = self;
-        self.captureBtn.bounds = CGRectMake(0, 0, 60, 60);
-        self.captureBtn.layer.cornerRadius = self.captureBtn.bounds.size.width / 2.0;
+        self.captureBtn.bounds = (CGRect){{0,0},self.buttonsSize};
+        self.captureBtn.layer.cornerRadius = (CGFloat) (self.buttonsSize.width / 2.0);
         self.captureBtn.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6].CGColor;
-        self.captureBtn.progressBarColor = [UIColor colorWithRed:39.0/255.0 green:39.0/255.0 blue:39.0/255.0 alpha:1];
-        
+        self.captureBtn.progressBarColor = [UIColor colorWithRed:(CGFloat) (39.0 / 255.0) green:(CGFloat) (39.0 / 255.0) blue:(CGFloat) (39.0 / 255.0) alpha:1];
+
         CALayer *layer = [[CALayer alloc] init];
         layer.frame = CGRectInset(self.captureBtn.bounds, 8, 8);
-        layer.cornerRadius = layer.bounds.size.width / 2.0;
+        layer.cornerRadius = (CGFloat) (layer.bounds.size.width / 2.0);
         layer.backgroundColor = [UIColor whiteColor].CGColor;
         [self.captureBtn.layer insertSublayer:layer atIndex:0];
 
-        
     }
-    
-    CGFloat y = CGRectGetMaxY(self.view.bounds) - BOTTOM_MARGIN - 80;
+
     if (!self.captureBtn.superview) {
-        self.captureBtn.center = CGPointMake(CGRectGetMidX(self.view.bounds), y);
+        self.captureBtn.center = CGPointMake(CGRectGetMidX(self.view.bounds), self.buttonsCenterY);
         [self.view addSubview:self.captureBtn];
     }
-    
+
     if (!self.dismissButton.superview) {
-        self.dismissButton.center = CGPointMake(CGRectGetMidX(self.view.bounds) / 2.0, y);
+        self.dismissButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.dismissButton setImage:[UIImage imageNamed:@"post_icon_xiatui_normal"] forState:UIControlStateNormal];
+        self.dismissButton.frame = CGRectMake(0, 0, 60, 60);
+        self.dismissButton.center = CGPointMake((CGFloat) (CGRectGetMidX(self.view.bounds) / 2.0), self.buttonsCenterY);
         [self.dismissButton addTarget:self action:@selector(dismissNotAlert) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:self.dismissButton];
     }
+
     self.dismissButton.hidden = NO;
     self.captureBtn.hidden = NO;
 
-    // 隐藏添加的工具条
     self.toolView.hidden = YES;
 
 }
 
 - (void)captureImage {
-    //根据设备输出获得连接
+
     AVCaptureConnection *connection = [self.imageOutput connectionWithMediaType:AVMediaTypeVideo];
-    //通过连接获得设备输出的数据
-    [self.imageOutput captureStillImageAsynchronouslyFromConnection:connection
-                                                  completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
-                                                      //获取输出的JPG图片数据
-                                                      NSData *imageData =
-                                                              [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
-                                                      UIImage *image = [UIImage imageWithData:imageData];
-//         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);//保存到相册
-                                                      [self switchConfrimImageModeWithImage:image];
-                                                  }];
+    [self.imageOutput captureStillImageAsynchronouslyFromConnection:connection completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
+
+        NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+        UIImage *image = [UIImage imageWithData:imageData];
+
+        [self switchConfirmImageModeWithImage:image];
+    }];
 
 }
 
-- (void)switchConfrimImageModeWithImage:(UIImage *)image {
+- (void)switchConfirmImageModeWithImage:(UIImage *)image {
     if (!image) {
         return;
     }
@@ -233,98 +246,77 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
         self.stage = XBMakeContentStageCaptureConfirm;
         self.topToolbar.hidden = YES;
 
+        if (!self.captureImageView) {
+            self.captureImageView = [UIImageView new];
+            self.captureImageView.backgroundColor = [UIColor clearColor];
+            self.captureImageView.frame = self.view.bounds;
+        }
+        if (!self.captureImageView.superview) {
+            [self.view insertSubview:self.captureImageView atIndex:0];
+        }
+
+        self.captureImageView.image = image;
+        self.captureImageView.hidden = NO;
         
-        if (!self.imageView) {
-            self.imageView = [UIImageView new];
-            self.imageView.backgroundColor = [UIColor clearColor];
-            self.imageView.frame = self.view.bounds;
-        }
-        if (!self.imageView.superview) {
-            [self.view insertSubview:self.imageView atIndex:0];
-        }
-
-
-        self.imageView.image = image;
         self.captureLayer.hidden = YES;
         self.captureBtn.hidden = YES;
         self.dismissButton.hidden = YES;
+
         [self.session stopRunning];
-        
-        CGPoint center = self.captureBtn.center;
+
+
         if (!self.cancelButton.superview) {
-            [self.cancelButton addTarget:self action:@selector(switchCaptureMode) forControlEvents:UIControlEventTouchUpInside];
-            self.cancelButton.center = CGPointMake(self.view.bounds.size.width / 3.0, center.y);
+            self.cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [self.cancelButton setImage:[UIImage imageNamed:@"post_icon_retake_big"] forState:UIControlStateNormal];
+            self.cancelButton.frame = CGRectMake(0, 0, 60, 60);
+            [self.cancelButton addTarget:self action:@selector(reCapture) forControlEvents:UIControlEventTouchUpInside];
+            self.cancelButton.center = CGPointMake((CGFloat) (self.view.bounds.size.width / 3.0), self.buttonsCenterY);
             [self.view addSubview:self.cancelButton];
         }
-        
+
         if (!self.confirmButton.superview) {
+            self.confirmButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [self.confirmButton setImage:[UIImage imageNamed:@"post_icon_check_big"] forState:UIControlStateNormal];
+            self.confirmButton.frame = CGRectMake(0, 0, 60, 60);
             [self.confirmButton addTarget:self action:@selector(switchAddContentMode) forControlEvents:UIControlEventTouchUpInside];
 
-            self.confirmButton.center = CGPointMake(self.view.bounds.size.width / 3.0  * 2, center.y);
+            self.confirmButton.center = CGPointMake((CGFloat) (self.view.bounds.size.width / 3.0 * 2), self.buttonsCenterY);
             [self.view addSubview:self.confirmButton];
         }
 
         self.cancelButton.hidden = NO;
         self.confirmButton.hidden = NO;
     });
-    
-}
 
+}
 
 - (void)switchAddContentMode {
     dispatch_async(dispatch_get_main_queue(), ^{
-        
+
         self.stage = XBMakeContentStageCaptureAddContent;
         self.cancelButton.hidden = YES;
         self.confirmButton.hidden = YES;
 
-        
-        [self updateToolbarItemsWithTypes:@[@(XBMakeToolbarItemTypeCancel), @(XBMakeToolbarItemTypeNextFlexibleSpace), @(XBMakeToolbarItemTypeNextStep)]];
+        [self updateToolbarItemsWithTypes:@[@(XBMakeToolbarItemTypeCancel), @(XBMakeToolbarItemTypeFlexibleSpace), @(XBMakeToolbarItemTypeNextStep)]];
         self.topToolbar.hidden = NO;
-        
-        if (!self.imageView) {
-            self.imageView = [UIImageView new];
-            self.imageView.backgroundColor = [UIColor clearColor];
-            self.imageView.frame = self.view.bounds;
-        }
-        
-        if (!self.imageView.superview) {
-            [self.view insertSubview:self.imageView atIndex:0];
-        }
-        
-        // 停止捕捉
-        self.captureLayer.hidden = YES;
-        self.captureBtn.hidden = YES;
-        self.dismissButton.hidden = YES;
-        [self.session stopRunning];
-        
-        
-        
-        CGFloat toolViewWidth = 200;
+
+
+        CGFloat toolViewWidth = 220;
         CGFloat toolViewHeight = 60;
+
         if (!self.toolView) {
             self.toolView = [XBMakeToolView toolView];
             self.toolView.delegate = self;
         }
         if (!self.toolView.superview) {
-            self.toolView.frame = CGRectMake((CGRectGetWidth(self.view.frame) - toolViewWidth) / 2, CGRectGetHeight(self.view.frame) - BOTTOM_MARGIN - 20 - toolViewHeight, toolViewWidth, toolViewHeight);
+            self.toolView.frame = CGRectMake(0,0, toolViewWidth, toolViewHeight);
+            self.toolView.center = CGPointMake(CGRectGetMidX(self.view.bounds), self.buttonsCenterY);
             [self.view addSubview:self.toolView];
         }
         self.toolView.hidden = NO;
-        
-        
+
     });
 
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 
@@ -360,10 +352,6 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 }
 
-- (void)addRecordVoice {
-    
-}
-
 - (void)addText {
     XBTextEditController *textEditController = [[XBTextEditController alloc] init];
     textEditController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
@@ -374,28 +362,24 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     [self presentViewController:textEditController animated:NO completion:nil];
 }
 
-- (void)goBack {
+- (void)goBackCaptureStageAndAlert {
 
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"确认要放弃本次编辑吗？" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
-    UIAlertAction *confrom = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
-
-        [self dismissNotAlert];
-
+    UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
+        [self reCapture];
     }];
 
     [alertController addAction:cancel];
-    [alertController addAction:confrom];
-
+    [alertController addAction:confirm];
     [self presentViewController:alertController animated:YES completion:nil];
-
-
 }
+
 - (void)dismissNotAlert {
     if (self.navigationController.topViewController == self && self.navigationController.viewControllers.firstObject != self) {
         [self.navigationController popViewControllerAnimated:YES];
     } else {
-        UIViewController *vc = self.navigationController ?: self;
+        UIViewController *vc = (id) self.navigationController ?: self;
         if (vc.presentingViewController) {
             [vc dismissViewControllerAnimated:YES completion:nil];
         }
@@ -410,7 +394,6 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     return UIStatusBarAnimationNone;
 }
 
-
 #pragma mark - MSRecordControlDelegate
 
 - (void)recordControl:(MSRecordControl *)recordControl didChangeGestureStatus:(UIGestureRecognizerState)state {
@@ -421,11 +404,19 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 #pragma mark - XBMakeToolViewDelegate
 
+static BOOL _isSoundRecording = NO;
+
 - (void)makeToolView:(XBMakeToolView *)makeToolView didTouchDownItemAtIndex:(NSInteger)index {
     if (index == 1) {
-        [self.audioMgr startRecord];
+        _isSoundRecording = YES;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if (_isSoundRecording) {
+                [self.audioMgr startRecord];
+            }
+        });
     }
 }
+
 
 - (void)makeToolView:(XBMakeToolView *)makeToolView didTouchUpAtIndex:(NSInteger)index {
     switch (index) {
@@ -433,18 +424,20 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
             [self addText];
             break;
         case 1:
-            [self.audioMgr endRecord];
+            if (_isSoundRecording) {
+                [self.audioMgr endRecord];
+            }
+            _isSoundRecording = NO;
             break;
         case 2:
             [self addVideo];
             break;
-            
+
         default:
             break;
     }
 
 }
-
 
 #pragma mark - UIImagePickerControllerDelegate
 
@@ -464,45 +457,27 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 }
 
-#pragma mark - XBAudioManagerPlayDelegate,XBAudioManagerRecoderDelegate
+#pragma mark - XBAudioManagerPlayDelegate, XBAudioManagerRecoderDelegate
 
-
--(void)xbAudioManagerEncodeErrorDidOccur:(XBAudioManager *)recorder error:(NSError *)error {
-    NSLog(@"%s %@",__func__,error);
+- (void)xbAudioManagerEncodeErrorDidOccur:(XBAudioManager *)recorder error:(NSError *)error {
+    NSLog(@"%s %@", __func__, error);
 }
--(void)xbAudioManagerDidFinishRecording:(XBAudioManager *)recorder successfully:(BOOL)flag {
+
+- (void)xbAudioManagerDidFinishRecording:(XBAudioManager *)recorder successfully:(BOOL)flag {
     NSString *filePath = [recorder lastAudioPath];
     NSTimeInterval interval = [recorder audioDurationWithPath:filePath];
-    NSString *content = [NSString stringWithFormat:@"文件：%@ - %.02f`s",[filePath lastPathComponent],interval];
+    NSString *content = [NSString stringWithFormat:@"文件：%@ - %.02f`s", [filePath lastPathComponent], interval];
     NSAttributedString *str = [[NSAttributedString alloc] initWithString:content];
     XBMakeContentItemView *itemVIew = [XBMakeContentItemView contentItemViewWithAttributedString:str];
     [self.view addSubview:itemVIew];
-
-    NSLog(@"%s",__func__);
-}
-//播放结束时执行的动作
-- (void)xbAudioManagerPlayerDidFinishPlaying:(XBAudioManager*)player successfully:(BOOL)flag {
-    NSLog(@"%s",__func__);
-}
-//解码错误执行的动作
-- (void)xbAudioManagerPlayerDecodeErrorDidOccur:(XBAudioManager*)player error:(NSError *)error {
-    NSLog(@"%s %@",__func__,error);
-}
-//处理中断的代码
-- (void)xbAudioManagerPlayerBeginInteruption:(XBAudioManager*)player {
-    NSLog(@"%s",__func__);
-}
-//处理中断结束的代码
-- (void)xbAudioManagerPlayerEndInteruption:(XBAudioManager*)player {
-    NSLog(@"%s",__func__);
 }
 
 #pragma mark - XBVideoEditControllerDelegate
 
-- (void)videoEditController:(XBVideoEditController *)videoEditController didProcessingCompletedWithVideoUrl:(NSURL *)url{
-    
+- (void)videoEditController:(XBVideoEditController *)videoEditController didProcessingCompletedWithVideoUrl:(NSURL *)url {
+
     XBMakeContentItemView *itemVIew = [XBMakeContentItemView contentItemViewWithVideoUrl:url];
-    __weak typeof(self)wSelf = self;
+    __weak typeof(self) wSelf = self;
     UIView *startView = itemVIew.contentView;
     itemVIew.didClicked = ^{
         XBVideoPreViewController *vc = [[XBVideoPreViewController alloc] init];
@@ -510,18 +485,31 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
         [wSelf wxs_presentViewController:vc makeTransition:^(WXSTransitionProperty *transition) {
             transition.animationType = WXSTransitionAnimationTypeViewMoveNormalToNextVC;
             transition.animationTime = 0.3;
-            transition.startView  = startView;
+            transition.startView = startView;
             transition.targetView = vc.view;
         }];
     };
     [self.view addSubview:itemVIew];
 
 }
+
 #pragma mark - XBCameraViewControllerDelegate
+
 - (void)cameraViewController:(XBCameraViewController *)cameraViewController didProcessingCompletedWithVideoUrl:(NSURL *)url {
     XBMakeContentItemView *itemVIew = [XBMakeContentItemView contentItemViewWithVideoUrl:url];
+    __weak typeof(self) wSelf = self;
+    UIView *startView = itemVIew.contentView;
+    itemVIew.didClicked = ^{
+        XBVideoPreViewController *vc = [[XBVideoPreViewController alloc] init];
+        vc.videoUrl = url;
+        [wSelf wxs_presentViewController:vc makeTransition:^(WXSTransitionProperty *transition) {
+            transition.animationType = WXSTransitionAnimationTypeViewMoveNormalToNextVC;
+            transition.animationTime = 0.3;
+            transition.startView = startView;
+            transition.targetView = vc.view;
+        }];
+    };
     [self.view addSubview:itemVIew];
-
 }
 
 #pragma mark - toolbar
@@ -533,34 +521,30 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
         XBMakeToolbarItemType type = (XBMakeToolbarItemType) [num integerValue];
         switch (type) {
             case XBMakeToolbarItemTypeBack: {
-                UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+                UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(goBackCaptureStageAndAlert)];
+                [item setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]} forState:UIControlStateNormal];
                 [barButtonItems addObject:item];
                 break;
             }
             case XBMakeToolbarItemTypeCancel: {
-                //nav_icon_back_white
+
                 UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"nav_icon_back_white"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction)];
-                [barButtonItems addObject:item];
-                break;
-            }
-            case XBMakeToolbarItemTypeConfirm: {
-                UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(confirmAction)];
                 [barButtonItems addObject:item];
                 break;
             }
             case XBMakeToolbarItemTypeNextStep: {
                 UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"下一步" style:UIBarButtonItemStylePlain target:self action:@selector(nextStepAction)];
-                [item setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
+                [item setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]} forState:UIControlStateNormal];
                 [barButtonItems addObject:item];
                 break;
             }
-            case XBMakeToolbarItemTypeNextFlexibleSpace: {
+            case XBMakeToolbarItemTypeFlexibleSpace: {
                 UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
                 [barButtonItems addObject:item];
                 break;
             }
-            case XBMakeToolbarItemTypeNextSwapCamera: {
-                //post_icon_huanjingtou_normal
+            case XBMakeToolbarItemTypeSwapCamera: {
+
                 UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"post_icon_huanjingtou_normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(swapCamera)];
                 [barButtonItems addObject:item];
                 break;
@@ -576,45 +560,20 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     NSLog(@"we don`t talk any more");
 }
 
-- (void)confirmAction {
-
-}
-
 - (void)cancelAction {
 
-    // 移除所有的附加视图
     for (UIView *view in self.view.subviews) {
         if ([view isKindOfClass:[XBMakeContentItemView class]]) {
             [view removeFromSuperview];
         }
     }
     if (self.stage == XBMakeContentStageCaptureAddContent) {
-        [self switchCaptureMode];
+        [self reCapture];
     }
 }
 
--(void)dealloc {
-    NSLog(@"%s",__func__);
-}
 
 #pragma mark - Camera
-
-- (BOOL)isCameraAvailable {
-    return [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
-}
-
-- (BOOL)isFrontCameraAvailable {
-    return [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront];
-}
-
-- (BOOL)isRearCameraAvailable {
-    return [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear];
-}
-
-- (BOOL)hasMultipleCameras {
-    NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
-    return devices != nil && [devices count] > 1;
-}
 
 - (AVCaptureDevice *)cameraWithPosition:(AVCaptureDevicePosition)position {
     NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
@@ -639,7 +598,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
         } else {
             newCamera = [self cameraWithPosition:AVCaptureDevicePositionFront];
         }
-        //生成新的输入
+
         newInput = [AVCaptureDeviceInput deviceInputWithDevice:newCamera error:&error];
 
         if (newInput != nil) {
@@ -658,29 +617,10 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
         }
     }
 }
-- (UIButton *)dismissButton {
-    if (!_dismissButton) {
-        _dismissButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_dismissButton setImage:[UIImage imageNamed:@"post_icon_xiatui_normal"] forState:UIControlStateNormal];
-        _dismissButton.frame = CGRectMake(0, 0, 60, 60);
-    }
-    return _dismissButton;
-}
-- (UIButton *)cancelButton {
-    if (!_cancelButton) {
-        _cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_cancelButton setImage:[UIImage imageNamed:@"post_icon_retake_big"] forState:UIControlStateNormal];
-        _cancelButton.frame = CGRectMake(0, 0, 60, 60);
-    }
-    return _cancelButton;
-}
-- (UIButton *)confirmButton {
-    if (!_confirmButton) {
-        _confirmButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_confirmButton setImage:[UIImage imageNamed:@"post_icon_check_big"] forState:UIControlStateNormal];
-        _confirmButton.frame = CGRectMake(0, 0, 60, 60);
 
-    }
-    return _confirmButton;
+
+#pragma mark - dealloc
+- (void)dealloc {
+    NSLog(@"%s", __func__);
 }
 @end

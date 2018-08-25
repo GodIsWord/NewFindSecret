@@ -15,32 +15,31 @@
             <rect key="frame" x="0.0" y="0.0" width="285" height="171"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBh-a0-719">
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBh-a0-719">
                     <rect key="frame" x="95" y="0.0" width="95" height="171"/>
-                    <state key="normal" title="语音"/>
+                    <state key="normal" image="post_icon_voice_big"/>
                     <connections>
                         <action selector="touchDown:forEvent:" destination="iN0-l3-epB" eventType="touchDown" id="rgc-dm-XX5"/>
                         <action selector="touchUp:forEvent:" destination="iN0-l3-epB" eventType="touchUpInside" id="ZZW-Q0-y6h"/>
                     </connections>
                 </button>
-                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJ0-I1-0Oz">
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJ0-I1-0Oz">
                     <rect key="frame" x="190" y="0.0" width="95" height="171"/>
-                    <state key="normal" title="视频"/>
+                    <state key="normal" image="post_icon_video_big"/>
                     <connections>
                         <action selector="touchDown:forEvent:" destination="iN0-l3-epB" eventType="touchDown" id="BQl-S2-hVt"/>
                         <action selector="touchUp:forEvent:" destination="iN0-l3-epB" eventType="touchUpInside" id="rXO-4r-htE"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z81-0b-LYi">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z81-0b-LYi">
                     <rect key="frame" x="0.0" y="0.0" width="95" height="171"/>
-                    <state key="normal" title="文本"/>
+                    <state key="normal" image="post_icon_message_big"/>
                     <connections>
                         <action selector="touchDown:forEvent:" destination="iN0-l3-epB" eventType="touchDown" id="gmr-iu-lL6"/>
                         <action selector="touchUp:forEvent:" destination="iN0-l3-epB" eventType="touchUpInside" id="ka5-ld-eyV"/>
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="wJ0-I1-0Oz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="2UE-Yd-xE8"/>
@@ -60,4 +59,9 @@
             <point key="canvasLocation" x="62" y="-26"/>
         </view>
     </objects>
+    <resources>
+        <image name="post_icon_message_big" width="38" height="38"/>
+        <image name="post_icon_video_big" width="38" height="38"/>
+        <image name="post_icon_voice_big" width="38" height="38"/>
+    </resources>
 </document>

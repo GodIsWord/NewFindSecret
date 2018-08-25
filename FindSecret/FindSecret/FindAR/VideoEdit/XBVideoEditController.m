@@ -23,35 +23,35 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
 };
 
 @interface XBVideoEditController () <XBVideoIntervalChooseViewDelegate>
-@property(nonatomic, strong, readwrite) AVPlayerItem *playerItem;
-@property(nonatomic, strong, readwrite) AVPlayer *player;
-@property(nonatomic, strong, readwrite) AVPlayerLayer *playerLayer;
-@property(nonatomic, strong) XBVideoIntervalChooseView *editView;
+@property (nonatomic, strong, readwrite) AVPlayerItem *playerItem;
+@property (nonatomic, strong, readwrite) AVPlayer *player;
+@property (nonatomic, strong, readwrite) AVPlayerLayer *playerLayer;
+@property (nonatomic, strong) XBVideoIntervalChooseView *editView;
 
 
-@property(nonatomic, assign) BOOL statusBarHidden;
-@property(nonatomic, assign) BOOL viewDidAppear;
-@property(nonatomic, strong) id playTimeObserver;
-@property(nonatomic, strong) id playBoundaryTimeObserver;
-@property(nonatomic, assign) CMTime startTime;
-@property(nonatomic, assign) CMTime stopTime;
-@property(nonatomic, assign) CMTime totalTime;
+@property (nonatomic, assign) BOOL statusBarHidden;
+@property (nonatomic, assign) BOOL viewDidAppear;
+@property (nonatomic, strong) id playTimeObserver;
+@property (nonatomic, strong) id playBoundaryTimeObserver;
+@property (nonatomic, assign) CMTime startTime;
+@property (nonatomic, assign) CMTime stopTime;
+@property (nonatomic, assign) CMTime totalTime;
 
-@property(nonatomic, assign) XBVideoEditStatus editStatus;
+@property (nonatomic, assign) XBVideoEditStatus editStatus;
 
-@property(nonatomic, strong) UIView *navigationBarView;
-@property(nonatomic, strong) UIToolbar *confirmToolbar;
-@property(nonatomic, assign) BOOL isExceedTheLimit;
-@property(nonatomic, assign) BOOL isPlaying;
-@property(nonatomic, strong) UIView *bottomBarView;
-@property(nonatomic, strong) UIToolbar *editToolbar;
+@property (nonatomic, strong) UIView *navigationBarView;
+@property (nonatomic, strong) UIToolbar *confirmToolbar;
+@property (nonatomic, assign) BOOL isExceedTheLimit;
+@property (nonatomic, assign) BOOL isPlaying;
+@property (nonatomic, strong) UIView *bottomBarView;
+@property (nonatomic, strong) UIToolbar *editToolbar;
 @end
 
 @implementation XBVideoEditController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.view.backgroundColor = [UIColor blackColor];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoDidPlayToEndTimeNotification) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
     // 点击手势
@@ -60,9 +60,9 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
 
     // 容错
     if (self.videoUrl.absoluteString.length == 0) {
-        __weak typeof(self) wself = self;
+        __weak typeof(self) wSelf = self;
         [self showAlertWithMessage:@"视频源出错,请重新选择" completion:^{
-            [wself goBack];
+            [wSelf goBack];
         }];
         return;
     }
@@ -77,7 +77,7 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
 
     // 初始化全局的播放试图
 
-    self.isExceedTheLimit ? [self updateSubViewsToLimitStatus] : [self updateSubViewsToConfirmStatus];
+    self.isExceedTheLimit ? [self updateSubViewsToLimitStatus] : [self updateSubViewsToEditStatus];
 
 
     // 状态栏
@@ -152,8 +152,11 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
     self.navigationBarView.hidden = NO;
 
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    [back setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
+    
     UIBarButtonItem *fixItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *title = [[UIBarButtonItem alloc] initWithTitle:@"选择视频" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [title setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
     UIBarButtonItem *fixItem1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *none = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     none.width = 42;
@@ -169,7 +172,7 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
     self.isPlaying = NO;
     [self.player pause];
     [self.player seekToTime:kCMTimeZero toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
-    
+
     if (self.playTimeObserver) {
         [self.player removeTimeObserver:self.playTimeObserver];
         self.playTimeObserver = nil;
@@ -187,10 +190,12 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
     }
 
     self.bottomBarView.hidden = NO;
-    
+
     UIBarButtonItem *des = [[UIBarButtonItem alloc] initWithTitle:@"只能上传10秒内的视频" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [des setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
     UIBarButtonItem *fixItem3 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *edit = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(updateSubViewsToEditStatus)];
+    [edit setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
 
     [self.editToolbar setItems:@[des, fixItem3, edit] animated:NO];
 }
@@ -219,17 +224,19 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
 
 
     self.bottomBarView.hidden = NO;
-    UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(editCancelAction)];
+    UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain  target:self action:@selector(editCancelAction)];
+    [cancelItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[[UIColor whiteColor] colorWithAlphaComponent:0.5]} forState:UIControlStateNormal];
     UIBarButtonItem *flexibleSpaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(updateSubViewsToConfirmStatus)];
+    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain  target:self action:@selector(updateSubViewsToConfirmStatus)];
+    [doneItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
     [self.editToolbar setItems:@[cancelItem, flexibleSpaceItem, doneItem] animated:NO];
 
-    
+
     if (!self.playTimeObserver) {
         __weak typeof(self) weakSelf = self;
         self.playTimeObserver = [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 60) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
             if (weakSelf.editStatus == XBVideoEditStatusLimit || weakSelf.isEidt) {
-                return ;
+                return;
             }
             CGFloat currentSecond = CMTimeGetSeconds(time);
             CGFloat startSecond = CMTimeGetSeconds(weakSelf.startTime);
@@ -245,9 +252,11 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
 - (void)updateSubViewsToConfirmStatus {
     self.editStatus = XBVideoEditStatusConfirm;
     self.navigationBarView.hidden = NO;
-    UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(confirmCancelAction)];
+    UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain  target:self action:@selector(confirmCancelAction)];
+    [cancelItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[[UIColor whiteColor] colorWithAlphaComponent:0.5]} forState:UIControlStateNormal];
     UIBarButtonItem *flexibleSpaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(confirm)];
+    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain  target:self action:@selector((confirm))];
+    [doneItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
     [self.confirmToolbar setItems:@[cancelItem, flexibleSpaceItem, doneItem] animated:NO];
 
     self.playerLayer.frame = self.view.bounds;
@@ -257,12 +266,9 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
 }
 
 - (void)confirmCancelAction {
-    if (self.isExceedTheLimit) {
-        [self updateSubViewsToEditStatus];
-    }else {
-        [self goBack];
-    }
+    [self updateSubViewsToEditStatus];
 }
+
 //addBoundaryTimeObserverForTimes
 - (void)playInBoundaryForm:(CMTime)fromTime to:(CMTime)toTime {
 
@@ -278,7 +284,7 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
         [wself.player seekToTime:wself.startTime toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
         [wself.player play];
     }];
-    
+
     [self.player seekToTime:fromTime toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
     [self.player play];
 
@@ -366,7 +372,7 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
             case AVAssetExportSessionStatusUnknown:
                 NSLog(@"未知原因 %@", exportSession.error);
                 break;
-            case AVAssetExportSessionStatusCompleted:{
+            case AVAssetExportSessionStatusCompleted: {
                 NSLog(@"到处完成 %@", tempUrl);
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if ([self.delegate respondsToSelector:@selector(videoEditController:didProcessingCompletedWithVideoUrl:)]) {
@@ -467,12 +473,13 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
     }]];
     [self presentViewController:alertController animated:YES completion:nil];
 }
+
 #pragma mark - getter
 
 - (UIView *)navigationBarView {
     if (!_navigationBarView) {
         _navigationBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, TOP_MARGIN + kToolBarHeight)];
-        _navigationBarView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.34];
+        _navigationBarView.backgroundColor = [UIColor colorWithWhite:0.101961 alpha:0.75];
     }
     return _navigationBarView;
 }
@@ -489,7 +496,7 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
     if (!_bottomBarView) {
         CGFloat height = BOTTOM_MARGIN + kToolBarHeight;
         _bottomBarView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - height, self.view.bounds.size.width, height)];
-        _bottomBarView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.34];
+        _bottomBarView.backgroundColor = [UIColor colorWithWhite:0.101961 alpha:0.75];
     }
     return _bottomBarView;
 }
@@ -506,7 +513,6 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
     if (!_editView) {
         CGFloat y = self.view.bounds.size.height - BOTTOM_MARGIN - kToolBarHeight - kEditAreaViewHeight;
         _editView = [[XBVideoIntervalChooseView alloc] initWithFrame:CGRectMake(0, y, self.view.bounds.size.width, kEditAreaViewHeight)];
-        _editView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
     }
     return _editView;
 }

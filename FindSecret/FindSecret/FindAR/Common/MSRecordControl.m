@@ -24,9 +24,7 @@
 }
 
 - (void)reset {
-    if (self.mode == MSRecordControlLongPress) {
-        self.progress = 0;
-    }
+    self.progress = 0;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -87,6 +85,9 @@
     self.progressLayer.strokeEnd = 0;
 }
 - (void)tapHandle:(UITapGestureRecognizer *)tapHandle {
+    if ([self.delegate respondsToSelector:@selector(recordControlDidBeginRecord:)]) {
+        [self.delegate recordControlDidBeginRecord:self];
+    }
     if ([self.delegate respondsToSelector:@selector(recordControl:didChangeGestureStatus:)]) {
         [self.delegate recordControl:self didChangeGestureStatus:tapHandle.state];
     }
@@ -97,6 +98,9 @@
         case UIGestureRecognizerStateBegan:{
             self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(runTask:) userInfo:nil repeats:YES];
             [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+            if ([self.delegate respondsToSelector:@selector(recordControlDidBeginRecord:)]) {
+                [self.delegate recordControlDidBeginRecord:self];
+            }
         }
             break;
         
@@ -125,6 +129,10 @@
 - (void)runTask:(NSTimer *)timer {
     self.progress += timer.timeInterval / self.duration;
     if (self.progress >= 1) {
+        self.progress = 1;
+        if ([self.delegate respondsToSelector:@selector(recordControlDurationIsMaxValue:)]) {
+            [self.delegate recordControlDurationIsMaxValue:self];
+        }
         [timer invalidate];
     }
 }

@@ -16,6 +16,8 @@ typedef NS_ENUM(NSUInteger, MSRecordControlMode) {
 @protocol MSRecordControlDelegate <NSObject>
 @optional
 - (void)recordControl:(MSRecordControl *)recordControl didChangeGestureStatus:(UIGestureRecognizerState)state;
+- (void)recordControlDidBeginRecord:(MSRecordControl *)recordControl;
+- (void)recordControlDurationIsMaxValue:(MSRecordControl *)recordControl;
 @end
 
 @interface MSRecordControl : UIView

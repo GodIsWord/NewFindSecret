@@ -7,9 +7,11 @@
 
 
 @interface XBMakeContentItemView : UIView
-@property(weak, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (nonatomic, copy) void (^didClicked)(void);
+
 + (instancetype)contentItemViewWithAttributedString:(NSAttributedString *)attributedString;
+
 + (instancetype)contentItemViewWithVideoUrl:(NSURL *)videoUrl;
 
 @end

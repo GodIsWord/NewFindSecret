@@ -31,7 +31,7 @@
 
 @implementation XBTextEditController
 
-//    文字样式有时候不起作用、 第一次进来textfield聚焦
+//    文字样式有时候不起作用
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.styleArray = @[@"SimHei",@"SimHei",@"SimSun",@"Kaiti",@"SimHei",@"STXINGKA"];

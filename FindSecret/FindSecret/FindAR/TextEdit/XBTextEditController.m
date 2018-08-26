@@ -31,7 +31,7 @@
 
 @implementation XBTextEditController
 
-//    文字样式有时候不起作用、 第一次进来textfield聚焦、 文字虚线的动态高度
+//    文字样式有时候不起作用、 第一次进来textfield聚焦、 文字虚线的动态宽度
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.styleArray = @[@"SimHei",@"SimHei",@"SimSun",@"Kaiti",@"SimHei",@"STXINGKA"];
@@ -302,11 +302,11 @@
     
     [self.border removeFromSuperlayer];
     NSDictionary *dict = @{NSFontAttributeName : [UIFont systemFontOfSize:20.0]};
-    CGSize size = [self.text boundingRectWithSize:CGSizeMake(200, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
+    CGSize size = [self.text boundingRectWithSize:CGSizeMake(SCREEN_WIDTH-30, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
     
-    self.editLabel.frame = CGRectMake(0, STATUSBAR_And_NAVIGATIONBAR_HEIGHT, size.width +50,  size.height+30);
+    self.editLabel.frame = CGRectMake(0, STATUSBAR_And_NAVIGATIONBAR_HEIGHT, size.width+20,  size.height+30);
     self.editLabel.centerX = self.backGroundView.centerX;
-    self.editLabel.size = CGSizeMake(size.width + 50,  size.height+30);
+    self.editLabel.size = CGSizeMake(size.width+20,  size.height+30);
     self.border = [CAShapeLayer layer];
     self.border.strokeColor = [UIColor whiteColor].CGColor;   //虚线的颜色
     self.border.fillColor = [UIColor clearColor].CGColor;//填充的颜色

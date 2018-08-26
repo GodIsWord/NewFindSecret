@@ -132,6 +132,7 @@
 		E6212ADD21324C0F005E02C5 /* vioce_small@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = E6212AD921324C0E005E02C5 /* vioce_small@3x.gif */; };
 		E6212AE02132503E005E02C5 /* XBGifImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212ADF2132503E005E02C5 /* XBGifImageView.m */; };
 		E6212AE3213252BB005E02C5 /* XBPublishRecordAudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212AE2213252BB005E02C5 /* XBPublishRecordAudioView.m */; };
+		E6212AE6213254AC005E02C5 /* UIColor+XBHEX.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212AE5213254AC005E02C5 /* UIColor+XBHEX.m */; };
 		E64807C1210FFB8500050124 /* XBTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = E64807C0210FFB8500050124 /* XBTimer.m */; };
 		E6671A0721258C1C00592B0F /* XBPointToPointSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6671A0621258C1C00592B0F /* XBPointToPointSendViewController.m */; };
 		E6671A0A21258C5B00592B0F /* XBPointToPointPersonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6671A0921258C5B00592B0F /* XBPointToPointPersonTableViewCell.m */; };
@@ -398,6 +399,8 @@
 		E6212ADF2132503E005E02C5 /* XBGifImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBGifImageView.m; sourceTree = "<group>"; };
 		E6212AE1213252BB005E02C5 /* XBPublishRecordAudioView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBPublishRecordAudioView.h; sourceTree = "<group>"; };
 		E6212AE2213252BB005E02C5 /* XBPublishRecordAudioView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBPublishRecordAudioView.m; sourceTree = "<group>"; };
+		E6212AE4213254AC005E02C5 /* UIColor+XBHEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XBHEX.h"; sourceTree = "<group>"; };
+		E6212AE5213254AC005E02C5 /* UIColor+XBHEX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XBHEX.m"; sourceTree = "<group>"; };
 		E64807BC210FF47200050124 /* XBRecordAudioToastView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBRecordAudioToastView.h; sourceTree = "<group>"; };
 		E64807BD210FF47200050124 /* XBRecordAudioToastView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecordAudioToastView.m; sourceTree = "<group>"; };
 		E64807BF210FFB8500050124 /* XBTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBTimer.h; sourceTree = "<group>"; };
@@ -946,6 +949,8 @@
 		E6019641210C16E50046D1FA /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E6212AE4213254AC005E02C5 /* UIColor+XBHEX.h */,
+				E6212AE5213254AC005E02C5 /* UIColor+XBHEX.m */,
 				E6019642210C18C40046D1FA /* UIView+XBFrame.h */,
 				E6019643210C18C40046D1FA /* UIView+XBFrame.m */,
 				8529BFE0210CDD4E007E90C9 /* UIView+XBEnlargeEdge.h */,
@@ -1331,6 +1336,7 @@
 				CAE7465221129C3F000D05B7 /* XHPinterestRefreshView.m in Sources */,
 				857616602111F5020091E7C1 /* XBMakeViewController.m in Sources */,
 				E695F12A212BA12700519A99 /* MJRefreshBackStateFooter.m in Sources */,
+				E6212AE6213254AC005E02C5 /* UIColor+XBHEX.m in Sources */,
 				E6212AE02132503E005E02C5 /* XBGifImageView.m in Sources */,
 				E695F135212BA12700519A99 /* MJRefreshAutoFooter.m in Sources */,
 				85926169212C694D008D0667 /* WXSTransitionManager+PageAnimation.m in Sources */,

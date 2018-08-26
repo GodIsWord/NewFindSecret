@@ -88,7 +88,8 @@
 +(BOOL)fileExist:(NSString*)path{
     if (!path) return NO;
     NSFileManager *manager = [NSFileManager defaultManager];
-    return [manager fileExistsAtPath:path];
+    BOOL isExt = [manager fileExistsAtPath:path];
+    return isExt;
 }
 
 

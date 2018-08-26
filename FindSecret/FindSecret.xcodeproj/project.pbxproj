@@ -112,6 +112,7 @@
 		E6019644210C18C40046D1FA /* UIView+XBFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E6019643210C18C40046D1FA /* UIView+XBFrame.m */; };
 		E601964B210C21830046D1FA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E601964A210C21830046D1FA /* AVFoundation.framework */; };
 		E601964E210C3A300046D1FA /* XBPlayAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = E601964D210C3A300046D1FA /* XBPlayAudio.m */; };
+		E60A09B22132F263009BC9F0 /* XBPublishLisonItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E60A09B12132F263009BC9F0 /* XBPublishLisonItemView.m */; };
 		E60E3B59210C0FF000C5BFBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B58210C0FF000C5BFBB /* AppDelegate.m */; };
 		E60E3B5C210C0FF000C5BFBB /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B5B210C0FF000C5BFBB /* HomeViewController.m */; };
 		E60E3B61210C0FF100C5BFBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B60210C0FF100C5BFBB /* Assets.xcassets */; };
@@ -359,6 +360,8 @@
 		E601964A210C21830046D1FA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E601964C210C3A300046D1FA /* XBPlayAudio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBPlayAudio.h; sourceTree = "<group>"; };
 		E601964D210C3A300046D1FA /* XBPlayAudio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBPlayAudio.m; sourceTree = "<group>"; };
+		E60A09B02132F263009BC9F0 /* XBPublishLisonItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBPublishLisonItemView.h; sourceTree = "<group>"; };
+		E60A09B12132F263009BC9F0 /* XBPublishLisonItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBPublishLisonItemView.m; sourceTree = "<group>"; };
 		E60E3B54210C0FEF00C5BFBB /* FindSecret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindSecret.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E60E3B57210C0FF000C5BFBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E60E3B58210C0FF000C5BFBB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -952,6 +955,8 @@
 				E6212AF221326024005E02C5 /* XBRecordTestViewController.m */,
 				E6212AE1213252BB005E02C5 /* XBPublishRecordAudioView.h */,
 				E6212AE2213252BB005E02C5 /* XBPublishRecordAudioView.m */,
+				E60A09B02132F263009BC9F0 /* XBPublishLisonItemView.h */,
+				E60A09B12132F263009BC9F0 /* XBPublishLisonItemView.m */,
 				E6212AF421327072005E02C5 /* recordVoice.bundle */,
 			);
 			path = RecordVoice;
@@ -1200,15 +1205,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA147A30212C345000F2F2EE /* MicrosoftYaHei.ttf in Resources */,
 				CA147A35212D123F00F2F2EE /* SimSun.ttf in Resources */,
 				85E98D4E2127C62B00DDCC56 /* XBMakeContentItemView.xib in Resources */,
 				E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */,
 				857616662111FAAD0091E7C1 /* XBMakeToolView.xib in Resources */,
 				CAE7464021129C3F000D05B7 /* LICENSE in Resources */,
 				CA147A3A213274BB00F2F2EE /* STXINGKA.ttf in Resources */,
-				CAE74509210EE4E4000D05B7 /* palette.png in Resources */,
-				CAE74491210EB272000D05B7 /* 调色板-Info.plist in Resources */,
 				E6212AF521327072005E02C5 /* recordVoice.bundle in Resources */,
 				CA5450CE211851F8000ABB4B /* README.md in Resources */,
 				CA147A39213274B900F2F2EE /* SimHei.ttf in Resources */,
@@ -1221,9 +1223,6 @@
 				E695F137212BA12700519A99 /* README.md in Resources */,
 				E60E3B61210C0FF100C5BFBB /* Assets.xcassets in Resources */,
 				CAE7464121129C3F000D05B7 /* README.md in Resources */,
-
-				CAE74487210EB272000D05B7 /* Default-568h@2x.png in Resources */,
-				CAE74489210EB272000D05B7 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1328,6 +1327,7 @@
 				E695F126212BA12700519A99 /* UIScrollView+MJExtension.m in Sources */,
 				CAE7464821129C3F000D05B7 /* XHSystemRefreshCollectionViewController.m in Sources */,
 				CAE7465C21129C3F000D05B7 /* XBFindNearAddressVC.m in Sources */,
+				E60A09B22132F263009BC9F0 /* XBPublishLisonItemView.m in Sources */,
 				E695F12D212BA12700519A99 /* MJRefreshAutoGifFooter.m in Sources */,
 				E695F149212C291700519A99 /* iOSUnityMutually.m in Sources */,
 				CAE7463821129C3F000D05B7 /* MKMapView+ZoomLevel.m in Sources */,

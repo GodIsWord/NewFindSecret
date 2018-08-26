@@ -37,6 +37,9 @@
 @property(nonatomic,weak) id<XBAudioManagerRecoderDelegate> recordDelegate;
 @property(nonatomic,weak) id<XBAudioManagerPlayDelegate> playDelegate;
 
+@property(nonatomic,assign) NSTimeInterval maxRecordDuration;
+
+
 -(void)startRecord;
 
 -(void)cancleRecord;

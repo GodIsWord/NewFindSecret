@@ -33,7 +33,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.styleArray = @[@"SimHei",@"SimHei",@"SimSun",@"Kaiti",@"SimHei",@"STXINGKA"];
-    
     self.colorArray= @[[UIColor whiteColor],[UIColor blackColor],[UIColor redColor],[UIColor orangeColor],[UIColor yellowColor],[UIColor greenColor],[UIColor blueColor],[UIColor purpleColor]];
     self.view.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.backGroundView];
@@ -46,7 +45,7 @@
     [self.cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.backGroundView addSubview:self.cancelButton];
     
-
+    
     self.editTextView.delegate = self;
     self.editTextView.backgroundColor = [UIColor clearColor];
     self.editTextView.textAlignment = NSTextAlignmentCenter;
@@ -62,7 +61,6 @@
     self.editTextView.textContainerInset = UIEdgeInsetsMake(10, 10, 10, 10);
     
     if (self.text.length>0) {
-        
         self.editTextView.text = self.text;
         if(self.textColor){
             self.editTextView.textColor = self.textColor;
@@ -78,7 +76,6 @@
     }
     
     
-    
     self.myTextField = [[UITextField alloc] init];
     self.myTextField.autocorrectionType = UITextAutocorrectionTypeNo;
     self.myTextField.backgroundColor = [UIColor whiteColor];
@@ -88,19 +85,18 @@
     self.myTextField.delegate = self;
     [self.customAccessoryView addSubview:self.myTextField];
     self.editTextView.inputAccessoryView = self.customAccessoryView;
-
     [self.myTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.customAccessoryView).offset(15);
         make.right.equalTo(self.customAccessoryView.mas_right).offset(-55);
         make.top.equalTo(self.customAccessoryView).offset(10);
         make.height.mas_equalTo(36);
     }];
-    [self.editTextView becomeFirstResponder];
-    self.editTextView.hidden = YES;
     
-
-//    self.editTextView.editable = NO;
     
+    [self.editTextView  becomeFirstResponder];
+//    [self.myTextField becomeFirstResponder];
+    //    self.editTextView.hidden = YES;
+    //    self.editTextView.editable = NO;
     
     
     UIButton *doneButton = [[UIButton alloc] init];
@@ -141,8 +137,6 @@
     }];
     
     
-    
-    
     self.styleLabel = [[UILabel alloc]init];
     self.styleLabel.text = @"样式";
     self.styleLabel.textColor = [UIColor colorWithRed:170.0f /255.0f green:170.0f /255.0f  blue:170.0f /255.0f  alpha:1];
@@ -177,8 +171,8 @@
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
                                                object:nil];
-
-
+    
+    
     
 }
 
@@ -209,6 +203,7 @@
     }
     
 }
+
 -(void)createColorButton{
     
     for (int i = 0; i<8; i++) {
@@ -234,6 +229,24 @@
     
 }
 
+#pragma mark - 监听
+
+- (void)keyboardWillShow:(NSNotification *)aNotification{
+    NSDictionary *userInfo = [aNotification userInfo];
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [aValue CGRectValue];
+    double height = keyboardRect.size.height;
+    self.keyboardHeight = height;
+    
+}
+
+- (void)textFieldDidChangeValue:(NSNotification *)notification{
+    UITextField *sender = (UITextField *)[notification object];
+    self.editTextView.text = sender.text;
+}
+
+#pragma mark - 点击
+
 - (void)dismissAlertWindow:(UIButton *)sender{
     __weak typeof(self)wSelf = self;
     [self dismissViewControllerAnimated:NO completion:^{
@@ -246,46 +259,40 @@
     
 }
 
--(void)changeTextStyles:(UIButton*)sender{
-    
-    //    for (NSString *fontName in [UIFont familyNames]) {
-    //        NSLog(@"family:'%@'",fontName);
-    //        for (NSString *font in [UIFont fontNamesForFamilyName:fontName]) {
-    //            NSLog(@"\tfont:'%@'", font);
-    //        }
-    //        NSLog("=======================");
-    //    }
+- (void)changeTextStyles:(UIButton*)sender{
     
     NSString *str = self.styleArray[sender.tag - 101];
     self.editTextView.font = [UIFont fontWithName:str size:20];
     self.textStyle = str;
     
-    
 }
 
--(void)changeTextColors:(UIButton*)sender{
+- (void)changeTextColors:(UIButton*)sender{
     
     self.editTextView.textColor = self.colorArray[sender.tag - 200];
     self.textColor = self.colorArray[sender.tag - 200];
     
 }
 
-#pragma mark --  监听
+- (void)styleButtonDidClicked:(UIButton *)sender{
 
-- (void)keyboardWillShow:(NSNotification *)aNotification{
-    NSDictionary *userInfo = [aNotification userInfo];
-    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
-    CGRect keyboardRect = [aValue CGRectValue];
-    double height = keyboardRect.size.height;
-    double width = keyboardRect.size.width;
-    NSLog(@"键盘宽度:高度  %d-%d",width,height);
-    self.keyboardHeight = height;
-
+    [self.keyboardButton setImage:[UIImage imageNamed:@"keyboard_normal"] forState:UIControlStateNormal];
+    [self.styleButton setImage:[UIImage imageNamed:@"style_selected"] forState:UIControlStateNormal];
+    self.styleLabel.textColor = [UIColor blackColor];
+    self.keyboardLabel.textColor = [UIColor colorWithRed:170.0f /255.0f  green:170.0f /255.0f  blue:170.0f /255.0f  alpha:1];
+    self.myTextField.inputView = self.customInputView;
+    [self.myTextField becomeFirstResponder];
+    
 }
 
-- (void)textFieldDidChangeValue:(NSNotification *)notification{
-    UITextField *sender = (UITextField *)[notification object];
-    self.editTextView.text = sender.text;
+- (void)keyboardButtonDidClicked:(UIButton *)sender{
+    [self.keyboardButton setImage:[UIImage imageNamed:@"keyboard_selected"] forState:UIControlStateNormal];
+    [self.styleButton setImage:[UIImage imageNamed:@"style_normal"] forState:UIControlStateNormal];
+    self.myTextField.inputView = nil;
+    [self.myTextField becomeFirstResponder];
+    self.styleLabel.textColor = [UIColor colorWithRed:170.0f /255.0f  green:170.0f /255.0f  blue:170.0f /255.0f  alpha:1];
+    self.keyboardLabel.textColor = [UIColor blackColor];
+    
 }
 
 #pragma mark - 懒
@@ -324,25 +331,7 @@
     return _customAccessoryView;
 }
 
--(void)styleButtonDidClicked:(UIButton *)sender{
-    self.myTextField.inputView = self.customInputView;
-      [self.myTextField becomeFirstResponder];
-    [self.keyboardButton setImage:[UIImage imageNamed:@"keyboard_normal"] forState:UIControlStateNormal];
-    [self.styleButton setImage:[UIImage imageNamed:@"style_selected"] forState:UIControlStateNormal];
-    self.styleLabel.textColor = [UIColor blackColor];
-    self.keyboardLabel.textColor = [UIColor colorWithRed:170.0f /255.0f  green:170.0f /255.0f  blue:170.0f /255.0f  alpha:1];
-    
-}
 
--(void)keyboardButtonDidClicked:(UIButton *)sender{
-    [self.keyboardButton setImage:[UIImage imageNamed:@"keyboard_selected"] forState:UIControlStateNormal];
-    [self.styleButton setImage:[UIImage imageNamed:@"style_normal"] forState:UIControlStateNormal];
-    self.myTextField.inputView = nil;
-    [self.myTextField becomeFirstResponder];
-    self.styleLabel.textColor = [UIColor colorWithRed:170.0f /255.0f  green:170.0f /255.0f  blue:170.0f /255.0f  alpha:1];
-    self.keyboardLabel.textColor = [UIColor blackColor];
-    
-}
 
 - (UIView *)customInputView{
     if (!_customInputView) {
@@ -353,7 +342,7 @@
     }
     return _customInputView;
 }
--(void)createEditStyleVIew{
+- (void)createEditStyleVIew{
     
     UILabel *color = [[UILabel alloc] init];
     color.text = @"选择颜色";
@@ -380,7 +369,7 @@
     
 }
 
--(void)dealloc{
+- (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end

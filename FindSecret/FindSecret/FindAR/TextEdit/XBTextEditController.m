@@ -26,6 +26,7 @@
 
 @property (nonatomic, assign) double keyboardHeight;
 @property (nonatomic, strong) UILabel *editLabel;
+@property (nonatomic, strong) CAShapeLayer *border;
 @end
 
 @implementation XBTextEditController
@@ -59,6 +60,8 @@
     self.myTextField.layer.masksToBounds = YES;
     self.myTextField.layer.cornerRadius = 5;
     self.myTextField.delegate = self;
+    
+    self.myTextField.text = self.text.length>0?self.text:@"";
     [self.customAccessoryView addSubview:self.myTextField];
     self.editTextView.inputAccessoryView = self.customAccessoryView;
     [self.myTextField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -76,21 +79,13 @@
     self.editLabel = [[UILabel alloc]init];
     self.editLabel.numberOfLines = 0;
     [self.backGroundView addSubview:self.editLabel];
-    self.editLabel.frame = CGRectMake(15, STATUSBAR_And_NAVIGATIONBAR_HEIGHT, SCREEN_WIDTH - 30, 100);
+
     self.editLabel.textAlignment = NSTextAlignmentCenter;
     self.editLabel.backgroundColor = [UIColor clearColor];
-    CAShapeLayer *border = [CAShapeLayer layer];
-    border.strokeColor = [UIColor whiteColor].CGColor;   //虚线的颜色
-    border.fillColor = [UIColor clearColor].CGColor;//填充的颜色
-    border.path = [UIBezierPath bezierPathWithRect:self.editLabel.bounds].CGPath;//设置路径
-    border.frame = self.editLabel.bounds;
-    //虚线的宽度
-    border.lineWidth = 1.f;
-    border.lineDashPattern = @[@4, @2];
-    [self.editLabel.layer addSublayer:border];
-    
+
     if (self.text.length>0) {
         self.editLabel.text = self.text;
+        [self changeEditLabelFrame];
         if(self.textColor){
             self.editLabel.textColor = self.textColor;
         }else{
@@ -248,6 +243,9 @@
 - (void)textFieldDidChangeValue:(NSNotification *)notification{
     UITextField *sender = (UITextField *)[notification object];
     self.editLabel.text = sender.text;
+    self.text = sender.text;
+    [self changeEditLabelFrame];
+    
 }
 
 #pragma mark - 点击
@@ -300,6 +298,25 @@
     
 }
 
+-(void)changeEditLabelFrame{
+    
+    [self.border removeFromSuperlayer];
+    NSDictionary *dict = @{NSFontAttributeName : [UIFont systemFontOfSize:20.0]};
+    CGSize size = [self.text boundingRectWithSize:CGSizeMake(200, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
+    
+    self.editLabel.frame = CGRectMake(0, STATUSBAR_And_NAVIGATIONBAR_HEIGHT, size.width +50,  size.height+30);
+    self.editLabel.centerX = self.backGroundView.centerX;
+    self.editLabel.size = CGSizeMake(size.width + 50,  size.height+30);
+    self.border = [CAShapeLayer layer];
+    self.border.strokeColor = [UIColor whiteColor].CGColor;   //虚线的颜色
+    self.border.fillColor = [UIColor clearColor].CGColor;//填充的颜色
+    self.border.path = [UIBezierPath bezierPathWithRect:self.editLabel.bounds].CGPath;//设置路径
+    self.border.frame = self.editLabel.bounds;
+    //虚线的宽度
+    self.border.lineWidth = 1.f;
+    self.border.lineDashPattern = @[@4, @2];
+    [self.editLabel.layer addSublayer:self.border];
+}
 #pragma mark - 懒
 - (UIView *)backGroundView{
     if (!_backGroundView) {

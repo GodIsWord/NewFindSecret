@@ -1,5 +1,5 @@
 //
-//  XBRecordAudioView.h
+//  XBRecordAudioToastView.h
 //  FindSecret
 //
 //  Created by yidezhang on 2018/7/31.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface XBRecordAudioView : UIView
+@interface XBRecordAudioToastView : UIView
 
 +(void)showWithVolume:(double)volume;
 

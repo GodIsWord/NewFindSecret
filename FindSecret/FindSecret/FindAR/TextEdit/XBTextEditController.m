@@ -25,11 +25,12 @@
 @property (nonatomic, strong) UILabel *styleLabel;
 
 @property (nonatomic, assign) double keyboardHeight;
+@property (nonatomic, strong) UILabel *editLabel;
 @end
 
 @implementation XBTextEditController
 
-//    文字样式有时候不起作用、第一次进来textfield聚焦、文字虚线
+//    文字样式有时候不起作用、 第一次进来textfield聚焦、 文字虚线的动态高度
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.styleArray = @[@"SimHei",@"SimHei",@"SimSun",@"Kaiti",@"SimHei",@"STXINGKA"];
@@ -48,32 +49,7 @@
     
     self.editTextView.delegate = self;
     self.editTextView.backgroundColor = [UIColor clearColor];
-    self.editTextView.textAlignment = NSTextAlignmentCenter;
     [self.backGroundView addSubview: self.editTextView];
-    
-    [self.editTextView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.backGroundView);
-        make.width.mas_equalTo(300);
-        make.height.mas_equalTo(200);
-        make.top.equalTo(self.backGroundView).offset(100);
-        
-    }];
-    self.editTextView.textContainerInset = UIEdgeInsetsMake(10, 10, 10, 10);
-    
-    if (self.text.length>0) {
-        self.editTextView.text = self.text;
-        if(self.textColor){
-            self.editTextView.textColor = self.textColor;
-        }else{
-            self.editTextView.textColor = [UIColor whiteColor];
-            
-        }
-        if(self.textStyle.length>0){
-            self.editTextView.font = [UIFont fontWithName:self.textStyle size:20];
-        }else{
-            self.editTextView.font = [UIFont systemFontOfSize:20];
-        }
-    }
     
     
     self.myTextField = [[UITextField alloc] init];
@@ -94,9 +70,37 @@
     
     
     [self.editTextView  becomeFirstResponder];
-//    [self.myTextField becomeFirstResponder];
-    //    self.editTextView.hidden = YES;
-    //    self.editTextView.editable = NO;
+    self.editTextView.hidden = YES;
+    
+    
+    self.editLabel = [[UILabel alloc]init];
+    [self.backGroundView addSubview:self.editLabel];
+    self.editLabel.frame = CGRectMake(15, STATUSBAR_And_NAVIGATIONBAR_HEIGHT, SCREEN_WIDTH - 30, 100);
+    self.editLabel.textAlignment = NSTextAlignmentCenter;
+    self.editLabel.backgroundColor = [UIColor clearColor];
+    CAShapeLayer *border = [CAShapeLayer layer];
+    border.strokeColor = [UIColor whiteColor].CGColor;   //虚线的颜色
+    border.fillColor = [UIColor clearColor].CGColor;//填充的颜色
+    border.path = [UIBezierPath bezierPathWithRect:self.editLabel.bounds].CGPath;//设置路径
+    border.frame = self.editLabel.bounds;
+    //虚线的宽度
+    border.lineWidth = 1.f;
+    border.lineDashPattern = @[@4, @2];
+    [self.editLabel.layer addSublayer:border];
+    
+    if (self.text.length>0) {
+        self.editLabel.text = self.text;
+        if(self.textColor){
+            self.editLabel.textColor = self.textColor;
+        }else{
+            self.editLabel.textColor = [UIColor whiteColor];
+        }
+        if(self.textStyle.length>0){
+            self.editLabel.font = [UIFont fontWithName:self.textStyle size:20];
+        }else{
+            self.editLabel.font = [UIFont systemFontOfSize:20];
+        }
+    }
     
     
     UIButton *doneButton = [[UIButton alloc] init];
@@ -242,7 +246,7 @@
 
 - (void)textFieldDidChangeValue:(NSNotification *)notification{
     UITextField *sender = (UITextField *)[notification object];
-    self.editTextView.text = sender.text;
+    self.editLabel.text = sender.text;
 }
 
 #pragma mark - 点击
@@ -262,20 +266,20 @@
 - (void)changeTextStyles:(UIButton*)sender{
     
     NSString *str = self.styleArray[sender.tag - 101];
-    self.editTextView.font = [UIFont fontWithName:str size:20];
+    self.editLabel.font = [UIFont fontWithName:str size:20];
     self.textStyle = str;
     
 }
 
 - (void)changeTextColors:(UIButton*)sender{
     
-    self.editTextView.textColor = self.colorArray[sender.tag - 200];
+    self.editLabel.textColor = self.colorArray[sender.tag - 200];
     self.textColor = self.colorArray[sender.tag - 200];
     
 }
 
 - (void)styleButtonDidClicked:(UIButton *)sender{
-
+    
     [self.keyboardButton setImage:[UIImage imageNamed:@"keyboard_normal"] forState:UIControlStateNormal];
     [self.styleButton setImage:[UIImage imageNamed:@"style_selected"] forState:UIControlStateNormal];
     self.styleLabel.textColor = [UIColor blackColor];

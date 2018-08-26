@@ -126,13 +126,13 @@
 		E60E3B61210C0FF100C5BFBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B60210C0FF100C5BFBB /* Assets.xcassets */; };
 		E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B62210C0FF100C5BFBB /* LaunchScreen.storyboard */; };
 		E60E3B67210C0FF100C5BFBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B66210C0FF100C5BFBB /* main.m */; };
-		E6212ADA21324C0F005E02C5 /* vioce_small@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = E6212AD621324C0E005E02C5 /* vioce_small@2x.gif */; };
-		E6212ADB21324C0F005E02C5 /* vioce_big@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = E6212AD721324C0E005E02C5 /* vioce_big@3x.gif */; };
-		E6212ADC21324C0F005E02C5 /* vioce_big@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = E6212AD821324C0E005E02C5 /* vioce_big@2x.gif */; };
-		E6212ADD21324C0F005E02C5 /* vioce_small@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = E6212AD921324C0E005E02C5 /* vioce_small@3x.gif */; };
 		E6212AE02132503E005E02C5 /* XBGifImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212ADF2132503E005E02C5 /* XBGifImageView.m */; };
 		E6212AE3213252BB005E02C5 /* XBPublishRecordAudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212AE2213252BB005E02C5 /* XBPublishRecordAudioView.m */; };
 		E6212AE6213254AC005E02C5 /* UIColor+XBHEX.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212AE5213254AC005E02C5 /* UIColor+XBHEX.m */; };
+		E6212AED21325C44005E02C5 /* vioce_big@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = E6212AE921325C44005E02C5 /* vioce_big@2x.gif */; };
+		E6212AEE21325C44005E02C5 /* vioce_big@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = E6212AEA21325C44005E02C5 /* vioce_big@3x.gif */; };
+		E6212AEF21325C44005E02C5 /* vioce_small@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = E6212AEB21325C44005E02C5 /* vioce_small@3x.gif */; };
+		E6212AF021325C44005E02C5 /* vioce_small@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = E6212AEC21325C44005E02C5 /* vioce_small@2x.gif */; };
 		E64807C1210FFB8500050124 /* XBTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = E64807C0210FFB8500050124 /* XBTimer.m */; };
 		E6671A0721258C1C00592B0F /* XBPointToPointSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6671A0621258C1C00592B0F /* XBPointToPointSendViewController.m */; };
 		E6671A0A21258C5B00592B0F /* XBPointToPointPersonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6671A0921258C5B00592B0F /* XBPointToPointPersonTableViewCell.m */; };
@@ -391,16 +391,16 @@
 		E60E3B63210C0FF100C5BFBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E60E3B65210C0FF100C5BFBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E60E3B66210C0FF100C5BFBB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E6212AD621324C0E005E02C5 /* vioce_small@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "vioce_small@2x.gif"; path = "../../../../../文档/寻秘-发布-iOS/切图/vioce_small@2x.gif"; sourceTree = "<group>"; };
-		E6212AD721324C0E005E02C5 /* vioce_big@3x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "vioce_big@3x.gif"; path = "../../../../../文档/寻秘-发布-iOS/切图/vioce_big@3x.gif"; sourceTree = "<group>"; };
-		E6212AD821324C0E005E02C5 /* vioce_big@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "vioce_big@2x.gif"; path = "../../../../../文档/寻秘-发布-iOS/切图/vioce_big@2x.gif"; sourceTree = "<group>"; };
-		E6212AD921324C0E005E02C5 /* vioce_small@3x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "vioce_small@3x.gif"; path = "../../../../../文档/寻秘-发布-iOS/切图/vioce_small@3x.gif"; sourceTree = "<group>"; };
 		E6212ADE2132503E005E02C5 /* XBGifImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBGifImageView.h; sourceTree = "<group>"; };
 		E6212ADF2132503E005E02C5 /* XBGifImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBGifImageView.m; sourceTree = "<group>"; };
 		E6212AE1213252BB005E02C5 /* XBPublishRecordAudioView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBPublishRecordAudioView.h; sourceTree = "<group>"; };
 		E6212AE2213252BB005E02C5 /* XBPublishRecordAudioView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBPublishRecordAudioView.m; sourceTree = "<group>"; };
 		E6212AE4213254AC005E02C5 /* UIColor+XBHEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XBHEX.h"; sourceTree = "<group>"; };
 		E6212AE5213254AC005E02C5 /* UIColor+XBHEX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XBHEX.m"; sourceTree = "<group>"; };
+		E6212AE921325C44005E02C5 /* vioce_big@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "vioce_big@2x.gif"; sourceTree = "<group>"; };
+		E6212AEA21325C44005E02C5 /* vioce_big@3x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "vioce_big@3x.gif"; sourceTree = "<group>"; };
+		E6212AEB21325C44005E02C5 /* vioce_small@3x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "vioce_small@3x.gif"; sourceTree = "<group>"; };
+		E6212AEC21325C44005E02C5 /* vioce_small@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "vioce_small@2x.gif"; sourceTree = "<group>"; };
 		E64807BC210FF47200050124 /* XBRecordAudioToastView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBRecordAudioToastView.h; sourceTree = "<group>"; };
 		E64807BD210FF47200050124 /* XBRecordAudioToastView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecordAudioToastView.m; sourceTree = "<group>"; };
 		E64807BF210FFB8500050124 /* XBTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBTimer.h; sourceTree = "<group>"; };
@@ -976,7 +976,7 @@
 		E6019645210C1ADD0046D1FA /* RecordVoice */ = {
 			isa = PBXGroup;
 			children = (
-				E6212AD521324C00005E02C5 /* Resource */,
+				E6212AE821325C32005E02C5 /* Resource */,
 				E6C8EB3421104DFA00ED53E2 /* XBRecordAudio.h */,
 				E6C8EB3521104DFA00ED53E2 /* XBRecordAudio.m */,
 				E601964C210C3A300046D1FA /* XBPlayAudio.h */,
@@ -1048,13 +1048,13 @@
 			path = FindSecret;
 			sourceTree = "<group>";
 		};
-		E6212AD521324C00005E02C5 /* Resource */ = {
+		E6212AE821325C32005E02C5 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				E6212AD821324C0E005E02C5 /* vioce_big@2x.gif */,
-				E6212AD721324C0E005E02C5 /* vioce_big@3x.gif */,
-				E6212AD621324C0E005E02C5 /* vioce_small@2x.gif */,
-				E6212AD921324C0E005E02C5 /* vioce_small@3x.gif */,
+				E6212AE921325C44005E02C5 /* vioce_big@2x.gif */,
+				E6212AEA21325C44005E02C5 /* vioce_big@3x.gif */,
+				E6212AEC21325C44005E02C5 /* vioce_small@2x.gif */,
+				E6212AEB21325C44005E02C5 /* vioce_small@3x.gif */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1247,10 +1247,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6212AF021325C44005E02C5 /* vioce_small@2x.gif in Resources */,
 				CA147A30212C345000F2F2EE /* MicrosoftYaHei.ttf in Resources */,
-				E6212ADD21324C0F005E02C5 /* vioce_small@3x.gif in Resources */,
+				E6212AEF21325C44005E02C5 /* vioce_small@3x.gif in Resources */,
 				CA147A35212D123F00F2F2EE /* SimSun.ttf in Resources */,
-				E6212ADB21324C0F005E02C5 /* vioce_big@3x.gif in Resources */,
 				85E98D4E2127C62B00DDCC56 /* XBMakeContentItemView.xib in Resources */,
 				E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */,
 				857616662111FAAD0091E7C1 /* XBMakeToolView.xib in Resources */,
@@ -1261,17 +1261,17 @@
 				CAE7448A210EB272000D05B7 /* InfoPlist.strings in Resources */,
 				E695F125212BA12700519A99 /* MJRefresh.bundle in Resources */,
 				E695F122212BA12700519A99 /* LICENSE in Resources */,
-				E6212ADC21324C0F005E02C5 /* vioce_big@2x.gif in Resources */,
 				CAE74488210EB272000D05B7 /* Default.png in Resources */,
 				BEA19C64210C4D730039086F /* drag.jpg in Resources */,
 				8592617B212F07AB008D0667 /* XBUITestViewController.xib in Resources */,
 				CA5450C3211851F8000ABB4B /* LICENSE in Resources */,
 				CA147A36212D124100F2F2EE /* Kaiti.ttf in Resources */,
+				E6212AED21325C44005E02C5 /* vioce_big@2x.gif in Resources */,
 				E695F137212BA12700519A99 /* README.md in Resources */,
 				E60E3B61210C0FF100C5BFBB /* Assets.xcassets in Resources */,
 				CAE7464121129C3F000D05B7 /* README.md in Resources */,
 				CAE74487210EB272000D05B7 /* Default-568h@2x.png in Resources */,
-				E6212ADA21324C0F005E02C5 /* vioce_small@2x.gif in Resources */,
+				E6212AEE21325C44005E02C5 /* vioce_big@3x.gif in Resources */,
 				CAE74489210EB272000D05B7 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

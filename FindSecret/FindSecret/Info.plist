@@ -49,9 +49,10 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
-		<string>MicrosoftYaHei.ttf</string>
+		<string>STXINGKA.ttf</string>
 		<string>SimSun.ttf</string>
 		<string>Kaiti.ttf</string>
+		<string>SimHei.ttf</string>
 	</array>
 </dict>
 </plist>

@@ -38,9 +38,10 @@
 		BEA19C67210C4EE10039086F /* XBVideoIntervalChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA19C66210C4EE10039086F /* XBVideoIntervalChooseView.m */; };
 		BEF23A24210C17C90061F74C /* XBVideoEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF23A23210C17C90061F74C /* XBVideoEditController.m */; };
 		C51921C3E062D0586534AE85 /* XBMakeContentItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5192E84211E4017E2540A9E /* XBMakeContentItemView.m */; };
-		CA147A30212C345000F2F2EE /* MicrosoftYaHei.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA147A2F212C319100F2F2EE /* MicrosoftYaHei.ttf */; };
 		CA147A35212D123F00F2F2EE /* SimSun.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA147A33212D10E200F2F2EE /* SimSun.ttf */; };
 		CA147A36212D124100F2F2EE /* Kaiti.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA147A34212D10F300F2F2EE /* Kaiti.ttf */; };
+		CA147A39213274B900F2F2EE /* SimHei.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA147A372132749A00F2F2EE /* SimHei.ttf */; };
+		CA147A3A213274BB00F2F2EE /* STXINGKA.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA147A38213274AF00F2F2EE /* STXINGKA.ttf */; };
 		CA5450C3211851F8000ABB4B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CA5450A7211851F7000ABB4B /* LICENSE */; };
 		CA5450C4211851F8000ABB4B /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5450AA211851F7000ABB4B /* MASCompositeConstraint.m */; };
 		CA5450C5211851F8000ABB4B /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5450AD211851F7000ABB4B /* MASConstraint.m */; };
@@ -55,17 +56,7 @@
 		CA5450CE211851F8000ABB4B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CA5450C2211851F7000ABB4B /* README.md */; };
 		CAA183352112E9660032AE81 /* XBPublishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA183342112E9660032AE81 /* XBPublishCell.m */; };
 		CAA1833C2112F60D0032AE81 /* XBSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA1833B2112F60D0032AE81 /* XBSelectCell.m */; };
-		CAE74404210C59CD000D05B7 /* XBTextStyleController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE74403210C59CD000D05B7 /* XBTextStyleController.m */; };
 		CAE74407210C5E06000D05B7 /* XBTextEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE74406210C5E06000D05B7 /* XBTextEditController.m */; };
-		CAE74487210EB272000D05B7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE74474210EB272000D05B7 /* Default-568h@2x.png */; };
-		CAE74488210EB272000D05B7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE74475210EB272000D05B7 /* Default.png */; };
-		CAE74489210EB272000D05B7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE74476210EB272000D05B7 /* Default@2x.png */; };
-		CAE7448A210EB272000D05B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CAE74477210EB272000D05B7 /* InfoPlist.strings */; };
-		CAE7448C210EB272000D05B7 /* Palette.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE7447C210EB272000D05B7 /* Palette.m */; };
-		CAE7448E210EB272000D05B7 /* SevenColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE74480210EB272000D05B7 /* SevenColorView.m */; };
-		CAE74491210EB272000D05B7 /* 调色板-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CAE74483210EB272000D05B7 /* 调色板-Info.plist */; };
-		CAE74495210EB332000D05B7 /* XBTextColorController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE74485210EB272000D05B7 /* XBTextColorController.m */; };
-		CAE74509210EE4E4000D05B7 /* palette.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE74508210EE4E3000D05B7 /* palette.png */; };
 		CAE745102111513D000D05B7 /* XBWhoCanSeeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE7450F2111513D000D05B7 /* XBWhoCanSeeController.m */; };
 		CAE7451321115158000D05B7 /* XBSelectFriendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE7451221115158000D05B7 /* XBSelectFriendsController.m */; };
 		CAE7462F21129C3F000D05B7 /* WXBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE745C621129C3F000D05B7 /* WXBaseModel.m */; };
@@ -223,9 +214,10 @@
 		BEF23A23210C17C90061F74C /* XBVideoEditController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBVideoEditController.m; sourceTree = "<group>"; };
 		C5192292E857232CC73ABB81 /* XBMakeContentItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBMakeContentItemView.h; sourceTree = "<group>"; };
 		C5192E84211E4017E2540A9E /* XBMakeContentItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBMakeContentItemView.m; sourceTree = "<group>"; };
-		CA147A2F212C319100F2F2EE /* MicrosoftYaHei.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MicrosoftYaHei.ttf; sourceTree = "<group>"; };
 		CA147A33212D10E200F2F2EE /* SimSun.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimSun.ttf; sourceTree = "<group>"; };
 		CA147A34212D10F300F2F2EE /* Kaiti.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kaiti.ttf; sourceTree = "<group>"; };
+		CA147A372132749A00F2F2EE /* SimHei.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimHei.ttf; sourceTree = "<group>"; };
+		CA147A38213274AF00F2F2EE /* STXINGKA.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = STXINGKA.ttf; sourceTree = "<group>"; };
 		CA5450A7211851F7000ABB4B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		CA5450A9211851F7000ABB4B /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		CA5450AA211851F7000ABB4B /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
@@ -257,22 +249,8 @@
 		CAA183342112E9660032AE81 /* XBPublishCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBPublishCell.m; sourceTree = "<group>"; };
 		CAA1833A2112F60D0032AE81 /* XBSelectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBSelectCell.h; sourceTree = "<group>"; };
 		CAA1833B2112F60D0032AE81 /* XBSelectCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBSelectCell.m; sourceTree = "<group>"; };
-		CAE74402210C59CD000D05B7 /* XBTextStyleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBTextStyleController.h; sourceTree = "<group>"; };
-		CAE74403210C59CD000D05B7 /* XBTextStyleController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBTextStyleController.m; sourceTree = "<group>"; };
 		CAE74405210C5E06000D05B7 /* XBTextEditController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBTextEditController.h; sourceTree = "<group>"; };
 		CAE74406210C5E06000D05B7 /* XBTextEditController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBTextEditController.m; sourceTree = "<group>"; };
-		CAE74470210EB272000D05B7 /* XBTextColorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBTextColorController.h; sourceTree = "<group>"; };
-		CAE74474210EB272000D05B7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		CAE74475210EB272000D05B7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		CAE74476210EB272000D05B7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		CAE74478210EB272000D05B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CAE7447B210EB272000D05B7 /* Palette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Palette.h; sourceTree = "<group>"; };
-		CAE7447C210EB272000D05B7 /* Palette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Palette.m; sourceTree = "<group>"; };
-		CAE7447F210EB272000D05B7 /* SevenColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SevenColorView.h; sourceTree = "<group>"; };
-		CAE74480210EB272000D05B7 /* SevenColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SevenColorView.m; sourceTree = "<group>"; };
-		CAE74483210EB272000D05B7 /* 调色板-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "调色板-Info.plist"; sourceTree = "<group>"; };
-		CAE74485210EB272000D05B7 /* XBTextColorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBTextColorController.m; sourceTree = "<group>"; };
-		CAE74508210EE4E3000D05B7 /* palette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette.png; sourceTree = "<group>"; };
 		CAE7450E2111513D000D05B7 /* XBWhoCanSeeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBWhoCanSeeController.h; sourceTree = "<group>"; };
 		CAE7450F2111513D000D05B7 /* XBWhoCanSeeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBWhoCanSeeController.m; sourceTree = "<group>"; };
 		CAE7451121115158000D05B7 /* XBSelectFriendsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBSelectFriendsController.h; sourceTree = "<group>"; };
@@ -359,7 +337,6 @@
 		CAE7462E21129C3F000D05B7 /* XBNoResultHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBNoResultHeadView.m; sourceTree = "<group>"; };
 		CAE7466321129F45000D05B7 /* XHFoundationCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XHFoundationCommon.h; sourceTree = "<group>"; };
 		CAE7466421129F45000D05B7 /* XHFoundationCommon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XHFoundationCommon.m; sourceTree = "<group>"; };
-		CAE746662112AA48000D05B7 /* 调色板-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "调色板-Prefix.pch"; sourceTree = "<group>"; };
 		CAE746672112AC1D000D05B7 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		CAE746692112AC26000D05B7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		CAE7466B2112AC34000D05B7 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
@@ -568,7 +545,8 @@
 			children = (
 				CA147A33212D10E200F2F2EE /* SimSun.ttf */,
 				CA147A34212D10F300F2F2EE /* Kaiti.ttf */,
-				CA147A2F212C319100F2F2EE /* MicrosoftYaHei.ttf */,
+				CA147A372132749A00F2F2EE /* SimHei.ttf */,
+				CA147A38213274AF00F2F2EE /* STXINGKA.ttf */,
 			);
 			path = ttf;
 			sourceTree = "<group>";
@@ -639,11 +617,6 @@
 			isa = PBXGroup;
 			children = (
 				CA147A2E212C316500F2F2EE /* ttf */,
-				CAE74471210EB272000D05B7 /* ColorView */,
-				CAE74485210EB272000D05B7 /* XBTextColorController.m */,
-				CAE74470210EB272000D05B7 /* XBTextColorController.h */,
-				CAE74402210C59CD000D05B7 /* XBTextStyleController.h */,
-				CAE74403210C59CD000D05B7 /* XBTextStyleController.m */,
 				CAE74405210C5E06000D05B7 /* XBTextEditController.h */,
 				CAE74406210C5E06000D05B7 /* XBTextEditController.m */,
 			);
@@ -655,24 +628,6 @@
 			children = (
 			);
 			name = "Recovered References";
-			sourceTree = "<group>";
-		};
-		CAE74471210EB272000D05B7 /* ColorView */ = {
-			isa = PBXGroup;
-			children = (
-				CAE746662112AA48000D05B7 /* 调色板-Prefix.pch */,
-				CAE74474210EB272000D05B7 /* Default-568h@2x.png */,
-				CAE74475210EB272000D05B7 /* Default.png */,
-				CAE74476210EB272000D05B7 /* Default@2x.png */,
-				CAE74477210EB272000D05B7 /* InfoPlist.strings */,
-				CAE7447B210EB272000D05B7 /* Palette.h */,
-				CAE7447C210EB272000D05B7 /* Palette.m */,
-				CAE7447F210EB272000D05B7 /* SevenColorView.h */,
-				CAE74480210EB272000D05B7 /* SevenColorView.m */,
-				CAE74508210EE4E3000D05B7 /* palette.png */,
-				CAE74483210EB272000D05B7 /* 调色板-Info.plist */,
-			);
-			path = ColorView;
 			sourceTree = "<group>";
 		};
 		CAE7450A211150B1000D05B7 /* Publish */ = {
@@ -1217,19 +1172,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA147A30212C345000F2F2EE /* MicrosoftYaHei.ttf in Resources */,
 				CA147A35212D123F00F2F2EE /* SimSun.ttf in Resources */,
 				85E98D4E2127C62B00DDCC56 /* XBMakeContentItemView.xib in Resources */,
 				E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */,
 				857616662111FAAD0091E7C1 /* XBMakeToolView.xib in Resources */,
 				CAE7464021129C3F000D05B7 /* LICENSE in Resources */,
-				CAE74509210EE4E4000D05B7 /* palette.png in Resources */,
-				CAE74491210EB272000D05B7 /* 调色板-Info.plist in Resources */,
+				CA147A3A213274BB00F2F2EE /* STXINGKA.ttf in Resources */,
 				CA5450CE211851F8000ABB4B /* README.md in Resources */,
-				CAE7448A210EB272000D05B7 /* InfoPlist.strings in Resources */,
+				CA147A39213274B900F2F2EE /* SimHei.ttf in Resources */,
 				E695F125212BA12700519A99 /* MJRefresh.bundle in Resources */,
 				E695F122212BA12700519A99 /* LICENSE in Resources */,
-				CAE74488210EB272000D05B7 /* Default.png in Resources */,
 				BEA19C64210C4D730039086F /* drag.jpg in Resources */,
 				8592617B212F07AB008D0667 /* XBUITestViewController.xib in Resources */,
 				CA5450C3211851F8000ABB4B /* LICENSE in Resources */,
@@ -1237,8 +1189,6 @@
 				E695F137212BA12700519A99 /* README.md in Resources */,
 				E60E3B61210C0FF100C5BFBB /* Assets.xcassets in Resources */,
 				CAE7464121129C3F000D05B7 /* README.md in Resources */,
-				CAE74487210EB272000D05B7 /* Default-568h@2x.png in Resources */,
-				CAE74489210EB272000D05B7 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1289,7 +1239,6 @@
 				CA5450C6211851F8000ABB4B /* MASConstraintMaker.m in Sources */,
 				CAE7464B21129C3F000D05B7 /* XHRefreshControl.m in Sources */,
 				E695F134212BA12700519A99 /* MJRefreshBackFooter.m in Sources */,
-				CAE74495210EB332000D05B7 /* XBTextColorController.m in Sources */,
 				CAE7464C21129C3F000D05B7 /* XHActivityCircleIndicatorView.m in Sources */,
 				E695F132212BA12700519A99 /* MJRefreshFooter.m in Sources */,
 				8592616A212C694D008D0667 /* WXSTransitionManager+BrickAnimation.m in Sources */,
@@ -1326,7 +1275,6 @@
 				CAE7464521129C3F000D05B7 /* XHPinterestPullRefreshTableViewController.m in Sources */,
 				E695F136212BA12700519A99 /* MJRefreshComponent.m in Sources */,
 				CAE7464421129C3F000D05B7 /* XHJDPullRefreshTableViewController.m in Sources */,
-				CAE7448C210EB272000D05B7 /* Palette.m in Sources */,
 				E695F12B212BA12700519A99 /* MJRefreshBackNormalFooter.m in Sources */,
 				E695F130212BA12700519A99 /* MJRefreshStateHeader.m in Sources */,
 				E695F14A212C291700519A99 /* iOSToUnityManager.m in Sources */,
@@ -1341,7 +1289,6 @@
 				CAE7464821129C3F000D05B7 /* XHSystemRefreshCollectionViewController.m in Sources */,
 				CAE7465C21129C3F000D05B7 /* XBFindNearAddressVC.m in Sources */,
 				E695F12D212BA12700519A99 /* MJRefreshAutoGifFooter.m in Sources */,
-				CAE74404210C59CD000D05B7 /* XBTextStyleController.m in Sources */,
 				E695F149212C291700519A99 /* iOSUnityMutually.m in Sources */,
 				CAE7463821129C3F000D05B7 /* MKMapView+ZoomLevel.m in Sources */,
 				85926174212C694D008D0667 /* WXSTransitionManager+ViewMoveAnimation.m in Sources */,
@@ -1349,7 +1296,6 @@
 				E6671A0721258C1C00592B0F /* XBPointToPointSendViewController.m in Sources */,
 				859261A321305E43008D0667 /* MSRecordControl.m in Sources */,
 				85926171212C694D008D0667 /* WXSTransitionManager+FragmentAnimation.m in Sources */,
-				CAE7448E210EB272000D05B7 /* SevenColorView.m in Sources */,
 				CA5450C9211851F8000ABB4B /* MASViewConstraint.m in Sources */,
 				E6C8EB3621104DFB00ED53E2 /* XBRecordAudio.m in Sources */,
 				E695F131212BA12700519A99 /* MJRefreshGifHeader.m in Sources */,
@@ -1372,14 +1318,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CAE74477210EB272000D05B7 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CAE74478210EB272000D05B7 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		E60E3B62210C0FF100C5BFBB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -23,11 +23,13 @@
 @property (nonatomic, strong) UIButton *styleButton;
 @property (nonatomic, strong) UILabel *keyboardLabel;
 @property (nonatomic, strong) UILabel *styleLabel;
+
+@property (nonatomic, assign) double keyboardHeight;
 @end
 
 @implementation XBTextEditController
 
-//    文字样式有时候不起作用、键盘变换、第一次进来唤起键盘、文字虚线
+//    文字样式有时候不起作用、第一次进来textfield聚焦、文字虚线
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.styleArray = @[@"SimHei",@"SimHei",@"SimSun",@"Kaiti",@"SimHei",@"STXINGKA"];
@@ -44,9 +46,7 @@
     [self.cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.backGroundView addSubview:self.cancelButton];
     
-    
-    
-    self.editTextView.editable = NO;
+
     self.editTextView.delegate = self;
     self.editTextView.backgroundColor = [UIColor clearColor];
     self.editTextView.textAlignment = NSTextAlignmentCenter;
@@ -86,8 +86,9 @@
     self.myTextField.layer.masksToBounds = YES;
     self.myTextField.layer.cornerRadius = 5;
     self.myTextField.delegate = self;
-    
     [self.customAccessoryView addSubview:self.myTextField];
+    self.editTextView.inputAccessoryView = self.customAccessoryView;
+
     [self.myTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.customAccessoryView).offset(15);
         make.right.equalTo(self.customAccessoryView.mas_right).offset(-55);
@@ -95,8 +96,11 @@
         make.height.mas_equalTo(36);
     }];
     [self.editTextView becomeFirstResponder];
-    [self.myTextField becomeFirstResponder];
-    self.editTextView.inputAccessoryView = self.customAccessoryView;
+    self.editTextView.hidden = YES;
+    
+
+//    self.editTextView.editable = NO;
+    
     
     
     UIButton *doneButton = [[UIButton alloc] init];
@@ -167,6 +171,14 @@
                                              selector:@selector(textFieldDidChangeValue:)
                                                  name:UITextFieldTextDidChangeNotification
                                                object:self.myTextField];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+
+
     
 }
 
@@ -258,6 +270,18 @@
     
 }
 
+#pragma mark --  监听
+
+- (void)keyboardWillShow:(NSNotification *)aNotification{
+    NSDictionary *userInfo = [aNotification userInfo];
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [aValue CGRectValue];
+    double height = keyboardRect.size.height;
+    double width = keyboardRect.size.width;
+    NSLog(@"键盘宽度:高度  %d-%d",width,height);
+    self.keyboardHeight = height;
+
+}
 
 - (void)textFieldDidChangeValue:(NSNotification *)notification{
     UITextField *sender = (UITextField *)[notification object];
@@ -302,7 +326,7 @@
 
 -(void)styleButtonDidClicked:(UIButton *)sender{
     self.myTextField.inputView = self.customInputView;
-    [self.myTextField resignFirstResponder];
+      [self.myTextField becomeFirstResponder];
     [self.keyboardButton setImage:[UIImage imageNamed:@"keyboard_normal"] forState:UIControlStateNormal];
     [self.styleButton setImage:[UIImage imageNamed:@"style_selected"] forState:UIControlStateNormal];
     self.styleLabel.textColor = [UIColor blackColor];
@@ -314,7 +338,7 @@
     [self.keyboardButton setImage:[UIImage imageNamed:@"keyboard_selected"] forState:UIControlStateNormal];
     [self.styleButton setImage:[UIImage imageNamed:@"style_normal"] forState:UIControlStateNormal];
     self.myTextField.inputView = nil;
-    [self.myTextField resignFirstResponder];
+    [self.myTextField becomeFirstResponder];
     self.styleLabel.textColor = [UIColor colorWithRed:170.0f /255.0f  green:170.0f /255.0f  blue:170.0f /255.0f  alpha:1];
     self.keyboardLabel.textColor = [UIColor blackColor];
     
@@ -322,7 +346,7 @@
 
 - (UIView *)customInputView{
     if (!_customInputView) {
-        _customInputView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 350)];
+        _customInputView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH,self.keyboardHeight-100)];
         _customInputView.backgroundColor = [UIColor whiteColor];
         [self createEditStyleVIew];
         

@@ -31,10 +31,10 @@
 
 @implementation XBTextEditController
 
-//    文字样式有时候不起作用
+//    文字样式有时候不起作用 、差个圆体
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.styleArray = @[@"SimHei",@"SimHei",@"SimSun",@"Kaiti",@"SimHei",@"STXINGKA"];
+    self.styleArray = @[@"",@"SimHei",@"SimSun",@"Kaiti",@"",@"STXINGKA"];
     self.colorArray= @[[UIColor whiteColor],[UIColor blackColor],[UIColor redColor],[UIColor orangeColor],[UIColor yellowColor],[UIColor greenColor],[UIColor blueColor],[UIColor purpleColor]];
     self.view.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.backGroundView];
@@ -79,10 +79,10 @@
     self.editLabel = [[UILabel alloc]init];
     self.editLabel.numberOfLines = 0;
     [self.backGroundView addSubview:self.editLabel];
-
+    
     self.editLabel.textAlignment = NSTextAlignmentCenter;
     self.editLabel.backgroundColor = [UIColor clearColor];
-
+    
     if (self.text.length>0) {
         self.editLabel.text = self.text;
         [self changeEditLabelFrame];
@@ -189,10 +189,9 @@
         [textButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         
         NSString *str = self.styleArray[i];
-        if(str.length > 0){
-            textButton.titleLabel.font = [UIFont fontWithName:str size:17];
-            
-        }
+        textButton.titleLabel.font = (str.length > 0)?[UIFont fontWithName:str size:17]:[UIFont systemFontOfSize:17];
+        
+        
         [textButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.customInputView.mas_left).offset(10+50*i+5*i);
             make.width.mas_equalTo(50);
@@ -268,7 +267,7 @@
 - (void)changeTextStyles:(UIButton*)sender{
     
     NSString *str = self.styleArray[sender.tag - 101];
-    self.editLabel.font = [UIFont fontWithName:str size:20];
+    self.editLabel.font = str.length>0?[UIFont fontWithName:str size:20]:[UIFont systemFontOfSize:20];
     self.textStyle = str;
     
 }

@@ -1,29 +1,29 @@
 //
-//  XBRecordAudioView.m
+//  XBRecordAudioToastView.m
 //  FindSecret
 //
 //  Created by yidezhang on 2018/7/31.
 //  Copyright © 2018年 Mac. All rights reserved.
 //
 
-#import "XBRecordAudioView.h"
+#import "XBRecordAudioToastView.h"
 #import "UIView+XBFrame.h"
 
-@interface XBRecordAudioView()
+@interface XBRecordAudioToastView()
 
 @property(nonatomic,strong) UIImageView *volumeImage;
 
 @end
 
-@implementation XBRecordAudioView
+@implementation XBRecordAudioToastView
 
 
 +(instancetype)shareInstance{
-    static XBRecordAudioView *audioView = nil;
+    static XBRecordAudioToastView *audioView = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         if (!audioView) {
-            audioView = [[XBRecordAudioView alloc] initWithFrame:CGRectMake(0, 0, 100, 150)];
+            audioView = [[XBRecordAudioToastView alloc] initWithFrame:CGRectMake(0, 0, 100, 150)];
             audioView.xb_centerX = UIScreen.mainScreen.bounds.size.width/2;
             audioView.xb_centerY = UIScreen.mainScreen.bounds.size.height/2;
             audioView.backgroundColor = [UIColor whiteColor];
@@ -37,7 +37,7 @@
 
 +(void)showWithVolume:(double)volume{
     
-    XBRecordAudioView *view = [self shareInstance];
+    XBRecordAudioToastView *view = [self shareInstance];
     
     view.userInteractionEnabled = YES;
     

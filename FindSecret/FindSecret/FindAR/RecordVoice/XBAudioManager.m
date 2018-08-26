@@ -10,7 +10,7 @@
 
 #import "XBRecordAudio.h"
 #import "XBPlayAudio.h"
-#import "XBRecordAudioView.h"
+#import "XBRecordAudioToastView.h"
 #import "XBWeakProxy.h"
 #import "XBRecordAudioStorage.h"
 
@@ -48,19 +48,19 @@
     switch (_type) {
         case 0:
         {
-            [XBRecordAudioView hidden];
+            [XBRecordAudioToastView hidden];
             [self.timer setFireDate:[NSDate distantFuture]];
         }
             break;
         case 1:
         {
-            [XBRecordAudioView showWithVolume:self.recorder.currentVolume];
+            [XBRecordAudioToastView showWithVolume:self.recorder.currentVolume];
             
         }
             break;
         case 2:
         {
-            [XBRecordAudioView showWithVolume:self.player.currentVolume];
+            [XBRecordAudioToastView showWithVolume:self.player.currentVolume];
             NSLog(@"audioe duration:%f",[self.player duration]);
         }
             break;

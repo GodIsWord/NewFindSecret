@@ -19,6 +19,7 @@
 #import "ShareKey_mapKey.h"
 #import "defines.h"
 #import "wh_Head.h"
+#import "UIColor+XBHEX.h"
 
 
 #import <CoreText/CoreText.h>

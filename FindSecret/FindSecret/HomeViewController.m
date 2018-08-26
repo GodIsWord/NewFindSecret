@@ -12,7 +12,6 @@
 #import "XBVideoEditController.h"
 #import "XBTextEditController.h"
 #import "XBTextEditController.h"
-#import "XBRecorderTestViewController.h"
 #import "XBMakeViewController.h"
 #import "XBFindNearAddressVC.h"
 #import "XBPublishController.h"
@@ -154,8 +153,7 @@
             }
             break;
             case 2:{
-                XBRecorderTestViewController *controller = [[XBRecorderTestViewController alloc] init];
-                [self.navigationController pushViewController:controller animated:YES];
+                
                 
             }
             break;

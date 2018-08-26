@@ -117,6 +117,13 @@
 		E60E3B61210C0FF100C5BFBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B60210C0FF100C5BFBB /* Assets.xcassets */; };
 		E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B62210C0FF100C5BFBB /* LaunchScreen.storyboard */; };
 		E60E3B67210C0FF100C5BFBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B66210C0FF100C5BFBB /* main.m */; };
+		E6212AE02132503E005E02C5 /* XBGifImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212ADF2132503E005E02C5 /* XBGifImageView.m */; };
+		E6212AE3213252BB005E02C5 /* XBPublishRecordAudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212AE2213252BB005E02C5 /* XBPublishRecordAudioView.m */; };
+		E6212AE6213254AC005E02C5 /* UIColor+XBHEX.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212AE5213254AC005E02C5 /* UIColor+XBHEX.m */; };
+		E6212AED21325C44005E02C5 /* vioce_big@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = E6212AE921325C44005E02C5 /* vioce_big@2x.gif */; };
+		E6212AEE21325C44005E02C5 /* vioce_big@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = E6212AEA21325C44005E02C5 /* vioce_big@3x.gif */; };
+		E6212AEF21325C44005E02C5 /* vioce_small@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = E6212AEB21325C44005E02C5 /* vioce_small@3x.gif */; };
+		E6212AF021325C44005E02C5 /* vioce_small@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = E6212AEC21325C44005E02C5 /* vioce_small@2x.gif */; };
 		E64807C1210FFB8500050124 /* XBTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = E64807C0210FFB8500050124 /* XBTimer.m */; };
 		E6671A0721258C1C00592B0F /* XBPointToPointSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6671A0621258C1C00592B0F /* XBPointToPointSendViewController.m */; };
 		E6671A0A21258C5B00592B0F /* XBPointToPointPersonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6671A0921258C5B00592B0F /* XBPointToPointPersonTableViewCell.m */; };
@@ -146,9 +153,8 @@
 		E695F149212C291700519A99 /* iOSUnityMutually.m in Sources */ = {isa = PBXBuildFile; fileRef = E695F143212C291700519A99 /* iOSUnityMutually.m */; };
 		E695F14A212C291700519A99 /* iOSToUnityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E695F144212C291700519A99 /* iOSToUnityManager.m */; };
 		E6A0BA6A2112928800326AE9 /* XBAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A0BA692112928800326AE9 /* XBAudioManager.m */; };
-		E6C8EB2F21104C7200ED53E2 /* XBRecordAudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = E64807BD210FF47200050124 /* XBRecordAudioView.m */; };
+		E6C8EB2F21104C7200ED53E2 /* XBRecordAudioToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = E64807BD210FF47200050124 /* XBRecordAudioToastView.m */; };
 		E6C8EB3621104DFB00ED53E2 /* XBRecordAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C8EB3521104DFA00ED53E2 /* XBRecordAudio.m */; };
-		E6C8EB3921104E2600ED53E2 /* XBRecorderTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C8EB3821104E2600ED53E2 /* XBRecorderTestViewController.m */; };
 		E6C8EB3C211055CB00ED53E2 /* XBWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C8EB3B211055CB00ED53E2 /* XBWeakProxy.m */; };
 		E6C8EB3F21114B4D00ED53E2 /* XBRecordAudioStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C8EB3E21114B4D00ED53E2 /* XBRecordAudioStorage.m */; };
 /* End PBXBuildFile section */
@@ -362,8 +368,18 @@
 		E60E3B63210C0FF100C5BFBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E60E3B65210C0FF100C5BFBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E60E3B66210C0FF100C5BFBB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E64807BC210FF47200050124 /* XBRecordAudioView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBRecordAudioView.h; sourceTree = "<group>"; };
-		E64807BD210FF47200050124 /* XBRecordAudioView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecordAudioView.m; sourceTree = "<group>"; };
+		E6212ADE2132503E005E02C5 /* XBGifImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBGifImageView.h; sourceTree = "<group>"; };
+		E6212ADF2132503E005E02C5 /* XBGifImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBGifImageView.m; sourceTree = "<group>"; };
+		E6212AE1213252BB005E02C5 /* XBPublishRecordAudioView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBPublishRecordAudioView.h; sourceTree = "<group>"; };
+		E6212AE2213252BB005E02C5 /* XBPublishRecordAudioView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBPublishRecordAudioView.m; sourceTree = "<group>"; };
+		E6212AE4213254AC005E02C5 /* UIColor+XBHEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XBHEX.h"; sourceTree = "<group>"; };
+		E6212AE5213254AC005E02C5 /* UIColor+XBHEX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XBHEX.m"; sourceTree = "<group>"; };
+		E6212AE921325C44005E02C5 /* vioce_big@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "vioce_big@2x.gif"; sourceTree = "<group>"; };
+		E6212AEA21325C44005E02C5 /* vioce_big@3x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "vioce_big@3x.gif"; sourceTree = "<group>"; };
+		E6212AEB21325C44005E02C5 /* vioce_small@3x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "vioce_small@3x.gif"; sourceTree = "<group>"; };
+		E6212AEC21325C44005E02C5 /* vioce_small@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "vioce_small@2x.gif"; sourceTree = "<group>"; };
+		E64807BC210FF47200050124 /* XBRecordAudioToastView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBRecordAudioToastView.h; sourceTree = "<group>"; };
+		E64807BD210FF47200050124 /* XBRecordAudioToastView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecordAudioToastView.m; sourceTree = "<group>"; };
 		E64807BF210FFB8500050124 /* XBTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBTimer.h; sourceTree = "<group>"; };
 		E64807C0210FFB8500050124 /* XBTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBTimer.m; sourceTree = "<group>"; };
 		E6671A0521258C1C00592B0F /* XBPointToPointSendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBPointToPointSendViewController.h; sourceTree = "<group>"; };
@@ -423,8 +439,6 @@
 		E6A0BA6C21131B0700326AE9 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		E6C8EB3421104DFA00ED53E2 /* XBRecordAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBRecordAudio.h; sourceTree = "<group>"; };
 		E6C8EB3521104DFA00ED53E2 /* XBRecordAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBRecordAudio.m; sourceTree = "<group>"; };
-		E6C8EB3721104E2600ED53E2 /* XBRecorderTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBRecorderTestViewController.h; sourceTree = "<group>"; };
-		E6C8EB3821104E2600ED53E2 /* XBRecorderTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecorderTestViewController.m; sourceTree = "<group>"; };
 		E6C8EB3A211055CB00ED53E2 /* XBWeakProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBWeakProxy.h; sourceTree = "<group>"; };
 		E6C8EB3B211055CB00ED53E2 /* XBWeakProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBWeakProxy.m; sourceTree = "<group>"; };
 		E6C8EB3D21114B4D00ED53E2 /* XBRecordAudioStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBRecordAudioStorage.h; sourceTree = "<group>"; };
@@ -890,6 +904,8 @@
 		E6019641210C16E50046D1FA /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E6212AE4213254AC005E02C5 /* UIColor+XBHEX.h */,
+				E6212AE5213254AC005E02C5 /* UIColor+XBHEX.m */,
 				E6019642210C18C40046D1FA /* UIView+XBFrame.h */,
 				E6019643210C18C40046D1FA /* UIView+XBFrame.m */,
 				8529BFE0210CDD4E007E90C9 /* UIView+XBEnlargeEdge.h */,
@@ -906,6 +922,8 @@
 				C5192E84211E4017E2540A9E /* XBMakeContentItemView.m */,
 				C5192292E857232CC73ABB81 /* XBMakeContentItemView.h */,
 				85E98D4D2127C62B00DDCC56 /* XBMakeContentItemView.xib */,
+				E6212ADE2132503E005E02C5 /* XBGifImageView.h */,
+				E6212ADF2132503E005E02C5 /* XBGifImageView.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -913,6 +931,7 @@
 		E6019645210C1ADD0046D1FA /* RecordVoice */ = {
 			isa = PBXGroup;
 			children = (
+				E6212AE821325C32005E02C5 /* Resource */,
 				E6C8EB3421104DFA00ED53E2 /* XBRecordAudio.h */,
 				E6C8EB3521104DFA00ED53E2 /* XBRecordAudio.m */,
 				E601964C210C3A300046D1FA /* XBPlayAudio.h */,
@@ -921,10 +940,10 @@
 				E6C8EB3E21114B4D00ED53E2 /* XBRecordAudioStorage.m */,
 				E6A0BA682112928800326AE9 /* XBAudioManager.h */,
 				E6A0BA692112928800326AE9 /* XBAudioManager.m */,
-				E64807BC210FF47200050124 /* XBRecordAudioView.h */,
-				E64807BD210FF47200050124 /* XBRecordAudioView.m */,
-				E6C8EB3721104E2600ED53E2 /* XBRecorderTestViewController.h */,
-				E6C8EB3821104E2600ED53E2 /* XBRecorderTestViewController.m */,
+				E64807BC210FF47200050124 /* XBRecordAudioToastView.h */,
+				E64807BD210FF47200050124 /* XBRecordAudioToastView.m */,
+				E6212AE1213252BB005E02C5 /* XBPublishRecordAudioView.h */,
+				E6212AE2213252BB005E02C5 /* XBPublishRecordAudioView.m */,
 			);
 			path = RecordVoice;
 			sourceTree = "<group>";
@@ -982,6 +1001,17 @@
 				E60E3B66210C0FF100C5BFBB /* main.m */,
 			);
 			path = FindSecret;
+			sourceTree = "<group>";
+		};
+		E6212AE821325C32005E02C5 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				E6212AE921325C44005E02C5 /* vioce_big@2x.gif */,
+				E6212AEA21325C44005E02C5 /* vioce_big@3x.gif */,
+				E6212AEC21325C44005E02C5 /* vioce_small@2x.gif */,
+				E6212AEB21325C44005E02C5 /* vioce_small@3x.gif */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		E6671A0421258C0800592B0F /* PointToPoint */ = {
@@ -1186,6 +1216,7 @@
 				8592617B212F07AB008D0667 /* XBUITestViewController.xib in Resources */,
 				CA5450C3211851F8000ABB4B /* LICENSE in Resources */,
 				CA147A36212D124100F2F2EE /* Kaiti.ttf in Resources */,
+				E6212AED21325C44005E02C5 /* vioce_big@2x.gif in Resources */,
 				E695F137212BA12700519A99 /* README.md in Resources */,
 				E60E3B61210C0FF100C5BFBB /* Assets.xcassets in Resources */,
 				CAE7464121129C3F000D05B7 /* README.md in Resources */,
@@ -1221,7 +1252,7 @@
 				CAE7465B21129C3F000D05B7 /* XBFindFriendCell.m in Sources */,
 				8592616E212C694D008D0667 /* WXSPercentDrivenInteractiveTransition.m in Sources */,
 				8592616D212C694D008D0667 /* UIViewController+WXSTransition.m in Sources */,
-				E6C8EB2F21104C7200ED53E2 /* XBRecordAudioView.m in Sources */,
+				E6C8EB2F21104C7200ED53E2 /* XBRecordAudioToastView.m in Sources */,
 				CA5450C5211851F8000ABB4B /* MASConstraint.m in Sources */,
 				E695F12F212BA12700519A99 /* MJRefreshNormalHeader.m in Sources */,
 				CAE7463F21129C3F000D05B7 /* UIViewExt.m in Sources */,
@@ -1251,8 +1282,9 @@
 				CAE7465221129C3F000D05B7 /* XHPinterestRefreshView.m in Sources */,
 				857616602111F5020091E7C1 /* XBMakeViewController.m in Sources */,
 				E695F12A212BA12700519A99 /* MJRefreshBackStateFooter.m in Sources */,
+				E6212AE6213254AC005E02C5 /* UIColor+XBHEX.m in Sources */,
+				E6212AE02132503E005E02C5 /* XBGifImageView.m in Sources */,
 				E695F135212BA12700519A99 /* MJRefreshAutoFooter.m in Sources */,
-				E6C8EB3921104E2600ED53E2 /* XBRecorderTestViewController.m in Sources */,
 				85926169212C694D008D0667 /* WXSTransitionManager+PageAnimation.m in Sources */,
 				85926170212C694D008D0667 /* WXSTransitionManager+CoverAnimation.m in Sources */,
 				CAE7464F21129C3F000D05B7 /* XHCircularProgressView.m in Sources */,
@@ -1260,6 +1292,7 @@
 				E695F148212C291700519A99 /* UnityToiOSManager.m in Sources */,
 				E695F129212BA12700519A99 /* MJRefreshBackGifFooter.m in Sources */,
 				CAE7464E21129C3F000D05B7 /* XHCircleView.m in Sources */,
+				E6212AE3213252BB005E02C5 /* XBPublishRecordAudioView.m in Sources */,
 				CAE7463E21129C3F000D05B7 /* UISearchBar+MP.m in Sources */,
 				E695F127212BA12700519A99 /* NSBundle+MJRefresh.m in Sources */,
 				E6C8EB3F21114B4D00ED53E2 /* XBRecordAudioStorage.m in Sources */,

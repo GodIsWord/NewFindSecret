@@ -20,6 +20,7 @@
 #import "defines.h"
 #import "wh_Head.h"
 #import "UIColor+XBHEX.h"
+#import "UIView+XBFrame.h"
 
 
 #import <CoreText/CoreText.h>

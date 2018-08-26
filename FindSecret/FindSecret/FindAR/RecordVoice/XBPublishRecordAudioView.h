@@ -10,6 +10,8 @@
 
 @interface XBPublishRecordAudioView : UIView
 
+@property(nonatomic,strong) UIImage *image;
 
+-(void)reloadSubbView;
 
 @end

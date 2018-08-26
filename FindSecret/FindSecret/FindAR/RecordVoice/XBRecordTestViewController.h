@@ -1,5 +1,5 @@
 //
-//  XBGifImageView.h
+//  XBRecordTestViewController.h
 //  FindSecret
 //
 //  Created by yidezhang on 2018/8/26.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XBGifImageView : UIView
-
--(void)loadGIFWithPath:(NSString*)path;
+@interface XBRecordTestViewController : UIViewController
 
 @end

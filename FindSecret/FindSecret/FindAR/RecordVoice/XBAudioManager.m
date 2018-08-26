@@ -84,7 +84,11 @@
     [self.recorder stop];
     _type = 0;
 }
-
+-(void)cancleRecord
+{
+    [self.recorder cancel];
+    _type = 0;
+}
 -(void)playAudioWithURL:(NSURL*)url{
     if (_type==1) {
         NSLog(@"正在播放，不能录音");

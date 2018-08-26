@@ -39,6 +39,8 @@
 
 -(void)startRecord;
 
+-(void)cancleRecord;
+
 -(void)endRecord;
 
 -(void)playAudioWithURL:(NSURL*)url;

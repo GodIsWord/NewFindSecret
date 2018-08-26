@@ -45,7 +45,7 @@
 
     return [UIColor blackColor];
 }
-+ (UIColor *)jf_colorFromString:(NSString *)str alpha:(CGFloat)alpha
++ (UIColor *)xb_colorFromString:(NSString *)str alpha:(CGFloat)alpha
 {
     return [self xb_colorWithHexString:str alpha:alpha];
 }
@@ -60,27 +60,27 @@
     switch ([colorString length]) {
         case 3: // #RGB
 //            lAlpha = 1.0f;
-            red   = [self jf_colorComponentFrom: colorString start: 0 length: 1];
-            green = [self jf_colorComponentFrom: colorString start: 1 length: 1];
-            blue  = [self jf_colorComponentFrom: colorString start: 2 length: 1];
+            red   = [self xb_colorComponentFrom: colorString start: 0 length: 1];
+            green = [self xb_colorComponentFrom: colorString start: 1 length: 1];
+            blue  = [self xb_colorComponentFrom: colorString start: 2 length: 1];
             break;
         case 4: // #ARGB
-            lAlpha = [self jf_colorComponentFrom: colorString start: 0 length: 1];
-            red   = [self jf_colorComponentFrom: colorString start: 1 length: 1];
-            green = [self jf_colorComponentFrom: colorString start: 2 length: 1];
-            blue  = [self jf_colorComponentFrom: colorString start: 3 length: 1];
+            lAlpha = [self xb_colorComponentFrom: colorString start: 0 length: 1];
+            red   = [self xb_colorComponentFrom: colorString start: 1 length: 1];
+            green = [self xb_colorComponentFrom: colorString start: 2 length: 1];
+            blue  = [self xb_colorComponentFrom: colorString start: 3 length: 1];
             break;
         case 6: // #RRGGBB
 //            lAlpha = 1.0f;
-            red   = [self jf_colorComponentFrom: colorString start: 0 length: 2];
-            green = [self jf_colorComponentFrom: colorString start: 2 length: 2];
-            blue  = [self jf_colorComponentFrom: colorString start: 4 length: 2];
+            red   = [self xb_colorComponentFrom: colorString start: 0 length: 2];
+            green = [self xb_colorComponentFrom: colorString start: 2 length: 2];
+            blue  = [self xb_colorComponentFrom: colorString start: 4 length: 2];
             break;
         case 8: // #AARRGGBB
-            lAlpha = [self jf_colorComponentFrom: colorString start: 0 length: 2];
-            red   = [self jf_colorComponentFrom: colorString start: 2 length: 2];
-            green = [self jf_colorComponentFrom: colorString start: 4 length: 2];
-            blue  = [self jf_colorComponentFrom: colorString start: 6 length: 2];
+            lAlpha = [self xb_colorComponentFrom: colorString start: 0 length: 2];
+            red   = [self xb_colorComponentFrom: colorString start: 2 length: 2];
+            green = [self xb_colorComponentFrom: colorString start: 4 length: 2];
+            blue  = [self xb_colorComponentFrom: colorString start: 6 length: 2];
             break;
         default:
             [NSException raise:@"Invalid color value" format: @"Color value %@ is invalid.  It should be a hex value of the form #RBG, #ARGB, #RRGGBB, or #AARRGGBB", hexString];
@@ -89,7 +89,7 @@
     return [UIColor colorWithRed: red green: green blue: blue alpha: lAlpha];
 }
 
-+ (CGFloat)jf_colorComponentFrom: (NSString *) string start: (NSUInteger) start length: (NSUInteger) length {
++ (CGFloat)xb_colorComponentFrom: (NSString *) string start: (NSUInteger) start length: (NSUInteger) length {
     NSString *substring = [string substringWithRange: NSMakeRange(start, length)];
     NSString *fullHex = length == 2 ? substring : [NSString stringWithFormat: @"%@%@", substring, substring];
     unsigned hexComponent;

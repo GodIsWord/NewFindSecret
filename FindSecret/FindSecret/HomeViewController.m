@@ -16,6 +16,7 @@
 #import "XBFindNearAddressVC.h"
 #import "XBPublishController.h"
 #import "XBUITestViewController.h"
+#import "XBRecordTestViewController.h"
 @interface HomeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic, strong) NSDictionary *userInfo;
@@ -154,6 +155,9 @@
             break;
             case 2:{
                 
+                XBRecordTestViewController *controll = [[XBRecordTestViewController alloc] init];
+                controll.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+                [self presentViewController:controll animated:YES completion:nil];
                 
             }
             break;

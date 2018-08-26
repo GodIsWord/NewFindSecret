@@ -9,7 +9,7 @@
 /**
  * 根据str生成颜色
  * @param str red，yellow，#FFFFFF，
- * @return
+ * @return coloer
  */
 
 + (UIColor *)xb_colorFromString:(NSString *)str;

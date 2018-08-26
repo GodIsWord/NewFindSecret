@@ -31,7 +31,7 @@
 
 @implementation XBTextEditController
 
-//    文字样式有时候不起作用、 第一次进来textfield聚焦、 文字虚线的动态宽度
+//    文字样式有时候不起作用
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.styleArray = @[@"SimHei",@"SimHei",@"SimSun",@"Kaiti",@"SimHei",@"STXINGKA"];
@@ -246,6 +246,9 @@
     self.text = sender.text;
     [self changeEditLabelFrame];
     
+}
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+    [self.myTextField becomeFirstResponder];
 }
 
 #pragma mark - 点击

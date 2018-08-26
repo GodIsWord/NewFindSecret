@@ -74,6 +74,7 @@
     
     
     self.editLabel = [[UILabel alloc]init];
+    self.editLabel.numberOfLines = 0;
     [self.backGroundView addSubview:self.editLabel];
     self.editLabel.frame = CGRectMake(15, STATUSBAR_And_NAVIGATIONBAR_HEIGHT, SCREEN_WIDTH - 30, 100);
     self.editLabel.textAlignment = NSTextAlignmentCenter;

@@ -27,20 +27,39 @@
 @implementation XBAudioManager
 
 -(void)dealloc{
-    [_timer invalidate];
+    [self.timer invalidate];
 }
 -(instancetype)init{
     self = [super init];
     if(self){
+        _type = 0;
+    }
+    return self;
+}
+-(XBRecordAudio *)recorder
+{
+    if (!_recorder) {
         _recorder = [XBRecordAudio new];
         _recorder.delegate = self;
+    }
+    return _recorder;
+}
+
+-(XBPlayAudio *)player
+{
+    if (!_player) {
         _player = [XBPlayAudio new];
         _player.delegate = self;
-        _type = 0;
+    }
+    return _player;
+}
+-(NSTimer *)timer
+{
+    if (!_timer) {
         _timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(timerAction:) userInfo:nil repeats:YES];
         [_timer setFireDate:[NSDate distantFuture]];
     }
-    return self;
+    return _timer;
 }
 
 -(void)timerAction:(NSTimer*)timer{
@@ -75,6 +94,7 @@
         NSLog(@"正在录音，不能播放");
         return;
     }
+    self.recorder.maxDuration = self.maxRecordDuration;
     [self.recorder start];
     _type = 1;
     [self.timer setFireDate:[NSDate distantPast]];
@@ -84,19 +104,24 @@
     [self.recorder stop];
     _type = 0;
 }
-
+-(void)cancleRecord
+{
+    [self.recorder cancel];
+    _type = 0;
+}
 -(void)playAudioWithURL:(NSURL*)url{
     if (_type==1) {
         NSLog(@"正在播放，不能录音");
         return;
     }
-    if(!url || ![XBRecordAudioStorage fileExist:url.absoluteString]){
+    if(!url){
+        NSLog(@"url地址不对");
         return;
     }
     
     [self.player playWithContentOfURL:url error:nil];
     _type = 2;
-    [self.timer setFireDate:[NSDate distantPast]];
+//    [self.timer setFireDate:[NSDate distantPast]];
 }
 
 -(void)stopPlay{
@@ -119,26 +144,12 @@
     return [XBPlayAudio durationWithPath:path];
 }
 
--(void)recordViewOKAction{
-    [self endRecord];
-}
-
-static BOOL isCancleRecord = NO;
-
--(void)recordViewCancleAction{
-    isCancleRecord = YES;
-    [self.recorder cancel];
-}
 
 #pragma mark -- record delegate
 
 -(void)xbAudioRecorderDidFinishRecording:(XBRecordAudio *)recorder successfully:(BOOL)flag{
     //隐藏声音强度的view
-    if(!isCancleRecord){
-        [XBRecordAudioStorage saveAudioWithDataPath:[XBRecordAudio recordPath]];
-    }else{
-        isCancleRecord = YES;
-    }
+    [XBRecordAudioStorage saveAudioWithDataPath:[XBRecordAudio recordPath]];
     self.type = 0;
     if ([self.recordDelegate respondsToSelector:@selector(xbAudioManagerDidFinishRecording:successfully:)]) {
         [self.recordDelegate xbAudioManagerDidFinishRecording:self successfully:flag];

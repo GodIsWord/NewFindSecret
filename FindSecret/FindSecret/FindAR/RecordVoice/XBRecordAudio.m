@@ -23,7 +23,6 @@
 
 -(void)setMaxDuration:(NSTimeInterval)maxDuration{
     _maxDuration = maxDuration;
-    [self.audioRecorder recordForDuration:maxDuration];
 }
 -(NSTimeInterval)duration{
     if (self.audioRecorder.isRecording) {
@@ -122,6 +121,9 @@
 -(void)start{
     if (self.audioRecorder.recording) {
         [self cancel];
+    }
+    if (self.maxDuration>0) {
+        [self.audioRecorder recordForDuration:self.maxDuration];
     }
     [self.audioRecorder record];
 }

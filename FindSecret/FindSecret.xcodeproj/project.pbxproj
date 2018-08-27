@@ -113,15 +113,20 @@
 		E6019644210C18C40046D1FA /* UIView+XBFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E6019643210C18C40046D1FA /* UIView+XBFrame.m */; };
 		E601964B210C21830046D1FA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E601964A210C21830046D1FA /* AVFoundation.framework */; };
 		E601964E210C3A300046D1FA /* XBPlayAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = E601964D210C3A300046D1FA /* XBPlayAudio.m */; };
+		E60A09B22132F263009BC9F0 /* XBPublishLisonItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E60A09B12132F263009BC9F0 /* XBPublishLisonItemView.m */; };
 		E60E3B59210C0FF000C5BFBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B58210C0FF000C5BFBB /* AppDelegate.m */; };
 		E60E3B5C210C0FF000C5BFBB /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B5B210C0FF000C5BFBB /* HomeViewController.m */; };
 		E60E3B61210C0FF100C5BFBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B60210C0FF100C5BFBB /* Assets.xcassets */; };
 		E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B62210C0FF100C5BFBB /* LaunchScreen.storyboard */; };
 		E60E3B67210C0FF100C5BFBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B66210C0FF100C5BFBB /* main.m */; };
-		E6212AE02132503E005E02C5 /* XBGifImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212ADF2132503E005E02C5 /* XBGifImageView.m */; };
+		E61B9DE22133AA1100B69CE3 /* XBPublishRecordAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E61B9DE12133AA1100B69CE3 /* XBPublishRecordAudioViewController.m */; };
 		E6212AE3213252BB005E02C5 /* XBPublishRecordAudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212AE2213252BB005E02C5 /* XBPublishRecordAudioView.m */; };
 		E6212AE6213254AC005E02C5 /* UIColor+XBHEX.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212AE5213254AC005E02C5 /* UIColor+XBHEX.m */; };
 		E6212AED21325C44005E02C5 /* vioce_big@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = E6212AE921325C44005E02C5 /* vioce_big@2x.gif */; };
+		E6212AF521327072005E02C5 /* recordVoice.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E6212AF421327072005E02C5 /* recordVoice.bundle */; };
+		E6212B0721327BDB005E02C5 /* CADisplayLineImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212B0321327BDA005E02C5 /* CADisplayLineImageView.m */; };
+		E6212B0821327BDB005E02C5 /* CADisplayLineImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212B0521327BDA005E02C5 /* CADisplayLineImage.m */; };
+		E6212B0D21328B44005E02C5 /* XBGifImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212B0B21328B43005E02C5 /* XBGifImageView.m */; };
 		E64807C1210FFB8500050124 /* XBTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = E64807C0210FFB8500050124 /* XBTimer.m */; };
 		E6671A0721258C1C00592B0F /* XBPointToPointSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6671A0621258C1C00592B0F /* XBPointToPointSendViewController.m */; };
 		E6671A0A21258C5B00592B0F /* XBPointToPointPersonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6671A0921258C5B00592B0F /* XBPointToPointPersonTableViewCell.m */; };
@@ -358,6 +363,8 @@
 		E601964A210C21830046D1FA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E601964C210C3A300046D1FA /* XBPlayAudio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBPlayAudio.h; sourceTree = "<group>"; };
 		E601964D210C3A300046D1FA /* XBPlayAudio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBPlayAudio.m; sourceTree = "<group>"; };
+		E60A09B02132F263009BC9F0 /* XBPublishLisonItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBPublishLisonItemView.h; sourceTree = "<group>"; };
+		E60A09B12132F263009BC9F0 /* XBPublishLisonItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBPublishLisonItemView.m; sourceTree = "<group>"; };
 		E60E3B54210C0FEF00C5BFBB /* FindSecret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindSecret.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E60E3B57210C0FF000C5BFBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E60E3B58210C0FF000C5BFBB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -367,16 +374,19 @@
 		E60E3B63210C0FF100C5BFBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E60E3B65210C0FF100C5BFBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E60E3B66210C0FF100C5BFBB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E6212ADE2132503E005E02C5 /* XBGifImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBGifImageView.h; sourceTree = "<group>"; };
-		E6212ADF2132503E005E02C5 /* XBGifImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBGifImageView.m; sourceTree = "<group>"; };
+		E61B9DE02133AA1100B69CE3 /* XBPublishRecordAudioViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBPublishRecordAudioViewController.h; sourceTree = "<group>"; };
+		E61B9DE12133AA1100B69CE3 /* XBPublishRecordAudioViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBPublishRecordAudioViewController.m; sourceTree = "<group>"; };
 		E6212AE1213252BB005E02C5 /* XBPublishRecordAudioView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBPublishRecordAudioView.h; sourceTree = "<group>"; };
 		E6212AE2213252BB005E02C5 /* XBPublishRecordAudioView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBPublishRecordAudioView.m; sourceTree = "<group>"; };
 		E6212AE4213254AC005E02C5 /* UIColor+XBHEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XBHEX.h"; sourceTree = "<group>"; };
 		E6212AE5213254AC005E02C5 /* UIColor+XBHEX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XBHEX.m"; sourceTree = "<group>"; };
-		E6212AE921325C44005E02C5 /* vioce_big@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "vioce_big@2x.gif"; sourceTree = "<group>"; };
-		E6212AEA21325C44005E02C5 /* vioce_big@3x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "vioce_big@3x.gif"; sourceTree = "<group>"; };
-		E6212AEB21325C44005E02C5 /* vioce_small@3x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "vioce_small@3x.gif"; sourceTree = "<group>"; };
-		E6212AEC21325C44005E02C5 /* vioce_small@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "vioce_small@2x.gif"; sourceTree = "<group>"; };
+		E6212AF421327072005E02C5 /* recordVoice.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = recordVoice.bundle; sourceTree = "<group>"; };
+		E6212B0321327BDA005E02C5 /* CADisplayLineImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CADisplayLineImageView.m; sourceTree = "<group>"; };
+		E6212B0421327BDA005E02C5 /* CADisplayLineImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADisplayLineImage.h; sourceTree = "<group>"; };
+		E6212B0521327BDA005E02C5 /* CADisplayLineImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CADisplayLineImage.m; sourceTree = "<group>"; };
+		E6212B0621327BDB005E02C5 /* CADisplayLineImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADisplayLineImageView.h; sourceTree = "<group>"; };
+		E6212B0B21328B43005E02C5 /* XBGifImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBGifImageView.m; sourceTree = "<group>"; };
+		E6212B0C21328B43005E02C5 /* XBGifImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBGifImageView.h; sourceTree = "<group>"; };
 		E64807BC210FF47200050124 /* XBRecordAudioToastView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBRecordAudioToastView.h; sourceTree = "<group>"; };
 		E64807BD210FF47200050124 /* XBRecordAudioToastView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecordAudioToastView.m; sourceTree = "<group>"; };
 		E64807BF210FFB8500050124 /* XBTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBTimer.h; sourceTree = "<group>"; };
@@ -922,8 +932,10 @@
 				C5192E84211E4017E2540A9E /* XBMakeContentItemView.m */,
 				C5192292E857232CC73ABB81 /* XBMakeContentItemView.h */,
 				85E98D4D2127C62B00DDCC56 /* XBMakeContentItemView.xib */,
-				E6212ADE2132503E005E02C5 /* XBGifImageView.h */,
-				E6212ADF2132503E005E02C5 /* XBGifImageView.m */,
+				E6212B0421327BDA005E02C5 /* CADisplayLineImage.h */,
+				E6212B0521327BDA005E02C5 /* CADisplayLineImage.m */,
+				E6212B0621327BDB005E02C5 /* CADisplayLineImageView.h */,
+				E6212B0321327BDA005E02C5 /* CADisplayLineImageView.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -931,7 +943,8 @@
 		E6019645210C1ADD0046D1FA /* RecordVoice */ = {
 			isa = PBXGroup;
 			children = (
-				E6212AE821325C32005E02C5 /* Resource */,
+				E6212B0C21328B43005E02C5 /* XBGifImageView.h */,
+				E6212B0B21328B43005E02C5 /* XBGifImageView.m */,
 				E6C8EB3421104DFA00ED53E2 /* XBRecordAudio.h */,
 				E6C8EB3521104DFA00ED53E2 /* XBRecordAudio.m */,
 				E601964C210C3A300046D1FA /* XBPlayAudio.h */,
@@ -942,8 +955,13 @@
 				E6A0BA692112928800326AE9 /* XBAudioManager.m */,
 				E64807BC210FF47200050124 /* XBRecordAudioToastView.h */,
 				E64807BD210FF47200050124 /* XBRecordAudioToastView.m */,
+				E61B9DE02133AA1100B69CE3 /* XBPublishRecordAudioViewController.h */,
+				E61B9DE12133AA1100B69CE3 /* XBPublishRecordAudioViewController.m */,
 				E6212AE1213252BB005E02C5 /* XBPublishRecordAudioView.h */,
 				E6212AE2213252BB005E02C5 /* XBPublishRecordAudioView.m */,
+				E60A09B02132F263009BC9F0 /* XBPublishLisonItemView.h */,
+				E60A09B12132F263009BC9F0 /* XBPublishLisonItemView.m */,
+				E6212AF421327072005E02C5 /* recordVoice.bundle */,
 			);
 			path = RecordVoice;
 			sourceTree = "<group>";
@@ -1001,17 +1019,6 @@
 				E60E3B66210C0FF100C5BFBB /* main.m */,
 			);
 			path = FindSecret;
-			sourceTree = "<group>";
-		};
-		E6212AE821325C32005E02C5 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-				E6212AE921325C44005E02C5 /* vioce_big@2x.gif */,
-				E6212AEA21325C44005E02C5 /* vioce_big@3x.gif */,
-				E6212AEC21325C44005E02C5 /* vioce_small@2x.gif */,
-				E6212AEB21325C44005E02C5 /* vioce_small@3x.gif */,
-			);
-			path = Resource;
 			sourceTree = "<group>";
 		};
 		E6671A0421258C0800592B0F /* PointToPoint */ = {
@@ -1208,6 +1215,7 @@
 				857616662111FAAD0091E7C1 /* XBMakeToolView.xib in Resources */,
 				CAE7464021129C3F000D05B7 /* LICENSE in Resources */,
 				CA147A3A213274BB00F2F2EE /* STXINGKA.ttf in Resources */,
+				E6212AF521327072005E02C5 /* recordVoice.bundle in Resources */,
 				CA5450CE211851F8000ABB4B /* README.md in Resources */,
 				CA147A39213274B900F2F2EE /* SimHei.ttf in Resources */,
 				E695F125212BA12700519A99 /* MJRefresh.bundle in Resources */,
@@ -1231,6 +1239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6212B0D21328B44005E02C5 /* XBGifImageView.m in Sources */,
 				CA5450CB211851F8000ABB4B /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				CAE7465321129C3F000D05B7 /* XHRefreshActivityIndicatorContainerView.m in Sources */,
 				CAE7465521129C3F000D05B7 /* XYString.m in Sources */,
@@ -1282,9 +1291,10 @@
 				CAE7462F21129C3F000D05B7 /* WXBaseModel.m in Sources */,
 				CAE7465221129C3F000D05B7 /* XHPinterestRefreshView.m in Sources */,
 				857616602111F5020091E7C1 /* XBMakeViewController.m in Sources */,
+				E6212B0821327BDB005E02C5 /* CADisplayLineImage.m in Sources */,
 				E695F12A212BA12700519A99 /* MJRefreshBackStateFooter.m in Sources */,
 				E6212AE6213254AC005E02C5 /* UIColor+XBHEX.m in Sources */,
-				E6212AE02132503E005E02C5 /* XBGifImageView.m in Sources */,
+				E61B9DE22133AA1100B69CE3 /* XBPublishRecordAudioViewController.m in Sources */,
 				E695F135212BA12700519A99 /* MJRefreshAutoFooter.m in Sources */,
 				85926169212C694D008D0667 /* WXSTransitionManager+PageAnimation.m in Sources */,
 				85926170212C694D008D0667 /* WXSTransitionManager+CoverAnimation.m in Sources */,
@@ -1314,6 +1324,7 @@
 				E695F14A212C291700519A99 /* iOSToUnityManager.m in Sources */,
 				E6671A0A21258C5B00592B0F /* XBPointToPointPersonTableViewCell.m in Sources */,
 				E60E3B67210C0FF100C5BFBB /* main.m in Sources */,
+				E6212B0721327BDB005E02C5 /* CADisplayLineImageView.m in Sources */,
 				85926173212C694D008D0667 /* WXSTransitionManager+SystermAnimation.m in Sources */,
 				8592616C212C694D008D0667 /* UINavigationController+WXSTransition.m in Sources */,
 				CAE7464921129C3F000D05B7 /* XHSysatemRefreshTableViewController.m in Sources */,
@@ -1322,6 +1333,7 @@
 				E695F126212BA12700519A99 /* UIScrollView+MJExtension.m in Sources */,
 				CAE7464821129C3F000D05B7 /* XHSystemRefreshCollectionViewController.m in Sources */,
 				CAE7465C21129C3F000D05B7 /* XBFindNearAddressVC.m in Sources */,
+				E60A09B22132F263009BC9F0 /* XBPublishLisonItemView.m in Sources */,
 				E695F12D212BA12700519A99 /* MJRefreshAutoGifFooter.m in Sources */,
 				E695F149212C291700519A99 /* iOSUnityMutually.m in Sources */,
 				CAE7463821129C3F000D05B7 /* MKMapView+ZoomLevel.m in Sources */,

@@ -12,6 +12,8 @@
 
 @interface XBPublishRecordAudioViewController ()
 
+@property(nonatomic,weak) id<XBPublishRecordAudioViewDelegate> delegate;
+
 @end
 
 @implementation XBPublishRecordAudioViewController
@@ -26,6 +28,7 @@
     // Do any additional setup after loading the view.
     [(XBPublishRecordAudioView*)self.view reloadSubbView];
     [(XBPublishRecordAudioView*)self.view setViewController:self];
+    [(XBPublishRecordAudioView*)self.view setDelegate:self.delegate];
 }
 
 @end

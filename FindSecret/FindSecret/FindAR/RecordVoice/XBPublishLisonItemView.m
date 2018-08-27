@@ -65,6 +65,16 @@
     self.secondsLabel = seconds;
     
     
+    CAShapeLayer *borderLayer = [CAShapeLayer layer];
+    borderLayer.strokeColor = [UIColor whiteColor].CGColor;   //虚线的颜色
+    borderLayer.fillColor = [UIColor clearColor].CGColor;//填充的颜色
+    borderLayer.path = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;//设置路径
+    borderLayer.frame = self.bounds;
+    borderLayer.lineWidth = 1.f;
+    borderLayer.lineDashPattern = @[@4, @4];
+    [self.layer addSublayer:borderLayer];
+    
+    
 }
 
 

@@ -8,9 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+@class XBPublishRecordAudioView;
+
+@protocol XBPublishRecordAudioViewDelegate <NSObject>
+
+@optional
+-(void)XBPublishRecordFinish:(id)audioView audioPath:(NSString*)path duration:(NSTimeInterval)duration;
+
+-(void)XBPublishRecordDismiss:(id)audioView;
+
+@end
+
 @interface XBPublishRecordAudioView : UIView
 
-@property(nonatomic,strong) UIImage *image;
+@property(nonatomic,weak) id<XBPublishRecordAudioViewDelegate>delegate;
+
+@property(nonatomic,weak) UIViewController *viewController;
 
 -(void)reloadSubbView;
 

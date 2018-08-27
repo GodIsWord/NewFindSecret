@@ -118,9 +118,9 @@
 		E60E3B61210C0FF100C5BFBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B60210C0FF100C5BFBB /* Assets.xcassets */; };
 		E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B62210C0FF100C5BFBB /* LaunchScreen.storyboard */; };
 		E60E3B67210C0FF100C5BFBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B66210C0FF100C5BFBB /* main.m */; };
+		E61B9DE22133AA1100B69CE3 /* XBPublishRecordAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E61B9DE12133AA1100B69CE3 /* XBPublishRecordAudioViewController.m */; };
 		E6212AE3213252BB005E02C5 /* XBPublishRecordAudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212AE2213252BB005E02C5 /* XBPublishRecordAudioView.m */; };
 		E6212AE6213254AC005E02C5 /* UIColor+XBHEX.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212AE5213254AC005E02C5 /* UIColor+XBHEX.m */; };
-		E6212AF321326024005E02C5 /* XBRecordTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212AF221326024005E02C5 /* XBRecordTestViewController.m */; };
 		E6212AF521327072005E02C5 /* recordVoice.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E6212AF421327072005E02C5 /* recordVoice.bundle */; };
 		E6212B0721327BDB005E02C5 /* CADisplayLineImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212B0321327BDA005E02C5 /* CADisplayLineImageView.m */; };
 		E6212B0821327BDB005E02C5 /* CADisplayLineImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212B0521327BDA005E02C5 /* CADisplayLineImage.m */; };
@@ -371,12 +371,12 @@
 		E60E3B63210C0FF100C5BFBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E60E3B65210C0FF100C5BFBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E60E3B66210C0FF100C5BFBB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E61B9DE02133AA1100B69CE3 /* XBPublishRecordAudioViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBPublishRecordAudioViewController.h; sourceTree = "<group>"; };
+		E61B9DE12133AA1100B69CE3 /* XBPublishRecordAudioViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBPublishRecordAudioViewController.m; sourceTree = "<group>"; };
 		E6212AE1213252BB005E02C5 /* XBPublishRecordAudioView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBPublishRecordAudioView.h; sourceTree = "<group>"; };
 		E6212AE2213252BB005E02C5 /* XBPublishRecordAudioView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBPublishRecordAudioView.m; sourceTree = "<group>"; };
 		E6212AE4213254AC005E02C5 /* UIColor+XBHEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XBHEX.h"; sourceTree = "<group>"; };
 		E6212AE5213254AC005E02C5 /* UIColor+XBHEX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XBHEX.m"; sourceTree = "<group>"; };
-		E6212AF121326024005E02C5 /* XBRecordTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBRecordTestViewController.h; sourceTree = "<group>"; };
-		E6212AF221326024005E02C5 /* XBRecordTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBRecordTestViewController.m; sourceTree = "<group>"; };
 		E6212AF421327072005E02C5 /* recordVoice.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = recordVoice.bundle; sourceTree = "<group>"; };
 		E6212B0321327BDA005E02C5 /* CADisplayLineImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CADisplayLineImageView.m; sourceTree = "<group>"; };
 		E6212B0421327BDA005E02C5 /* CADisplayLineImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADisplayLineImage.h; sourceTree = "<group>"; };
@@ -951,8 +951,8 @@
 				E6A0BA692112928800326AE9 /* XBAudioManager.m */,
 				E64807BC210FF47200050124 /* XBRecordAudioToastView.h */,
 				E64807BD210FF47200050124 /* XBRecordAudioToastView.m */,
-				E6212AF121326024005E02C5 /* XBRecordTestViewController.h */,
-				E6212AF221326024005E02C5 /* XBRecordTestViewController.m */,
+				E61B9DE02133AA1100B69CE3 /* XBPublishRecordAudioViewController.h */,
+				E61B9DE12133AA1100B69CE3 /* XBPublishRecordAudioViewController.m */,
 				E6212AE1213252BB005E02C5 /* XBPublishRecordAudioView.h */,
 				E6212AE2213252BB005E02C5 /* XBPublishRecordAudioView.m */,
 				E60A09B02132F263009BC9F0 /* XBPublishLisonItemView.h */,
@@ -1249,7 +1249,6 @@
 				85926165212C694D008D0667 /* WXSTransitionManager+SpreadAnimation.m in Sources */,
 				CA5450C8211851F8000ABB4B /* MASViewAttribute.m in Sources */,
 				E695F133212BA12700519A99 /* MJRefreshHeader.m in Sources */,
-				E6212AF321326024005E02C5 /* XBRecordTestViewController.m in Sources */,
 				CAA1833C2112F60D0032AE81 /* XBSelectCell.m in Sources */,
 				CAE7465021129C3F000D05B7 /* XHJDRefreshView.m in Sources */,
 				CAE7464A21129C3F000D05B7 /* XHSystemTableViewController.m in Sources */,
@@ -1289,6 +1288,7 @@
 				E6212B0821327BDB005E02C5 /* CADisplayLineImage.m in Sources */,
 				E695F12A212BA12700519A99 /* MJRefreshBackStateFooter.m in Sources */,
 				E6212AE6213254AC005E02C5 /* UIColor+XBHEX.m in Sources */,
+				E61B9DE22133AA1100B69CE3 /* XBPublishRecordAudioViewController.m in Sources */,
 				E695F135212BA12700519A99 /* MJRefreshAutoFooter.m in Sources */,
 				85926169212C694D008D0667 /* WXSTransitionManager+PageAnimation.m in Sources */,
 				85926170212C694D008D0667 /* WXSTransitionManager+CoverAnimation.m in Sources */,

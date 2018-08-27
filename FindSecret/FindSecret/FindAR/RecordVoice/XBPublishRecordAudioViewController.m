@@ -1,19 +1,20 @@
+
 //
-//  XBRecordTestViewController.m
+//  XBPublishRecordAudioViewController.m
 //  FindSecret
 //
-//  Created by yidezhang on 2018/8/26.
+//  Created by yidezhang on 2018/8/27.
 //  Copyright © 2018年 Mac. All rights reserved.
 //
 
-#import "XBRecordTestViewController.h"
+#import "XBPublishRecordAudioViewController.h"
 #import "XBPublishRecordAudioView.h"
 
-@interface XBRecordTestViewController ()
+@interface XBPublishRecordAudioViewController ()
 
 @end
 
-@implementation XBRecordTestViewController
+@implementation XBPublishRecordAudioViewController
 
 -(void)loadView{
     XBPublishRecordAudioView *view = [[XBPublishRecordAudioView alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -24,8 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [(XBPublishRecordAudioView*)self.view reloadSubbView];
+    [(XBPublishRecordAudioView*)self.view setViewController:self];
 }
-
-
 
 @end

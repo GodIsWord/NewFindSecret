@@ -44,11 +44,6 @@
 //    self.audeoManager.maxRecordDuration = 10;
     self.audeoManager.recordDelegate = self;
     
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.bounds];
-    imageView.image = self.image;
-    [self addSubview:imageView];
-    
-    
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.backgroundColor = [UIColor clearColor];
     btn.frame = CGRectMake(20, 40, 50, 50);
@@ -114,11 +109,25 @@
     [self closeSelectBtn];
     if (btn == self.okBtn) {
         //确定使用 进行回调
+        [self excFninishDelegat];
     }else if(btn == self.cancleBtn){
         //取消录音 删除之前录音的文件
         [self closeSelectBtn];
     }
 
+}
+
+-(void)excFninishDelegate
+{
+    if([self.delegate respondsToSelector:@selector(XBPublishRecordFinish:audioPath:duration:)]){
+        [self.delegate XBPublishRecordFinish:(self.viewController ?: self) audioPath:[self.audeoManager lastAudioPath] duration:[self.audeoManager lastAudioDuration]];
+    }
+}
+-(void)excDismissDelegate
+{
+    if ([self.delegate respondsToSelector:@selector(XBPublishRecordDismiss:)]) {
+        [self.delegate XBPublishRecordDismiss:(self.viewController ?: self)];
+    }
 }
 
 -(void)openSelectAnimation
@@ -145,8 +154,15 @@
     self.testAudioView.hidden = YES;
 }
 
+-(void)dismiss{
+    if (self.viewController) {
+        [self.viewController dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
 -(void)cancleAction{
-    
+    [self dismiss];
+    [self excDismissDelegate];
 }
 
 -(void)startGifAnimation

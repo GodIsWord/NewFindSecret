@@ -40,9 +40,10 @@
 		C51921C3E062D0586534AE85 /* XBMakeContentItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5192E84211E4017E2540A9E /* XBMakeContentItemView.m */; };
 		CA147A35212D123F00F2F2EE /* SimSun.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA147A33212D10E200F2F2EE /* SimSun.ttf */; };
 		CA147A36212D124100F2F2EE /* Kaiti.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA147A34212D10F300F2F2EE /* Kaiti.ttf */; };
-		CA147A39213274B900F2F2EE /* SimHei.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA147A372132749A00F2F2EE /* SimHei.ttf */; };
-		CA147A3A213274BB00F2F2EE /* STXINGKA.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA147A38213274AF00F2F2EE /* STXINGKA.ttf */; };
-		CA147A3C2133D37700F2F2EE /* yuanti.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA147A3B2133D36D00F2F2EE /* yuanti.ttf */; };
+		CA147A412133D7AC00F2F2EE /* STXINGKAI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA147A402133D7A400F2F2EE /* STXINGKAI.ttf */; };
+		CA147A422133D7D700F2F2EE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B65210C0FF100C5BFBB /* Info.plist */; };
+		CA147A432133D7F000F2F2EE /* SimHei.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA147A372132749A00F2F2EE /* SimHei.ttf */; };
+		CA147A4B2133E54900F2F2EE /* 浪漫雅圆.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA147A492133E46D00F2F2EE /* 浪漫雅圆.ttf */; };
 		CA5450C3211851F8000ABB4B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CA5450A7211851F7000ABB4B /* LICENSE */; };
 		CA5450C4211851F8000ABB4B /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5450AA211851F7000ABB4B /* MASCompositeConstraint.m */; };
 		CA5450C5211851F8000ABB4B /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5450AD211851F7000ABB4B /* MASConstraint.m */; };
@@ -122,7 +123,7 @@
 		E61B9DE22133AA1100B69CE3 /* XBPublishRecordAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E61B9DE12133AA1100B69CE3 /* XBPublishRecordAudioViewController.m */; };
 		E6212AE3213252BB005E02C5 /* XBPublishRecordAudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212AE2213252BB005E02C5 /* XBPublishRecordAudioView.m */; };
 		E6212AE6213254AC005E02C5 /* UIColor+XBHEX.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212AE5213254AC005E02C5 /* UIColor+XBHEX.m */; };
-		E6212AED21325C44005E02C5 /* vioce_big@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = E6212AE921325C44005E02C5 /* vioce_big@2x.gif */; };
+		E6212AED21325C44005E02C5 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		E6212AF521327072005E02C5 /* recordVoice.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E6212AF421327072005E02C5 /* recordVoice.bundle */; };
 		E6212B0721327BDB005E02C5 /* CADisplayLineImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212B0321327BDA005E02C5 /* CADisplayLineImageView.m */; };
 		E6212B0821327BDB005E02C5 /* CADisplayLineImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E6212B0521327BDA005E02C5 /* CADisplayLineImage.m */; };
@@ -226,8 +227,8 @@
 		CA147A33212D10E200F2F2EE /* SimSun.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimSun.ttf; sourceTree = "<group>"; };
 		CA147A34212D10F300F2F2EE /* Kaiti.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kaiti.ttf; sourceTree = "<group>"; };
 		CA147A372132749A00F2F2EE /* SimHei.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimHei.ttf; sourceTree = "<group>"; };
-		CA147A38213274AF00F2F2EE /* STXINGKA.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = STXINGKA.ttf; sourceTree = "<group>"; };
-		CA147A3B2133D36D00F2F2EE /* yuanti.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = yuanti.ttf; sourceTree = "<group>"; };
+		CA147A402133D7A400F2F2EE /* STXINGKAI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = STXINGKAI.ttf; sourceTree = "<group>"; };
+		CA147A492133E46D00F2F2EE /* 浪漫雅圆.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "浪漫雅圆.ttf"; sourceTree = "<group>"; };
 		CA5450A7211851F7000ABB4B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		CA5450A9211851F7000ABB4B /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		CA5450AA211851F7000ABB4B /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
@@ -566,11 +567,11 @@
 		CA147A2E212C316500F2F2EE /* ttf */ = {
 			isa = PBXGroup;
 			children = (
-				CA147A3B2133D36D00F2F2EE /* yuanti.ttf */,
+				CA147A492133E46D00F2F2EE /* 浪漫雅圆.ttf */,
+				CA147A402133D7A400F2F2EE /* STXINGKAI.ttf */,
 				CA147A33212D10E200F2F2EE /* SimSun.ttf */,
 				CA147A34212D10F300F2F2EE /* Kaiti.ttf */,
 				CA147A372132749A00F2F2EE /* SimHei.ttf */,
-				CA147A38213274AF00F2F2EE /* STXINGKA.ttf */,
 			);
 			path = ttf;
 			sourceTree = "<group>";
@@ -1209,26 +1210,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA147A4B2133E54900F2F2EE /* 浪漫雅圆.ttf in Resources */,
 				CA147A35212D123F00F2F2EE /* SimSun.ttf in Resources */,
 				85E98D4E2127C62B00DDCC56 /* XBMakeContentItemView.xib in Resources */,
 				E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */,
 				857616662111FAAD0091E7C1 /* XBMakeToolView.xib in Resources */,
 				CAE7464021129C3F000D05B7 /* LICENSE in Resources */,
-				CA147A3A213274BB00F2F2EE /* STXINGKA.ttf in Resources */,
 				E6212AF521327072005E02C5 /* recordVoice.bundle in Resources */,
 				CA5450CE211851F8000ABB4B /* README.md in Resources */,
-				CA147A39213274B900F2F2EE /* SimHei.ttf in Resources */,
 				E695F125212BA12700519A99 /* MJRefresh.bundle in Resources */,
 				E695F122212BA12700519A99 /* LICENSE in Resources */,
 				BEA19C64210C4D730039086F /* drag.jpg in Resources */,
 				8592617B212F07AB008D0667 /* XBUITestViewController.xib in Resources */,
 				CA5450C3211851F8000ABB4B /* LICENSE in Resources */,
 				CA147A36212D124100F2F2EE /* Kaiti.ttf in Resources */,
-				E6212AED21325C44005E02C5 /* vioce_big@2x.gif in Resources */,
-				CA147A3C2133D37700F2F2EE /* yuanti.ttf in Resources */,
+				E6212AED21325C44005E02C5 /* (null) in Resources */,
+				CA147A432133D7F000F2F2EE /* SimHei.ttf in Resources */,
 				E695F137212BA12700519A99 /* README.md in Resources */,
 				E60E3B61210C0FF100C5BFBB /* Assets.xcassets in Resources */,
 				CAE7464121129C3F000D05B7 /* README.md in Resources */,
+				CA147A412133D7AC00F2F2EE /* STXINGKAI.ttf in Resources */,
+				CA147A422133D7D700F2F2EE /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

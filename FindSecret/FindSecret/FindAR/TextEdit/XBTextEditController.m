@@ -34,7 +34,7 @@
 //    文字样式有时候不起作用 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.styleArray = @[@"",@"SimHei",@"SimSun",@"Kaiti",@"yuanti",@"STXINGKA"];
+    self.styleArray = @[@"",@"SimHei",@"SimSun",@"Kaiti",@"ZhunYuan",@"STXINGKAI"];
     self.colorArray= @[[UIColor whiteColor],[UIColor blackColor],[UIColor redColor],[UIColor orangeColor],[UIColor yellowColor],[UIColor greenColor],[UIColor blueColor],[UIColor purpleColor]];
     self.view.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.backGroundView];
@@ -265,7 +265,14 @@
 }
 
 - (void)changeTextStyles:(UIButton*)sender{
-    
+//        for (NSString *fontName in [UIFont familyNames]) {
+//            NSLog(@"family:'%@'",fontName);
+//            for (NSString *font in [UIFont fontNamesForFamilyName:fontName]) {
+//                NSLog(@"\tfont:'%@'", font);
+//            }
+//            NSLog("=======================");
+//        }
+
     NSString *str = self.styleArray[sender.tag - 101];
     self.editLabel.font = str.length>0?[UIFont fontWithName:str size:20]:[UIFont systemFontOfSize:20];
     self.textStyle = str;

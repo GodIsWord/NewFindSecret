@@ -49,6 +49,7 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
+		<string>yuanti.ttf</string>
 		<string>STXINGKA.ttf</string>
 		<string>SimSun.ttf</string>
 		<string>Kaiti.ttf</string>

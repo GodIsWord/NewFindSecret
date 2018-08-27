@@ -31,10 +31,10 @@
 
 @implementation XBTextEditController
 
-//    文字样式有时候不起作用 、差个圆体
+//    文字样式有时候不起作用 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.styleArray = @[@"",@"SimHei",@"SimSun",@"Kaiti",@"",@"STXINGKA"];
+    self.styleArray = @[@"",@"SimHei",@"SimSun",@"Kaiti",@"yuanti",@"STXINGKA"];
     self.colorArray= @[[UIColor whiteColor],[UIColor blackColor],[UIColor redColor],[UIColor orangeColor],[UIColor yellowColor],[UIColor greenColor],[UIColor blueColor],[UIColor purpleColor]];
     self.view.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.backGroundView];

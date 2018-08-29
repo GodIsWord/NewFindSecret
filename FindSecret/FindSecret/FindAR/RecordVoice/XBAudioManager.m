@@ -73,13 +73,13 @@
             break;
         case 1:
         {
-            [XBRecordAudioToastView showWithVolume:self.recorder.currentVolume];
+//            [XBRecordAudioToastView showWithVolume:self.recorder.currentVolume];
             
         }
             break;
         case 2:
         {
-            [XBRecordAudioToastView showWithVolume:self.player.currentVolume];
+//            [XBRecordAudioToastView showWithVolume:self.player.currentVolume];
             NSLog(@"audioe duration:%f",[self.player duration]);
         }
             break;

@@ -37,6 +37,8 @@
 
 +(void)showWithVolume:(double)volume{
     
+    
+    
     XBRecordAudioToastView *view = [self shareInstance];
     
     view.userInteractionEnabled = YES;

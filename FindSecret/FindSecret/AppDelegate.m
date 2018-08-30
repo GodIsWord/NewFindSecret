@@ -21,7 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [AMapServices sharedServices].apiKey = APIKEY;
     
-    [UnityDelegateManager application:application didFinishLaunchingWithOptions:launchOptions];
+//    [UnityDelegateManager application:application didFinishLaunchingWithOptions:launchOptions];
     
     HomeViewController *control = [[HomeViewController alloc] init];
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:control];
@@ -34,29 +34,29 @@
 }
 
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    [UnityDelegateManager applicationWillResignActive:application];
-}
-
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    [UnityDelegateManager applicationDidEnterBackground:application];
-}
-
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    [UnityDelegateManager applicationWillEnterForeground:application];
-}
-
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    [UnityDelegateManager applicationDidBecomeActive:application];
-}
-
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    [UnityDelegateManager applicationWillTerminate:application];
-}
+//- (void)applicationWillResignActive:(UIApplication *)application {
+//    [UnityDelegateManager applicationWillResignActive:application];
+//}
+//
+//
+//- (void)applicationDidEnterBackground:(UIApplication *)application {
+//    [UnityDelegateManager applicationDidEnterBackground:application];
+//}
+//
+//
+//- (void)applicationWillEnterForeground:(UIApplication *)application {
+//    [UnityDelegateManager applicationWillEnterForeground:application];
+//}
+//
+//
+//- (void)applicationDidBecomeActive:(UIApplication *)application {
+//    [UnityDelegateManager applicationDidBecomeActive:application];
+//}
+//
+//
+//- (void)applicationWillTerminate:(UIApplication *)application {
+//    [UnityDelegateManager applicationWillTerminate:application];
+//}
 
 
 

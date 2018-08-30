@@ -265,14 +265,14 @@
 }
 
 - (void)changeTextStyles:(UIButton*)sender{
-//        for (NSString *fontName in [UIFont familyNames]) {
-//            NSLog(@"family:'%@'",fontName);
-//            for (NSString *font in [UIFont fontNamesForFamilyName:fontName]) {
-//                NSLog(@"\tfont:'%@'", font);
-//            }
-//            NSLog("=======================");
-//        }
-
+    //        for (NSString *fontName in [UIFont familyNames]) {
+    //            NSLog(@"family:'%@'",fontName);
+    //            for (NSString *font in [UIFont fontNamesForFamilyName:fontName]) {
+    //                NSLog(@"\tfont:'%@'", font);
+    //            }
+    //            NSLog("=======================");
+    //        }
+    
     NSString *str = self.styleArray[sender.tag - 101];
     self.editLabel.font = str.length>0?[UIFont fontWithName:str size:20]:[UIFont systemFontOfSize:20];
     self.textStyle = str;
@@ -294,13 +294,14 @@
     self.keyboardLabel.textColor = [UIColor colorWithRed:170.0f /255.0f  green:170.0f /255.0f  blue:170.0f /255.0f  alpha:1];
     self.myTextField.inputView = self.customInputView;
     [self.myTextField becomeFirstResponder];
-    
+    [self.myTextField reloadInputViews];
 }
 
 - (void)keyboardButtonDidClicked:(UIButton *)sender{
     [self.keyboardButton setImage:[UIImage imageNamed:@"keyboard_selected"] forState:UIControlStateNormal];
     [self.styleButton setImage:[UIImage imageNamed:@"style_normal"] forState:UIControlStateNormal];
     self.myTextField.inputView = nil;
+    [self.myTextField reloadInputViews];
     [self.myTextField becomeFirstResponder];
     self.styleLabel.textColor = [UIColor colorWithRed:170.0f /255.0f  green:170.0f /255.0f  blue:170.0f /255.0f  alpha:1];
     self.keyboardLabel.textColor = [UIColor blackColor];

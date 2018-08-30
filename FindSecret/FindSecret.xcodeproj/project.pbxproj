@@ -10,6 +10,7 @@
 		8592617A212F07AB008D0667 /* XBUITestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85926178212F07AB008D0667 /* XBUITestViewController.m */; };
 		8592617B212F07AB008D0667 /* XBUITestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85926179212F07AB008D0667 /* XBUITestViewController.xib */; };
 		CA147A422133D7D700F2F2EE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B65210C0FF100C5BFBB /* Info.plist */; };
+		CA42A52C2137D8390007CCD1 /* UIButton+XBEnlargeEdge.m in Sources */ = {isa = PBXBuildFile; fileRef = CA42A52A2137D8010007CCD1 /* UIButton+XBEnlargeEdge.m */; };
 		CAE746682112AC1D000D05B7 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE746672112AC1D000D05B7 /* libc++.tbd */; };
 		CAE7466A2112AC26000D05B7 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE746692112AC26000D05B7 /* libz.tbd */; };
 		CAE7466C2112AC34000D05B7 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE7466B2112AC34000D05B7 /* libstdc++.6.0.9.tbd */; };
@@ -367,6 +368,8 @@
 		85926177212F07AB008D0667 /* XBUITestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBUITestViewController.h; sourceTree = "<group>"; };
 		85926178212F07AB008D0667 /* XBUITestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBUITestViewController.m; sourceTree = "<group>"; };
 		85926179212F07AB008D0667 /* XBUITestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBUITestViewController.xib; sourceTree = "<group>"; };
+		CA42A5292137D8010007CCD1 /* UIButton+XBEnlargeEdge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+XBEnlargeEdge.h"; sourceTree = "<group>"; };
+		CA42A52A2137D8010007CCD1 /* UIButton+XBEnlargeEdge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+XBEnlargeEdge.m"; sourceTree = "<group>"; };
 		CAE746672112AC1D000D05B7 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		CAE746692112AC26000D05B7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		CAE7466B2112AC34000D05B7 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
@@ -1128,8 +1131,8 @@
 		E69314582137F61700E7FAE3 /* TextEdit */ = {
 			isa = PBXGroup;
 			children = (
-				E69314592137F61700E7FAE3 /* XBTextEditController.h */,
 				E693145A2137F61700E7FAE3 /* ttf */,
+				E69314592137F61700E7FAE3 /* XBTextEditController.h */,
 				E69314602137F61700E7FAE3 /* XBTextEditController.m */,
 			);
 			path = TextEdit;
@@ -1400,25 +1403,25 @@
 		E69314F52137F61700E7FAE3 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				E69314F62137F61700E7FAE3 /* pch */,
-				E69314FC2137F61700E7FAE3 /* XBWeakProxy.h */,
-				E69314FD2137F61700E7FAE3 /* UIView+XBFrame.m */,
 				E69314FE2137F61700E7FAE3 /* MSRecordControl.h */,
-				E69314FF2137F61700E7FAE3 /* XBMakeContentItemView.m */,
-				E69315002137F61700E7FAE3 /* XBMakeToolView.h */,
-				E69315012137F61700E7FAE3 /* UIView+XBEnlargeEdge.m */,
-				E69315022137F61700E7FAE3 /* XBTimer.m */,
-				E69315032137F61700E7FAE3 /* UIColor+XBHEX.m */,
 				E69315042137F61700E7FAE3 /* MSRecordControl.m */,
-				E69315052137F61700E7FAE3 /* XBMakeToolView.xib */,
-				E69315062137F61700E7FAE3 /* UIView+XBFrame.h */,
-				E69315072137F61700E7FAE3 /* XBWeakProxy.m */,
-				E69315082137F61700E7FAE3 /* XBMakeContentItemView.h */,
-				E69315092137F61700E7FAE3 /* UIView+XBEnlargeEdge.h */,
-				E693150A2137F61700E7FAE3 /* XBMakeToolView.m */,
+				E69314F62137F61700E7FAE3 /* pch */,
 				E693150B2137F61700E7FAE3 /* UIColor+XBHEX.h */,
-				E693150C2137F61700E7FAE3 /* XBTimer.h */,
+				E69315032137F61700E7FAE3 /* UIColor+XBHEX.m */,
+				E69315092137F61700E7FAE3 /* UIView+XBEnlargeEdge.h */,
+				E69315012137F61700E7FAE3 /* UIView+XBEnlargeEdge.m */,
+				E69315062137F61700E7FAE3 /* UIView+XBFrame.h */,
+				E69314FD2137F61700E7FAE3 /* UIView+XBFrame.m */,
+				E69315082137F61700E7FAE3 /* XBMakeContentItemView.h */,
+				E69314FF2137F61700E7FAE3 /* XBMakeContentItemView.m */,
 				E693150D2137F61700E7FAE3 /* XBMakeContentItemView.xib */,
+				E69315002137F61700E7FAE3 /* XBMakeToolView.h */,
+				E693150A2137F61700E7FAE3 /* XBMakeToolView.m */,
+				E69315052137F61700E7FAE3 /* XBMakeToolView.xib */,
+				E693150C2137F61700E7FAE3 /* XBTimer.h */,
+				E69315022137F61700E7FAE3 /* XBTimer.m */,
+				E69314FC2137F61700E7FAE3 /* XBWeakProxy.h */,
+				E69315072137F61700E7FAE3 /* XBWeakProxy.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1512,6 +1515,8 @@
 			children = (
 				E693151F2137F61700E7FAE3 /* SQActionSheetView.h */,
 				E69315202137F61700E7FAE3 /* SQActionSheetView.m */,
+				CA42A5292137D8010007CCD1 /* UIButton+XBEnlargeEdge.h */,
+				CA42A52A2137D8010007CCD1 /* UIButton+XBEnlargeEdge.m */,
 			);
 			path = SQActionSheetView;
 			sourceTree = "<group>";
@@ -2364,6 +2369,7 @@
 				E6930CC82137D29900E7FAE3 /* Il2CppGenericInstDefinitions.cpp in Sources */,
 				E693159F2137F61800E7FAE3 /* MJRefreshBackGifFooter.m in Sources */,
 				E69315D22137F61800E7FAE3 /* XBWeakProxy.m in Sources */,
+				CA42A52C2137D8390007CCD1 /* UIButton+XBEnlargeEdge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

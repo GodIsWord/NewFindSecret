@@ -10,6 +10,15 @@
 
 @interface XBUnitySubbviewManager : NSObject
 
--(void)showTakePhoto;
++(XBUnitySubbviewManager*) shareInstance;
+
++(void)showTakePhotoComplate:(void((^)(NSString *path)))block;
+
++(void)startSaomiao;
++(void)stopSaomiao;
+
+#pragma mark -- unity回调
++(void)takePictureSuccess:(NSString *)path;
++(void)saomiaoSuccess:(NSString *)mesg;
 
 @end

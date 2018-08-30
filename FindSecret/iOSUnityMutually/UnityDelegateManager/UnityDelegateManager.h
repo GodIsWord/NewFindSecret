@@ -6,10 +6,8 @@
 //  Copyright © 2017年 张义德. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-
 @class UnityAppController;
+@class UnityView;
 
 @interface UnityDelegateManager : NSObject
 
@@ -18,6 +16,10 @@
 
 +(void)startARWindow;
 +(void)stopARWindow;
+
++(UnityView *)getUnityView;
+
++(UIWindow *) getUnityWindow;
 
 +(UnityAppController *)getUnityDelegate;
 

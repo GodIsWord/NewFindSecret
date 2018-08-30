@@ -19,7 +19,7 @@
 #import "XBPublishRecordAudioViewController.h"
 
 #import "AppDelegate.h"
-#import "UnityDelegateManager.h"
+#import "XBUnitySubbviewManager.h"
 
 @interface HomeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource>
 
@@ -84,11 +84,11 @@
 -(void)initDataSource{
     self.dataSource = @[@"发布",
                         @"选择位置",
-                        @"测试录音",
                         @"文字",
                         @"创作AR内容",
                         @"UI测试",
-                        @"启动AR"];
+                        @"启动AR",
+                        @"AR扫描"];
 }
 
 -(void)initTableView{
@@ -120,7 +120,7 @@
 
 -(void)publish{
     XBPublishController *vc = [XBPublishController new];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController pushViewController:vc animated:NO];
 }
 
 #pragma mark -  UITableViewDelegate
@@ -161,28 +161,29 @@
             break;
             case 2:{
                 
-                XBPublishRecordAudioViewController *controll = [[XBPublishRecordAudioViewController alloc] init];
-                controll.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-                [self presentViewController:controll animated:YES completion:nil];
+                [self gotoTextEdit];
+                
                 
             }
             break;
             case 3:{
-                [self gotoTextEdit];
+                [self gotoVideoEdit];
             }
             break;
             case 4:{
-                [self gotoVideoEdit];
+                XBUITestViewController *vc = [[XBUITestViewController alloc] initWithNibName:@"XBUITestViewController" bundle:nil];
+                [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
             case 5:{
-                XBUITestViewController *vc = [[XBUITestViewController alloc] initWithNibName:@"XBUITestViewController" bundle:nil];
-                [self.navigationController pushViewController:vc animated:YES];
+                [XBUnitySubbviewManager showTakePhotoComplate:^(NSString *path) {
+                    [self publish];
+                }];
                 
             }
             break;
         case 6:{
-            [UnityDelegateManager startARWindow];
+            [XBUnitySubbviewManager startSaomiao];
         }
             break;
 

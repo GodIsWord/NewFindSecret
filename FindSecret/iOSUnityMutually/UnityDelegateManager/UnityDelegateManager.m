@@ -36,20 +36,35 @@ static UnityDelegateManager *manager = nil;
 
 +(void)startARWindow
 {
-    UnityAppController *dele = [UnityDelegateManager shareInstance].unityAppController;
-    [[UIApplication sharedApplication].delegate.window resignKeyWindow];
-    [[UIApplication sharedApplication].delegate.window setHidden:YES];
-    [dele.window makeKeyAndVisible];
-    dele.window.hidden = NO;
+    UIWindow *appWindow = [UIApplication sharedApplication].delegate.window;
+    [appWindow resignKeyWindow];
+    appWindow.hidden = YES;
+    
+    
+    UIWindow *unityWindow = [self getUnityWindow];
+    [unityWindow makeKeyAndVisible];
+    [unityWindow setHidden:NO];
 }
 
 +(void)stopARWindow
 {
-    UnityAppController *dele = [UnityDelegateManager shareInstance].unityAppController;
-    [[UIApplication sharedApplication].delegate.window makeKeyAndVisible];
-    [[UIApplication sharedApplication].delegate.window setHidden:NO];
-    [dele.window resignKeyWindow];
-    dele.window.hidden = YES;
+    UIWindow *appWindow = [UIApplication sharedApplication].delegate.window;
+    [appWindow makeKeyAndVisible];
+    [appWindow setHidden:NO];
+    
+    UIWindow *unityWindow = [self getUnityWindow];
+    [unityWindow resignKeyWindow];
+    unityWindow.hidden = YES;
+}
+
++(UnityView *)getUnityView
+{
+    return [self getUnityDelegate].unityView;
+}
+
++(UIWindow *)getUnityWindow
+{
+    return UnityGetMainWindow();
 }
 
 +(UnityAppController *)getUnityDelegate

@@ -9,12 +9,15 @@
 typedef NS_ENUM(NSUInteger, TakePhotoActionType) {
     TakePhotoActionTypeCancle,
     TakePhotoActionTypeOK,
+    TakePhotoActionTypeFlapCamra,
 };
 
 #import <Foundation/Foundation.h>
 
 @interface XBUnityTakePhotoSubbViews : NSObject
 
-+(void)showTakePhotoViewBack:(UIView*)backView Complate:(void((^)(TakePhotoActionType actionType)))block;
++(void)showWithSuperView:(UIView*)superView complate:(void((^)(TakePhotoActionType actionType)))block;
+
++(void)dismissWithSuperView:(UIView*)superView;
 
 @end

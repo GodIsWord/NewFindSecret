@@ -8,7 +8,7 @@
 
 #import "XBTextEditController.h"
 #import "XBMacroDefinition.h"
-
+#import "UIButton+XBEnlargeEdge.h"
 @interface XBTextEditController ()<UITextViewDelegate,UITextFieldDelegate>
 @property (nonatomic, strong) UIView *backGroundView;
 @property (nonatomic, strong) UIButton *cancelButton;
@@ -127,7 +127,7 @@
     
     self.keyboardButton = [[UIButton alloc] init];
     [self.keyboardButton setImage:[UIImage imageNamed:@"keyboard_selected"] forState:UIControlStateNormal];
-    
+    [self.keyboardButton xb_setEnlargeEdgeWithTop:10 right:50 bottom:10 left:60];
     [self.keyboardButton addTarget:self action:@selector(keyboardButtonDidClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.customAccessoryView addSubview:self.keyboardButton];
     [self.keyboardButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -153,6 +153,7 @@
     [self.styleButton addTarget:self action:@selector(styleButtonDidClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.customAccessoryView addSubview:self.styleButton];
     [self.styleButton setImage:[UIImage imageNamed:@"style_normal"] forState:UIControlStateNormal];
+    [self.styleButton xb_setEnlargeEdgeWithTop:10 right:60 bottom:10 left:50];
     [self.styleButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.customAccessoryView.mas_right).offset(-(SCREEN_WIDTH/4));
         make.width.mas_equalTo(50);
@@ -293,8 +294,9 @@
     self.styleLabel.textColor = [UIColor blackColor];
     self.keyboardLabel.textColor = [UIColor colorWithRed:170.0f /255.0f  green:170.0f /255.0f  blue:170.0f /255.0f  alpha:1];
     self.myTextField.inputView = self.customInputView;
-    [self.myTextField becomeFirstResponder];
     [self.myTextField reloadInputViews];
+    [self.myTextField becomeFirstResponder];
+
 }
 
 - (void)keyboardButtonDidClicked:(UIButton *)sender{

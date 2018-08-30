@@ -44,6 +44,7 @@
 		CA147A422133D7D700F2F2EE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B65210C0FF100C5BFBB /* Info.plist */; };
 		CA147A432133D7F000F2F2EE /* SimHei.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA147A372132749A00F2F2EE /* SimHei.ttf */; };
 		CA147A4B2133E54900F2F2EE /* 浪漫雅圆.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA147A492133E46D00F2F2EE /* 浪漫雅圆.ttf */; };
+		CA42A52C2137D8390007CCD1 /* UIButton+XBEnlargeEdge.m in Sources */ = {isa = PBXBuildFile; fileRef = CA42A52A2137D8010007CCD1 /* UIButton+XBEnlargeEdge.m */; };
 		CA5450C3211851F8000ABB4B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CA5450A7211851F7000ABB4B /* LICENSE */; };
 		CA5450C4211851F8000ABB4B /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5450AA211851F7000ABB4B /* MASCompositeConstraint.m */; };
 		CA5450C5211851F8000ABB4B /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5450AD211851F7000ABB4B /* MASConstraint.m */; };
@@ -229,6 +230,8 @@
 		CA147A372132749A00F2F2EE /* SimHei.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimHei.ttf; sourceTree = "<group>"; };
 		CA147A402133D7A400F2F2EE /* STXINGKAI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = STXINGKAI.ttf; sourceTree = "<group>"; };
 		CA147A492133E46D00F2F2EE /* 浪漫雅圆.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "浪漫雅圆.ttf"; sourceTree = "<group>"; };
+		CA42A5292137D8010007CCD1 /* UIButton+XBEnlargeEdge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+XBEnlargeEdge.h"; sourceTree = "<group>"; };
+		CA42A52A2137D8010007CCD1 /* UIButton+XBEnlargeEdge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+XBEnlargeEdge.m"; sourceTree = "<group>"; };
 		CA5450A7211851F7000ABB4B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		CA5450A9211851F7000ABB4B /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		CA5450AA211851F7000ABB4B /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
@@ -915,6 +918,8 @@
 		E6019641210C16E50046D1FA /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CA42A5292137D8010007CCD1 /* UIButton+XBEnlargeEdge.h */,
+				CA42A52A2137D8010007CCD1 /* UIButton+XBEnlargeEdge.m */,
 				E6212AE4213254AC005E02C5 /* UIColor+XBHEX.h */,
 				E6212AE5213254AC005E02C5 /* UIColor+XBHEX.m */,
 				E6019642210C18C40046D1FA /* UIView+XBFrame.h */,
@@ -1358,6 +1363,7 @@
 				8592616F212C694D008D0667 /* WXSTransitionManager+TypeTool.m in Sources */,
 				CAE7463921129C3F000D05B7 /* RequestViewModel.m in Sources */,
 				CAE7464721129C3F000D05B7 /* XHSystemCollectionViewController.m in Sources */,
+				CA42A52C2137D8390007CCD1 /* UIButton+XBEnlargeEdge.m in Sources */,
 				85926175212C694D008D0667 /* WXSTransitionProperty.m in Sources */,
 				C51921C3E062D0586534AE85 /* XBMakeContentItemView.m in Sources */,
 			);

@@ -8,12 +8,30 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface XBMakeContentItemView ()
-
+@property (nonatomic, strong) CAShapeLayer *border;
+@property (weak, nonatomic) IBOutlet UIView *itemView;
 @end
 
 
 @implementation XBMakeContentItemView {
 
+}
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self initialize];
+    }
+    return self;
+}
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    [self initialize];
+}
+- (void)initialize {
+    self.border = [CAShapeLayer layer];
+    // 不要设太大 不然看不出效果
+    [self.contentView.layer addSublayer:self.border];
 }
 - (IBAction)tap:(UITapGestureRecognizer *)sender {
     if (self.didClicked) {
@@ -49,20 +67,15 @@
 }
 
 + (instancetype)contentItemViewWithAttributedString:(NSAttributedString *)attributedString {
+    
     UILabel *contentLab = [[UILabel alloc] init];
     contentLab.numberOfLines = 0;
     contentLab.attributedText = attributedString;
     [contentLab sizeToFit];
 
     XBMakeContentItemView *view = [[[UINib nibWithNibName:@"XBMakeContentItemView" bundle:nil] instantiateWithOwner:nil options:nil] firstObject];
-    [view.contentView addSubview:contentLab];
-
-    CGSize size = contentLab.bounds.size;
-    if (size.width < 80) {
-        size.width = 80;
-    }
-    size.height += 40;
-    view.bounds = (CGRect) {{0, 0}, size};
+    view.frame = CGRectInset(contentLab.bounds, -20, -20);
+    [view.itemView addSubview:contentLab];
     view.center = CGPointMake(SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2);
     return view;
 }
@@ -74,11 +87,8 @@
 
     CGSize size = imageView.image.size;
 
-    XBMakeContentItemView *view = [[[UINib nibWithNibName:@"XBMakeContentItemView" bundle:nil] instantiateWithOwner:nil options:nil] firstObject];
-    [view.contentView addSubview:imageView];
-
+    
     CGFloat rate = size.width / size.height;
-
     CGFloat width = SCREEN_WIDTH / 6.0;
     CGFloat height = width / rate;
 
@@ -86,8 +96,10 @@
     size.height = height;
     imageView.frame = CGRectMake(0, 0, size.width, size.height);
 
-    size.height += 40;
-    view.bounds = (CGRect) {{0, 0}, size};
+    
+    XBMakeContentItemView *view = [[[UINib nibWithNibName:@"XBMakeContentItemView" bundle:nil] instantiateWithOwner:nil options:nil] firstObject];
+    view.frame = CGRectInset(imageView.bounds, -20, -20);
+    [view.itemView addSubview:imageView];
     view.center = CGPointMake(SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2);
     return view;
 
@@ -95,14 +107,10 @@
 
 
 + (UIImage *)thumbnailImageForVideo:(NSURL *)videoURL {
-
-
     AVURLAsset *videoAsset = [AVURLAsset URLAssetWithURL:videoURL options:@{AVURLAssetPreferPreciseDurationAndTimingKey: @(NO)}];
-
     AVAssetImageGenerator *assetImageGenerator = [[AVAssetImageGenerator alloc] initWithAsset:videoAsset];
     assetImageGenerator.appliesPreferredTrackTransform = YES;
     assetImageGenerator.apertureMode = AVAssetImageGeneratorApertureModeEncodedPixels;
-
     CGImageRef thumbnailImageRef = NULL;
     CFTimeInterval thumbnailImageTime = 1;
     NSError *thumbnailImageGenerationError = nil;
@@ -116,4 +124,13 @@
     return thumbnailImage;
 }
 
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.border.path = [UIBezierPath bezierPathWithRect:self.contentView.bounds].CGPath;
+    self.border.fillColor = nil;
+    self.border.lineWidth = 1;
+    self.border.lineDashPattern = @[@4, @2];
+    self.border.strokeColor = [UIColor whiteColor].CGColor;
+}
 @end

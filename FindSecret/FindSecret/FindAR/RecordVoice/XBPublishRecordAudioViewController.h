@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "XBPublishRecordAudioView.h"
 @interface XBPublishRecordAudioViewController : UIViewController
-
+@property(nonatomic,weak) id<XBPublishRecordAudioViewDelegate> delegate;
 @end

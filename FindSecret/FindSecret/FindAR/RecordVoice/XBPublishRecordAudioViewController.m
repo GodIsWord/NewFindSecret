@@ -12,7 +12,7 @@
 
 @interface XBPublishRecordAudioViewController ()
 
-@property(nonatomic,weak) id<XBPublishRecordAudioViewDelegate> delegate;
+
 
 @end
 

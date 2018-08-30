@@ -6,10 +6,15 @@
 //  Copyright © 2018年 Mac. All rights reserved.
 //
 
+typedef NS_ENUM(NSUInteger, TakePhotoActionType) {
+    TakePhotoActionTypeCancle,
+    TakePhotoActionTypeOK,
+};
+
 #import <Foundation/Foundation.h>
 
 @interface XBUnityTakePhotoSubbViews : NSObject
 
-+(void)addSubbViews;
++(void)showTakePhotoViewBack:(UIView*)backView Complate:(void((^)(TakePhotoActionType actionType)))block;
 
 @end

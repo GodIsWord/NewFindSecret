@@ -7,12 +7,16 @@
 //
 
 #import "XBUnityTakePhotoSubbViews.h"
+#import "UIButton+Block.h"
 
 @implementation XBUnityTakePhotoSubbViews
 
-+(void)addSubbViews
++(void)showTakePhotoViewBack:(UIView*)backView Complate:(void((^)(TakePhotoActionType actionType)))block
 {
-    
+    if (!backView) {
+        return;
+    }
+//    UIButton *btn = [UIButton ]
 }
 
 

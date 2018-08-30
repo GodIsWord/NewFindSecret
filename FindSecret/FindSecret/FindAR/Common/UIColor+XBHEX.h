@@ -5,6 +5,9 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
+#import "ColorHead.h"
+
 @interface UIColor (XBHEX)
 /**
  * 根据str生成颜色

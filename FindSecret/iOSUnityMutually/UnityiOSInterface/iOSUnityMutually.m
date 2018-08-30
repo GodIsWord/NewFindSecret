@@ -9,14 +9,17 @@
 #import "iOSUnityMutually.h"
 #import "UnityToiOSManager.h"
 
-
-//unity启动结束
 void u3dStarted(void)
 {
     
 }
+//unity启动结束
+void unityStarted(void)
+{
+    
+}
 // 显示Toast:
-void showToast(char *str)
+void showToastMessage(void)
 {
     
 }

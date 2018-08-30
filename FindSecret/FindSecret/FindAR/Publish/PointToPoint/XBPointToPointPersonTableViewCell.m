@@ -7,6 +7,7 @@
 //
 
 #import "XBPointToPointPersonTableViewCell.h"
+#import "Masonry.h"
 
 
 @interface XBPointToPointPersonTableViewCell()
@@ -34,7 +35,7 @@
     UIImageView *headImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 15, 30, 30)];
     headImageView.backgroundColor = [UIColor blueColor];
     [self addSubview:headImageView];
-    headImageView.layer.cornerRadius = headImageView.width/2;
+    headImageView.layer.cornerRadius = headImageView.xb_width/2;
     headImageView.layer.masksToBounds = YES;
     self.headImageView = headImageView;
     

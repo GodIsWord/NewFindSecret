@@ -9,6 +9,7 @@
 #import "XBBaseTableViewController.h"
 #import "WXBaseModel.h"
 #import "MJRefresh.h"
+#import "XYString.h"
 
 @interface XBBaseTableViewController ()<XHRefreshControlDelegate>
 {

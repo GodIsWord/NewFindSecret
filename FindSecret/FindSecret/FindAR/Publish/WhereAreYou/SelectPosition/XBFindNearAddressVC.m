@@ -23,6 +23,8 @@
 #import "XBFindFriendCell.h"
 #import "XBNoResultHeadView.h"
 
+#import "UIButton+Block.h"
+
 
 @interface XBFindNearAddressVC ()<UITableViewDataSource,UITableViewDelegate,UISearchDisplayDelegate,MAMapViewDelegate,AMapSearchDelegate>
 {
@@ -458,8 +460,8 @@
 - (UIActivityIndicatorView *)reloadView
 {
     if (_reloadView == nil) {
-        CGFloat top = self.tableView.tableHeaderView.height+CHOOSEMAPVIEWMAPH;
-        CGFloat height = VIEWHEIGHT - top +self.tableView.tableHeaderView.height;
+        CGFloat top = self.tableView.tableHeaderView.xb_height+CHOOSEMAPVIEWMAPH;
+        CGFloat height = VIEWHEIGHT - top +self.tableView.tableHeaderView.xb_height;
         UIActivityIndicatorView *testActivityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         testActivityIndicator.backgroundColor = [UIColor whiteColor];
         testActivityIndicator.frame = CGRectMake(0, top, ScreenWidth, height);

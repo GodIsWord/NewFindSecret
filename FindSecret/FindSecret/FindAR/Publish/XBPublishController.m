@@ -12,6 +12,9 @@
 #import "XBPublishCell.h"
 #import "XBWhoCanSeeController.h"
 #import "XBSelectFriendsController.h"
+
+#import "Masonry.h"
+
 @interface XBPublishController ()<UITextViewDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITextView *editTextView;
 @property (nonatomic, strong) UILabel *placeholder;

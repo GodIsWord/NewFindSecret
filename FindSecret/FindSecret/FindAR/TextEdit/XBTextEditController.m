@@ -314,8 +314,8 @@
     CGSize size = [self.text boundingRectWithSize:CGSizeMake(SCREEN_WIDTH-30, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
     
     self.editLabel.frame = CGRectMake(0, STATUSBAR_And_NAVIGATIONBAR_HEIGHT, size.width+20,  size.height+30);
-    self.editLabel.centerX = self.backGroundView.centerX;
-    self.editLabel.size = CGSizeMake(size.width+20,  size.height+30);
+    self.editLabel.xb_centerX = self.backGroundView.xb_centerX;
+    self.editLabel.xb_framSize = CGSizeMake(size.width+20,  size.height+30);
     self.border = [CAShapeLayer layer];
     self.border.strokeColor = [UIColor whiteColor].CGColor;   //虚线的颜色
     self.border.fillColor = [UIColor clearColor].CGColor;//填充的颜色

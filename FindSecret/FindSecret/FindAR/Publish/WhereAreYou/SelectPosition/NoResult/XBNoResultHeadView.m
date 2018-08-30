@@ -22,7 +22,7 @@
 - (void)commonInit
 {
     CGFloat left = 10;
-    CGFloat HEIGH = self.height;
+    CGFloat HEIGH = self.xb_height;
 
     CGFloat imgW = 15;
     CGFloat imgL = ScreenWidth - left - imgW;

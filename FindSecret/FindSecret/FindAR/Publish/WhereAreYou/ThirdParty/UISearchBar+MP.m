@@ -7,6 +7,7 @@
 //
 
 #import "UISearchBar+MP.h"
+#import "UIImage+MP.h"
 
 @implementation UISearchBar (MP)
 #pragma mark -

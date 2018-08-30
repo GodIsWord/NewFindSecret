@@ -9,7 +9,6 @@
 #import "XBPublishRecordAudioView.h"
 #import "MSRecordControl.h"
 #import "XBAudioManager.h"
-#import "CADisplayLineImageView.h"
 #import "XBGifImageView.h"
 #import "XBPublishLisonItemView.h"
 
@@ -53,18 +52,18 @@
     [self addSubview:btn];
     self.backBtn = btn;
     
-    MSRecordControl *control = [[MSRecordControl alloc] initWithFrame:CGRectMake(0, self.height-90-80, 90, 90)];
+    MSRecordControl *control = [[MSRecordControl alloc] initWithFrame:CGRectMake(0, self.xb_height-90-80, 90, 90)];
     control.mode = MSRecordControlLongPress;
     control.backgroundColor = [UIColor whiteColor];
     control.layer.cornerRadius =control.xb_width/2;
     control.layer.masksToBounds = YES;
-    control.centerX = self.xb_width/2;
+    control.xb_centerX = self.xb_width/2;
     control.duration = 10;
     control.delegate = self;
     [self addSubview:control];
     self.recordControl = control;
     
-    UILabel *miaoshulable = [[UILabel alloc] initWithFrame:CGRectMake(0, control.origin.y-60, self.xb_width, 25)];
+    UILabel *miaoshulable = [[UILabel alloc] initWithFrame:CGRectMake(0, control.xb_y-60, self.xb_width, 25)];
     miaoshulable.backgroundColor = [UIColor clearColor];
     miaoshulable.textColor = [UIColor whiteColor];
     miaoshulable.text = @"按住开始录音，松开结束录音";
@@ -79,7 +78,7 @@
     self.cancleBtn = [self createBtnFrame:control.frame image:[UIImage imageNamed:@"post_icon_voice_clear_normal"] select:@selector(btnAction:)];
     self.cancleBtn.hidden = YES;
     
-    XBGifImageView *gifView = [[XBGifImageView alloc] initWithFrame:CGRectMake(10, 10, control.xb_width-20, control.height-20)];
+    XBGifImageView *gifView = [[XBGifImageView alloc] initWithFrame:CGRectMake(10, 10, control.xb_width-20, control.xb_height-20)];
     [self.recordControl addSubview:gifView];
     self.gifView = gifView;
     [gifView loadGIFWithPath:[self gifPath]];

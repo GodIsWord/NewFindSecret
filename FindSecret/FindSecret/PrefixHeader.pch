@@ -1,44 +1,38 @@
 //
-//  PrefixHeader.pch
-//  weihepan
-//
-//  Created by plum on 17/1/7.
-//  Copyright © 2017年 plum. All rights reserved.
+// Prefix header
 //
 
-#ifndef PrefixHeader_pch
-#define PrefixHeader_pch
+#include "Preprocessor.h"
+
 
 #ifdef __OBJC__
 
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
+#import "MPUserDefaultsHead.h"
 #import "MPNslogHeader.h"
 #import "CONST.h"
-#import "ColorHead.h"
-#import "MPUserDefaultsHead.h"
-#import "ShareKey_mapKey.h"
-#import "defines.h"
-#import "wh_Head.h"
 #import "UIColor+XBHEX.h"
 #import "UIView+XBFrame.h"
-
-
-#import <CoreText/CoreText.h>
-
-
-#import "AppDelegate.h"
-
-#import "UIViewExt.h"
-
-
-#import "XYString.h"
-
-
-#import "SQActionSheetView.h"
-
-#import "UIImage+MP.h"
-#import "UIButton+Block.h"
-#import "UIScrollView+Addition.h"
 #import "Masonry.h"
+
 #endif
-#endif /* PrefixHeader_pch */
+
+#include "UnityTrampolineConfigure.h"
+#include "UnityInterface.h"
+
+
+#ifndef __OBJC__
+#if USE_IL2CPP_PCH
+#include "il2cpp_precompiled_header.h"
+#endif
+#endif
+
+
+#ifndef TARGET_IPHONE_SIMULATOR
+#define TARGET_IPHONE_SIMULATOR 0
+#endif
+
+#define printf_console printf
+

@@ -17,6 +17,10 @@
 #import "XBPublishController.h"
 #import "XBUITestViewController.h"
 #import "XBPublishRecordAudioViewController.h"
+
+#import "AppDelegate.h"
+#import "UnityDelegateManager.h"
+
 @interface HomeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic, strong) NSDictionary *userInfo;
@@ -63,6 +67,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor whiteColor];
     
     [self initDataSource];
     [self initTableView];
@@ -82,11 +87,12 @@
                         @"测试录音",
                         @"文字",
                         @"创作AR内容",
-                        @"UI测试"];
+                        @"UI测试",
+                        @"启动AR"];
 }
 
 -(void)initTableView{
-    UITableView *tableVIew = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight) style:UITableViewStylePlain];
+    UITableView *tableVIew = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStylePlain];
     tableVIew.delegate = self;
     tableVIew.dataSource = self;
     [self.view addSubview:tableVIew];
@@ -99,16 +105,16 @@
     XBFindNearAddressVC *vc = [XBFindNearAddressVC new];
     [vc setReturnBlock:^(NSString *city,NSString *name,NSString *address,CGFloat latitude,CGFloat longitude,NSString *phone,UIImage *img){
         if (name) {
-            
-            self.addressLabel.width = ScreenWidth - 40;
+
+            self.addressLabel.xb_width = ScreenWidth - 40;
             self.addressLabel.text = [NSString stringWithFormat:@"longitude = %.10f\nlatitude = %.10f\n%@",longitude,latitude,name];
             [self.addressLabel sizeToFit];
-            
+
         }
-        
+
     }];
-//    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
-//    [self presentViewController:nav animated:YES completion:nil];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -174,6 +180,10 @@
                 [self.navigationController pushViewController:vc animated:YES];
                 
             }
+            break;
+        case 6:{
+            [UnityDelegateManager startARWindow];
+        }
             break;
 
             

@@ -6,9 +6,14 @@
 //  Copyright © 2016年 ManPao. All rights reserved.
 //
 
-#ifndef wh_Head_h
-#define wh_Head_h
+
+#ifndef MPUserDefaultsHead_h
+#define MPUserDefaultsHead_h
 #ifdef __OBJC__
+
+#define APIKEY @"2f06ad8642c431c178e7d34237769735"
+
+#define  MPUserDefaults [NSUserDefaults standardUserDefaults]
 
 #define NavItemH 44
 #define NavItemW 50
@@ -38,5 +43,7 @@
 #define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
 #define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
 #define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
-#endif /* wh_Head_h */
+
+
+#endif
 #endif

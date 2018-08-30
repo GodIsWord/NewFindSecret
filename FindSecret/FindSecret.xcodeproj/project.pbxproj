@@ -22,11 +22,12 @@
 		CAE746762112AC7C000D05B7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE746752112AC7C000D05B7 /* CoreLocation.framework */; };
 		CAE746782112AC86000D05B7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE746772112AC86000D05B7 /* CoreTelephony.framework */; };
 		E601964B210C21830046D1FA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E601964A210C21830046D1FA /* AVFoundation.framework */; };
-		E60A09B521385D67009BC9F0 /* libiPhone-lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E69310C32137F58800E7FAE3 /* libiPhone-lib.a */; };
+		E60A09B521385D67009BC9F0 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		E60A09B821386504009BC9F0 /* XBUnitySaomiaoSubbViews.m in Sources */ = {isa = PBXBuildFile; fileRef = E60A09B721386504009BC9F0 /* XBUnitySaomiaoSubbViews.m */; };
 		E60A09BA21386C56009BC9F0 /* saomiaokuang@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E60A09B921386C56009BC9F0 /* saomiaokuang@3x.png */; };
 		E60A09BD21386C66009BC9F0 /* shanguangdengguanbi_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E60A09BB21386C66009BC9F0 /* shanguangdengguanbi_normal@3x.png */; };
 		E60A09BE21386C66009BC9F0 /* shanguangdengkai_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E60A09BC21386C66009BC9F0 /* shanguangdengkai_normal@3x.png */; };
+		E60A09C121387D86009BC9F0 /* sound_camera.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E60A09C021387D86009BC9F0 /* sound_camera.mp3 */; };
 		E60E3B59210C0FF000C5BFBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B58210C0FF000C5BFBB /* AppDelegate.m */; };
 		E60E3B5C210C0FF000C5BFBB /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B5B210C0FF000C5BFBB /* HomeViewController.m */; };
 		E60E3B61210C0FF100C5BFBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B60210C0FF100C5BFBB /* Assets.xcassets */; };
@@ -392,6 +393,7 @@
 		E60A09B921386C56009BC9F0 /* saomiaokuang@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "saomiaokuang@3x.png"; sourceTree = "<group>"; };
 		E60A09BB21386C66009BC9F0 /* shanguangdengguanbi_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shanguangdengguanbi_normal@3x.png"; sourceTree = "<group>"; };
 		E60A09BC21386C66009BC9F0 /* shanguangdengkai_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shanguangdengkai_normal@3x.png"; sourceTree = "<group>"; };
+		E60A09C021387D86009BC9F0 /* sound_camera.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_camera.mp3; sourceTree = "<group>"; };
 		E60E3B54210C0FEF00C5BFBB /* FindSecret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindSecret.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E60E3B57210C0FF000C5BFBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E60E3B58210C0FF000C5BFBB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -917,7 +919,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E60A09B521385D67009BC9F0 /* libiPhone-lib.a in Frameworks */,
+				E60A09B521385D67009BC9F0 /* (null) in Frameworks */,
 				E693EFEE2137C56D00E7FAE3 /* libiconv.2.tbd in Frameworks */,
 				E693EFEC2137C56200E7FAE3 /* UIKit.framework in Frameworks */,
 				E69315962137F61800E7FAE3 /* MAMapKit.framework in Frameworks */,
@@ -1127,6 +1129,7 @@
 		E69314572137F61700E7FAE3 /* FindAR */ = {
 			isa = PBXGroup;
 			children = (
+				E693146B2137F61700E7FAE3 /* recordVoice.bundle */,
 				E69314582137F61700E7FAE3 /* TextEdit */,
 				E69314612137F61700E7FAE3 /* RecordVoice */,
 				E69314752137F61700E7FAE3 /* VideoEdit */,
@@ -1174,7 +1177,6 @@
 				E69314682137F61700E7FAE3 /* XBPublishRecordAudioView.m */,
 				E69314692137F61700E7FAE3 /* XBGifImageView.m */,
 				E693146A2137F61700E7FAE3 /* XBRecordAudioToastView.h */,
-				E693146B2137F61700E7FAE3 /* recordVoice.bundle */,
 				E693146C2137F61700E7FAE3 /* XBAudioManager.h */,
 				E693146D2137F61700E7FAE3 /* XBPublishRecordAudioViewController.h */,
 				E693146E2137F61700E7FAE3 /* XBPublishLisonItemView.h */,
@@ -1194,7 +1196,6 @@
 				E69314782137F61700E7FAE3 /* drag.jpg */,
 				E693147B2137F61700E7FAE3 /* XBVideoEditController.h */,
 				E69314762137F61700E7FAE3 /* XBVideoEditController.m */,
-				E69314792137F61700E7FAE3 /* XBVideoEditController.xib */,
 				E693147A2137F61700E7FAE3 /* XBVideoIntervalChooseView.h */,
 				E69314772137F61700E7FAE3 /* XBVideoIntervalChooseView.m */,
 			);
@@ -1995,6 +1996,7 @@
 		E6B226B82138129500D67944 /* UnitySubbviewManager */ = {
 			isa = PBXGroup;
 			children = (
+				E60A09C021387D86009BC9F0 /* sound_camera.mp3 */,
 				E60A09BB21386C66009BC9F0 /* shanguangdengguanbi_normal@3x.png */,
 				E60A09BC21386C66009BC9F0 /* shanguangdengkai_normal@3x.png */,
 				E60A09B921386C56009BC9F0 /* saomiaokuang@3x.png */,
@@ -2074,6 +2076,7 @@
 				E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */,
 				E69315922137F61800E7FAE3 /* drag.jpg in Resources */,
 				8592617B212F07AB008D0667 /* XBUITestViewController.xib in Resources */,
+				E60A09C121387D86009BC9F0 /* sound_camera.mp3 in Resources */,
 				E6212AED21325C44005E02C5 /* (null) in Resources */,
 				E69315812137F61800E7FAE3 /* 浪漫雅圆.ttf in Resources */,
 				E69315F42137F61800E7FAE3 /* README.md in Resources */,

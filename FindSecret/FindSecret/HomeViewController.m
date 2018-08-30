@@ -184,6 +184,9 @@
             break;
         case 6:{
             [XBUnitySubbviewManager startSaomiao];
+//            XBPublishRecordAudioViewController *controller = [[XBPublishRecordAudioViewController alloc] init];
+//            controller.modalPresentationStyle = UIModalPresentationPopover;
+//            [self.navigationController presentViewController:controller animated:YES completion:nil];
         }
             break;
 

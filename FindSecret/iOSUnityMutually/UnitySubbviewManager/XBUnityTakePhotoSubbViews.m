@@ -8,6 +8,7 @@
 
 #import "XBUnityTakePhotoSubbViews.h"
 #import "UIButton+Block.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @implementation XBUnityTakePhotoSubbViews
 
@@ -27,6 +28,8 @@
     [superView addSubview:btnPicture];
     btnPicture.tag = 11001;
     [btnPicture addActionHandler:^(NSInteger tag) {
+        //拍照
+        [self playSound];
         if (block) {
             block(TakePhotoActionTypeOK);
         }
@@ -81,6 +84,16 @@
         }
     }
 
+}
+
++(void)playSound
+{
+    NSString *audioFile=[[NSBundle mainBundle] pathForResource:@"sound_camera" ofType:@"mp3"];
+    NSURL *fileUrl=[NSURL fileURLWithPath:audioFile];
+    //1.获得系统声音ID
+    SystemSoundID soundID=0;
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)(fileUrl), &soundID);
+    AudioServicesPlaySystemSound(soundID);
 }
 
 @end

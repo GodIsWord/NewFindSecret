@@ -71,7 +71,7 @@
     borderLayer.path = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;//设置路径
     borderLayer.frame = self.bounds;
     borderLayer.lineWidth = 1.f;
-    borderLayer.lineDashPattern = @[@4, @4];
+    borderLayer.lineDashPattern = @[@4, @2];
     [self.layer addSublayer:borderLayer];
     
     

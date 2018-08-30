@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8592617A212F07AB008D0667 /* XBUITestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85926178212F07AB008D0667 /* XBUITestViewController.m */; };
 		8592617B212F07AB008D0667 /* XBUITestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85926179212F07AB008D0667 /* XBUITestViewController.xib */; };
+		859261CE213835E6008D0667 /* libiPhone-lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 859261CD213835E6008D0667 /* libiPhone-lib.a */; };
 		CA147A422133D7D700F2F2EE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B65210C0FF100C5BFBB /* Info.plist */; };
 		CA42A52C2137D8390007CCD1 /* UIButton+XBEnlargeEdge.m in Sources */ = {isa = PBXBuildFile; fileRef = CA42A52A2137D8010007CCD1 /* UIButton+XBEnlargeEdge.m */; };
 		CAE746682112AC1D000D05B7 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE746672112AC1D000D05B7 /* libc++.tbd */; };
@@ -176,7 +177,6 @@
 		E69312AA2137F58B00E7FAE3 /* libNativeVideoRecord.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6930F102137F58500E7FAE3 /* libNativeVideoRecord.a */; };
 		E69312AB2137F58B00E7FAE3 /* libNativeVideoPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6930F112137F58500E7FAE3 /* libNativeVideoPlayer.a */; };
 		E69314512137F58C00E7FAE3 /* RegisterFeatures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E69310C22137F58800E7FAE3 /* RegisterFeatures.cpp */; };
-		E69314522137F58C00E7FAE3 /* libiPhone-lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E69310C32137F58800E7FAE3 /* libiPhone-lib.a */; };
 		E69314532137F58C00E7FAE3 /* NativeShare.mm in Sources */ = {isa = PBXBuildFile; fileRef = E69310C92137F58800E7FAE3 /* NativeShare.mm */; };
 		E69314542137F58C00E7FAE3 /* RegisterMonoModules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E69310CA2137F58800E7FAE3 /* RegisterMonoModules.cpp */; };
 		E69315802137F61800E7FAE3 /* Kaiti.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E693145B2137F61700E7FAE3 /* Kaiti.ttf */; };
@@ -198,7 +198,6 @@
 		E69315902137F61800E7FAE3 /* XBVideoEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = E69314762137F61700E7FAE3 /* XBVideoEditController.m */; };
 		E69315912137F61800E7FAE3 /* XBVideoIntervalChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = E69314772137F61700E7FAE3 /* XBVideoIntervalChooseView.m */; };
 		E69315922137F61800E7FAE3 /* drag.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E69314782137F61700E7FAE3 /* drag.jpg */; };
-		E69315932137F61800E7FAE3 /* XBVideoEditController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E69314792137F61700E7FAE3 /* XBVideoEditController.xib */; };
 		E69315942137F61800E7FAE3 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E693147E2137F61700E7FAE3 /* AMapLocationKit.framework */; };
 		E69315952137F61800E7FAE3 /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E693147F2137F61700E7FAE3 /* AMapFoundationKit.framework */; };
 		E69315962137F61800E7FAE3 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69314802137F61700E7FAE3 /* MAMapKit.framework */; };
@@ -368,6 +367,7 @@
 		85926177212F07AB008D0667 /* XBUITestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBUITestViewController.h; sourceTree = "<group>"; };
 		85926178212F07AB008D0667 /* XBUITestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBUITestViewController.m; sourceTree = "<group>"; };
 		85926179212F07AB008D0667 /* XBUITestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBUITestViewController.xib; sourceTree = "<group>"; };
+		859261CD213835E6008D0667 /* libiPhone-lib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libiPhone-lib.a"; sourceTree = "<group>"; };
 		CA42A5292137D8010007CCD1 /* UIButton+XBEnlargeEdge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+XBEnlargeEdge.h"; sourceTree = "<group>"; };
 		CA42A52A2137D8010007CCD1 /* UIButton+XBEnlargeEdge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+XBEnlargeEdge.m"; sourceTree = "<group>"; };
 		CAE746672112AC1D000D05B7 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -466,7 +466,6 @@
 		E6930F102137F58500E7FAE3 /* libNativeVideoRecord.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNativeVideoRecord.a; sourceTree = "<group>"; };
 		E6930F112137F58500E7FAE3 /* libNativeVideoPlayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNativeVideoPlayer.a; sourceTree = "<group>"; };
 		E69310C22137F58800E7FAE3 /* RegisterFeatures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RegisterFeatures.cpp; sourceTree = "<group>"; };
-		E69310C32137F58800E7FAE3 /* libiPhone-lib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libiPhone-lib.a"; sourceTree = "<group>"; };
 		E69310C42137F58800E7FAE3 /* RegisterMonoModules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterMonoModules.h; sourceTree = "<group>"; };
 		E69310C92137F58800E7FAE3 /* NativeShare.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NativeShare.mm; sourceTree = "<group>"; };
 		E69310CA2137F58800E7FAE3 /* RegisterMonoModules.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RegisterMonoModules.cpp; sourceTree = "<group>"; };
@@ -500,7 +499,6 @@
 		E69314762137F61700E7FAE3 /* XBVideoEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBVideoEditController.m; sourceTree = "<group>"; };
 		E69314772137F61700E7FAE3 /* XBVideoIntervalChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBVideoIntervalChooseView.m; sourceTree = "<group>"; };
 		E69314782137F61700E7FAE3 /* drag.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = drag.jpg; sourceTree = "<group>"; };
-		E69314792137F61700E7FAE3 /* XBVideoEditController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBVideoEditController.xib; sourceTree = "<group>"; };
 		E693147A2137F61700E7FAE3 /* XBVideoIntervalChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBVideoIntervalChooseView.h; sourceTree = "<group>"; };
 		E693147B2137F61700E7FAE3 /* XBVideoEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBVideoEditController.h; sourceTree = "<group>"; };
 		E693147E2137F61700E7FAE3 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
@@ -913,6 +911,7 @@
 				E693EFEA2137C55100E7FAE3 /* QuartzCore.framework in Frameworks */,
 				E693EFE82137C53D00E7FAE3 /* OpenGLES.framework in Frameworks */,
 				E693EFE62137C53400E7FAE3 /* OpenAL.framework in Frameworks */,
+				859261CE213835E6008D0667 /* libiPhone-lib.a in Frameworks */,
 				E693EFE42137C52B00E7FAE3 /* MediaPlayer.framework in Frameworks */,
 				E693EFE22137C52100E7FAE3 /* Foundation.framework in Frameworks */,
 				E693EFE02137C51800E7FAE3 /* CoreVideo.framework in Frameworks */,
@@ -920,7 +919,6 @@
 				E693EFDE2137C51100E7FAE3 /* CoreMotion.framework in Frameworks */,
 				E693EFDC2137C50800E7FAE3 /* CoreMedia.framework in Frameworks */,
 				CAE746762112AC7C000D05B7 /* CoreLocation.framework in Frameworks */,
-				E69314522137F58C00E7FAE3 /* libiPhone-lib.a in Frameworks */,
 				E693EFDA2137C4EF00E7FAE3 /* CoreGraphics.framework in Frameworks */,
 				E693EFD82137C4E300E7FAE3 /* CFNetwork.framework in Frameworks */,
 				E693EFD62137C4DC00E7FAE3 /* AudioToolbox.framework in Frameworks */,
@@ -1053,7 +1051,7 @@
 				E6930F0B2137F58500E7FAE3 /* Il2CppOptions.cpp */,
 				E6930F0C2137F58500E7FAE3 /* Plugins */,
 				E69310C22137F58800E7FAE3 /* RegisterFeatures.cpp */,
-				E69310C32137F58800E7FAE3 /* libiPhone-lib.a */,
+				859261CD213835E6008D0667 /* libiPhone-lib.a */,
 				E69310C42137F58800E7FAE3 /* RegisterMonoModules.h */,
 				E69310C52137F58800E7FAE3 /* GifAssets */,
 				E69310CA2137F58800E7FAE3 /* RegisterMonoModules.cpp */,
@@ -1182,7 +1180,6 @@
 				E69314762137F61700E7FAE3 /* XBVideoEditController.m */,
 				E69314772137F61700E7FAE3 /* XBVideoIntervalChooseView.m */,
 				E69314782137F61700E7FAE3 /* drag.jpg */,
-				E69314792137F61700E7FAE3 /* XBVideoEditController.xib */,
 				E693147A2137F61700E7FAE3 /* XBVideoIntervalChooseView.h */,
 				E693147B2137F61700E7FAE3 /* XBVideoEditController.h */,
 			);
@@ -2049,7 +2046,6 @@
 				E69315F42137F61800E7FAE3 /* README.md in Resources */,
 				E69315AE2137F61800E7FAE3 /* LICENSE in Resources */,
 				E69315842137F61800E7FAE3 /* SimSun.ttf in Resources */,
-				E69315932137F61800E7FAE3 /* XBVideoEditController.xib in Resources */,
 				E69315822137F61800E7FAE3 /* SimHei.ttf in Resources */,
 				E69315982137F61800E7FAE3 /* LICENSE in Resources */,
 				E693EFD02137C2DE00E7FAE3 /* Data in Resources */,

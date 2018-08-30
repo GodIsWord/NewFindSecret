@@ -258,7 +258,7 @@
     [self dismissViewControllerAnimated:NO completion:^{
         if (sender.tag == 1) {
             if (wSelf.callback) {
-                wSelf.callback(wSelf.editTextView.attributedText);
+                wSelf.callback(wSelf.editLabel.attributedText);
             }
         }
     }];

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,50 +16,61 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tON-J1-95E">
-                    <rect key="frame" x="0.0" y="0.0" width="352" height="341"/>
+                    <rect key="frame" x="10" y="10" width="332" height="361"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hvr-Z3-3ig">
+                            <rect key="frame" x="10" y="10" width="312" height="341"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Hvr-Z3-3ig" firstAttribute="top" secondItem="tON-J1-95E" secondAttribute="top" constant="10" id="GI9-rq-fGl"/>
+                        <constraint firstAttribute="trailing" secondItem="Hvr-Z3-3ig" secondAttribute="trailing" constant="10" id="Iba-Hi-5uF"/>
+                        <constraint firstAttribute="bottom" secondItem="Hvr-Z3-3ig" secondAttribute="bottom" constant="10" id="r0h-Gs-n7I"/>
+                        <constraint firstItem="Hvr-Z3-3ig" firstAttribute="leading" secondItem="tON-J1-95E" secondAttribute="leading" constant="10" id="uNv-cJ-nr0"/>
+                    </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXb-Cq-WLP">
-                    <rect key="frame" x="272" y="341" width="40" height="40"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2F-uO-vjG">
+                    <rect key="frame" x="330" y="359" width="22" height="22"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="vXb-Cq-WLP" secondAttribute="height" multiplier="1:1" id="hfP-bd-wwZ"/>
+                        <constraint firstAttribute="height" constant="22" id="aIe-Tq-Jk1"/>
+                        <constraint firstAttribute="width" constant="22" id="ytb-0T-Na7"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <state key="normal" title="关闭"/>
-                    <connections>
-                        <action selector="close:" destination="iN0-l3-epB" eventType="touchUpInside" id="sMS-hT-zrY"/>
-                    </connections>
+                    <state key="normal" image="post_icon_item_reedit_normal"/>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2F-uO-vjG">
-                    <rect key="frame" x="312" y="341" width="40" height="40"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXb-Cq-WLP">
+                    <rect key="frame" x="330" y="0.0" width="22" height="22"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="M2F-uO-vjG" secondAttribute="height" multiplier="15:15" id="oms-wl-C8Y"/>
+                        <constraint firstAttribute="width" constant="22" id="hia-mc-8RL"/>
+                        <constraint firstAttribute="height" constant="22" id="j0K-wX-qyU"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <state key="normal" title="编辑"/>
+                    <state key="normal" image="post_icon_item_close_normal"/>
+                    <connections>
+                        <action selector="close:" destination="iN0-l3-epB" eventType="touchUpInside" id="B4w-fU-8pJ"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="M2F-uO-vjG" secondAttribute="trailing" id="10T-jK-mTc"/>
-                <constraint firstItem="M2F-uO-vjG" firstAttribute="leading" secondItem="vXb-Cq-WLP" secondAttribute="trailing" id="7Et-zN-L4o"/>
-                <constraint firstItem="M2F-uO-vjG" firstAttribute="top" secondItem="tON-J1-95E" secondAttribute="bottom" id="8gm-j7-3tw"/>
-                <constraint firstItem="tON-J1-95E" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Fcb-lJ-vuK"/>
-                <constraint firstAttribute="bottom" secondItem="vXb-Cq-WLP" secondAttribute="bottom" id="HdX-R4-C1D"/>
-                <constraint firstAttribute="bottom" secondItem="M2F-uO-vjG" secondAttribute="bottom" id="SL7-I8-QNf"/>
-                <constraint firstItem="vXb-Cq-WLP" firstAttribute="top" secondItem="tON-J1-95E" secondAttribute="bottom" id="XMl-1J-kLo"/>
-                <constraint firstItem="tON-J1-95E" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cFW-FQ-NoZ"/>
-                <constraint firstAttribute="trailing" secondItem="tON-J1-95E" secondAttribute="trailing" id="fm1-qV-lCU"/>
-                <constraint firstAttribute="bottom" secondItem="tON-J1-95E" secondAttribute="bottom" constant="40" id="xDW-3H-u7d"/>
+                <constraint firstAttribute="trailing" secondItem="M2F-uO-vjG" secondAttribute="trailing" id="CdD-g9-ccG"/>
+                <constraint firstAttribute="trailing" secondItem="tON-J1-95E" secondAttribute="trailing" constant="10" id="H35-44-gk7"/>
+                <constraint firstAttribute="trailing" secondItem="vXb-Cq-WLP" secondAttribute="trailing" id="Yfd-CK-iCa"/>
+                <constraint firstItem="tON-J1-95E" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="rE9-5o-eNG"/>
+                <constraint firstItem="tON-J1-95E" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="szV-ew-FQT"/>
+                <constraint firstItem="vXb-Cq-WLP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="uoh-lJ-x5l"/>
+                <constraint firstAttribute="bottom" secondItem="M2F-uO-vjG" secondAttribute="bottom" id="ypE-hb-9ZH"/>
+                <constraint firstAttribute="bottom" secondItem="tON-J1-95E" secondAttribute="bottom" constant="10" id="zut-jw-GqQ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="contentView" destination="tON-J1-95E" id="JTL-w7-h78"/>
+                <outlet property="itemView" destination="Hvr-Z3-3ig" id="Jux-FP-RNt"/>
                 <outletCollection property="gestureRecognizers" destination="6Do-36-FmL" appends="YES" id="uu5-yg-zpI"/>
                 <outletCollection property="gestureRecognizers" destination="TYN-AJ-NCs" appends="YES" id="vKa-yg-Wwa"/>
             </connections>
-            <point key="canvasLocation" x="22" y="-89.5"/>
+            <point key="canvasLocation" x="-37" y="-34.5"/>
         </view>
         <panGestureRecognizer minimumNumberOfTouches="1" id="6Do-36-FmL">
             <connections>
@@ -73,4 +83,8 @@
             </connections>
         </tapGestureRecognizer>
     </objects>
+    <resources>
+        <image name="post_icon_item_close_normal" width="22" height="22"/>
+        <image name="post_icon_item_reedit_normal" width="22" height="22"/>
+    </resources>
 </document>

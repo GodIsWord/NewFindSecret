@@ -11,7 +11,8 @@
 #import "XBVideoPreViewController.h"
 #import "UINavigationController+WXSTransition.h"
 #import "MSRecordControl.h"
-
+#import "XBPublishRecordAudioViewController.h"
+#import "XBPublishLisonItemView.h"
 
 
 typedef NS_ENUM(NSUInteger, XBMakeToolbarItemType) {
@@ -41,7 +42,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 }
 @end
 
-@interface XBMakeViewController () <XBMakeToolViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, XBAudioManagerPlayDelegate, XBAudioManagerRecoderDelegate, XBVideoEditControllerDelegate, XBCameraViewControllerDelegate, MSRecordControlDelegate>
+@interface XBMakeViewController () <XBMakeToolViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, XBVideoEditControllerDelegate, XBCameraViewControllerDelegate, MSRecordControlDelegate,XBPublishRecordAudioViewDelegate>
 @property (nonatomic, strong) XBMakeToolbar *topToolbar;
 @property (nonatomic, strong) UIImageView *captureImageView;
 @property (nonatomic, strong) XBMakeToolView *toolView;
@@ -77,9 +78,6 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     [self switchCaptureMode];
 
     self.audioMgr = [XBAudioManager new];
-    self.audioMgr.playDelegate = self;
-    self.audioMgr.recordDelegate = self;
-
 }
 
 
@@ -361,7 +359,13 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     };
     [self presentViewController:textEditController animated:NO completion:nil];
 }
+- (void)addAudio {
+    XBPublishRecordAudioViewController *controll = [[XBPublishRecordAudioViewController alloc] init];
+    controll.delegate = self;
+    controll.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [self presentViewController:controll animated:NO completion:nil];
 
+}
 - (void)goBackCaptureStageAndAlert {
 
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"确认要放弃本次编辑吗？" preferredStyle:UIAlertControllerStyleAlert];
@@ -404,17 +408,8 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 #pragma mark - XBMakeToolViewDelegate
 
-static BOOL _isSoundRecording = NO;
 
 - (void)makeToolView:(XBMakeToolView *)makeToolView didTouchDownItemAtIndex:(NSInteger)index {
-    if (index == 1) {
-        _isSoundRecording = YES;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            if (_isSoundRecording) {
-                [self.audioMgr startRecord];
-            }
-        });
-    }
 }
 
 
@@ -424,10 +419,7 @@ static BOOL _isSoundRecording = NO;
             [self addText];
             break;
         case 1:
-            if (_isSoundRecording) {
-                [self.audioMgr endRecord];
-            }
-            _isSoundRecording = NO;
+            [self addAudio];
             break;
         case 2:
             [self addVideo];
@@ -459,18 +451,28 @@ static BOOL _isSoundRecording = NO;
 
 #pragma mark - XBAudioManagerPlayDelegate, XBAudioManagerRecoderDelegate
 
-- (void)xbAudioManagerEncodeErrorDidOccur:(XBAudioManager *)recorder error:(NSError *)error {
-    NSLog(@"%s %@", __func__, error);
+- (void)XBPublishRecordFinish:(id)audioView audioPath:(NSString *)path duration:(NSTimeInterval)duration {
+    XBPublishLisonItemView *itemView = [[XBPublishLisonItemView alloc] initWithFrame:CGRectMake(0, 0, 200, 60)];
+    itemView.center = self.view.center;
+    itemView.manager = self.audioMgr;
+    [self.view addSubview:itemView];
+}
+- (void)XBPublishRecordDismiss:(UIViewController *)vc {
+    [vc dismissViewControllerAnimated:NO completion:nil];
 }
 
-- (void)xbAudioManagerDidFinishRecording:(XBAudioManager *)recorder successfully:(BOOL)flag {
-    NSString *filePath = [recorder lastAudioPath];
-    NSTimeInterval interval = [recorder audioDurationWithPath:filePath];
-    NSString *content = [NSString stringWithFormat:@"文件：%@ - %.02f`s", [filePath lastPathComponent], interval];
-    NSAttributedString *str = [[NSAttributedString alloc] initWithString:content];
-    XBMakeContentItemView *itemVIew = [XBMakeContentItemView contentItemViewWithAttributedString:str];
-    [self.view addSubview:itemVIew];
-}
+//- (void)xbAudioManagerEncodeErrorDidOccur:(XBAudioManager *)recorder error:(NSError *)error {
+//    NSLog(@"%s %@", __func__, error);
+//}
+//
+//- (void)xbAudioManagerDidFinishRecording:(XBAudioManager *)recorder successfully:(BOOL)flag {
+//    NSString *filePath = [recorder lastAudioPath];
+//    NSTimeInterval interval = [recorder audioDurationWithPath:filePath];
+//    NSString *content = [NSString stringWithFormat:@"文件：%@ - %.02f`s", [filePath lastPathComponent], interval];
+//    NSAttributedString *str = [[NSAttributedString alloc] initWithString:content];
+//    XBMakeContentItemView *itemVIew = [XBMakeContentItemView contentItemViewWithAttributedString:str];
+//    [self.view addSubview:itemVIew];
+//}
 
 #pragma mark - XBVideoEditControllerDelegate
 

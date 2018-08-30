@@ -163,7 +163,7 @@
                 
                 XBPublishRecordAudioViewController *controll = [[XBPublishRecordAudioViewController alloc] init];
                 controll.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-                [self presentViewController:controll animated:YES completion:nil];
+                [self presentViewController:controll animated:NO completion:nil];
                 
             }
             break;

@@ -22,6 +22,7 @@
 +(UnityAppController *)getUnityDelegate;
 
 
+#pragma mark -- delegate application
 + (NSUInteger)application:(UIApplication*)application supportedInterfaceOrientationsForWindow:(UIWindow*)window;
 #if !UNITY_TVOS
 + (void)application:(UIApplication*)application didReceiveLocalNotification:(UILocalNotification*)notification;

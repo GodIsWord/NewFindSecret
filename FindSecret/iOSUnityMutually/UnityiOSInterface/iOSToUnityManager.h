@@ -19,15 +19,16 @@ typedef enum {
 @interface iOSToUnityManager : NSObject
 
 
-//+(void)startSaomiaoAR;
-//+(void)stopSaomiaoAR;
-////拍照
-//+(void)takePhotograph;
-//
-////设置摄像头前置还是后置
-//+(void)setCameraPosition:(CamraDevicePosition)position;
-//
-////加载poi数据( 包含扫描权限获取 )
-//+(void)arResultShow:(NSString*)result;
++(void)startSaomiaoAR;
+
++(void)stopSaomiaoAR;
+//拍照
++(void)takePhotograph;
+
+//设置摄像头前置还是后置
++(void)setCameraPosition:(CamraDevicePosition)position;
+
+//加载poi数据( 包含扫描权限获取 )
++(void)arResultShow:(NSString*)result;
 
 @end

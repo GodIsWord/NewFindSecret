@@ -362,6 +362,8 @@
 		E693EFEA2137C55100E7FAE3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E693EFE92137C55100E7FAE3 /* QuartzCore.framework */; };
 		E693EFEC2137C56200E7FAE3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E693EFEB2137C56200E7FAE3 /* UIKit.framework */; };
 		E693EFEE2137C56D00E7FAE3 /* libiconv.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E693EFED2137C56D00E7FAE3 /* libiconv.2.tbd */; };
+		E6B226BB213812DB00D67944 /* XBUnitySubbviewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B226BA213812DB00D67944 /* XBUnitySubbviewManager.m */; };
+		E6B226BE2138155400D67944 /* XBUnityTakePhotoSubbViews.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B226BD2138155400D67944 /* XBUnityTakePhotoSubbViews.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -898,6 +900,10 @@
 		E693FEDE2137D20A00E7FAE3 /* Bulk_Generics_11.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bulk_Generics_11.cpp; sourceTree = "<group>"; };
 		E693FFA12137D21000E7FAE3 /* Bulk_Generics_10.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bulk_Generics_10.cpp; sourceTree = "<group>"; };
 		E6A0BA6C21131B0700326AE9 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		E6B226B9213812DB00D67944 /* XBUnitySubbviewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBUnitySubbviewManager.h; sourceTree = "<group>"; };
+		E6B226BA213812DB00D67944 /* XBUnitySubbviewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBUnitySubbviewManager.m; sourceTree = "<group>"; };
+		E6B226BC2138155400D67944 /* XBUnityTakePhotoSubbViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBUnityTakePhotoSubbViews.h; sourceTree = "<group>"; };
+		E6B226BD2138155400D67944 /* XBUnityTakePhotoSubbViews.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBUnityTakePhotoSubbViews.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1028,12 +1034,12 @@
 		E6930D362137DDA100E7FAE3 /* UnityiOSInterface */ = {
 			isa = PBXGroup;
 			children = (
-				E6930D372137DDA100E7FAE3 /* UnityToiOSManager.m */,
-				E6930D382137DDA100E7FAE3 /* iOSUnityMutually.m */,
-				E6930D392137DDA100E7FAE3 /* iOSToUnityManager.m */,
-				E6930D3A2137DDA100E7FAE3 /* UnityToiOSManager.h */,
-				E6930D3B2137DDA100E7FAE3 /* iOSUnityMutually.h */,
 				E6930D3C2137DDA100E7FAE3 /* iOSToUnityManager.h */,
+				E6930D392137DDA100E7FAE3 /* iOSToUnityManager.m */,
+				E6930D3B2137DDA100E7FAE3 /* iOSUnityMutually.h */,
+				E6930D382137DDA100E7FAE3 /* iOSUnityMutually.m */,
+				E6930D3A2137DDA100E7FAE3 /* UnityToiOSManager.h */,
+				E6930D372137DDA100E7FAE3 /* UnityToiOSManager.m */,
 			);
 			path = UnityiOSInterface;
 			sourceTree = "<group>";
@@ -1686,10 +1692,10 @@
 		E69315782137F61700E7FAE3 /* Make */ = {
 			isa = PBXGroup;
 			children = (
-				E69315792137F61700E7FAE3 /* XBVideoPreViewController.m */,
+				E693157C2137F61700E7FAE3 /* XBMakeViewController.h */,
 				E693157A2137F61700E7FAE3 /* XBMakeViewController.m */,
 				E693157B2137F61700E7FAE3 /* XBVideoPreViewController.h */,
-				E693157C2137F61700E7FAE3 /* XBMakeViewController.h */,
+				E69315792137F61700E7FAE3 /* XBVideoPreViewController.m */,
 			);
 			path = Make;
 			sourceTree = "<group>";
@@ -1826,6 +1832,7 @@
 		E693EFF02137CF0A00E7FAE3 /* iOSUnityMutually */ = {
 			isa = PBXGroup;
 			children = (
+				E6B226B82138129500D67944 /* UnitySubbviewManager */,
 				E6930D492137E03000E7FAE3 /* UnityDelegateManager */,
 				E6930D362137DDA100E7FAE3 /* UnityiOSInterface */,
 			);
@@ -1977,6 +1984,17 @@
 				E69309882137D26D00E7FAE3 /* UnresolvedVirtualCallStubs.cpp */,
 			);
 			path = Native;
+			sourceTree = "<group>";
+		};
+		E6B226B82138129500D67944 /* UnitySubbviewManager */ = {
+			isa = PBXGroup;
+			children = (
+				E6B226B9213812DB00D67944 /* XBUnitySubbviewManager.h */,
+				E6B226BA213812DB00D67944 /* XBUnitySubbviewManager.m */,
+				E6B226BC2138155400D67944 /* XBUnityTakePhotoSubbViews.h */,
+				E6B226BD2138155400D67944 /* XBUnityTakePhotoSubbViews.m */,
+			);
+			path = UnitySubbviewManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2311,6 +2329,7 @@
 				E69315BF2137F61800E7FAE3 /* WXSTransitionManager+BrickAnimation.m in Sources */,
 				E6930CD12137D29900E7FAE3 /* Il2CppCompilerCalculateTypeValues_10Table.cpp in Sources */,
 				E69315B62137F61800E7FAE3 /* MASConstraint.m in Sources */,
+				E6B226BB213812DB00D67944 /* XBUnitySubbviewManager.m in Sources */,
 				E69315A62137F61800E7FAE3 /* MJRefreshStateHeader.m in Sources */,
 				E693ED882137C21E00E7FAE3 /* UnityAdsUnityWrapper.mm in Sources */,
 				E6930D3D2137DDA100E7FAE3 /* UnityToiOSManager.m in Sources */,
@@ -2333,6 +2352,7 @@
 				E69315DA2137F61800E7FAE3 /* SQActionSheetView.m in Sources */,
 				E69315F02137F61800E7FAE3 /* XHJDRefreshView.m in Sources */,
 				E6930CBB2137D29900E7FAE3 /* Il2CppCompilerCalculateTypeValues_28Table.cpp in Sources */,
+				E6B226BE2138155400D67944 /* XBUnityTakePhotoSubbViews.m in Sources */,
 				E693ED702137C21E00E7FAE3 /* AVCapture.mm in Sources */,
 				E6930CDC2137D29900E7FAE3 /* Il2CppAttributes.cpp in Sources */,
 				E6930CE32137D29900E7FAE3 /* Il2CppGenericClassTable.cpp in Sources */,

@@ -10,4 +10,10 @@
 
 @implementation XBUnityTakePhotoSubbViews
 
++(void)addSubbViews
+{
+    
+}
+
+
 @end

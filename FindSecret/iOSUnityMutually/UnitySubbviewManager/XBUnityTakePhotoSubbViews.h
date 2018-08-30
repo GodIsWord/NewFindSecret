@@ -10,6 +10,6 @@
 
 @interface XBUnityTakePhotoSubbViews : NSObject
 
-
++(void)addSubbViews;
 
 @end

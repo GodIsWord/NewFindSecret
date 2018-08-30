@@ -7,7 +7,7 @@ build/
 DerivedData/
 
 
-/FindSecret/Libraries/
+/FindSecret/Libraries/libiPhone-lib.a
 /fuzhu/
 
 ## Various settings

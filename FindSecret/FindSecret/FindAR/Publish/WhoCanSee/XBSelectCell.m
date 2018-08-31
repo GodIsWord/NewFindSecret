@@ -52,7 +52,12 @@
     
     UIView *line = [[UIView alloc] init];
     [cell.contentView addSubview:line];
-    line.frame = CGRectMake(20, 63.5, ScreenWidth-20, 0.5);
+    [line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(cell.contentView.mas_left).offset(20);
+        make.right.equalTo(cell.contentView.mas_right).offset(-20);
+        make.bottom.equalTo(cell.contentView.mas_bottom).offset(-0.5);
+        make.height.mas_equalTo(0.5);
+    }];
     line.backgroundColor = [UIColor lightGrayColor];
     return cell;
 }

@@ -11,8 +11,8 @@
 @interface XBSelectFriendsTableViewCell()
 
 @property(nonatomic,strong) UIImageView *headImageView;
-@property(nonatomic,strong) UILabel *nameLabel;
-@property(nonatomic,strong) UIImageView *typeImageView;
+
+
 
 @end
 
@@ -22,6 +22,7 @@
 {
     self  = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self initSubbView];
     }
     return self;
@@ -49,6 +50,7 @@
     
     UIImageView *typeImageView = [[UIImageView alloc] init];
     typeImageView.backgroundColor = [UIColor blueColor];
+    typeImageView.hidden = YES;
     [self addSubview:typeImageView];
     self.typeImageView = typeImageView;
     [typeImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -56,6 +58,7 @@
         make.height.width.equalTo(@(20));
         make.centerY.equalTo(headImageView.mas_centerY);
     }];
+    
 }
 
 @end

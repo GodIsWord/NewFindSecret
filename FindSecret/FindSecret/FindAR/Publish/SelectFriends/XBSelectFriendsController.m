@@ -12,7 +12,11 @@
 @interface XBSelectFriendsController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong) UITableView *tableView;
-@property(nonatomic,strong) UITextField *textField;
+@property(nonatomic,strong) UITextField *searchTextField;
+
+@property(nonatomic,copy) NSArray *dataSource;
+
+@property(nonatomic,assign) NSInteger currSelectIndex;
 
 @end
 
@@ -22,20 +26,28 @@ static NSString* const cellID = @"steCellID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.currSelectIndex = -1;
+    [self initDataSource];
     [self initTextField];
     [self initTableView];
 }
+-(void)initDataSource{
+    self.dataSource = @[@"测试的管带",@"测试的管带",@"测试的管带",@"测试的管带",@"测试的管带",@"测试的管带",@"测试的管带",@"测试的管带",@"测试的管带",@"测试的管带",@"测试的管带",@"测试的管带",@"测试的管带"];
+}
 
 -(void)initTextField{
-    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 74, ScreenWidth, 60)];
+    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(20, 68, ScreenWidth-40, 40)];
     textField.placeholder = @"输入昵称";
+    textField.textColor = [UIColor blackColor];
+    textField.backgroundColor = [UIColor whiteColor];
+    textField.borderStyle = UITextBorderStyleRoundedRect;
     [self.view addSubview:textField];
-    self.textField = textField;
+    self.searchTextField = textField;
 }
 
 -(void)initTableView{
-    UITableView *tableVIew = [[UITableView alloc] initWithFrame:CGRectMake(0, 64+80, ScreenWidth, ScreenHeight-80) style:UITableViewStylePlain];
+    UITableView *tableVIew = [[UITableView alloc] initWithFrame:CGRectMake(0, 50+64, ScreenWidth, ScreenHeight-(50+64)) style:UITableViewStylePlain];
     tableVIew.delegate = self;
     tableVIew.dataSource = self;
     [self.view addSubview:tableVIew];
@@ -48,13 +60,14 @@ static NSString* const cellID = @"steCellID";
 #pragma mark -  UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return self.dataSource.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     XBSelectFriendsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    
+    cell.nameLabel.text = self.dataSource[indexPath.item];
+    cell.typeImageView.hidden = !(indexPath.item == self.currSelectIndex);
     return cell;
 }
 
@@ -65,8 +78,8 @@ static NSString* const cellID = @"steCellID";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    
+    self.currSelectIndex = indexPath.item;
+    [tableView reloadData];
 }
 
 @end

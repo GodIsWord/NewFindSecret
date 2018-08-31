@@ -6,7 +6,7 @@
 #import "XBMakeContentItemView.h"
 #import "XBMacroDefinition.h"
 #import <AVFoundation/AVFoundation.h>
-
+#import "XBMakeAudioItemView.h"
 @interface XBMakeContentItemView ()
 @property (nonatomic, strong) CAShapeLayer *border;
 @property (weak, nonatomic) IBOutlet UIView *itemView;
@@ -124,7 +124,16 @@
     return thumbnailImage;
 }
 
++ (instancetype)contentItemViewWithAudioURL:(NSURL *)audioURL {
+    XBMakeAudioItemView *itemView = [[XBMakeAudioItemView alloc] initWithFrame:CGRectMake(0, 0, 180, 40)];
+    
+    XBMakeContentItemView *view = [[[UINib nibWithNibName:@"XBMakeContentItemView" bundle:nil] instantiateWithOwner:nil options:nil] firstObject];
+    view.frame = CGRectInset(itemView.bounds, -20, -20);
+    [view.itemView addSubview:itemView];
+    view.center = CGPointMake(SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2);
+    return view;
 
+}
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.border.path = [UIBezierPath bezierPathWithRect:self.contentView.bounds].CGPath;

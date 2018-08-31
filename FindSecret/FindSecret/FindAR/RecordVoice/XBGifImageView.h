@@ -15,8 +15,10 @@
 
  @param path gif图片组路径
  */
--(void)loadGIFWithPath:(NSString*)path;
--(void)startAnimation;
--(void)stopAnimation;
+- (void)loadGIFWithPath:(NSString *)path;
+
+- (void)startAnimation;
+
+- (void)stopAnimation;
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8563F38721399B4400DBA37D /* XBMakeAudioItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8563F38621399B4400DBA37D /* XBMakeAudioItemView.m */; };
 		8592617A212F07AB008D0667 /* XBUITestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85926178212F07AB008D0667 /* XBUITestViewController.m */; };
 		8592617B212F07AB008D0667 /* XBUITestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85926179212F07AB008D0667 /* XBUITestViewController.xib */; };
 		859261CE213835E6008D0667 /* libiPhone-lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 859261CD213835E6008D0667 /* libiPhone-lib.a */; };
@@ -221,7 +222,6 @@
 		E693158F2137F61800E7FAE3 /* XBPlayAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = E69314742137F61700E7FAE3 /* XBPlayAudio.m */; };
 		E69315902137F61800E7FAE3 /* XBVideoEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = E69314762137F61700E7FAE3 /* XBVideoEditController.m */; };
 		E69315912137F61800E7FAE3 /* XBVideoIntervalChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = E69314772137F61700E7FAE3 /* XBVideoIntervalChooseView.m */; };
-		E69315922137F61800E7FAE3 /* drag.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E69314782137F61700E7FAE3 /* drag.jpg */; };
 		E69315942137F61800E7FAE3 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E693147E2137F61700E7FAE3 /* AMapLocationKit.framework */; };
 		E69315952137F61800E7FAE3 /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E693147F2137F61700E7FAE3 /* AMapFoundationKit.framework */; };
 		E69315962137F61800E7FAE3 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69314802137F61700E7FAE3 /* MAMapKit.framework */; };
@@ -387,6 +387,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8563F38521399B4400DBA37D /* XBMakeAudioItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBMakeAudioItemView.h; sourceTree = "<group>"; };
+		8563F38621399B4400DBA37D /* XBMakeAudioItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBMakeAudioItemView.m; sourceTree = "<group>"; };
 		85926177212F07AB008D0667 /* XBUITestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBUITestViewController.h; sourceTree = "<group>"; };
 		85926178212F07AB008D0667 /* XBUITestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBUITestViewController.m; sourceTree = "<group>"; };
 		85926179212F07AB008D0667 /* XBUITestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBUITestViewController.xib; sourceTree = "<group>"; };
@@ -566,7 +568,6 @@
 		E69314742137F61700E7FAE3 /* XBPlayAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBPlayAudio.m; sourceTree = "<group>"; };
 		E69314762137F61700E7FAE3 /* XBVideoEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBVideoEditController.m; sourceTree = "<group>"; };
 		E69314772137F61700E7FAE3 /* XBVideoIntervalChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBVideoIntervalChooseView.m; sourceTree = "<group>"; };
-		E69314782137F61700E7FAE3 /* drag.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = drag.jpg; sourceTree = "<group>"; };
 		E693147A2137F61700E7FAE3 /* XBVideoIntervalChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBVideoIntervalChooseView.h; sourceTree = "<group>"; };
 		E693147B2137F61700E7FAE3 /* XBVideoEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBVideoEditController.h; sourceTree = "<group>"; };
 		E693147E2137F61700E7FAE3 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
@@ -1322,7 +1323,6 @@
 		E69314752137F61700E7FAE3 /* VideoEdit */ = {
 			isa = PBXGroup;
 			children = (
-				E69314782137F61700E7FAE3 /* drag.jpg */,
 				E693147B2137F61700E7FAE3 /* XBVideoEditController.h */,
 				E69314762137F61700E7FAE3 /* XBVideoEditController.m */,
 				E693147A2137F61700E7FAE3 /* XBVideoIntervalChooseView.h */,
@@ -1559,6 +1559,8 @@
 				E69315082137F61700E7FAE3 /* XBMakeContentItemView.h */,
 				E69314FF2137F61700E7FAE3 /* XBMakeContentItemView.m */,
 				E693150D2137F61700E7FAE3 /* XBMakeContentItemView.xib */,
+				8563F38521399B4400DBA37D /* XBMakeAudioItemView.h */,
+				8563F38621399B4400DBA37D /* XBMakeAudioItemView.m */,
 				E69315002137F61700E7FAE3 /* XBMakeToolView.h */,
 				E693150A2137F61700E7FAE3 /* XBMakeToolView.m */,
 				E69315052137F61700E7FAE3 /* XBMakeToolView.xib */,
@@ -2184,7 +2186,6 @@
 				E69315D12137F61800E7FAE3 /* XBMakeToolView.xib in Resources */,
 				E69315802137F61800E7FAE3 /* Kaiti.ttf in Resources */,
 				E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */,
-				E69315922137F61800E7FAE3 /* drag.jpg in Resources */,
 				8592617B212F07AB008D0667 /* XBUITestViewController.xib in Resources */,
 				E6212AED21325C44005E02C5 /* (null) in Resources */,
 				E69315812137F61800E7FAE3 /* 浪漫雅圆.ttf in Resources */,
@@ -2335,6 +2336,7 @@
 				E693159A2137F61800E7FAE3 /* MJRefreshConst.m in Sources */,
 				E693158D2137F61800E7FAE3 /* XBRecordAudio.m in Sources */,
 				E693ED822137C21E00E7FAE3 /* UnityView.mm in Sources */,
+				8563F38721399B4400DBA37D /* XBMakeAudioItemView.m in Sources */,
 				E69315DF2137F61800E7FAE3 /* RequestViewModel.m in Sources */,
 				E69315A72137F61800E7FAE3 /* MJRefreshGifHeader.m in Sources */,
 				E6930D292137D29A00E7FAE3 /* Bulk_UnityEngine_5.cpp in Sources */,

@@ -15,6 +15,7 @@
 #import "XBPublishLisonItemView.h"
 
 
+
 typedef NS_ENUM(NSUInteger, XBMakeToolbarItemType) {
     XBMakeToolbarItemTypeBack,
     XBMakeToolbarItemTypeCancel,
@@ -452,10 +453,9 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 #pragma mark - XBAudioManagerPlayDelegate, XBAudioManagerRecoderDelegate
 
 - (void)XBPublishRecordFinish:(id)audioView audioPath:(NSString *)path duration:(NSTimeInterval)duration {
-    XBPublishLisonItemView *itemView = [[XBPublishLisonItemView alloc] initWithFrame:CGRectMake(0, 0, 200, 60)];
-    itemView.center = self.view.center;
-    itemView.manager = self.audioMgr;
-    [self.view addSubview:itemView];
+    XBMakeContentItemView *itemVIew = [XBMakeContentItemView contentItemViewWithAudioURL:[NSURL URLWithString:path]];
+    [self.view addSubview:itemVIew];
+
 }
 - (void)XBPublishRecordDismiss:(UIViewController *)vc {
     [vc dismissViewControllerAnimated:NO completion:nil];

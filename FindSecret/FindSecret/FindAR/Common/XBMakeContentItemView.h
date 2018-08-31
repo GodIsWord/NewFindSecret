@@ -12,5 +12,5 @@
 
 + (instancetype)contentItemViewWithAttributedString:(NSAttributedString *)attributedString;
 + (instancetype)contentItemViewWithVideoUrl:(NSURL *)videoUrl;
-
++ (instancetype)contentItemViewWithAudioURL:(NSURL *)audioURL;
 @end

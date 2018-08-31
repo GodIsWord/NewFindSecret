@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface XBWhoCanSeeController : UITableViewController
+// 1 谁可以看 2 在哪里看
+@property(nonatomic,assign) NSInteger type;
 
 @end

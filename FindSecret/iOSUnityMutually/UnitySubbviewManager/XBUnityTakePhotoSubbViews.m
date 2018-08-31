@@ -38,6 +38,7 @@
     UIView *btnSubView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     btnSubView.backgroundColor = [UIColor whiteColor];
     btnSubView.layer.cornerRadius = btnSubView.xb_width/2;
+    btnSubView.userInteractionEnabled = NO;
     btnSubView.layer.masksToBounds = YES;
     [btnPicture addSubview:btnSubView];
     btnSubView.center = CGPointMake(btnPicture.xb_width/2, btnPicture.xb_height/2);
@@ -88,12 +89,12 @@
 
 +(void)playSound
 {
-    NSString *audioFile=[[NSBundle mainBundle] pathForResource:@"sound_camera" ofType:@"mp3"];
-    NSURL *fileUrl=[NSURL fileURLWithPath:audioFile];
-    //1.获得系统声音ID
-    SystemSoundID soundID=0;
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)(fileUrl), &soundID);
-    AudioServicesPlaySystemSound(soundID);
+//    NSString *audioFile=[[NSBundle mainBundle] pathForResource:@"sound_camera" ofType:@"mp3"];
+//    NSURL *fileUrl=[NSURL fileURLWithPath:audioFile];
+//    //1.获得系统声音ID
+//    SystemSoundID soundID=0;
+//    AudioServicesCreateSystemSoundID((__bridge CFURLRef)(fileUrl), &soundID);
+    AudioServicesPlaySystemSound(1108);
 }
 
 @end

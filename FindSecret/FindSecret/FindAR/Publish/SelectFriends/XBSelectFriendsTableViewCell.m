@@ -1,16 +1,14 @@
 //
-//  XBPointToPointPersonTableViewCell.m
+//  XBSelectFriendsTableViewCell.m
 //  FindSecret
 //
-//  Created by yidezhang on 2018/8/16.
+//  Created by yide zhang on 2018/9/1.
 //  Copyright © 2018年 Mac. All rights reserved.
 //
 
-#import "XBPointToPointPersonTableViewCell.h"
-#import "Masonry.h"
+#import "XBSelectFriendsTableViewCell.h"
 
-
-@interface XBPointToPointPersonTableViewCell()
+@interface XBSelectFriendsTableViewCell()
 
 @property(nonatomic,strong) UIImageView *headImageView;
 @property(nonatomic,strong) UILabel *nameLabel;
@@ -18,7 +16,7 @@
 
 @end
 
-@implementation XBPointToPointPersonTableViewCell
+@implementation XBSelectFriendsTableViewCell
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -28,7 +26,6 @@
     }
     return self;
 }
-
 
 -(void)initSubbView{
     
@@ -60,6 +57,5 @@
         make.centerY.equalTo(headImageView.mas_centerY);
     }];
 }
-
 
 @end

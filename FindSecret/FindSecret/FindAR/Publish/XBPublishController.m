@@ -11,7 +11,6 @@
 #import "XBFindNearAddressVC.h"
 #import "XBPublishCell.h"
 #import "XBWhoCanSeeController.h"
-#import "XBSelectFriendsController.h"
 
 #import "Masonry.h"
 
@@ -158,10 +157,12 @@
         
     }else if (indexPath.row == 1){
         XBWhoCanSeeController *vc = [XBWhoCanSeeController new];
+        vc.type = 1;
         [self.navigationController pushViewController:vc animated:YES];
         
     }else if (indexPath.row == 2){
-        XBSelectFriendsController *vc = [XBSelectFriendsController new];
+        XBWhoCanSeeController *vc = [XBWhoCanSeeController new];
+        vc.type = 2;
         [self.navigationController pushViewController:vc animated:YES];
         
     }

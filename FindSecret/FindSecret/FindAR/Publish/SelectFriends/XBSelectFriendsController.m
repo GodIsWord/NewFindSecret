@@ -7,20 +7,44 @@
 //
 
 #import "XBSelectFriendsController.h"
-#import "XBSelectCell.h"
+#import "XBSelectFriendsTableViewCell.h"
 
 @interface XBSelectFriendsController ()<UITableViewDelegate,UITableViewDataSource>
+
+@property(nonatomic,strong) UITableView *tableView;
+@property(nonatomic,strong) UITextField *textField;
 
 @end
 
 @implementation XBSelectFriendsController
 
+static NSString* const cellID = @"steCellID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self initTextField];
+    [self initTableView];
 }
+
+-(void)initTextField{
+    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 74, ScreenWidth, 60)];
+    textField.placeholder = @"输入昵称";
+    [self.view addSubview:textField];
+    self.textField = textField;
+}
+
+-(void)initTableView{
+    UITableView *tableVIew = [[UITableView alloc] initWithFrame:CGRectMake(0, 64+80, ScreenWidth, ScreenHeight-80) style:UITableViewStylePlain];
+    tableVIew.delegate = self;
+    tableVIew.dataSource = self;
+    [self.view addSubview:tableVIew];
+    self.tableView = tableVIew;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [self.tableView registerClass:XBSelectFriendsTableViewCell.class forCellReuseIdentifier:cellID];
+}
+
 #pragma mark -  UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -29,17 +53,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    XBSelectCell *cell = [XBSelectCell cellWithTableView:tableView];
-
+    XBSelectFriendsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    
     return cell;
 }
 
-
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 0.01;
-}
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 64;
 }

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XBSelectFriendsController : UITableViewController
+@interface XBSelectFriendsController : UIViewController
 
 @end

@@ -39,8 +39,8 @@
 - (AVAudioRecorder *)audioRecorder{
     if (!_audioRecorder) {
         
-        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error: nil];
-
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+        [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
         
         //创建录音文件保存路径
         NSURL *url=[NSURL URLWithString:[XBRecordAudio recordPath]];

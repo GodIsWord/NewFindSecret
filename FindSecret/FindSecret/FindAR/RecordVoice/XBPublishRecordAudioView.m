@@ -151,7 +151,7 @@
 
 - (void)dismiss {
     if (self.viewController) {
-        [self.viewController dismissViewControllerAnimated:YES completion:nil];
+        [self.viewController dismissViewControllerAnimated:NO completion:nil];
     }
 }
 
@@ -207,7 +207,9 @@
 
 - (void)xbAudioManagerDidFinishRecording:(XBAudioManager *)recorder successfully:(BOOL)flag {
     [self stopGifAnimation];
-    [self openSelectAnimation];
+    if ([self.audeoManager lastAudioDuration] >0 ) {
+        [self openSelectAnimation];
+    }
 }
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74D6EC26BECF97FABAD7132B /* XBAVTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D5FBC5D1BDD81F08CA71E4 /* XBAVTools.m */; };
 		8563F38721399B4400DBA37D /* XBMakeAudioItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8563F38621399B4400DBA37D /* XBMakeAudioItemView.m */; };
 		8592617A212F07AB008D0667 /* XBUITestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85926178212F07AB008D0667 /* XBUITestViewController.m */; };
 		8592617B212F07AB008D0667 /* XBUITestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85926179212F07AB008D0667 /* XBUITestViewController.xib */; };
@@ -23,7 +24,6 @@
 		CAE746762112AC7C000D05B7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE746752112AC7C000D05B7 /* CoreLocation.framework */; };
 		CAE746782112AC86000D05B7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE746772112AC86000D05B7 /* CoreTelephony.framework */; };
 		E601964B210C21830046D1FA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E601964A210C21830046D1FA /* AVFoundation.framework */; };
-		E60A09B521385D67009BC9F0 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		E60A09B821386504009BC9F0 /* XBUnitySaomiaoSubbViews.m in Sources */ = {isa = PBXBuildFile; fileRef = E60A09B721386504009BC9F0 /* XBUnitySaomiaoSubbViews.m */; };
 		E60A09BA21386C56009BC9F0 /* saomiaokuang@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E60A09B921386C56009BC9F0 /* saomiaokuang@3x.png */; };
 		E60A09BD21386C66009BC9F0 /* shanguangdengguanbi_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E60A09BB21386C66009BC9F0 /* shanguangdengguanbi_normal@3x.png */; };
@@ -53,7 +53,6 @@
 		E60E3B61210C0FF100C5BFBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B60210C0FF100C5BFBB /* Assets.xcassets */; };
 		E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B62210C0FF100C5BFBB /* LaunchScreen.storyboard */; };
 		E60E3B67210C0FF100C5BFBB /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B66210C0FF100C5BFBB /* main.mm */; };
-		E6212AED21325C44005E02C5 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		E6930CA62137D29900E7FAE3 /* Bulk_Generics_3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E693F0BF2137D1D400E7FAE3 /* Bulk_Generics_3.cpp */; };
 		E6930CA72137D29900E7FAE3 /* Bulk_Assembly-UnityScript-firstpass_0.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E693F0D22137D1D500E7FAE3 /* Bulk_Assembly-UnityScript-firstpass_0.cpp */; };
 		E6930CA82137D29900E7FAE3 /* Il2CppMethodPointerTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E693F0E22137D1D500E7FAE3 /* Il2CppMethodPointerTable.cpp */; };
@@ -387,6 +386,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		74D10EB52A8A7BD784F2CF4E /* XBAVTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBAVTools.h; sourceTree = "<group>"; };
+		74D5FBC5D1BDD81F08CA71E4 /* XBAVTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBAVTools.m; sourceTree = "<group>"; };
 		8563F38521399B4400DBA37D /* XBMakeAudioItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBMakeAudioItemView.h; sourceTree = "<group>"; };
 		8563F38621399B4400DBA37D /* XBMakeAudioItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBMakeAudioItemView.m; sourceTree = "<group>"; };
 		85926177212F07AB008D0667 /* XBUITestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBUITestViewController.h; sourceTree = "<group>"; };
@@ -970,7 +971,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E60A09B521385D67009BC9F0 /* (null) in Frameworks */,
 				E693EFEE2137C56D00E7FAE3 /* libiconv.2.tbd in Frameworks */,
 				E693EFEC2137C56200E7FAE3 /* UIKit.framework in Frameworks */,
 				E69315962137F61800E7FAE3 /* MAMapKit.framework in Frameworks */,
@@ -1568,6 +1568,8 @@
 				E69315022137F61700E7FAE3 /* XBTimer.m */,
 				E69314FC2137F61700E7FAE3 /* XBWeakProxy.h */,
 				E69315072137F61700E7FAE3 /* XBWeakProxy.m */,
+				74D5FBC5D1BDD81F08CA71E4 /* XBAVTools.m */,
+				74D10EB52A8A7BD784F2CF4E /* XBAVTools.h */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -2187,7 +2189,6 @@
 				E69315802137F61800E7FAE3 /* Kaiti.ttf in Resources */,
 				E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */,
 				8592617B212F07AB008D0667 /* XBUITestViewController.xib in Resources */,
-				E6212AED21325C44005E02C5 /* (null) in Resources */,
 				E69315812137F61800E7FAE3 /* 浪漫雅圆.ttf in Resources */,
 				E69315F42137F61800E7FAE3 /* README.md in Resources */,
 				E69315AE2137F61800E7FAE3 /* LICENSE in Resources */,
@@ -2533,6 +2534,7 @@
 				E693159F2137F61800E7FAE3 /* MJRefreshBackGifFooter.m in Sources */,
 				E69315D22137F61800E7FAE3 /* XBWeakProxy.m in Sources */,
 				CA42A52C2137D8390007CCD1 /* UIButton+XBEnlargeEdge.m in Sources */,
+				74D6EC26BECF97FABAD7132B /* XBAVTools.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

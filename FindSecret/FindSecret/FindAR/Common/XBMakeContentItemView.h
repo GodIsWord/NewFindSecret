@@ -7,10 +7,18 @@
 
 
 @interface XBMakeContentItemView : UIView
+@property (weak, nonatomic) IBOutlet UIButton *closeBtn;
+@property (weak, nonatomic) IBOutlet UIView *wrapView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
-@property (nonatomic, copy) void (^didClicked)(void);
-
+@property (weak, nonatomic) IBOutlet UIButton *editBtn;
+@property (nonatomic, copy) void (^didClickedContentView)(void);
+@property (nonatomic, copy) void (^didClickedCloseBtn)(void);
+@property (nonatomic, copy) void (^didClickedEditBtn)(void);
 + (instancetype)contentItemViewWithAttributedString:(NSAttributedString *)attributedString;
 + (instancetype)contentItemViewWithVideoUrl:(NSURL *)videoUrl;
 + (instancetype)contentItemViewWithAudioURL:(NSURL *)audioURL;
+- (void)startVoiceAnimation;
+- (void)stopVoiceAnimation;
+- (void)playVideo;
+- (void)pauseVideo;
 @end

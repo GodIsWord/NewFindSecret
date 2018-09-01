@@ -38,6 +38,9 @@
                         <constraint firstAttribute="width" constant="22" id="ytb-0T-Na7"/>
                     </constraints>
                     <state key="normal" image="post_icon_item_reedit_normal"/>
+                    <connections>
+                        <action selector="edit:" destination="iN0-l3-epB" eventType="touchUpInside" id="WDE-bd-PfA"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXb-Cq-WLP">
                     <rect key="frame" x="330" y="0.0" width="22" height="22"/>
@@ -65,8 +68,10 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="contentView" destination="tON-J1-95E" id="JTL-w7-h78"/>
-                <outlet property="itemView" destination="Hvr-Z3-3ig" id="Jux-FP-RNt"/>
+                <outlet property="closeBtn" destination="vXb-Cq-WLP" id="pIA-aA-48W"/>
+                <outlet property="contentView" destination="Hvr-Z3-3ig" id="Fe8-QE-Qjo"/>
+                <outlet property="editBtn" destination="M2F-uO-vjG" id="fQH-01-1z6"/>
+                <outlet property="wrapView" destination="tON-J1-95E" id="lhz-xX-3L5"/>
                 <outletCollection property="gestureRecognizers" destination="6Do-36-FmL" appends="YES" id="uu5-yg-zpI"/>
                 <outletCollection property="gestureRecognizers" destination="TYN-AJ-NCs" appends="YES" id="vKa-yg-Wwa"/>
             </connections>

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface XBMakeViewController : UIViewController
-
+@property  (nonatomic, assign) BOOL onlyAddContentMode;
+@property  (nonatomic, strong) UIImage *contentImage;
 @end

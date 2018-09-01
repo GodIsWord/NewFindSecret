@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+
+@class XBTextEditController;
+@protocol XBTextEditControllerDelegate <NSObject>
+- (void)didEdited:(XBTextEditController *)textEditController;
+@end
+
 @interface XBTextEditController : UIViewController
-@property (nonatomic, copy) NSString *text;
-@property (nonatomic, strong) UIColor *textColor;
-@property (nonatomic, copy) NSString *textStyle;
-@property (nonatomic, copy) void (^callback) (NSAttributedString *content);
+@property (nonatomic, strong, readonly) UILabel *contentLabel;
+@property (nonatomic, weak) id<XBTextEditControllerDelegate> delegate;
 @end

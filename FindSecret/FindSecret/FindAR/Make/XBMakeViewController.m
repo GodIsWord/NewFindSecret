@@ -6,13 +6,12 @@
 #import "XBTextEditController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "XBMakeContentItemView.h"
-#import "XBAudioManager.h"
 #import "XBCameraViewController.h"
 #import "XBVideoPreViewController.h"
 #import "UINavigationController+WXSTransition.h"
 #import "MSRecordControl.h"
 #import "XBPublishRecordAudioViewController.h"
-#import "XBPublishLisonItemView.h"
+#import "XBAVTools.h"
 
 
 
@@ -43,7 +42,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 }
 @end
 
-@interface XBMakeViewController () <XBMakeToolViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, XBVideoEditControllerDelegate, XBCameraViewControllerDelegate, MSRecordControlDelegate,XBPublishRecordAudioViewDelegate>
+@interface XBMakeViewController () <XBMakeToolViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, XBVideoEditControllerDelegate, XBCameraViewControllerDelegate, MSRecordControlDelegate,XBPublishRecordAudioViewDelegate,XBTextEditControllerDelegate>
 @property (nonatomic, strong) XBMakeToolbar *topToolbar;
 @property (nonatomic, strong) UIImageView *captureImageView;
 @property (nonatomic, strong) XBMakeToolView *toolView;
@@ -55,7 +54,6 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 @property (nonatomic, strong) MSRecordControl *captureBtn;
 
 @property (nonatomic, assign) XBMakeContentStage stage;
-@property (nonatomic, strong) XBAudioManager *audioMgr;
 
 @property (nonatomic, strong) UIButton *dismissButton;
 @property (nonatomic, strong) UIButton *cancelButton;
@@ -76,9 +74,9 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
     [self initCapture];
     [self initTopToolBar];
-    [self switchCaptureMode];
+    
+    self.contentImage ? [self switchAddContentMode] : [self switchCaptureMode];
 
-    self.audioMgr = [XBAudioManager new];
 }
 
 
@@ -170,11 +168,10 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     }
 }
 - (void)switchCaptureMode {
-
     self.stage = XBMakeContentStageCapture;
-
     self.topToolbar.hidden = NO;
-
+    
+    self.contentImage = nil;
     self.captureImageView.image = nil;
     self.captureImageView.hidden = YES;
 
@@ -255,6 +252,8 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
         }
 
         self.captureImageView.image = image;
+        self.contentImage = image;
+        
         self.captureImageView.hidden = NO;
         
         self.captureLayer.hidden = YES;
@@ -290,6 +289,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 }
 
 - (void)switchAddContentMode {
+    
     dispatch_async(dispatch_get_main_queue(), ^{
 
         self.stage = XBMakeContentStageCaptureAddContent;
@@ -299,6 +299,28 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
         [self updateToolbarItemsWithTypes:@[@(XBMakeToolbarItemTypeCancel), @(XBMakeToolbarItemTypeFlexibleSpace), @(XBMakeToolbarItemTypeNextStep)]];
         self.topToolbar.hidden = NO;
 
+        
+        if (!self.captureImageView) {
+            self.captureImageView = [UIImageView new];
+            self.captureImageView.backgroundColor = [UIColor clearColor];
+            self.captureImageView.frame = self.view.bounds;
+        }
+        if (!self.captureImageView.superview) {
+            [self.view insertSubview:self.captureImageView atIndex:0];
+        }
+        
+        self.captureImageView.image = self.contentImage;
+        self.captureImageView.hidden = NO;
+        
+        self.captureLayer.hidden = YES;
+        self.captureBtn.hidden = YES;
+        self.dismissButton.hidden = YES;
+        
+        if ([self.session isRunning]) {
+            [self.session stopRunning];
+        }
+        
+        
 
         CGFloat toolViewWidth = 220;
         CGFloat toolViewHeight = 60;
@@ -351,15 +373,17 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 }
 
-- (void)addText {
+- (void)addText{
+    [self addTextWithAttributedText:nil];
+}
+- (void)addTextWithAttributedText:(NSAttributedString *)attributedText {
     XBTextEditController *textEditController = [[XBTextEditController alloc] init];
+    textEditController.contentLabel.attributedText = attributedText;
     textEditController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    textEditController.callback = ^(NSAttributedString *content) {
-        XBMakeContentItemView *itemVIew = [XBMakeContentItemView contentItemViewWithAttributedString:content];
-        [self.view addSubview:itemVIew];
-    };
+    textEditController.delegate = self;
     [self presentViewController:textEditController animated:NO completion:nil];
 }
+
 - (void)addAudio {
     XBPublishRecordAudioViewController *controll = [[XBPublishRecordAudioViewController alloc] init];
     controll.delegate = self;
@@ -367,12 +391,12 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     [self presentViewController:controll animated:NO completion:nil];
 
 }
-- (void)goBackCaptureStageAndAlert {
+- (void)goBackAndAlert {
 
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"确认要放弃本次编辑吗？" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
     UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
-        [self reCapture];
+        [self cancelAction];
     }];
 
     [alertController addAction:cancel];
@@ -450,45 +474,47 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 }
 
+#pragma mark - XBTextEditViewControllerDelegate
+- (void)didEdited:(XBTextEditController *)textEditController{
+    NSAttributedString *attributedString = textEditController.contentLabel.attributedText;
+    XBMakeContentItemView *itemView = [XBMakeContentItemView contentItemViewWithAttributedString:attributedString];
+    __weak typeof(self)wSelf = self;
+    __weak typeof(itemView)wItemView = itemView;
+    itemView.didClickedEditBtn = ^{
+        [wItemView removeFromSuperview];
+        [wSelf addTextWithAttributedText:attributedString];
+    };
+    [self.view addSubview:itemView];
+}
 #pragma mark - XBAudioManagerPlayDelegate, XBAudioManagerRecoderDelegate
 
 - (void)XBPublishRecordFinish:(id)audioView audioPath:(NSString *)path duration:(NSTimeInterval)duration {
-    XBMakeContentItemView *itemVIew = [XBMakeContentItemView contentItemViewWithAudioURL:[NSURL URLWithString:path]];
-    [self.view addSubview:itemVIew];
+    XBMakeContentItemView *itemView = [XBMakeContentItemView contentItemViewWithAudioURL:[NSURL URLWithString:path]];
+    __weak typeof(itemView)wItemView = itemView;
+    itemView.didClickedContentView = ^{
+        NSLog(@"audio playing.....");
+        [wItemView startVoiceAnimation];
+        [XBAVTools playAudioWithFilePath:path independent:NO completedHandle:^(NSError *error) {
+            [wItemView stopVoiceAnimation];
+            NSLog(@"audio played");
+        }];
+    };
+    [self.view addSubview:itemView];
 
 }
 - (void)XBPublishRecordDismiss:(UIViewController *)vc {
     [vc dismissViewControllerAnimated:NO completion:nil];
 }
 
-//- (void)xbAudioManagerEncodeErrorDidOccur:(XBAudioManager *)recorder error:(NSError *)error {
-//    NSLog(@"%s %@", __func__, error);
-//}
-//
-//- (void)xbAudioManagerDidFinishRecording:(XBAudioManager *)recorder successfully:(BOOL)flag {
-//    NSString *filePath = [recorder lastAudioPath];
-//    NSTimeInterval interval = [recorder audioDurationWithPath:filePath];
-//    NSString *content = [NSString stringWithFormat:@"文件：%@ - %.02f`s", [filePath lastPathComponent], interval];
-//    NSAttributedString *str = [[NSAttributedString alloc] initWithString:content];
-//    XBMakeContentItemView *itemVIew = [XBMakeContentItemView contentItemViewWithAttributedString:str];
-//    [self.view addSubview:itemVIew];
-//}
-
 #pragma mark - XBVideoEditControllerDelegate
 
 - (void)videoEditController:(XBVideoEditController *)videoEditController didProcessingCompletedWithVideoUrl:(NSURL *)url {
 
     XBMakeContentItemView *itemVIew = [XBMakeContentItemView contentItemViewWithVideoUrl:url];
-    __weak typeof(self) wSelf = self;
-    UIView *startView = itemVIew.contentView;
-    itemVIew.didClicked = ^{
-        XBVideoPreViewController *vc = [[XBVideoPreViewController alloc] init];
-        vc.videoUrl = url;
-        [wSelf wxs_presentViewController:vc makeTransition:^(WXSTransitionProperty *transition) {
-            transition.animationType = WXSTransitionAnimationTypeViewMoveNormalToNextVC;
-            transition.animationTime = 0.3;
-            transition.startView = startView;
-            transition.targetView = vc.view;
+    __weak typeof(itemVIew) wItemVIew = itemVIew;
+    itemVIew.didClickedContentView = ^{
+        [XBAVTools playVideoWithFilePath:url.absoluteString inView:wItemVIew.contentView independent:NO completedHandle:^(NSError *error) {
+            NSLog(@"哈哈");
         }];
     };
     [self.view addSubview:itemVIew];
@@ -499,16 +525,10 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 - (void)cameraViewController:(XBCameraViewController *)cameraViewController didProcessingCompletedWithVideoUrl:(NSURL *)url {
     XBMakeContentItemView *itemVIew = [XBMakeContentItemView contentItemViewWithVideoUrl:url];
-    __weak typeof(self) wSelf = self;
-    UIView *startView = itemVIew.contentView;
-    itemVIew.didClicked = ^{
-        XBVideoPreViewController *vc = [[XBVideoPreViewController alloc] init];
-        vc.videoUrl = url;
-        [wSelf wxs_presentViewController:vc makeTransition:^(WXSTransitionProperty *transition) {
-            transition.animationType = WXSTransitionAnimationTypeViewMoveNormalToNextVC;
-            transition.animationTime = 0.3;
-            transition.startView = startView;
-            transition.targetView = vc.view;
+    __weak typeof(itemVIew) wItemVIew = itemVIew;
+    itemVIew.didClickedContentView = ^{
+        [XBAVTools playVideoWithFilePath:url.absoluteString inView:wItemVIew.contentView independent:NO completedHandle:^(NSError *error) {
+            NSLog(@"哈哈");
         }];
     };
     [self.view addSubview:itemVIew];
@@ -523,14 +543,14 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
         XBMakeToolbarItemType type = (XBMakeToolbarItemType) [num integerValue];
         switch (type) {
             case XBMakeToolbarItemTypeBack: {
-                UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(goBackCaptureStageAndAlert)];
+                UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(dismissNotAlert)];
                 [item setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]} forState:UIControlStateNormal];
                 [barButtonItems addObject:item];
                 break;
             }
             case XBMakeToolbarItemTypeCancel: {
 
-                UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"nav_icon_back_white"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction)];
+                UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"nav_icon_back_white"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(goBackAndAlert)];
                 [barButtonItems addObject:item];
                 break;
             }
@@ -570,7 +590,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
         }
     }
     if (self.stage == XBMakeContentStageCaptureAddContent) {
-        [self reCapture];
+        self.onlyAddContentMode ? [self dismissNotAlert] : [self reCapture];
     }
 }
 
@@ -620,6 +640,10 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     }
 }
 
+- (void)setContentImage:(UIImage *)contentImage {
+    _contentImage = contentImage;
+    
+}
 
 #pragma mark - dealloc
 - (void)dealloc {

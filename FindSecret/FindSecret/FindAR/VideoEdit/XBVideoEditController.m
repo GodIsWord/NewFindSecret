@@ -219,7 +219,7 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
     playLayerFrame.origin.y = TOP_MARGIN + 8;
     playLayerFrame.size.height = self.editView.frame.origin.y - TOP_MARGIN - 8 - 8;
     playLayerFrame.size.width = playLayerFrame.size.height * scale;
-    playLayerFrame.origin.x = (CGRectGetWidth(self.view.bounds) - playLayerFrame.size.width) / 2.0;
+    playLayerFrame.origin.x = (CGFloat) ((CGRectGetWidth(self.view.bounds) - playLayerFrame.size.width) / 2.0);
     self.playerLayer.frame = playLayerFrame;
 
 
@@ -255,7 +255,7 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
     UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain  target:self action:@selector(confirmCancelAction)];
     [cancelItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[[UIColor whiteColor] colorWithAlphaComponent:0.5]} forState:UIControlStateNormal];
     UIBarButtonItem *flexibleSpaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain  target:self action:@selector((confirm))];
+    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain  target:self action:@selector(confirm)];
     [doneItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
     [self.confirmToolbar setItems:@[cancelItem, flexibleSpaceItem, doneItem] animated:NO];
 

@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "XBGifImageView.h"
+
 @interface XBMakeAudioItemView : UIView
-@property(nonatomic,strong) UILabel *secondsLabel;
-@property(nonatomic,strong) UILabel *miaoshuLabel;
-@property(nonatomic,strong) XBGifImageView *gifImageView;
-@property(nonatomic,assign) BOOL isSelected;
+@property (nonatomic, strong) UILabel *descLabel;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) XBGifImageView *gifImageView;
+- (void)startAnimation;
+- (void)stopAnimation;
 @end

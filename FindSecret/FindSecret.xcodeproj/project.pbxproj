@@ -48,6 +48,7 @@
 		E60A0A0021398C54009BC9F0 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E60A09EF21398C53009BC9F0 /* UIWebView+AFNetworking.m */; };
 		E60A0A042139A224009BC9F0 /* XBSelectFriendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E60A0A022139A223009BC9F0 /* XBSelectFriendsController.m */; };
 		E60A0A072139A254009BC9F0 /* XBSelectFriendsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E60A0A062139A254009BC9F0 /* XBSelectFriendsTableViewCell.m */; };
+		E60A0A0A213AD1FA009BC9F0 /* NSString+XBMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = E60A0A09213AD1FA009BC9F0 /* NSString+XBMD5.m */; };
 		E60E3B59210C0FF000C5BFBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B58210C0FF000C5BFBB /* AppDelegate.m */; };
 		E60E3B5C210C0FF000C5BFBB /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B5B210C0FF000C5BFBB /* HomeViewController.m */; };
 		E60E3B61210C0FF100C5BFBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B60210C0FF100C5BFBB /* Assets.xcassets */; };
@@ -453,6 +454,8 @@
 		E60A0A032139A223009BC9F0 /* XBSelectFriendsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XBSelectFriendsController.h; path = FindSecret/FindAR/Publish/SelectFriends/XBSelectFriendsController.h; sourceTree = SOURCE_ROOT; };
 		E60A0A052139A254009BC9F0 /* XBSelectFriendsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XBSelectFriendsTableViewCell.h; path = FindSecret/FindAR/Publish/SelectFriends/XBSelectFriendsTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		E60A0A062139A254009BC9F0 /* XBSelectFriendsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = XBSelectFriendsTableViewCell.m; path = FindSecret/FindAR/Publish/SelectFriends/XBSelectFriendsTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		E60A0A08213AD1FA009BC9F0 /* NSString+XBMD5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+XBMD5.h"; sourceTree = "<group>"; };
+		E60A0A09213AD1FA009BC9F0 /* NSString+XBMD5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+XBMD5.m"; sourceTree = "<group>"; };
 		E60E3B54210C0FEF00C5BFBB /* FindSecret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindSecret.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E60E3B57210C0FF000C5BFBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E60E3B58210C0FF000C5BFBB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1570,6 +1573,8 @@
 				E69315072137F61700E7FAE3 /* XBWeakProxy.m */,
 				74D5FBC5D1BDD81F08CA71E4 /* XBAVTools.m */,
 				74D10EB52A8A7BD784F2CF4E /* XBAVTools.h */,
+				E60A0A08213AD1FA009BC9F0 /* NSString+XBMD5.h */,
+				E60A0A09213AD1FA009BC9F0 /* NSString+XBMD5.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -2535,6 +2540,7 @@
 				E69315D22137F61800E7FAE3 /* XBWeakProxy.m in Sources */,
 				CA42A52C2137D8390007CCD1 /* UIButton+XBEnlargeEdge.m in Sources */,
 				74D6EC26BECF97FABAD7132B /* XBAVTools.m in Sources */,
+				E60A0A0A213AD1FA009BC9F0 /* NSString+XBMD5.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

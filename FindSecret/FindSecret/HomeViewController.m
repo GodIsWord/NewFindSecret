@@ -198,7 +198,7 @@
                                                  @{@"duration":@4341,@"filePath":@"/storage/emulated/0/ARXunMi/mediaedit/19432719-4ba9-4dcc-940e-81486a2ce979.mp3",@"height":@0.054054055,@"type":@"4",@"width":@0.26759258,@"x":@0.19552006,@"y":@0.568572},
                                                  @{@"duration":@3072,@"filePath":@"/storage/emulated/0/ARXunMi/mediaedit/video_1534399169159.mp4",@"thumbFilePath":@"/storage/emulated/0/ARXunMi/mediaedit/6d529a49-0e49-4335-a49b-f1f634241591.jpg",@"height":@0.2027027,@"type":@"1",@"width":@0.23425926,@"x":@0.5373537,@"y":@0.32226562}],
                                   @"markerImageData":@{@"height":@2220,@"markerImagePath":@"/storage/emulated/0/ARXunMi/mediaedit/a05a3c4d-06db-4887-a406-c6262ae7a333.jpg",@"width":@1080}};
-            [[HttpRequestServices sharedInstance] AFNPOSTRequestForTarget:self withParam:dic suceesBlock:^(HttpRequestServiceOperationModel *operationModel, id responseObject) {
+            [[HttpRequestServices sharedInstance] AFNPOSTRequestARHeaderWithParameter:dic suceesBlock:^(HttpRequestServiceOperationModel *operationModel, id responseObject) {
                 
             } failedBlock:^(HttpRequestServiceOperationModel *operationModel, NSError *error) {
                 

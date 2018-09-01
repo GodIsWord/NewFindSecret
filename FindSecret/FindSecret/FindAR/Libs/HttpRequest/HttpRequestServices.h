@@ -12,7 +12,8 @@
 typedef void(^httpRequestSuccessBlock)(HttpRequestServiceOperationModel *operationModel, id responseObject);
 typedef void(^httpRequestSuccessFail)(HttpRequestServiceOperationModel *operationModel, NSError *error);
 
-static NSString* const HttpHeader = @"http://www.artachina.com/ar-xunmi/cloud/v1.1/fileuploads";
+static NSString* const XBARHttpHeader = @"http://www.artachina.com/ar-xunmi/cloud/v1.1/fileuploads";
+static NSString* const ARAPP_KEY = @"fa20f953930f475991fcf4cd09dafc72";
 
 @interface HttpRequestServices : NSObject
 
@@ -53,9 +54,9 @@ static NSString* const HttpHeader = @"http://www.artachina.com/ar-xunmi/cloud/v1
 /**
  *post 请求
  */
--(void)AFNPOSTRequestForTarget:(id)target withParam:(NSDictionary*)parameters suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock ;
+-(void)AFNPOSTRequestARHeaderWithParameter:(NSDictionary*)parameters suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock ;
 
--(void)AFNPOSTRequestForTarget:(id)target headerURL:(NSString*)header withParam:(NSDictionary*)parameters suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock;
+-(void)AFNPOSTRequestHeaderURL:(NSString*)header headerExpand:(NSDictionary*)expanding withParam:(NSDictionary*)parameters suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock;
 
 
 @end

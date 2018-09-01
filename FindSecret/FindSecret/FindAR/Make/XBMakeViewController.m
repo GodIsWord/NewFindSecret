@@ -477,14 +477,16 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 #pragma mark - XBTextEditViewControllerDelegate
 - (void)didEdited:(XBTextEditController *)textEditController{
     NSAttributedString *attributedString = textEditController.contentLabel.attributedText;
-    XBMakeContentItemView *itemView = [XBMakeContentItemView contentItemViewWithAttributedString:attributedString];
-    __weak typeof(self)wSelf = self;
-    __weak typeof(itemView)wItemView = itemView;
-    itemView.didClickedEditBtn = ^{
-        [wItemView removeFromSuperview];
-        [wSelf addTextWithAttributedText:attributedString];
-    };
-    [self.view addSubview:itemView];
+    if (attributedString.length > 0) {
+        XBMakeContentItemView *itemView = [XBMakeContentItemView contentItemViewWithAttributedString:attributedString];
+        __weak typeof(self)wSelf = self;
+        __weak typeof(itemView)wItemView = itemView;
+        itemView.didClickedEditBtn = ^{
+            [wItemView removeFromSuperview];
+            [wSelf addTextWithAttributedText:attributedString];
+        };
+        [self.view addSubview:itemView];
+    }
 }
 #pragma mark - XBAudioManagerPlayDelegate, XBAudioManagerRecoderDelegate
 
@@ -513,6 +515,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     XBMakeContentItemView *itemVIew = [XBMakeContentItemView contentItemViewWithVideoUrl:url];
     __weak typeof(itemVIew) wItemVIew = itemVIew;
     itemVIew.didClickedContentView = ^{
+        NSLog(@"play url:%@",url.absoluteString);
         [XBAVTools playVideoWithFilePath:url.absoluteString inView:wItemVIew.contentView independent:NO completedHandle:^(NSError *error) {
             NSLog(@"哈哈");
         }];
@@ -527,6 +530,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     XBMakeContentItemView *itemVIew = [XBMakeContentItemView contentItemViewWithVideoUrl:url];
     __weak typeof(itemVIew) wItemVIew = itemVIew;
     itemVIew.didClickedContentView = ^{
+        NSLog(@"play url:%@",url.absoluteString);
         [XBAVTools playVideoWithFilePath:url.absoluteString inView:wItemVIew.contentView independent:NO completedHandle:^(NSError *error) {
             NSLog(@"哈哈");
         }];

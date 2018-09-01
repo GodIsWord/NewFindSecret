@@ -349,8 +349,10 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
                 self.backgroundTaskIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
             }
             //预览图层和视频方向保持一致
+            
             captureConnection.videoOrientation = [self.captureVideoPreviewLayer connection].videoOrientation;
-            NSString *outputFielPath = [NSTemporaryDirectory() stringByAppendingString:@"myMovie.mov"];
+            NSString *str = [NSString stringWithFormat:@"%ld.mov",(long)[[NSDate date] timeIntervalSince1970]];
+            NSString *outputFielPath = [NSTemporaryDirectory() stringByAppendingString:str];
             NSURL *fileUrl = [NSURL fileURLWithPath:outputFielPath];
             [self.captureMovieFileOutPut startRecordingToOutputFileURL:fileUrl recordingDelegate:self];
 

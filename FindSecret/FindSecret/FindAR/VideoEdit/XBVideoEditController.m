@@ -334,7 +334,8 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
 
 - (void)confirm {
     NSLog(@"如果有回调的话");
-    NSString *tempVideoPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"tmpMov.mov"];
+    NSString *str = [NSString stringWithFormat:@"%ld.mov",(long)[[NSDate date] timeIntervalSince1970]];
+    NSString *tempVideoPath = [NSTemporaryDirectory() stringByAppendingPathComponent:str];
     if ([[NSFileManager defaultManager] fileExistsAtPath:tempVideoPath]) {
         NSError *error;
         [[NSFileManager defaultManager] removeItemAtPath:tempVideoPath error:&error];

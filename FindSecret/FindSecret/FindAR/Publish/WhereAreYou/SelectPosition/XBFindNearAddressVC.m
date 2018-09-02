@@ -144,7 +144,7 @@
                    self.returnBlock(@"",@"",@"",0,0,nil,nil);
                 }
             }
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self.navigationController popViewControllerAnimated:YES];
         }else{
             //[self showHoderView:@"还没有选择位置"];
         }

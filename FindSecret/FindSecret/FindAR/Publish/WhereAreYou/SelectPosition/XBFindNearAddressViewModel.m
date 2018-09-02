@@ -33,7 +33,8 @@
     if(indexPath.row == 0){
         cell.textLabel.textColor = [UIColor blueColor];
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        NSIndexPath *path = [NSIndexPath indexPathForItem:0 inSection:0];     self.lastSelectCellIndex = path;
+        NSIndexPath *path = [NSIndexPath indexPathForItem:0 inSection:0];
+        self.lastSelectCellIndex = path;
     }
     AMapPOI *model = self.models[indexPath.row];
     cell.textLabel.text = model.name;

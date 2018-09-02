@@ -136,10 +136,10 @@
     UIButton *btn = [self rl_BarBtnWithTitle:@"确定"];
     [btn addActionHandler:^(NSInteger tag) {
         if (self.requestViewModel.models.count>0) {
-            AMapPOI *model = _searchSelectModel;
+            AMapPOI *model = self->_searchSelectModel;
             if (self.returnBlock) {
                 if (model.address.length>0) {
-                    self.returnBlock(model.city,model.name,model.address,model.location.latitude,model.location.longitude,model.tel,_shotImg);
+                    self.returnBlock(model.city,model.name,model.address,model.location.latitude,model.location.longitude,model.tel,self->_shotImg);
                 }else{
                    self.returnBlock(@"",@"",@"",0,0,nil,nil);
                 }

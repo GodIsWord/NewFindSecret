@@ -11,7 +11,6 @@
 #import "XBFindNearAddressVC.h"
 #import "XBPublishCell.h"
 #import "XBWhoCanSeeController.h"
-#import "XBAmplificationImageViewController.h"
 #import "Masonry.h"
 
 @interface XBPublishController ()<UITextViewDelegate,UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
@@ -44,7 +43,6 @@
     self.tableView.backgroundColor = [UIColor whiteColor];
     
     self.titleDataSource = @[@"所在位置",@"谁可以看",@"在哪里可以看"];
-    
     self.imageDataSource = @[@"3",@"3",@"3"];
     self.detailDataSource = @[@"",@"点对点发送",@"不限地点"];
 }

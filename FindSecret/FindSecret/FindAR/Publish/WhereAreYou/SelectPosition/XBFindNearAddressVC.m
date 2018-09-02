@@ -63,29 +63,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //050000 餐饮服务;餐饮相关场所;餐饮相关
-    //060000 购物服务;购物相关场所;购物相关场所
-    //070000 生活服务;生活服务场所;生活服务场所
-    //080000 体育休闲服务;体育休闲服务场所;体育休闲服务场所
-    //090000 医疗保健服务;医疗保健服务场所;医疗保健服务场所
-    //100000 住宿服务;住宿服务相关;住宿服务相关
-    //110000 风景名胜;风景名胜相关;旅游景点
-    //120000 商务住宅;商务住宅相关;商务住宅相关
-    //130000 政府机构及社会团体;政府及社会团体相关;政府及社会团体相关
-    //140000 科教文化服务;科教文化场所;科教文化场所
-    //150000 交通设施服务;交通服务相关;交通服务相关
-    //160000 金融保险服务;金融保险服务机构;金融保险机构
-    //170000 公司企业;公司企业;公司企业
-    //180000 道路附属设施;道路附属设施;道路附属设施
-    //_searchTypesStr = @"050000|060000|070000|100000|110000|170000";
     _searchTypesStr = @"地名地址信息|餐饮服务|购物服务|生活服务|风景名胜|公司企业";
-    //_searchTypesStr = @"地名地址信息";
     
     [self initNavView];
     [self initTableView];
-    
     [self initMapView];
-    
     
     //[self.view addSubview:self.reloadBGView];
     [self.view addSubview:self.reloadView];
@@ -94,7 +76,6 @@
 }
 #pragma mark - initTableView
 - (void)initTableView{
-    
     
     UIImageView *imageBack = [[UIImageView alloc]initWithFrame:self.view.bounds];
     imageBack.backgroundColor = TABLE_BG_COLOR;
@@ -128,7 +109,7 @@
     
     UIButton *btn1 = [self rl_BarBtnWithTitle:@"取消"];
     [btn1 addActionHandler:^(NSInteger tag) {
-         [self.navigationController popViewControllerAnimated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
     }];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:btn1];
     
@@ -141,10 +122,10 @@
                 if (model.address.length>0) {
                     self.returnBlock(model.city,model.name,model.address,model.location.latitude,model.location.longitude,model.tel,self->_shotImg);
                 }else{
-                   self.returnBlock(@"",@"",@"",0,0,nil,nil);
+                    self.returnBlock(@"",@"",@"",0,0,nil,nil);
                 }
             }
-
+            
             [self.navigationController popViewControllerAnimated:YES];
         }else{
             //[self showHoderView:@"还没有选择位置"];
@@ -167,9 +148,7 @@
     _mapView.delegate = self;
     [self.view addSubview:_mapView];
     
-    
     _mapView.showsUserLocation = YES;
-    
     
     _aroundSearchRequest = [[AMapPOIAroundSearchRequest alloc]init];
     _aroundSearchRequest.offset = 30;
@@ -215,11 +194,14 @@
         
         [self layerModelDataWithArr:response.pois];
         
-    
-        _searchSelectModel = [[AMapPOI alloc]init];
-        _searchSelectModel.name  = @"不显示位置";
-        _searchSelectModel.address = @"";
-                    [self.dataArr insertObject:_searchSelectModel atIndex:0];
+        AMapPOI *moddel = self.dataArr[0];
+        if(![moddel.name isEqualToString:@"不显示位置"]){
+            _searchSelectModel = [[AMapPOI alloc]init];
+            _searchSelectModel.name  = @"不显示位置";
+            _searchSelectModel.address = @"";
+            [self.dataArr insertObject:_searchSelectModel atIndex:0];
+
+        }
         
         self.requestViewModel.models = self.dataArr;
         [self.tableView reloadData];
@@ -258,11 +240,11 @@
 // 创建新位置
 - (void)tap_noResultLabel
 {
- 
-        if (self.returnBlock) {
-            self.returnBlock(@"",_searchBar.text,0,0,0,nil,nil);
-        }
-        [self.navigationController popViewControllerAnimated:YES];
+    
+    if (self.returnBlock) {
+        self.returnBlock(@"",_searchBar.text,0,0,0,nil,nil);
+    }
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 
@@ -320,7 +302,7 @@
 {
     
     [_searchController setActive:NO animated:YES];
-
+    
     AMapPOI *model = self.searchDataArr[indexPath.row];
     [self didseletIndex:model andIsSearch:YES];
     
@@ -341,7 +323,7 @@
         }
         [self.navigationController popViewControllerAnimated:YES];
     }
-  
+    
 }
 #pragma mark - scrollview delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -431,7 +413,7 @@
             {
                 NSLog(@"-_UISearchDisplayControllerDimmingView--%f-----",sencondView.alpha);
                 sencondView.alpha = 0.25;
-                //sencondView.backgroundColor = [UIColor whiteColor];
+                //                sencondView.backgroundColor = [UIColor whiteColor];
             }
         }
     }

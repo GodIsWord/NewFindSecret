@@ -35,16 +35,6 @@
 
 @implementation HomeViewController
 
-- (void)gotoVideoEditWithImagePath:(NSString*)path {
-    XBMakeViewController *makeViewController = [[XBMakeViewController alloc] init];
-//    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535800125540&di=731771782a91456280d10eb3d363852e&imgtype=jpg&src=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2212426948%2C2448091984%26fm%3D214%26gp%3D0.jpg"]];
-//    makeViewController.contentImage = [UIImage imageWithData:data];
-    makeViewController.contentImage = [UIImage imageWithContentsOfFile:path];
-    makeViewController.onlyAddContentMode = YES;
-    UINavigationController *navigationController1 = [[UINavigationController alloc] initWithRootViewController:makeViewController];
-    [self presentViewController:navigationController1 animated:YES completion:nil];
-    
-}
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
@@ -57,12 +47,6 @@
         videoEditController.videoUrl = info[UIImagePickerControllerMediaURL];
         [self presentViewController:videoEditController animated:YES completion:nil];
     }];
-
-}
-- (void)gotoTextEdit {
-    XBTextEditController *textXB = [[XBTextEditController alloc] init];
-    textXB.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    [self presentViewController:textXB animated:NO completion:nil];
 
 }
 
@@ -86,7 +70,6 @@
 
 -(void)initDataSource{
     self.dataSource = @[@"发布",
-                        @"选择位置",
                         @"文字",
                         @"创作AR内容",
                         @"UI测试",
@@ -104,29 +87,34 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
-- (void)initChooseAddress
-{
-    XBFindNearAddressVC *vc = [XBFindNearAddressVC new];
-    [vc setReturnBlock:^(NSString *city,NSString *name,NSString *address,CGFloat latitude,CGFloat longitude,NSString *phone,UIImage *img){
-        if (name) {
-
-            self.addressLabel.xb_width = ScreenWidth - 40;
-            self.addressLabel.text = [NSString stringWithFormat:@"longitude = %.10f\nlatitude = %.10f\n%@",longitude,latitude,name];
-            [self.addressLabel sizeToFit];
-
-        }
-
-    }];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
-    [self presentViewController:nav animated:YES completion:nil];
-    [self.navigationController pushViewController:vc animated:YES];
-}
 
 -(void)publish{
     XBPublishController *vc = [XBPublishController new];
     [self.navigationController pushViewController:vc animated:NO];
 }
-
+- (void)gotoTextEdit {
+    XBTextEditController *textXB = [[XBTextEditController alloc] init];
+    textXB.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [self presentViewController:textXB animated:NO completion:nil];
+    
+}
+- (void)gotoVideoEditWithImagePath:(NSString*)path {
+    XBMakeViewController *makeViewController = [[XBMakeViewController alloc] init];
+    makeViewController.contentImage = [UIImage imageWithContentsOfFile:path];
+    makeViewController.onlyAddContentMode = YES;
+    UINavigationController *navigationController1 = [[UINavigationController alloc] initWithRootViewController:makeViewController];
+    [self presentViewController:navigationController1 animated:NO completion:nil];
+    
+}
+-(void)gotoMakeImage
+{
+    XBMakeViewController *makeViewController = [[XBMakeViewController alloc] init];
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535800125540&di=731771782a91456280d10eb3d363852e&imgtype=jpg&src=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2212426948%2C2448091984%26fm%3D214%26gp%3D0.jpg"]];
+    makeViewController.contentImage = [UIImage imageWithData:data];
+    makeViewController.onlyAddContentMode = YES;
+    UINavigationController *navigationController1 = [[UINavigationController alloc] initWithRootViewController:makeViewController];
+    [self presentViewController:navigationController1 animated:YES completion:nil];
+}
 #pragma mark -  UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -152,7 +140,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    static NSString *imagePath = nil;
     switch (indexPath.row) {
             case 0:
             {
@@ -160,46 +148,43 @@
             }
             break;
             case 1:{
-                [self initChooseAddress];
-            }
-            break;
-            case 2:{
                 
                 [self gotoTextEdit];
                 
                 
             }
             break;
-            case 3:{
-                [self gotoVideoEditWithImagePath:nil];
+            case 2:{
+                [self gotoMakeImage];
             }
             break;
-            case 4:{
+            case 3:{
                 XBUITestViewController *vc = [[XBUITestViewController alloc] initWithNibName:@"XBUITestViewController" bundle:nil];
                 [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
-            case 5:{
+            case 4:{
                 [XBUnitySubbviewManager showTakePhotoComplate:^(NSString *path) {
                     [self gotoVideoEditWithImagePath:path];
+                    imagePath = path;
                 }];
                 
                 
             }
             break;
-        case 6:{
+        case 5:{
             [XBUnitySubbviewManager startSaomiao];
-//            XBPublishRecordAudioViewController *controller = [[XBPublishRecordAudioViewController alloc] init];
-//            controller.modalPresentationStyle = UIModalPresentationPopover;
-//            [self.navigationController presentViewController:controller animated:YES completion:nil];
         }
             break;
-        case 7:{
+        case 6:{
             
-            NSDictionary *dic = @{@"arHotData":@[@{@"color":@"#FF0000FF",@"font":@"songti",@"text":@"回宿舍手机",@"height":@0.025675675,@"type":@"3",@"width":@0.2777778,@"x":@0.26904297,@"y":@0.4155273},
-                                                 @{@"duration":@4341,@"filePath":@"/storage/emulated/0/ARXunMi/mediaedit/19432719-4ba9-4dcc-940e-81486a2ce979.mp3",@"height":@0.054054055,@"type":@"4",@"width":@0.26759258,@"x":@0.19552006,@"y":@0.568572},
-                                                 @{@"duration":@3072,@"filePath":@"/storage/emulated/0/ARXunMi/mediaedit/video_1534399169159.mp4",@"thumbFilePath":@"/storage/emulated/0/ARXunMi/mediaedit/6d529a49-0e49-4335-a49b-f1f634241591.jpg",@"height":@0.2027027,@"type":@"1",@"width":@0.23425926,@"x":@0.5373537,@"y":@0.32226562}],
-                                  @"markerImageData":@{@"height":@2220,@"markerImagePath":@"/storage/emulated/0/ARXunMi/mediaedit/a05a3c4d-06db-4887-a406-c6262ae7a333.jpg",@"width":@1080}};
+//            NSDictionary *dic = @{@"arHotData":@[@{@"color":@"#FF0000FF",@"font":@"songti",@"text":@"回宿舍手机",@"height":@0.025675675,@"type":@"3",@"width":@0.2777778,@"x":@0.26904297,@"y":@0.4155273},
+//                                                 @{@"duration":@4341,@"filePath":@"/storage/emulated/0/ARXunMi/mediaedit/19432719-4ba9-4dcc-940e-81486a2ce979.mp3",@"height":@0.054054055,@"type":@"4",@"width":@0.26759258,@"x":@0.19552006,@"y":@0.568572},
+//                                                 @{@"duration":@3072,@"filePath":@"/storage/emulated/0/ARXunMi/mediaedit/video_1534399169159.mp4",@"thumbFilePath":@"/storage/emulated/0/ARXunMi/mediaedit/6d529a49-0e49-4335-a49b-f1f634241591.jpg",@"height":@0.2027027,@"type":@"1",@"width":@0.23425926,@"x":@0.5373537,@"y":@0.32226562}],
+//                                  @"markerImageData":@{@"height":@2220,@"markerImagePath":@"/storage/emulated/0/ARXunMi/mediaedit/a05a3c4d-06db-4887-a406-c6262ae7a333.jpg",@"width":@1080}};
+            NSDictionary *dic = @{@"arHotData":@[@{@"color":@"#FF0000FF",@"font":@"songti",@"text":@"回宿舍手机",@"height":@0.025675675,@"type":@"3",@"width":@0.2777778,@"x":@0.26904297,@"y":@0.4155273}
+                                                ],
+                                  @"markerImageData":@{@"height":@1920,@"markerImagePath":imagePath,@"width":@1080}};
             [[HttpRequestServices sharedInstance] AFNPOSTRequestARHeaderWithParameter:dic suceesBlock:^(HttpRequestServiceOperationModel *operationModel, id responseObject) {
                 
             } failedBlock:^(HttpRequestServiceOperationModel *operationModel, NSError *error) {

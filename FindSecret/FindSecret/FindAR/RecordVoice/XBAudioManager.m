@@ -12,7 +12,6 @@
 #import "XBPlayAudio.h"
 #import "XBRecordAudioToastView.h"
 #import "XBWeakProxy.h"
-#import "XBRecordAudioStorage.h"
 
 @interface XBAudioManager()<XBPlayAudioDelegate,XBRecordAudioDelegate>
 

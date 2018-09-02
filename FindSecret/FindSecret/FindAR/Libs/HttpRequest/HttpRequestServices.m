@@ -90,8 +90,8 @@ static HttpRequestServices *service ;
     }
     
     if (parameters.count>0) {
-//        NSString *strParam = [self requestParamWithParamers:parameters encry:encry];
-//        url = [url stringByAppendingString:strParam];
+        NSString *strParam = [self requestParamWithParamers:parameters encry:encry];
+        url = [url stringByAppendingString:strParam];
     }
     
     NSLog(@"url:%@",url);
@@ -112,7 +112,7 @@ static HttpRequestServices *service ;
 -(void)AFNPOSTRequestARHeaderWithParameter:(NSDictionary*)parameters suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock
 {
     //添加请求头
-    NSString *time= [NSString stringWithFormat:@"%f",[[NSDate dateWithTimeIntervalSinceNow:0] timeIntervalSince1970]];
+    NSString *time= [NSString stringWithFormat:@"%.0f",[[NSDate dateWithTimeIntervalSinceNow:0] timeIntervalSince1970]];
     NSString *strMD5 = [[NSString stringWithFormat:@"%@%@",ARAPP_KEY,time] MD5ForLower32Bate];
     [self.afnManager.requestSerializer setValue:strMD5 forHTTPHeaderField:@"signature"];
     [self.afnManager.requestSerializer setValue:time forHTTPHeaderField:@"timestamp"];

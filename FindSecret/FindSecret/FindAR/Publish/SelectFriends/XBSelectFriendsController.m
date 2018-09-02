@@ -77,6 +77,11 @@ static NSString* const cellID = @"steCellID";
 }
 
 #pragma mark -  UITableViewDelegate
+
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.searchTextField resignFirstResponder];
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.dataSource.count;
@@ -86,8 +91,13 @@ static NSString* const cellID = @"steCellID";
     
     XBSelectFriendsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     cell.nameLabel.text = self.dataSource[indexPath.item];
-    cell.typeImageView.hidden = !(indexPath.item == self.currSelectIndex);
+//    cell.typeImageView.hidden = !(indexPath.item == self.currSelectIndex);
     cell.headImageView.image = [UIImage imageNamed:@"taiqiu.png"];
+    if ((indexPath.item == self.currSelectIndex)) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }else{
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     return cell;
 }
 

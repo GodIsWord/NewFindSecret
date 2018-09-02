@@ -16,7 +16,7 @@
     if (self) {
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.accessoryType = UITableViewCellAccessoryNone;
+        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         self.detailTextLabel.textColor = [UIColor grayColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
      

@@ -22,6 +22,7 @@
     self  = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+//        self.accessoryType = UITableViewCellAccessoryCheckmark;
         [self initSubbView];
     }
     return self;

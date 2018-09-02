@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "XBRecordAudioStorage.h"
+
 @class XBAudioManager;
 
 @protocol XBAudioManagerRecoderDelegate<NSObject>

@@ -111,6 +111,7 @@
     } else if (btn == self.cancleBtn) {
         //取消录音 删除之前录音的文件
         [self closeSelectBtn];
+        [XBRecordAudioStorage removeWithPath:[XBRecordAudioStorage lastRecorderPath]];
     }
 
 }

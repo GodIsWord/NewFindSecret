@@ -103,7 +103,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 270;
+    return 220;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -143,7 +143,7 @@
         make.left.equalTo(view).offset(20);
         make.top.equalTo(view).offset(20);
         make.right.equalTo(view.mas_right).offset(-20);
-        make.height.mas_equalTo(180);
+        make.height.mas_equalTo(120);
     }];
     
     self.picView = [[UIImageView alloc]init];
@@ -156,7 +156,7 @@
     [self.picView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.editTextView.mas_bottom).offset(10);
         make.left.equalTo(view).offset(20);
-        make.width.height.mas_equalTo(50);
+        make.width.height.mas_equalTo(80);
     }];
     return view;
     
@@ -183,6 +183,12 @@
 -(void)publishBUttonDidClicked:(UIButton *)sender{
     
 }
+
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.editTextView resignFirstResponder];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     return 49;

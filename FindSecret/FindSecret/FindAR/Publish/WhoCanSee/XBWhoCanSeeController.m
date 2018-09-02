@@ -12,16 +12,36 @@
 
 @interface XBWhoCanSeeController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,copy) NSArray *dataSource;
+@property(nonatomic,copy) NSString *selectTitle;
 @end
 
 @implementation XBWhoCanSeeController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    if (self.type==2) {
+        self.title = @"在哪里可以看";
+    }else{
+        self.title = @"谁可以看";
+    }
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     [self initDataSource];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(confirmAction)];
+    [item setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor blueColor]} forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = item;
+}
+
+-(void)confirmAction
+{
+    if (!self.selectTitle) {
+        return;
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+    if ([self.delegate respondsToSelector:@selector(whoCanSeeControllerSelectType:message:)]) {
+        [self.delegate whoCanSeeControllerSelectType:self.type message:@{@"title":self.selectTitle}];
+    }
 }
 
 -(void)initDataSource
@@ -67,10 +87,10 @@
     NSDictionary *dic = self.dataSource[indexPath.item];
     if ([dic[@"title"] isEqualToString:@"点对点发送"]) {
         XBSelectFriendsController *contr = [[XBSelectFriendsController alloc] init];
+        contr.deleage = (id)self.delegate;
         [self.navigationController pushViewController:contr animated:YES];
     }else{
-        //记得加代理
-        [self.navigationController popViewControllerAnimated:YES];
+        self.selectTitle = dic[@"title"];
     }
     
 }

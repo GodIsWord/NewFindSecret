@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XBSelectFriendsController : UIViewController
+@protocol SelectFriendsControllerDelegate <NSObject>
 
+@optional
+-(void)selectFriendsMess:(NSDictionary*)dic;
+
+@end
+
+@interface XBSelectFriendsController : UIViewController
+@property(nonatomic,weak) id<SelectFriendsControllerDelegate>deleage;
 @end

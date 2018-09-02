@@ -90,6 +90,7 @@
     cell.title.textColor = [UIColor grayColor];
     cell.pictureImageView.image = [UIImage imageNamed:self.imageDataSource[indexPath.row]];
     cell.detail.text = self.detailDataSource[indexPath.row];
+    cell.detail.textColor = [UIColor grayColor];
     return cell;
 }
 

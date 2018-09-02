@@ -293,7 +293,6 @@
 		E69315D52137F61800E7FAE3 /* XBNoResultHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315142137F61700E7FAE3 /* XBNoResultHeadView.m */; };
 		E69315D62137F61800E7FAE3 /* XBBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315182137F61700E7FAE3 /* XBBaseTableViewController.m */; };
 		E69315D72137F61800E7FAE3 /* XBFindNearAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315192137F61700E7FAE3 /* XBFindNearAddressVC.m */; };
-		E69315D82137F61800E7FAE3 /* XBFindFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E693151A2137F61700E7FAE3 /* XBFindFriendCell.m */; };
 		E69315D92137F61800E7FAE3 /* XBFindNearAddressViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E693151B2137F61700E7FAE3 /* XBFindNearAddressViewModel.m */; };
 		E69315DA2137F61800E7FAE3 /* SQActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315202137F61700E7FAE3 /* SQActionSheetView.m */; };
 		E69315DB2137F61800E7FAE3 /* UISearchBar+MP.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315212137F61700E7FAE3 /* UISearchBar+MP.m */; };
@@ -715,10 +714,8 @@
 		E69315142137F61700E7FAE3 /* XBNoResultHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBNoResultHeadView.m; sourceTree = "<group>"; };
 		E69315152137F61700E7FAE3 /* XBFindNearAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBFindNearAddressVC.h; sourceTree = "<group>"; };
 		E69315162137F61700E7FAE3 /* XBFindNearAddressViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBFindNearAddressViewModel.h; sourceTree = "<group>"; };
-		E69315172137F61700E7FAE3 /* XBFindFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBFindFriendCell.h; sourceTree = "<group>"; };
 		E69315182137F61700E7FAE3 /* XBBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBBaseTableViewController.m; sourceTree = "<group>"; };
 		E69315192137F61700E7FAE3 /* XBFindNearAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBFindNearAddressVC.m; sourceTree = "<group>"; };
-		E693151A2137F61700E7FAE3 /* XBFindFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBFindFriendCell.m; sourceTree = "<group>"; };
 		E693151B2137F61700E7FAE3 /* XBFindNearAddressViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBFindNearAddressViewModel.m; sourceTree = "<group>"; };
 		E693151C2137F61700E7FAE3 /* XBBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBBaseTableViewController.h; sourceTree = "<group>"; };
 		E693151F2137F61700E7FAE3 /* SQActionSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQActionSheetView.h; sourceTree = "<group>"; };
@@ -1627,8 +1624,6 @@
 				E69315122137F61700E7FAE3 /* NoResult */,
 				E693151C2137F61700E7FAE3 /* XBBaseTableViewController.h */,
 				E69315182137F61700E7FAE3 /* XBBaseTableViewController.m */,
-				E69315172137F61700E7FAE3 /* XBFindFriendCell.h */,
-				E693151A2137F61700E7FAE3 /* XBFindFriendCell.m */,
 				E69315152137F61700E7FAE3 /* XBFindNearAddressVC.h */,
 				E69315192137F61700E7FAE3 /* XBFindNearAddressVC.m */,
 				E69315162137F61700E7FAE3 /* XBFindNearAddressViewModel.h */,
@@ -2469,7 +2464,6 @@
 				E6930CBF2137D29900E7FAE3 /* Il2CppCompilerCalculateTypeValues_17Table.cpp in Sources */,
 				E693ED862137C21E00E7FAE3 /* ActivityIndicator.mm in Sources */,
 				E69315EF2137F61800E7FAE3 /* XHRefreshActivityIndicatorContainerView.m in Sources */,
-				E69315D82137F61800E7FAE3 /* XBFindFriendCell.m in Sources */,
 				E693ED6E2137C21E00E7FAE3 /* UnityReplayKit.mm in Sources */,
 				E60A09F421398C54009BC9F0 /* AFURLResponseSerialization.m in Sources */,
 				E6930D062137D29900E7FAE3 /* Bulk_Generics_16.cpp in Sources */,

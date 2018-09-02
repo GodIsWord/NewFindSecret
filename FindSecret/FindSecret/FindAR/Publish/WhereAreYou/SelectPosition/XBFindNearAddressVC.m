@@ -7,20 +7,13 @@
 //
 
 #import "XBFindNearAddressVC.h"
-
-#import "XBFindFriendCell.h"
-
 #import "UISearchBar+MP.h"
-
 #import "XBFindNearAddressViewModel.h"
-
-
 #import <MAMapKit/MAMapKit.h>
 #import <AMapSearchKit/AMapSearchKit.h>
 #import <AMapFoundationKit/AMapFoundationKit.h>
 
 #import "MJRefresh.h"
-#import "XBFindFriendCell.h"
 #import "XBNoResultHeadView.h"
 
 #import "UIButton+Block.h"
@@ -280,7 +273,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [XBFindFriendCell getCellHeight];
+    return 64;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {

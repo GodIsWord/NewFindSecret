@@ -7,7 +7,6 @@
 //
 
 #import "XBFindNearAddressViewModel.h"
-#import "XBFindFriendCell.h"
 #import <AMapSearchKit/AMapSearchKit.h>
 
 @interface XBFindNearAddressViewModel()
@@ -60,7 +59,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    return [XBFindFriendCell getCellHeight];
+    return 64;
 }
 
 

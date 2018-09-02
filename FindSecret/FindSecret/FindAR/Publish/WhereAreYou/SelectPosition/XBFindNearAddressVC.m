@@ -112,8 +112,7 @@
         [self.navigationController popViewControllerAnimated:YES];
     }];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:btn1];
-    
-    
+
     UIButton *btn = [self rl_BarBtnWithTitle:@"确定"];
     [btn addActionHandler:^(NSInteger tag) {
         if (self.requestViewModel.models.count>0) {
@@ -272,7 +271,7 @@
 {
     
     AMapPOI *model = self.searchDataArr[indexPath.row];
-    XBFindFriendCell *cell = [XBFindFriendCell cellWithTableView:tableView];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.textLabel.text = model.name;
     cell.detailTextLabel.text = model.address;
     

@@ -11,8 +11,8 @@
 #import <AMapSearchKit/AMapSearchKit.h>
 
 @interface XBFindNearAddressViewModel()
-
 @property(nonatomic,strong) NSIndexPath *lastSelectCellIndex;
+
 @end
 
 @implementation XBFindNearAddressViewModel
@@ -28,13 +28,28 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    XBFindFriendCell *cell = [XBFindFriendCell cellWithTableView:tableView];
+    NSString *CellID = [NSString stringWithFormat:@"CellID%ld%ld", (long)indexPath.section,(long)indexPath.row];
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];;
     cell.textLabel.textColor = [UIColor blackColor];
-    if(indexPath.row == 0){
-        cell.textLabel.textColor = [UIColor blueColor];
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        NSIndexPath *path = [NSIndexPath indexPathForItem:0 inSection:0];     self.lastSelectCellIndex = path;
+    cell.accessoryType = UITableViewCellAccessoryNone;
+
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellID];
+        if(indexPath.row == 0){
+            cell.textLabel.textColor = [UIColor blueColor];
+//            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+//            NSIndexPath *path = [NSIndexPath indexPathForItem:0 inSection:0];
+//            self.requestViewModel.lastSelectCellIndex = path;
+//            
+        }
     }
+    if ((indexPath.item == self.lastSelectCellIndex.item)) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }else{
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+
     AMapPOI *model = self.models[indexPath.row];
     cell.textLabel.text = model.name;
     cell.detailTextLabel.text = model.address;
@@ -52,13 +67,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    XBFindFriendCell *lastCell = [tableView cellForRowAtIndexPath:self.lastSelectCellIndex];
+    UITableViewCell *lastCell = [tableView cellForRowAtIndexPath:self.lastSelectCellIndex];
     lastCell.accessoryType = UITableViewCellAccessoryNone;
-    
-    
-    XBFindFriendCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+
+
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    
+
     if (self.returnBlock) {
         self.returnBlock(indexPath);
     }

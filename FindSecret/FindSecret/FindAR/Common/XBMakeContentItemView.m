@@ -9,7 +9,12 @@
 #import "XBMakeAudioItemView.h"
 #import "XBAVTools.h"
 @interface XBMakeContentItemView ()
+@property (nonatomic, assign, readwrite) XBMakeContentItemType type;
 @property (nonatomic, strong) CAShapeLayer *border;
+@property (nonatomic, strong, readwrite) NSAttributedString *attributedText;
+@property (nonatomic, strong, readwrite) NSURL *videoURL;
+@property (nonatomic, strong, readwrite) NSURL *audioURL;
+@property (nonatomic, strong, readwrite) UIImage *thumbnailImage;
 @end
 
 
@@ -78,16 +83,18 @@
     [contentLab sizeToFit];
 
     XBMakeContentItemView *view = [[[UINib nibWithNibName:@"XBMakeContentItemView" bundle:nil] instantiateWithOwner:nil options:nil] firstObject];
+    view.type = XBMakeContentItemTypeText;
+    view.attributedText = attributedString;
     view.frame = CGRectInset(contentLab.bounds, -20, -20);
     [view.contentView addSubview:contentLab];
     view.center = CGPointMake((CGFloat) (SCREEN_WIDTH / 2.0), (CGFloat) (SCREEN_HEIGHT / 2.0));
     return view;
 }
 
-+ (instancetype)contentItemViewWithVideoUrl:(NSURL *)videoUrl {
++ (instancetype)contentItemViewWithVideoUrl:(NSURL *)videoURL {
 
     UIImageView *imageView = [[UIImageView alloc] init];
-    imageView.image = [self thumbnailImageForVideo:videoUrl];
+    imageView.image = [self thumbnailImageForVideo:videoURL];
     CGSize size = imageView.image.size;
     CGFloat rate = size.width / size.height;
     CGFloat width = (CGFloat) (SCREEN_WIDTH / 6.0);
@@ -97,6 +104,9 @@
     imageView.frame = CGRectMake(0, 0, size.width, size.height);
 
     XBMakeContentItemView *view = [[[UINib nibWithNibName:@"XBMakeContentItemView" bundle:nil] instantiateWithOwner:nil options:nil] firstObject];
+    view.type = XBMakeContentItemTypeVideo;
+    view.thumbnailImage = imageView.image;
+    view.videoURL = videoURL;
     view.editBtn.hidden = YES;
     view.frame = CGRectInset(imageView.bounds, -20, -20);
     [view.contentView addSubview:imageView];
@@ -126,7 +136,10 @@
 + (instancetype)contentItemViewWithAudioURL:(NSURL *)audioURL {
     XBMakeAudioItemView *itemView = [[XBMakeAudioItemView alloc] initWithFrame:CGRectMake(0, 0, 180, 40)];
     itemView.descLabel.text = [NSString stringWithFormat:@"%.01f`s",[XBAVTools mediaDurationWithPath:audioURL.absoluteString]];
+    
     XBMakeContentItemView *view = [[[UINib nibWithNibName:@"XBMakeContentItemView" bundle:nil] instantiateWithOwner:nil options:nil] firstObject];
+    view.audioURL = audioURL;
+    view.type = XBMakeContentItemTypeAudio;
     view.editBtn.hidden = YES;
     view.frame = CGRectInset(itemView.bounds, -20, -20);
     [view.contentView addSubview:itemView];

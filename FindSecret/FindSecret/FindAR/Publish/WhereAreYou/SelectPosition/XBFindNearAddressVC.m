@@ -61,7 +61,8 @@
     [self initNavView];
     [self initTableView];
     [self initMapView];
-    
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+
     //[self.view addSubview:self.reloadBGView];
     [self.view addSubview:self.reloadView];
     _reloadBGView.hidden = YES;
@@ -216,13 +217,13 @@
     
     if ([request isKindOfClass:[AMapPOIKeywordsSearchRequest class]]) {
         
-        if (response.pois.count==0) {
+//        if (response.pois.count==0) {
             XBNoResultHeadView *noResultLabel = [[XBNoResultHeadView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 70)];
             noResultLabel.textStr = [NSString stringWithFormat:@"没有找到?\n在这里添加一个新的地点: \"%@\"",_searchBar.text];
             UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tap_noResultLabel)];
             [noResultLabel addGestureRecognizer:tap1];
             _searchResultsTableView.tableFooterView = noResultLabel;
-        }
+//        }
         [_searchDataArr removeAllObjects];
         [_searchDataArr  addObjectsFromArray:response.pois];
         [_searchResultsTableView reloadData];
@@ -264,10 +265,18 @@
 {
     
     AMapPOI *model = self.searchDataArr[indexPath.row];
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    UITableViewCell *cell ;
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+
+    }else{
+        cell = [tableView cellForRowAtIndexPath:indexPath];;
+        
+    }
+  
     cell.textLabel.text = model.name;
     cell.detailTextLabel.text = model.address;
-    
+
     return cell;
 }
 

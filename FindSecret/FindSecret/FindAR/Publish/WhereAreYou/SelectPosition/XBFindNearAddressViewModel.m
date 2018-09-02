@@ -27,24 +27,22 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    NSString *CellID = [NSString stringWithFormat:@"CellID%ld%ld", (long)indexPath.section,(long)indexPath.row];
+//    NSString *CellID = [NSString stringWithFormat:@"CellID%ld%ld", (long)indexPath.section,(long)indexPath.row];
     
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];;
-    cell.textLabel.textColor = [UIColor blackColor];
-    cell.accessoryType = UITableViewCellAccessoryNone;
-
+    UITableViewCell *cell;
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellID];
-        if(indexPath.row == 0){
-            cell.textLabel.textColor = [UIColor blueColor];
-//            cell.accessoryType = UITableViewCellAccessoryCheckmark;
-//            NSIndexPath *path = [NSIndexPath indexPathForItem:0 inSection:0];
-//            self.requestViewModel.lastSelectCellIndex = path;
-//            
-        }
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+
+    }else{
+        cell = [tableView cellForRowAtIndexPath:indexPath];;
+     
+    }
+    if(indexPath.row == 0){
+        cell.textLabel.textColor = [UIColor blueColor];
     }
     if ((indexPath.item == self.lastSelectCellIndex.item)) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        self.lastSelectCellIndex = indexPath;
     }else{
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
@@ -52,7 +50,7 @@
     AMapPOI *model = self.models[indexPath.row];
     cell.textLabel.text = model.name;
     cell.detailTextLabel.text = model.address;
-    
+
     return cell;
 }
 

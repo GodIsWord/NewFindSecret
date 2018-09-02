@@ -13,6 +13,8 @@
 #import "XBPublishRecordAudioViewController.h"
 #import "XBAVTools.h"
 
+#import "XBPublishController.h"
+
 
 
 typedef NS_ENUM(NSUInteger, XBMakeToolbarItemType) {
@@ -584,6 +586,8 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 - (void)nextStepAction {
     NSLog(@"we don`t talk any more");
+    XBPublishController *publish = [[XBPublishController alloc] init];
+    [self.navigationController pushViewController:publish animated:YES];
 }
 
 - (void)cancelAction {

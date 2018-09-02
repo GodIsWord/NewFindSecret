@@ -55,6 +55,16 @@ static NSString* const cellID = @"steCellID";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.tableView registerClass:XBSelectFriendsTableViewCell.class forCellReuseIdentifier:cellID];
+    
+    
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(confirmAction)];
+    [item setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor blueColor]} forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = item;
+}
+
+-(void)confirmAction{
+    
 }
 
 #pragma mark -  UITableViewDelegate

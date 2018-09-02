@@ -47,9 +47,9 @@
 		E60A09FE21398C54009BC9F0 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E60A09EB21398C53009BC9F0 /* UIProgressView+AFNetworking.m */; };
 		E60A09FF21398C54009BC9F0 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E60A09ED21398C53009BC9F0 /* UIRefreshControl+AFNetworking.m */; };
 		E60A0A0021398C54009BC9F0 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E60A09EF21398C53009BC9F0 /* UIWebView+AFNetworking.m */; };
-		E60A0A042139A224009BC9F0 /* XBSelectFriendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E60A0A022139A223009BC9F0 /* XBSelectFriendsController.m */; };
-		E60A0A072139A254009BC9F0 /* XBSelectFriendsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E60A0A062139A254009BC9F0 /* XBSelectFriendsTableViewCell.m */; };
 		E60A0A0A213AD1FA009BC9F0 /* NSString+XBMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = E60A0A09213AD1FA009BC9F0 /* NSString+XBMD5.m */; };
+		E60A0A10213B8EF5009BC9F0 /* XBSelectFriendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E60A0A0D213B8EF5009BC9F0 /* XBSelectFriendsController.m */; };
+		E60A0A11213B8EF5009BC9F0 /* XBSelectFriendsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E60A0A0F213B8EF5009BC9F0 /* XBSelectFriendsTableViewCell.m */; };
 		E60E3B59210C0FF000C5BFBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B58210C0FF000C5BFBB /* AppDelegate.m */; };
 		E60E3B5C210C0FF000C5BFBB /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B5B210C0FF000C5BFBB /* HomeViewController.m */; };
 		E60E3B61210C0FF100C5BFBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B60210C0FF100C5BFBB /* Assets.xcassets */; };
@@ -453,12 +453,12 @@
 		E60A09ED21398C53009BC9F0 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		E60A09EE21398C53009BC9F0 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		E60A09EF21398C53009BC9F0 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
-		E60A0A022139A223009BC9F0 /* XBSelectFriendsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XBSelectFriendsController.m; path = FindSecret/FindAR/Publish/SelectFriends/XBSelectFriendsController.m; sourceTree = SOURCE_ROOT; };
-		E60A0A032139A223009BC9F0 /* XBSelectFriendsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XBSelectFriendsController.h; path = FindSecret/FindAR/Publish/SelectFriends/XBSelectFriendsController.h; sourceTree = SOURCE_ROOT; };
-		E60A0A052139A254009BC9F0 /* XBSelectFriendsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XBSelectFriendsTableViewCell.h; path = FindSecret/FindAR/Publish/SelectFriends/XBSelectFriendsTableViewCell.h; sourceTree = SOURCE_ROOT; };
-		E60A0A062139A254009BC9F0 /* XBSelectFriendsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = XBSelectFriendsTableViewCell.m; path = FindSecret/FindAR/Publish/SelectFriends/XBSelectFriendsTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		E60A0A08213AD1FA009BC9F0 /* NSString+XBMD5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+XBMD5.h"; sourceTree = "<group>"; };
 		E60A0A09213AD1FA009BC9F0 /* NSString+XBMD5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+XBMD5.m"; sourceTree = "<group>"; };
+		E60A0A0C213B8EF5009BC9F0 /* XBSelectFriendsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBSelectFriendsController.h; sourceTree = "<group>"; };
+		E60A0A0D213B8EF5009BC9F0 /* XBSelectFriendsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBSelectFriendsController.m; sourceTree = "<group>"; };
+		E60A0A0E213B8EF5009BC9F0 /* XBSelectFriendsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBSelectFriendsTableViewCell.h; sourceTree = "<group>"; };
+		E60A0A0F213B8EF5009BC9F0 /* XBSelectFriendsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBSelectFriendsTableViewCell.m; sourceTree = "<group>"; };
 		E60E3B54210C0FEF00C5BFBB /* FindSecret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindSecret.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E60E3B57210C0FF000C5BFBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E60E3B58210C0FF000C5BFBB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1123,16 +1123,15 @@
 			path = "UIKit+AFNetworking";
 			sourceTree = "<group>";
 		};
-		E60A0A012139A1FD009BC9F0 /* SelectFriends */ = {
+		E60A0A0B213B8EF5009BC9F0 /* SelectFriends */ = {
 			isa = PBXGroup;
 			children = (
-				E60A0A032139A223009BC9F0 /* XBSelectFriendsController.h */,
-				E60A0A022139A223009BC9F0 /* XBSelectFriendsController.m */,
-				E60A0A052139A254009BC9F0 /* XBSelectFriendsTableViewCell.h */,
-				E60A0A062139A254009BC9F0 /* XBSelectFriendsTableViewCell.m */,
+				E60A0A0C213B8EF5009BC9F0 /* XBSelectFriendsController.h */,
+				E60A0A0D213B8EF5009BC9F0 /* XBSelectFriendsController.m */,
+				E60A0A0E213B8EF5009BC9F0 /* XBSelectFriendsTableViewCell.h */,
+				E60A0A0F213B8EF5009BC9F0 /* XBSelectFriendsTableViewCell.m */,
 			);
-			name = SelectFriends;
-			path = "New Group";
+			path = SelectFriends;
 			sourceTree = "<group>";
 		};
 		E60E3B4B210C0FEF00C5BFBB = {
@@ -1596,7 +1595,7 @@
 		E693150F2137F61700E7FAE3 /* Publish */ = {
 			isa = PBXGroup;
 			children = (
-				E60A0A012139A1FD009BC9F0 /* SelectFriends */,
+				E60A0A0B213B8EF5009BC9F0 /* SelectFriends */,
 				E69315102137F61700E7FAE3 /* WhereAreYou */,
 				E693156E2137F61700E7FAE3 /* WhoCanSee */,
 				E69315772137F61700E7FAE3 /* XBPublishCell.h */,
@@ -2320,6 +2319,7 @@
 				E6930D192137D29900E7FAE3 /* Bulk_UnityEngine_3.cpp in Sources */,
 				E6930D132137D29900E7FAE3 /* Bulk_UnityEngine_10.cpp in Sources */,
 				E6930CB42137D29900E7FAE3 /* Il2CppCompilerCalculateTypeValues_3Table.cpp in Sources */,
+				E60A0A10213B8EF5009BC9F0 /* XBSelectFriendsController.m in Sources */,
 				E6930CBA2137D29900E7FAE3 /* Il2CppCompilerCalculateTypeValues_29Table.cpp in Sources */,
 				E693EE1C2137C21F00E7FAE3 /* AppDelegateListener.mm in Sources */,
 				E69315BD2137F61800E7FAE3 /* UIViewController+WXSTransitionProperty.m in Sources */,
@@ -2427,7 +2427,6 @@
 				E6930CCD2137D29900E7FAE3 /* Bulk_mscorlib_6.cpp in Sources */,
 				E69315C12137F61800E7FAE3 /* UINavigationController+WXSTransition.m in Sources */,
 				E69315AF2137F61800E7FAE3 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
-				E60A0A072139A254009BC9F0 /* XBSelectFriendsTableViewCell.m in Sources */,
 				E693ED7E2137C21E00E7FAE3 /* GlesHelper.mm in Sources */,
 				E6930CF72137D29900E7FAE3 /* Il2CppCompilerCalculateTypeValues_15Table.cpp in Sources */,
 				E69315BB2137F61800E7FAE3 /* WXSTransitionManager+InsideThenPushAnimation.m in Sources */,
@@ -2464,11 +2463,11 @@
 				E693ED862137C21E00E7FAE3 /* ActivityIndicator.mm in Sources */,
 				CAF9CC3E213B9C1A00F7DF87 /* XBAmplificationImageViewController.m in Sources */,
 				E69315EF2137F61800E7FAE3 /* XHRefreshActivityIndicatorContainerView.m in Sources */,
-				E60A0A042139A224009BC9F0 /* XBSelectFriendsController.m in Sources */,
 				E69315D82137F61800E7FAE3 /* XBFindFriendCell.m in Sources */,
 				E693ED6E2137C21E00E7FAE3 /* UnityReplayKit.mm in Sources */,
 				E60A09F421398C54009BC9F0 /* AFURLResponseSerialization.m in Sources */,
 				E6930D062137D29900E7FAE3 /* Bulk_Generics_16.cpp in Sources */,
+				E60A0A11213B8EF5009BC9F0 /* XBSelectFriendsTableViewCell.m in Sources */,
 				E6930D162137D29900E7FAE3 /* Il2CppCompilerCalculateTypeValues_7Table.cpp in Sources */,
 				E693ED872137C21E00E7FAE3 /* UnityAppController+ViewHandling.mm in Sources */,
 				E6930D112137D29900E7FAE3 /* Il2CppInvokerTable.cpp in Sources */,

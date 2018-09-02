@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface XBSelectFriendsTableViewCell : UITableViewCell
+@property(nonatomic,strong) UIImageView *headImageView;
 @property(nonatomic,strong) UILabel *nameLabel;
 @property(nonatomic,strong) UIImageView *typeImageView;
 @end

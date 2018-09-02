@@ -16,5 +16,5 @@
 @end
 
 @interface XBSelectFriendsController : UIViewController
-@property(nonatomic,weak) id<SelectFriendsControllerDelegate>deleage;
+@property(nonatomic,weak) id<SelectFriendsControllerDelegate>delegate;
 @end

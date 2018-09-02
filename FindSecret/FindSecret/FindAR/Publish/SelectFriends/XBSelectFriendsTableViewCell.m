@@ -10,7 +10,6 @@
 
 @interface XBSelectFriendsTableViewCell()
 
-@property(nonatomic,strong) UIImageView *headImageView;
 
 
 

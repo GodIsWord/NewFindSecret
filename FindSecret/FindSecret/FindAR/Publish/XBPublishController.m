@@ -13,13 +13,14 @@
 #import "XBWhoCanSeeController.h"
 #import "Masonry.h"
 
-@interface XBPublishController ()<UITextViewDelegate,UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
+@interface XBPublishController ()<UITextViewDelegate,UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,XBWhoCanSeeControllerDelegate>
 @property (nonatomic, strong) UITextView *editTextView;
 @property (nonatomic, strong) UILabel *placeholder;
 @property (nonatomic, strong) UIView *backgroundView;
 @property (nonatomic, copy) NSArray *titleDataSource;
-@property (nonatomic, copy) NSArray *imageDataSource;
-@property (nonatomic, copy) NSArray *detailDataSource;
+@property (nonatomic, strong) NSMutableArray *imageDataSource;
+@property (nonatomic, strong) NSMutableArray *detailDataSource;
+@property (nonatomic, strong) NSMutableArray *userImageDataSource;
 
 @property (nonatomic, strong) UIImageView *picView;
 @property (strong, nonatomic) UIScrollView *scrollView;
@@ -43,8 +44,10 @@
     self.tableView.backgroundColor = [UIColor whiteColor];
     
     self.titleDataSource = @[@"所在位置",@"谁可以看",@"在哪里可以看"];
-    self.imageDataSource = @[@"3",@"3",@"3"];
-    self.detailDataSource = @[@"",@"点对点发送",@"不限地点"];
+    self.imageDataSource = [NSMutableArray arrayWithArray:@[@"3",@"3",@"3"]];
+    self.detailDataSource = [NSMutableArray array];
+    [self.detailDataSource addObjectsFromArray:@[@"",@"点对点发送",@"不限地点"]];
+    self.userImageDataSource = [NSMutableArray arrayWithObjects:@"",@"",@"", nil];
 }
 
 #pragma mark -- textView Delegate
@@ -93,6 +96,7 @@
     cell.pictureImageView.image = [UIImage imageNamed:self.imageDataSource[indexPath.row]];
     cell.detail.text = self.detailDataSource[indexPath.row];
     cell.detail.textColor = [UIColor grayColor];
+    cell.rightHeaderImage.image = [UIImage imageNamed:self.userImageDataSource[indexPath.row]];
     return cell;
 }
 
@@ -209,11 +213,13 @@
     }else if (indexPath.row == 1){
         XBWhoCanSeeController *vc = [XBWhoCanSeeController new];
         vc.type = 1;
+        vc.delegate = self;
         [self.navigationController pushViewController:vc animated:YES];
         
     }else if (indexPath.row == 2){
         XBWhoCanSeeController *vc = [XBWhoCanSeeController new];
         vc.type = 2;
+        vc.delegate = self;
         [self.navigationController pushViewController:vc animated:YES];
         
     }
@@ -278,4 +284,31 @@
 {
     return self.lastImageView;
 }
+
+#pragma mark -- 可以看页面的delegate
+-(void)whoCanSeeControllerSelectType:(NSInteger)type message:(NSDictionary *)dic
+{
+    if (dic.count<=0 || !dic[@"title"]) {
+        return;
+    }
+    NSString *strTitle = dic[@"title"];
+    if (type==1) {
+        //谁可以看
+        [self.detailDataSource replaceObjectAtIndex:1 withObject:strTitle];
+        if (dic[@"userImage"]) {
+            [self.userImageDataSource replaceObjectAtIndex:1 withObject:dic[@"userImage"]];
+        }
+    }else if(type==2){
+        //在哪里可以看
+        [self.detailDataSource replaceObjectAtIndex:2 withObject:strTitle];
+    }
+    [self.tableView reloadData];
+}
 @end
+
+
+
+
+
+
+

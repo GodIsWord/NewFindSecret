@@ -32,6 +32,8 @@
     XBPublishCell *cell = (XBPublishCell*)[tableView dequeueReusableCellWithIdentifier:ID];
     if (cell == nil){
         cell = [[XBPublishCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+    }else{
+        return cell;
     }
 
     cell.pictureImageView = [[UIImageView alloc]init];
@@ -53,15 +55,21 @@
     cell.detail.textAlignment = NSTextAlignmentRight;
     [cell addSubview:cell.detail];
     [cell.detail mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(cell).offset(-60);
+        make.centerY.equalTo(cell);
+    }];
+    
+    cell.rightHeaderImage = [[UIImageView alloc]init];
+    [cell addSubview:cell.rightHeaderImage];
+    [cell.rightHeaderImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.mas_equalTo(25);
         make.right.equalTo(cell).offset(-30);
         make.centerY.equalTo(cell);
     }];
     
     
-    
-    
     UIView *line = [[UIView alloc]init];
-    line.frame = CGRectMake(20, 64-0.5, cell.xb_width+10, 0.5);
+    line.frame = CGRectMake(20, 64-0.5, ScreenWidth-20, 0.5);
     line.backgroundColor = [UIColor lightGrayColor];
     [cell addSubview:line];
     return cell;

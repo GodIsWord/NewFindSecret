@@ -10,7 +10,7 @@
 #import "XBSelectCell.h"
 #import "XBSelectFriendsController.h"
 
-@interface XBWhoCanSeeController ()<UITableViewDelegate,UITableViewDataSource>
+@interface XBWhoCanSeeController ()<UITableViewDelegate,UITableViewDataSource,SelectFriendsControllerDelegate>
 @property(nonatomic,copy) NSArray *dataSource;
 @property(nonatomic,copy) NSString *selectTitle;
 @end
@@ -92,13 +92,21 @@ static NSString* const cellID = @"cellID";
     NSDictionary *dic = self.dataSource[indexPath.item];
     if ([dic[@"title"] isEqualToString:@"点对点发送"]) {
         XBSelectFriendsController *contr = [[XBSelectFriendsController alloc] init];
-        contr.deleage = (id)self.delegate;
+        contr.delegate = self;
         [self.navigationController pushViewController:contr animated:YES];
     }else{
         self.selectTitle = dic[@"title"];
         [self.tableView reloadData];
     }
     
+}
+
+#pragma mark - delegate
+-(void)selectFriendsMess:(NSDictionary *)dic
+{
+    if ([self.delegate respondsToSelector:@selector(whoCanSeeControllerSelectType:message:)]) {
+        [self.delegate whoCanSeeControllerSelectType:self.type message:dic];
+    }
 }
 
 @end

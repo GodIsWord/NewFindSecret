@@ -64,7 +64,16 @@ static NSString* const cellID = @"steCellID";
 }
 
 -(void)confirmAction{
-    
+    if (self.currSelectIndex>=0 && [self.delegate respondsToSelector:@selector(selectFriendsMess:)]) {
+        NSDictionary *dic = @{@"title":@"点对点发送",@"userImage":@"taiqiu.png"};
+        [self.delegate selectFriendsMess:dic];
+        for (UIViewController *control in self.navigationController.viewControllers) {
+            if ([control isKindOfClass:NSClassFromString(@"XBPublishController")]) {
+                [self.navigationController popToViewController:control animated:YES];
+                break;
+            }
+        }
+    }
 }
 
 #pragma mark -  UITableViewDelegate
@@ -78,6 +87,7 @@ static NSString* const cellID = @"steCellID";
     XBSelectFriendsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     cell.nameLabel.text = self.dataSource[indexPath.item];
     cell.typeImageView.hidden = !(indexPath.item == self.currSelectIndex);
+    cell.headImageView.image = [UIImage imageNamed:@"taiqiu.png"];
     return cell;
 }
 

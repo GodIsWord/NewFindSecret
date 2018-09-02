@@ -84,7 +84,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -98,6 +98,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
 

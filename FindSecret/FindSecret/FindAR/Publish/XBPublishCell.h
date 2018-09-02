@@ -12,5 +12,6 @@
 @property (nonatomic, strong) UILabel *title;
 @property (nonatomic, strong) UILabel *detail;
 @property (nonatomic, strong) UIImageView *pictureImageView;
+@property (nonatomic, strong) UIImageView *rightHeaderImage;
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 @end

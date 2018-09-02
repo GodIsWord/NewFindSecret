@@ -19,6 +19,8 @@
 @property (nonatomic, strong) UILabel *placeholder;
 @property (nonatomic, strong) UIView *backgroundView;
 @property (nonatomic, copy) NSArray *titleDataSource;
+@property (nonatomic, copy) NSArray *imageDataSource;
+@property (nonatomic, copy) NSArray *detailDataSource;
 
 
 @end
@@ -39,6 +41,8 @@
     
     self.titleDataSource = @[@"所在位置",@"谁可以看",@"在哪里可以看"];
     
+    self.imageDataSource = @[@"3",@"3",@"3"];
+    self.detailDataSource = @[@"",@"点对点发送",@"不限地点"];
 }
 
 #pragma mark -- textView Delegate
@@ -79,15 +83,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    NSArray *image = @[@"3",@"3",@"3"];
     XBPublishCell *cell = [XBPublishCell cellWithTableView:tableView];
     
     NSString *str = self.titleDataSource[indexPath.row];
     cell.title.text = str;
     cell.title.textColor = [UIColor grayColor];
-    
-    cell.pictureImageView.image = [UIImage imageNamed:image[indexPath.row]];
-    cell.detail.text = @"sss";
+    cell.pictureImageView.image = [UIImage imageNamed:self.imageDataSource[indexPath.row]];
+    cell.detail.text = self.detailDataSource[indexPath.row];
+    cell.detail.textColor = [UIColor grayColor];
     return cell;
 }
 
@@ -120,7 +123,7 @@
     
     self.editTextView = [[UITextView alloc] init];
     [view addSubview:self.editTextView];
-
+    
     self.editTextView.backgroundColor = [UIColor clearColor];
     self.editTextView.delegate = self;
     self.editTextView.textContainerInset = UIEdgeInsetsMake(10, 10, 10, 10);
@@ -129,7 +132,7 @@
     self.editTextView.layer.borderWidth = 0.5;
     self.editTextView.layer.cornerRadius = 10;
     self.editTextView.layer.masksToBounds = YES;
-
+    
     [self.editTextView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(view).offset(20);
         make.top.equalTo(view).offset(20);
@@ -154,7 +157,18 @@
     if(indexPath.row == 0){
         XBFindNearAddressVC *vc = [XBFindNearAddressVC new];
         [self.navigationController pushViewController:vc animated:YES];
-        
+        [vc setReturnBlock:^(NSString *city,NSString *name,NSString *address,CGFloat latitude,CGFloat longitude,NSString *phone,UIImage *img){
+            if (name) {
+                
+                XBPublishCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+                cell.title.text = name;
+                //                self.addressLabel.width = ScreenWidth - 40;
+                //                cell.text = [NSString stringWithFormat:@"longitude = %.10f\nlatitude = %.10f\n%@",longitude,latitude,name];
+                //                [self.addressLabel sizeToFit];
+                
+            }
+            
+        }];
     }else if (indexPath.row == 1){
         XBWhoCanSeeController *vc = [XBWhoCanSeeController new];
         vc.type = 1;
@@ -166,6 +180,6 @@
         [self.navigationController pushViewController:vc animated:YES];
         
     }
- 
+    
 }
 @end

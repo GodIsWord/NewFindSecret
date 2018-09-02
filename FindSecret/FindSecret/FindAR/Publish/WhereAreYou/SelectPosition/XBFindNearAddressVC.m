@@ -144,7 +144,8 @@
                    self.returnBlock(@"",@"",@"",0,0,nil,nil);
                 }
             }
-            [self dismissViewControllerAnimated:YES completion:nil];
+
+            [self.navigationController popViewControllerAnimated:YES];
         }else{
             //[self showHoderView:@"还没有选择位置"];
         }
@@ -261,7 +262,7 @@
         if (self.returnBlock) {
             self.returnBlock(@"",_searchBar.text,0,0,0,nil,nil);
         }
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController popViewControllerAnimated:YES];
     
 }
 
@@ -338,7 +339,7 @@
         if (self.returnBlock) {
             self.returnBlock(model.city,model.name,model.address,model.location.latitude,model.location.longitude,model.tel,_shotImg);
         }
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController popViewControllerAnimated:YES];
     }
   
 }

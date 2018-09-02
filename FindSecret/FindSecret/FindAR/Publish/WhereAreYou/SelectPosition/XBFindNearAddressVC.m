@@ -62,30 +62,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    //050000 餐饮服务;餐饮相关场所;餐饮相关
-    //060000 购物服务;购物相关场所;购物相关场所
-    //070000 生活服务;生活服务场所;生活服务场所
-    //080000 体育休闲服务;体育休闲服务场所;体育休闲服务场所
-    //090000 医疗保健服务;医疗保健服务场所;医疗保健服务场所
-    //100000 住宿服务;住宿服务相关;住宿服务相关
-    //110000 风景名胜;风景名胜相关;旅游景点
-    //120000 商务住宅;商务住宅相关;商务住宅相关
-    //130000 政府机构及社会团体;政府及社会团体相关;政府及社会团体相关
-    //140000 科教文化服务;科教文化场所;科教文化场所
-    //150000 交通设施服务;交通服务相关;交通服务相关
-    //160000 金融保险服务;金融保险服务机构;金融保险机构
-    //170000 公司企业;公司企业;公司企业
-    //180000 道路附属设施;道路附属设施;道路附属设施
-    //_searchTypesStr = @"050000|060000|070000|100000|110000|170000";
+
     _searchTypesStr = @"地名地址信息|餐饮服务|购物服务|生活服务|风景名胜|公司企业";
-    //_searchTypesStr = @"地名地址信息";
-    
+
     [self initNavView];
     [self initTableView];
-    
     [self initMapView];
-    
     
     //[self.view addSubview:self.reloadBGView];
     [self.view addSubview:self.reloadView];
@@ -94,7 +76,6 @@
 }
 #pragma mark - initTableView
 - (void)initTableView{
-    
     
     UIImageView *imageBack = [[UIImageView alloc]initWithFrame:self.view.bounds];
     imageBack.backgroundColor = TABLE_BG_COLOR;
@@ -167,9 +148,7 @@
     _mapView.delegate = self;
     [self.view addSubview:_mapView];
     
-    
     _mapView.showsUserLocation = YES;
-    
     
     _aroundSearchRequest = [[AMapPOIAroundSearchRequest alloc]init];
     _aroundSearchRequest.offset = 30;
@@ -431,7 +410,7 @@
             {
                 NSLog(@"-_UISearchDisplayControllerDimmingView--%f-----",sencondView.alpha);
                 sencondView.alpha = 0.25;
-                //sencondView.backgroundColor = [UIColor whiteColor];
+//                sencondView.backgroundColor = [UIColor whiteColor];
             }
         }
     }

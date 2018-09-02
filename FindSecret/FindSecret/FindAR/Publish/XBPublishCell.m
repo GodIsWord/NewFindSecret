@@ -45,6 +45,7 @@
     }];
     
     cell.title = [[UILabel alloc]init];
+    cell.title.textColor = [UIColor grayColor];
     [cell addSubview:cell.title];
     [cell.title mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(cell.pictureImageView.mas_right).offset(10);
@@ -52,6 +53,7 @@
     }];
     
     cell.detail = [[UILabel alloc]init];
+    cell.detail.textColor = [UIColor grayColor];
     cell.detail.textAlignment = NSTextAlignmentRight;
     [cell addSubview:cell.detail];
     [cell.detail mas_makeConstraints:^(MASConstraintMaker *make) {

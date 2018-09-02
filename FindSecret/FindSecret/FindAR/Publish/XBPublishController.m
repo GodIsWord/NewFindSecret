@@ -92,10 +92,8 @@
     
     NSString *str = self.titleDataSource[indexPath.row];
     cell.title.text = str;
-    cell.title.textColor = [UIColor grayColor];
     cell.pictureImageView.image = [UIImage imageNamed:self.imageDataSource[indexPath.row]];
     cell.detail.text = self.detailDataSource[indexPath.row];
-    cell.detail.textColor = [UIColor grayColor];
     cell.rightHeaderImage.image = [UIImage imageNamed:self.userImageDataSource[indexPath.row]];
     return cell;
 }
@@ -207,8 +205,14 @@
             if (name) {
                 
                 XBPublishCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-                cell.title.text = name;
-                cell.title.textColor = [UIColor blueColor];
+                if (name.length>0) {
+                    cell.title.text = name;
+                    cell.title.textColor = [UIColor blueColor];
+                }else{
+                    cell.title.text = @"所在位置";
+                    cell.title.textColor = [UIColor grayColor];
+                }
+               
                 //                self.addressLabel.width = ScreenWidth - 40;
                 //                cell.text = [NSString stringWithFormat:@"longitude = %.10f\nlatitude = %.10f\n%@",longitude,latitude,name];
                 //                [self.addressLabel sizeToFit];

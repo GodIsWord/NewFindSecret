@@ -235,7 +235,7 @@
 {
     
     if (self.returnBlock) {
-        self.returnBlock(@"",_searchBar.text,0,0,0,nil,nil);
+        self.returnBlock(@"",_searchBar.text,@"",0,0,nil,nil);
     }
     [self.navigationController popViewControllerAnimated:YES];
     

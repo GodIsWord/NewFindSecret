@@ -51,7 +51,7 @@
     [self addSubview:btn];
     self.backBtn = btn;
 
-    MSRecordControl *control = [[MSRecordControl alloc] initWithFrame:CGRectMake(0, self.xb_height - 90 - 80, 90, 90)];
+    MSRecordControl *control = [[MSRecordControl alloc] initWithFrame:CGRectMake(0, self.xb_height - 90 - 40, 90, 90)];
     control.mode = MSRecordControlLongPress;
     control.backgroundColor = [UIColor whiteColor];
     control.layer.cornerRadius = control.xb_width / 2;

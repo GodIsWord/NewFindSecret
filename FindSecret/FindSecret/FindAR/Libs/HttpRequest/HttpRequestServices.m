@@ -114,27 +114,34 @@ static HttpRequestServices *service ;
     //添加请求头
     NSString *time= [NSString stringWithFormat:@"%.0f",[[NSDate dateWithTimeIntervalSinceNow:0] timeIntervalSince1970]];
     NSString *strMD5 = [[NSString stringWithFormat:@"%@%@",ARAPP_KEY,time] MD5ForLower32Bate];
-    [self.afnManager.requestSerializer setValue:strMD5 forHTTPHeaderField:@"signature"];
-    [self.afnManager.requestSerializer setValue:time forHTTPHeaderField:@"timestamp"];
+//    [self.afnManager.requestSerializer setValue:strMD5 forHTTPHeaderField:@"signature"];
+//    [self.afnManager.requestSerializer setValue:time forHTTPHeaderField:@"timestamp"];
     
-    [self AFNPOSTRequestHeaderURL:XBARHttpHeader headerExpand:nil withParam:parameters suceesBlock:successBlock failedBlock:failedBlock];
+    [self AFNPOSTRequestHeaderURL:XBARHttpHeader headerExpand:@{@"signature":strMD5,@"timestamp":time} withParam:parameters suceesBlock:successBlock failedBlock:failedBlock];
     
 }
 -(void)AFNPOSTRequestHeaderURL:(NSString*)header headerExpand:(NSDictionary*)expanding withParam:(NSDictionary*)parameters suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock
 {
     self.afnManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain",@"application/json", @"text/json", @"text/javascript",@"text/css", @"application/javascript",@"application/json", @"application/x-www-form-urlencoded", nil];
     
+    self.afnManager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    self.afnManager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
     NSArray *allkeys = expanding.allKeys;
     for (id key in allkeys) {
         if ([key isKindOfClass:NSString.class] && [[expanding objectForKey:key] isKindOfClass:NSString.class]) {
-            [self.afnManager.requestSerializer setValue:[expanding objectForKey:key] forHTTPHeaderField:key];
+//            [self.afnManager.requestSerializer setValue:[expanding objectForKey:key] forHTTPHeaderField:key];
         }
     }
     
     NSString *encodedURL = [header stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    
+    
     [self.afnManager POST:encodedURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"responsObject:%@",responseObject);
-        NSDictionary *dic = responseObject;
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+        
         HttpRequestServiceOperationModel *model = [[HttpRequestServiceOperationModel alloc] init];
         model.responseDictionary = dic;
         if (successBlock) {

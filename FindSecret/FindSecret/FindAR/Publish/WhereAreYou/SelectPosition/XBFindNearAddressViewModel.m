@@ -45,8 +45,13 @@
     }
     if ((indexPath.item == self.lastSelectCellIndex.item)) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+<<<<<<< HEAD
     }else{
         cell.accessoryType = UITableViewCellAccessoryNone;
+=======
+        NSIndexPath *path = [NSIndexPath indexPathForItem:0 inSection:0];
+        self.lastSelectCellIndex = path;
+>>>>>>> f3255247a79dd29fdc60c71bb1412e22e5b9a355
     }
 
     AMapPOI *model = self.models[indexPath.row];

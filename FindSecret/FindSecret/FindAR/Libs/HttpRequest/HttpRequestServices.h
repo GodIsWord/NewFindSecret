@@ -12,7 +12,9 @@
 typedef void(^httpRequestSuccessBlock)(HttpRequestServiceOperationModel *operationModel, id responseObject);
 typedef void(^httpRequestSuccessFail)(HttpRequestServiceOperationModel *operationModel, NSError *error);
 
-static NSString* const XBARHttpHeader = @"http://www.artachina.com/ar-xunmi/cloud/v1.1/fileuploads";
+//static NSString* const XBARHttpHeader = @"http://www.artachina.com/ar-xunmi/cloud/v1.1/fileuploads";
+static NSString* const XBARHttpHeader = @"http://www.artachina.com/ar-xunmi/cloud/file/uploads";
+
 static NSString* const ARAPP_KEY = @"fa20f953930f475991fcf4cd09dafc72";
 
 @interface HttpRequestServices : NSObject

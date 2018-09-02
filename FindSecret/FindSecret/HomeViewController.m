@@ -182,14 +182,16 @@
 //                                                 @{@"duration":@4341,@"filePath":@"/storage/emulated/0/ARXunMi/mediaedit/19432719-4ba9-4dcc-940e-81486a2ce979.mp3",@"height":@0.054054055,@"type":@"4",@"width":@0.26759258,@"x":@0.19552006,@"y":@0.568572},
 //                                                 @{@"duration":@3072,@"filePath":@"/storage/emulated/0/ARXunMi/mediaedit/video_1534399169159.mp4",@"thumbFilePath":@"/storage/emulated/0/ARXunMi/mediaedit/6d529a49-0e49-4335-a49b-f1f634241591.jpg",@"height":@0.2027027,@"type":@"1",@"width":@0.23425926,@"x":@0.5373537,@"y":@0.32226562}],
 //                                  @"markerImageData":@{@"height":@2220,@"markerImagePath":@"/storage/emulated/0/ARXunMi/mediaedit/a05a3c4d-06db-4887-a406-c6262ae7a333.jpg",@"width":@1080}};
-            NSDictionary *dic = @{@"arHotData":@[@{@"color":@"#FF0000FF",@"font":@"songti",@"text":@"回宿舍手机",@"height":@0.025675675,@"type":@"3",@"width":@0.2777778,@"x":@0.26904297,@"y":@0.4155273}
-                                                ],
-                                  @"markerImageData":@{@"height":@1920,@"markerImagePath":imagePath,@"width":@1080}};
-            [[HttpRequestServices sharedInstance] AFNPOSTRequestARHeaderWithParameter:dic suceesBlock:^(HttpRequestServiceOperationModel *operationModel, id responseObject) {
-                
-            } failedBlock:^(HttpRequestServiceOperationModel *operationModel, NSError *error) {
-                
-            }];
+            if (imagePath.length>0) {
+                NSDictionary *dic = @{@"arHotData":@[@{@"color":@"#FF0000FF",@"font":@"songti",@"text":@"回宿舍手机",@"height":@0.025675675,@"type":@"3",@"width":@0.2777778,@"x":@0.26904297,@"y":@0.4155273}
+                                                     ],
+                                      @"markerImageData":@{@"height":@1920,@"markerImagePath":imagePath,@"width":@1080}};
+                [[HttpRequestServices sharedInstance] AFNPOSTRequestARHeaderWithParameter:dic suceesBlock:^(HttpRequestServiceOperationModel *operationModel, id responseObject) {
+                    
+                } failedBlock:^(HttpRequestServiceOperationModel *operationModel, NSError *error) {
+                    
+                }];
+            }
         }
             break;
 

@@ -62,9 +62,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     _searchTypesStr = @"地名地址信息|餐饮服务|购物服务|生活服务|风景名胜|公司企业";
-
+    
     [self initNavView];
     [self initTableView];
     [self initMapView];
@@ -109,7 +109,7 @@
     
     UIButton *btn1 = [self rl_BarBtnWithTitle:@"取消"];
     [btn1 addActionHandler:^(NSInteger tag) {
-         [self.navigationController popViewControllerAnimated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
     }];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:btn1];
     
@@ -122,10 +122,10 @@
                 if (model.address.length>0) {
                     self.returnBlock(model.city,model.name,model.address,model.location.latitude,model.location.longitude,model.tel,_shotImg);
                 }else{
-                   self.returnBlock(@"",@"",@"",0,0,nil,nil);
+                    self.returnBlock(@"",@"",@"",0,0,nil,nil);
                 }
             }
-
+            
             [self.navigationController popViewControllerAnimated:YES];
         }else{
             //[self showHoderView:@"还没有选择位置"];
@@ -194,11 +194,14 @@
         
         [self layerModelDataWithArr:response.pois];
         
-    
-        _searchSelectModel = [[AMapPOI alloc]init];
-        _searchSelectModel.name  = @"不显示位置";
-        _searchSelectModel.address = @"";
-                    [self.dataArr insertObject:_searchSelectModel atIndex:0];
+        AMapPOI *moddel = self.dataArr[0];
+        if(![moddel.name isEqualToString:@"不显示位置"]){
+            _searchSelectModel = [[AMapPOI alloc]init];
+            _searchSelectModel.name  = @"不显示位置";
+            _searchSelectModel.address = @"";
+            [self.dataArr insertObject:_searchSelectModel atIndex:0];
+
+        }
         
         self.requestViewModel.models = self.dataArr;
         [self.tableView reloadData];
@@ -237,11 +240,11 @@
 // 创建新位置
 - (void)tap_noResultLabel
 {
- 
-        if (self.returnBlock) {
-            self.returnBlock(@"",_searchBar.text,0,0,0,nil,nil);
-        }
-        [self.navigationController popViewControllerAnimated:YES];
+    
+    if (self.returnBlock) {
+        self.returnBlock(@"",_searchBar.text,0,0,0,nil,nil);
+    }
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 
@@ -299,7 +302,7 @@
 {
     
     [_searchController setActive:NO animated:YES];
-
+    
     AMapPOI *model = self.searchDataArr[indexPath.row];
     [self didseletIndex:model andIsSearch:YES];
     
@@ -320,7 +323,7 @@
         }
         [self.navigationController popViewControllerAnimated:YES];
     }
-  
+    
 }
 #pragma mark - scrollview delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -410,7 +413,7 @@
             {
                 NSLog(@"-_UISearchDisplayControllerDimmingView--%f-----",sencondView.alpha);
                 sencondView.alpha = 0.25;
-//                sencondView.backgroundColor = [UIColor whiteColor];
+                //                sencondView.backgroundColor = [UIColor whiteColor];
             }
         }
     }

@@ -19,46 +19,42 @@
         self.accessoryType = UITableViewCellAccessoryNone;
         self.detailTextLabel.textColor = [UIColor grayColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        
+        [self initSubbView];
     }
     return self;
     
 }
 
 #pragma mark - 创建cell
-+ (instancetype)cellWithTableView:(UITableView *)tableView
+-(void)initSubbView
 {
-    static NSString *ID = @"XBSelectCell";
-    XBSelectCell *cell = (XBSelectCell*)[tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil){
-        cell = [[XBSelectCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
+
+    self.pictureImageView = [[UIImageView alloc]init];
+    [self.contentView addSubview:self.pictureImageView];
+    self.pictureImageView.frame = CGRectMake(5, 12, 40, 40);
+    self.pictureImageView.backgroundColor = [UIColor blackColor];
+    self.pictureImageView.hidden = YES;
     
-    cell.pictureImageView = [[UIImageView alloc]init];
-    [cell.contentView addSubview:cell.pictureImageView];
-    cell.pictureImageView.frame = CGRectMake(5, 12, 40, 40);
-    cell.pictureImageView.backgroundColor = [UIColor blackColor];
-    
-    cell.titleLabel = [[UILabel alloc]init];
-    [cell.contentView addSubview:cell.titleLabel];
-    cell.titleLabel.frame = CGRectMake(cell.pictureImageView.xb_right+5, 10, ScreenWidth-cell.pictureImageView.xb_right-20, 20);
+    self.titleLabel = [[UILabel alloc]init];
+    [self.contentView addSubview:self.titleLabel];
+    self.titleLabel.frame = CGRectMake(self.pictureImageView.xb_right+5, 10, ScreenWidth-self.pictureImageView.xb_right-20, 20);
     
     
-    cell.detailLabel = [[UILabel alloc]init];
-    [cell.contentView addSubview:cell.detailLabel];
-    cell.detailLabel.frame = CGRectMake(cell.titleLabel.xb_x, cell.titleLabel.xb_bottom+3, ScreenWidth-cell.pictureImageView.xb_right-20, 20);
-    cell.detailLabel.textColor = [UIColor lightGrayColor];
-    cell.detailLabel.font = [UIFont systemFontOfSize:14];
+    self.detailLabel = [[UILabel alloc]init];
+    [self.contentView addSubview:self.detailLabel];
+    self.detailLabel.frame = CGRectMake(self.titleLabel.xb_x, self.titleLabel.xb_bottom+3, ScreenWidth-self.pictureImageView.xb_right-20, 20);
+    self.detailLabel.textColor = [UIColor lightGrayColor];
+    self.detailLabel.font = [UIFont systemFontOfSize:14];
     
     UIView *line = [[UIView alloc] init];
-    [cell.contentView addSubview:line];
+    [self.contentView addSubview:line];
     [line mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(cell.contentView.mas_left).offset(20);
-        make.right.equalTo(cell.contentView.mas_right).offset(-20);
-        make.bottom.equalTo(cell.contentView.mas_bottom).offset(-0.5);
+        make.left.equalTo(self.contentView.mas_left).offset(20);
+        make.right.equalTo(self.contentView.mas_right).offset(-20);
+        make.bottom.equalTo(self.contentView.mas_bottom).offset(-0.5);
         make.height.mas_equalTo(0.5);
     }];
     line.backgroundColor = [UIColor lightGrayColor];
-    return cell;
+
 }
 @end

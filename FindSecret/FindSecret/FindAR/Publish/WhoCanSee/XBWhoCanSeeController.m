@@ -17,6 +17,8 @@
 
 @implementation XBWhoCanSeeController
 
+static NSString* const cellID = @"cellID";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (self.type==2) {
@@ -31,6 +33,8 @@
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(confirmAction)];
     [item setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor blueColor]} forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = item;
+    
+    [self.tableView registerClass:XBSelectCell.class forCellReuseIdentifier:cellID];
 }
 
 -(void)confirmAction
@@ -70,10 +74,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    XBSelectCell *cell = [XBSelectCell cellWithTableView:tableView];
+    XBSelectCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     NSDictionary *dic = self.dataSource[indexPath.item];
     cell.titleLabel.text = dic[@"title"];
     cell.detailLabel.text = dic[@"subTitle"];
+    cell.pictureImageView.hidden = ![self.selectTitle isEqualToString:dic[@"title"]];
     return cell;
 }
 
@@ -91,6 +96,7 @@
         [self.navigationController pushViewController:contr animated:YES];
     }else{
         self.selectTitle = dic[@"title"];
+        [self.tableView reloadData];
     }
     
 }

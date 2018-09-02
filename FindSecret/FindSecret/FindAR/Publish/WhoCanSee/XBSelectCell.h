@@ -12,5 +12,4 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *detailLabel;
 @property (nonatomic, strong) UIImageView *pictureImageView;
-+ (instancetype)cellWithTableView:(UITableView *)tableView;
 @end

@@ -158,9 +158,30 @@
     
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    UIView *view = [[UIView alloc]init];
+    view.backgroundColor = [UIColor whiteColor];
+    UIButton *publish = [[UIButton alloc] init];
+    publish.backgroundColor = [UIColor orangeColor];
+    [publish setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [publish setTitle:@"发布" forState:UIControlStateNormal];
+    [publish addTarget:self action:@selector(publishBUttonDidClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:publish];
+    [publish mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(view).offset(30);
+        make.top.equalTo(view).offset(30);
+        make.height.mas_equalTo(49);
+        make.right.equalTo(view).offset(-30);
+    }];
+    
+    return view;
+}
+-(void)publishBUttonDidClicked:(UIButton *)sender{
+    
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 0.01;
+    return 49;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 64;

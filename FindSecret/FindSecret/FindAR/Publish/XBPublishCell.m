@@ -53,7 +53,7 @@
     cell.detail.textAlignment = NSTextAlignmentRight;
     [cell addSubview:cell.detail];
     [cell.detail mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(cell).offset(-50);
+        make.right.equalTo(cell).offset(-30);
         make.centerY.equalTo(cell);
     }];
     
@@ -61,7 +61,7 @@
     
     
     UIView *line = [[UIView alloc]init];
-    line.frame = CGRectMake(20, 64-0.5, cell.xb_width, 0.5);
+    line.frame = CGRectMake(20, 64-0.5, cell.xb_width+10, 0.5);
     line.backgroundColor = [UIColor lightGrayColor];
     [cell addSubview:line];
     return cell;

@@ -23,6 +23,7 @@
 		CAE746742112AC71000D05B7 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE746732112AC71000D05B7 /* CoreFoundation.framework */; };
 		CAE746762112AC7C000D05B7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE746752112AC7C000D05B7 /* CoreLocation.framework */; };
 		CAE746782112AC86000D05B7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE746772112AC86000D05B7 /* CoreTelephony.framework */; };
+		CAF9CC3E213B9C1A00F7DF87 /* XBAmplificationImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF9CC3D213B9C1A00F7DF87 /* XBAmplificationImageViewController.m */; };
 		E601964B210C21830046D1FA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E601964A210C21830046D1FA /* AVFoundation.framework */; };
 		E60A09B821386504009BC9F0 /* XBUnitySaomiaoSubbViews.m in Sources */ = {isa = PBXBuildFile; fileRef = E60A09B721386504009BC9F0 /* XBUnitySaomiaoSubbViews.m */; };
 		E60A09BA21386C56009BC9F0 /* saomiaokuang@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E60A09B921386C56009BC9F0 /* saomiaokuang@3x.png */; };
@@ -406,6 +407,8 @@
 		CAE746732112AC71000D05B7 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		CAE746752112AC7C000D05B7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CAE746772112AC86000D05B7 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		CAF9CC3C213B9C1A00F7DF87 /* XBAmplificationImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBAmplificationImageViewController.h; sourceTree = "<group>"; };
+		CAF9CC3D213B9C1A00F7DF87 /* XBAmplificationImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBAmplificationImageViewController.m; sourceTree = "<group>"; };
 		E601964A210C21830046D1FA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E60A09B321385D3F009BC9F0 /* libiPhone-lib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libiPhone-lib.a"; path = "../../../../Downloads/201808291836/Libraries/libiPhone-lib.a"; sourceTree = "<group>"; };
 		E60A09B621386504009BC9F0 /* XBUnitySaomiaoSubbViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBUnitySaomiaoSubbViews.h; sourceTree = "<group>"; };
@@ -1600,6 +1603,8 @@
 				E693156D2137F61700E7FAE3 /* XBPublishCell.m */,
 				E69315672137F61700E7FAE3 /* XBPublishController.h */,
 				E69315762137F61700E7FAE3 /* XBPublishController.m */,
+				CAF9CC3C213B9C1A00F7DF87 /* XBAmplificationImageViewController.h */,
+				CAF9CC3D213B9C1A00F7DF87 /* XBAmplificationImageViewController.m */,
 			);
 			path = Publish;
 			sourceTree = "<group>";
@@ -2457,6 +2462,7 @@
 				E693ED7B2137C21E00E7FAE3 /* CMVideoSampling.mm in Sources */,
 				E6930CBF2137D29900E7FAE3 /* Il2CppCompilerCalculateTypeValues_17Table.cpp in Sources */,
 				E693ED862137C21E00E7FAE3 /* ActivityIndicator.mm in Sources */,
+				CAF9CC3E213B9C1A00F7DF87 /* XBAmplificationImageViewController.m in Sources */,
 				E69315EF2137F61800E7FAE3 /* XHRefreshActivityIndicatorContainerView.m in Sources */,
 				E60A0A042139A224009BC9F0 /* XBSelectFriendsController.m in Sources */,
 				E69315D82137F61800E7FAE3 /* XBFindFriendCell.m in Sources */,

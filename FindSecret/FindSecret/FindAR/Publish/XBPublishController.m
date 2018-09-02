@@ -11,10 +11,10 @@
 #import "XBFindNearAddressVC.h"
 #import "XBPublishCell.h"
 #import "XBWhoCanSeeController.h"
-
+#import "XBAmplificationImageViewController.h"
 #import "Masonry.h"
 
-@interface XBPublishController ()<UITextViewDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface XBPublishController ()<UITextViewDelegate,UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property (nonatomic, strong) UITextView *editTextView;
 @property (nonatomic, strong) UILabel *placeholder;
 @property (nonatomic, strong) UIView *backgroundView;
@@ -22,7 +22,11 @@
 @property (nonatomic, copy) NSArray *imageDataSource;
 @property (nonatomic, copy) NSArray *detailDataSource;
 
-
+@property (nonatomic, strong) UIImageView *picView;
+@property (strong, nonatomic) UIScrollView *scrollView;
+@property (strong, nonatomic) UIImageView *lastImageView;
+@property (nonatomic, assign) CGRect originalFrame;
+@property (nonatomic, assign) BOOL isDoubleTap;
 @end
 
 @implementation XBPublishController
@@ -97,7 +101,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 220;
+    return 270;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -139,6 +143,19 @@
         make.right.equalTo(view.mas_right).offset(-20);
         make.height.mas_equalTo(180);
     }];
+    
+    self.picView = [[UIImageView alloc]init];
+    [view addSubview:self.picView];
+    self.picView.userInteractionEnabled = YES;
+    self.picView.image = [UIImage imageNamed:@"style_selected"];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showZoomImageView:)];
+    self.picView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.picView addGestureRecognizer:tap];
+    [self.picView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.editTextView.mas_bottom).offset(10);
+        make.left.equalTo(view).offset(20);
+        make.width.height.mas_equalTo(50);
+    }];
     return view;
     
 }
@@ -162,6 +179,7 @@
                 
                 XBPublishCell *cell = [tableView cellForRowAtIndexPath:indexPath];
                 cell.title.text = name;
+                cell.title.textColor = [UIColor blueColor];
                 //                self.addressLabel.width = ScreenWidth - 40;
                 //                cell.text = [NSString stringWithFormat:@"longitude = %.10f\nlatitude = %.10f\n%@",longitude,latitude,name];
                 //                [self.addressLabel sizeToFit];
@@ -181,5 +199,64 @@
         
     }
     
+}
+
+#pragma mark == 放大图片
+
+-(void)showZoomImageView:(UITapGestureRecognizer *)tap
+{
+    if (![(UIImageView *)tap.view image]) {
+        return;
+    }
+    //scrollView作为背景
+    UIScrollView *bgView = [[UIScrollView alloc] init];
+    bgView.frame = [UIScreen mainScreen].bounds;
+    bgView.backgroundColor = [UIColor blackColor];
+    UITapGestureRecognizer *tapBg = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBgView:)];
+    [bgView addGestureRecognizer:tapBg];
+    
+    UIImageView *picView = (UIImageView *)tap.view;
+    
+    UIImageView *imageView = [[UIImageView alloc] init];
+    imageView.image = picView.image;
+    imageView.frame = [bgView convertRect:picView.frame fromView:self.view];
+    [bgView addSubview:imageView];
+    
+    [[[UIApplication sharedApplication] keyWindow] addSubview:bgView];
+    
+    self.lastImageView = imageView;
+    self.originalFrame = imageView.frame;
+    self.scrollView = bgView;
+    //最大放大比例
+    self.scrollView.maximumZoomScale = 1.5;
+    self.scrollView.delegate = self;
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        CGRect frame = imageView.frame;
+        frame.size.width = bgView.frame.size.width;
+        frame.size.height = frame.size.width * (imageView.image.size.height / imageView.image.size.width);
+        frame.origin.x = 0;
+        frame.origin.y = (bgView.frame.size.height - frame.size.height) * 0.5;
+        imageView.frame = frame;
+    }];
+}
+
+-(void)tapBgView:(UITapGestureRecognizer *)tapBgRecognizer
+{
+    self.scrollView.contentOffset = CGPointZero;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.lastImageView.frame = self.originalFrame;
+        tapBgRecognizer.view.backgroundColor = [UIColor clearColor];
+    } completion:^(BOOL finished) {
+        [tapBgRecognizer.view removeFromSuperview];
+        self.scrollView = nil;
+        self.lastImageView = nil;
+    }];
+}
+
+//返回可缩放的视图
+-(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return self.lastImageView;
 }
 @end

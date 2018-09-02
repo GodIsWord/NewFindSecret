@@ -78,7 +78,7 @@ static NSString* const cellID = @"cellID";
     NSDictionary *dic = self.dataSource[indexPath.item];
     cell.titleLabel.text = dic[@"title"];
     cell.detailLabel.text = dic[@"subTitle"];
-    cell.pictureImageView.hidden = ![self.selectTitle isEqualToString:dic[@"title"]];
+    cell.pictureImageView.highlighted = [self.selectTitle isEqualToString:dic[@"title"]];
     return cell;
 }
 

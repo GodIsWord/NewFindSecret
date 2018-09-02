@@ -50,6 +50,8 @@
 		E60A0A10213B8EF5009BC9F0 /* XBSelectFriendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E60A0A0D213B8EF5009BC9F0 /* XBSelectFriendsController.m */; };
 		E60A0A11213B8EF5009BC9F0 /* XBSelectFriendsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E60A0A0F213B8EF5009BC9F0 /* XBSelectFriendsTableViewCell.m */; };
 		E60A0A13213BADA4009BC9F0 /* taiqiu.png in Resources */ = {isa = PBXBuildFile; fileRef = E60A0A12213BADA4009BC9F0 /* taiqiu.png */; };
+		E60A0A16213BE814009BC9F0 /* unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = E60A0A14213BE813009BC9F0 /* unselected.png */; };
+		E60A0A17213BE814009BC9F0 /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = E60A0A15213BE814009BC9F0 /* selected.png */; };
 		E60E3B59210C0FF000C5BFBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B58210C0FF000C5BFBB /* AppDelegate.m */; };
 		E60E3B5C210C0FF000C5BFBB /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B5B210C0FF000C5BFBB /* HomeViewController.m */; };
 		E60E3B61210C0FF100C5BFBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B60210C0FF100C5BFBB /* Assets.xcassets */; };
@@ -458,6 +460,8 @@
 		E60A0A0E213B8EF5009BC9F0 /* XBSelectFriendsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBSelectFriendsTableViewCell.h; sourceTree = "<group>"; };
 		E60A0A0F213B8EF5009BC9F0 /* XBSelectFriendsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBSelectFriendsTableViewCell.m; sourceTree = "<group>"; };
 		E60A0A12213BADA4009BC9F0 /* taiqiu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = taiqiu.png; sourceTree = "<group>"; };
+		E60A0A14213BE813009BC9F0 /* unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unselected.png; sourceTree = "<group>"; };
+		E60A0A15213BE814009BC9F0 /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected.png; sourceTree = "<group>"; };
 		E60E3B54210C0FEF00C5BFBB /* FindSecret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindSecret.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E60E3B57210C0FF000C5BFBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E60E3B58210C0FF000C5BFBB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1125,6 +1129,8 @@
 		E60A0A0B213B8EF5009BC9F0 /* SelectFriends */ = {
 			isa = PBXGroup;
 			children = (
+				E60A0A15213BE814009BC9F0 /* selected.png */,
+				E60A0A14213BE813009BC9F0 /* unselected.png */,
 				E60A0A12213BADA4009BC9F0 /* taiqiu.png */,
 				E60A0A0C213B8EF5009BC9F0 /* XBSelectFriendsController.h */,
 				E60A0A0D213B8EF5009BC9F0 /* XBSelectFriendsController.m */,
@@ -2193,7 +2199,9 @@
 				E69315D42137F61800E7FAE3 /* XBMakeContentItemView.xib in Resources */,
 				E60A09F621398C54009BC9F0 /* LICENSE in Resources */,
 				E69315D12137F61800E7FAE3 /* XBMakeToolView.xib in Resources */,
+				E60A0A17213BE814009BC9F0 /* selected.png in Resources */,
 				E69315802137F61800E7FAE3 /* Kaiti.ttf in Resources */,
+				E60A0A16213BE814009BC9F0 /* unselected.png in Resources */,
 				E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */,
 				8592617B212F07AB008D0667 /* XBUITestViewController.xib in Resources */,
 				E69315812137F61800E7FAE3 /* 浪漫雅圆.ttf in Resources */,

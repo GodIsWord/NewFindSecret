@@ -14,7 +14,6 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.accessoryType = UITableViewCellAccessoryNone;
         self.detailTextLabel.textColor = [UIColor grayColor];
@@ -32,8 +31,9 @@
     self.pictureImageView = [[UIImageView alloc]init];
     [self.contentView addSubview:self.pictureImageView];
     self.pictureImageView.frame = CGRectMake(5, 12, 40, 40);
-    self.pictureImageView.backgroundColor = [UIColor blackColor];
-    self.pictureImageView.hidden = YES;
+    self.pictureImageView.backgroundColor = self.backgroundColor;
+    self.pictureImageView.image = [UIImage imageNamed:@"unselected.png"];
+    self.pictureImageView.highlightedImage = [UIImage imageNamed:@"selected.png"];
     
     self.titleLabel = [[UILabel alloc]init];
     [self.contentView addSubview:self.titleLabel];

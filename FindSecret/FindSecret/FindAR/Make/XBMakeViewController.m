@@ -712,9 +712,8 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     
     [self.arrFilePath addObject:markerFilePath];
     //arHotData
+
     NSMutableArray *arHotData = [NSMutableArray array];
-    
-    
     
     for (XBMakeContentItemView *itemView in self.captureImageView.subviews) {
         if ([itemView isKindOfClass:XBMakeContentItemView.self]) {
@@ -738,7 +737,6 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
                 NSString *thumbNailImagePath = filePathFromImage(itemView.thumbnailImage);
                 info[@"thumbFilePath"] = [manger displayNameAtPath:thumbNailImagePath];
                 info[@"duration"] = @([XBAVTools mediaDurationWithPath:url]);
-            
                 [self.arrFilePath addObject:url];
                 [self.arrFilePath addObject:thumbNailImagePath];
                 
@@ -747,7 +745,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
                 info[@"filePath"] = [manger displayNameAtPath:url];
                 info[@"duration"] = @([XBAVTools mediaDurationWithPath:url]);
                 [self.arrFilePath addObject:url];
-            }
+            } 
             [arHotData addObject:info];
         }
     }
@@ -783,7 +781,9 @@ static inline UIImage *snapshotImageWithView(UIView *v) {
 }
 
 static inline NSString *filePathFromImage(UIImage *img) {
+
     NSString *markerFilePath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",[@((NSInteger)([[NSDate date] timeIntervalSince1970]*1000)) stringValue]]];
+
     NSData *imageData = UIImageJPEGRepresentation(img, 0.75);
     if (![imageData writeToFile:markerFilePath atomically:YES]){
         return @"";

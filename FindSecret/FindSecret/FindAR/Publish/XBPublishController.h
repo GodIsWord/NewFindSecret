@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface XBPublishController : UITableViewController
-
+@property(nonatomic,copy) NSString *jsonStr;
+@property(nonatomic,copy) NSArray *filePaths;
 @end

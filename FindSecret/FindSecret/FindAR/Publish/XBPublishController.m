@@ -12,6 +12,7 @@
 #import "XBPublishCell.h"
 #import "XBWhoCanSeeController.h"
 #import "Masonry.h"
+#import "HttpRequestServices.h"
 
 @interface XBPublishController ()<UITextViewDelegate,UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,XBWhoCanSeeControllerDelegate>
 @property (nonatomic, strong) UITextView *editTextView;
@@ -92,10 +93,8 @@
     
     NSString *str = self.titleDataSource[indexPath.row];
     cell.title.text = str;
-    cell.title.textColor = [UIColor grayColor];
     cell.pictureImageView.image = [UIImage imageNamed:self.imageDataSource[indexPath.row]];
     cell.detail.text = self.detailDataSource[indexPath.row];
-    cell.detail.textColor = [UIColor grayColor];
     cell.rightHeaderImage.image = [UIImage imageNamed:self.userImageDataSource[indexPath.row]];
     return cell;
 }
@@ -165,10 +164,12 @@
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     UIView *view = [[UIView alloc]init];
     view.backgroundColor = [UIColor whiteColor];
+    view.userInteractionEnabled = YES;
     UIButton *publish = [[UIButton alloc] init];
     publish.backgroundColor = [UIColor orangeColor];
     [publish setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [publish setTitle:@"发布" forState:UIControlStateNormal];
+    publish.backgroundColor = [UIColor yellowColor];
     [publish addTarget:self action:@selector(publishBUttonDidClicked:) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:publish];
     [publish mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -181,7 +182,24 @@
     return view;
 }
 -(void)publishBUttonDidClicked:(UIButton *)sender{
-    
+//    [self uploadData];
+}
+-(void)uploadData
+{
+    if (self.jsonStr.length<=0) {
+        return;
+    }
+    NSDictionary *dic = @{@"arData":self.jsonStr};
+    NSMutableArray *arrKenmas = [NSMutableArray array];
+    for (int i =0 ;i<self.filePaths.count; i++  ) {
+        NSString *path = self.filePaths[i];
+        [arrKenmas addObject:[[NSFileManager defaultManager] displayNameAtPath:path]];
+    }
+    [[HttpRequestServices sharedInstance] AFNPOSTRequestUploadParam:dic fileKeyNames:arrKenmas filePaths:self.filePaths suceesBlock:^(HttpRequestServiceOperationModel *operationModel, id responseObject) {
+        
+    } failedBlock:^(HttpRequestServiceOperationModel *operationModel, NSError *error) {
+        
+    }];
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
@@ -207,8 +225,14 @@
             if (name) {
                 
                 XBPublishCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-                cell.title.text = name;
-                cell.title.textColor = [UIColor blueColor];
+                if (name.length>0) {
+                    cell.title.text = name;
+                    cell.title.textColor = [UIColor blueColor];
+                }else{
+                    cell.title.text = @"所在位置";
+                    cell.title.textColor = [UIColor grayColor];
+                }
+               
                 //                self.addressLabel.width = ScreenWidth - 40;
                 //                cell.text = [NSString stringWithFormat:@"longitude = %.10f\nlatitude = %.10f\n%@",longitude,latitude,name];
                 //                [self.addressLabel sizeToFit];
@@ -223,11 +247,11 @@
         [self.navigationController pushViewController:vc animated:YES];
         
     }else if (indexPath.row == 2){
-        XBWhoCanSeeController *vc = [XBWhoCanSeeController new];
-        vc.type = 2;
-        vc.delegate = self;
-        [self.navigationController pushViewController:vc animated:YES];
-        
+//        XBWhoCanSeeController *vc = [XBWhoCanSeeController new];
+//        vc.type = 2;
+//        vc.delegate = self;
+//        [self.navigationController pushViewController:vc animated:YES];
+        [self uploadData];
     }
     
 }

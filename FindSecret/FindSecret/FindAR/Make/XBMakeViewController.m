@@ -64,6 +64,9 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 @property (nonatomic, assign) CGFloat buttonsCenterY;
 @property (nonatomic, assign) CGSize buttonsSize;
+
+@property (nonatomic, strong) NSMutableSet *arrFilePath;
+
 @end
 
 @implementation XBMakeViewController
@@ -78,6 +81,8 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     [self initTopToolBar];
     
     self.contentImage ? [self switchAddContentMode] : [self switchCaptureMode];
+    
+    self.arrFilePath = [NSMutableSet set];
 
 }
 
@@ -247,6 +252,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
         if (!self.captureImageView) {
             self.captureImageView = [UIImageView new];
+            self.captureImageView.userInteractionEnabled = YES;
             self.captureImageView.backgroundColor = [UIColor clearColor];
             self.captureImageView.frame = self.view.bounds;
         }
@@ -307,6 +313,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
             self.captureImageView = [UIImageView new];
             self.captureImageView.backgroundColor = [UIColor clearColor];
             self.captureImageView.frame = self.view.bounds;
+            self.captureImageView.userInteractionEnabled = YES;
         }
         if (!self.captureImageView.superview) {
             [self.view insertSubview:self.captureImageView atIndex:0];
@@ -488,7 +495,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
             [wItemView removeFromSuperview];
             [wSelf addTextWithAttributedText:attributedString];
         };
-        [self.view addSubview:itemView];
+        [self.captureImageView addSubview:itemView];
     }
 }
 #pragma mark - XBAudioManagerPlayDelegate, XBAudioManagerRecoderDelegate
@@ -504,7 +511,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
             NSLog(@"audio played");
         }];
     };
-    [self.view addSubview:itemView];
+    [self.captureImageView addSubview:itemView];
 
 }
 - (void)XBPublishRecordDismiss:(UIViewController *)vc {
@@ -515,30 +522,30 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 - (void)videoEditController:(XBVideoEditController *)videoEditController didProcessingCompletedWithVideoUrl:(NSURL *)url {
 
-    XBMakeContentItemView *itemVIew = [XBMakeContentItemView contentItemViewWithVideoUrl:url];
-    __weak typeof(itemVIew) wItemVIew = itemVIew;
-    itemVIew.didClickedContentView = ^{
+    XBMakeContentItemView *itemView = [XBMakeContentItemView contentItemViewWithVideoUrl:url];
+    __weak typeof(itemView) wItemView = itemView;
+    itemView.didClickedContentView = ^{
         NSLog(@"play url:%@",url.absoluteString);
-        [XBAVTools playVideoWithFilePath:url.absoluteString inView:wItemVIew.contentView independent:NO completedHandle:^(NSError *error) {
+        [XBAVTools playVideoWithFilePath:url.absoluteString inView:wItemView.contentView independent:NO completedHandle:^(NSError *error) {
             NSLog(@"哈哈");
         }];
     };
-    [self.view addSubview:itemVIew];
+    [self.captureImageView addSubview:itemView];
 
 }
 
 #pragma mark - XBCameraViewControllerDelegate
 
 - (void)cameraViewController:(XBCameraViewController *)cameraViewController didProcessingCompletedWithVideoUrl:(NSURL *)url {
-    XBMakeContentItemView *itemVIew = [XBMakeContentItemView contentItemViewWithVideoUrl:url];
-    __weak typeof(itemVIew) wItemVIew = itemVIew;
-    itemVIew.didClickedContentView = ^{
+    XBMakeContentItemView *itemView = [XBMakeContentItemView contentItemViewWithVideoUrl:url];
+    __weak typeof(itemView) wItemView = itemView;
+    itemView.didClickedContentView = ^{
         NSLog(@"play url:%@",url.absoluteString);
-        [XBAVTools playVideoWithFilePath:url.absoluteString inView:wItemVIew.contentView independent:NO completedHandle:^(NSError *error) {
+        [XBAVTools playVideoWithFilePath:url.absoluteString inView:wItemView.contentView independent:NO completedHandle:^(NSError *error) {
             NSLog(@"哈哈");
         }];
     };
-    [self.view addSubview:itemVIew];
+    [self.captureImageView addSubview:itemView];
 }
 
 #pragma mark - toolbar
@@ -586,8 +593,15 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 }
 
 - (void)nextStepAction {
-    NSLog(@"we don`t talk any more");
+    NSString *jsonStr = [self requestJson];
+    NSLog(@"%@",jsonStr);
     XBPublishController *publish = [[XBPublishController alloc] init];
+    publish.jsonStr = jsonStr;
+    NSMutableArray *array = [NSMutableArray array];
+    for (NSString *path in self.arrFilePath) {
+        [array addObject:path];
+    }
+    publish.filePaths = array;
     [self.navigationController pushViewController:publish animated:YES];
 }
 
@@ -652,6 +666,146 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 - (void)setContentImage:(UIImage *)contentImage {
     _contentImage = contentImage;
     
+}
+- (NSString *)requestJson {
+    if (self.stage != XBMakeContentStageCaptureAddContent) {
+        return @"";
+    }
+    //markerImageData
+    UIImage *markerImage = self.captureImageView.image?:self.contentImage;
+    if (!markerImage) {
+        return @"";
+    }
+    /*
+     
+     {
+     "height": 2220,
+     "markerImagePath": "/storage/emulated/0/ARXunMi/mediaedit/a05a3c4d-06db-4887-a406-c6262ae7a333.jpg",
+     "width": 1080
+     }
+     */
+    
+    CGFloat scale = [UIScreen mainScreen].scale;
+    
+    NSMutableDictionary *markerImageData = [NSMutableDictionary dictionary];
+    
+    CGFloat backWidth = self.captureImageView.bounds.size.width;
+    CGFloat backHeight = self.captureImageView.bounds.size.height;
+    
+    markerImageData[@"height"] = @(CGRectGetHeight(self.captureImageView.frame) * scale);
+    markerImageData[@"width"] = @(CGRectGetWidth(self.captureImageView.frame) * scale);
+    UIImage *imageSnapshot = snapshotImageWithView(self.captureImageView);
+    
+    NSString *markerFilePath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",[@((NSInteger)[[NSDate date] timeIntervalSince1970]) stringValue]]];
+    NSData *imageData = UIImageJPEGRepresentation(imageSnapshot, 0.75);
+    if (![imageData writeToFile:markerFilePath atomically:YES]){
+        return @"";
+    }
+    
+    NSFileManager *manger = [NSFileManager defaultManager];
+    
+    NSString *markerImageName = [manger displayNameAtPath:markerFilePath];
+    
+    markerImageData[@"markerImagePath"] = markerImageName;
+    
+    [self.arrFilePath removeAllObjects];
+    
+    [self.arrFilePath addObject:markerFilePath];
+    //arHotData
+    NSMutableArray *arHotData = [NSMutableArray array];
+    
+    
+    
+    for (XBMakeContentItemView *itemView in self.captureImageView.subviews) {
+        if ([itemView isKindOfClass:XBMakeContentItemView.self]) {
+            NSMutableDictionary *info = [NSMutableDictionary dictionary];
+            info[@"x"] = @(itemView.frame.origin.x / backWidth);
+            info[@"y"] = @(itemView.frame.origin.y / backHeight);
+            info[@"width"] = @(itemView.frame.size.width / backWidth);
+            info[@"height"] = @(itemView.frame.size.height / backHeight);
+            info[@"type"] = @(itemView.type);
+            if (itemView.type == XBMakeContentItemTypeText) {
+                NSAttributedString *attributedText = itemView.attributedText;
+                NSDictionary *attributes = [attributedText attributesAtIndex:0 effectiveRange:NULL];
+                UIColor * color = attributes[NSForegroundColorAttributeName];
+                info[@"color"] = HEXStringFromColor(color);
+                UIFont *font = attributes[NSFontAttributeName];
+                info[@"font"] = font.fontName;
+                info[@"text"] = attributedText.string;
+            } else if (itemView.type == XBMakeContentItemTypeVideo) {
+                NSString *url = itemView.videoURL.absoluteString;
+                info[@"filePath"] = [manger displayNameAtPath:url];
+                NSString *thumbNailImagePath = filePathFromImage(itemView.thumbnailImage);
+                info[@"thumbFilePath"] = [manger displayNameAtPath:thumbNailImagePath];
+                info[@"duration"] = @([XBAVTools mediaDurationWithPath:url]);
+            
+                [self.arrFilePath addObject:url];
+                [self.arrFilePath addObject:thumbNailImagePath];
+                
+            } else if (itemView.type == XBMakeContentItemTypeAudio) {
+                NSString *url = itemView.audioURL.absoluteString;
+                info[@"filePath"] = [manger displayNameAtPath:url];
+                info[@"duration"] = @([XBAVTools mediaDurationWithPath:url]);
+                [self.arrFilePath addObject:url];
+            }
+            [arHotData addObject:info];
+        }
+    }
+
+    NSMutableDictionary *dicInfo = [NSMutableDictionary dictionary];
+    if (markerImageData) {
+        dicInfo[@"markerImageData"] = markerImageData;
+    }
+    if (arHotData.count > 0) {
+        dicInfo[@"arHotData"] = arHotData;
+    }
+    
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dicInfo options:0 error:&error];
+    if (error) {
+        NSLog(@"%@",error.localizedDescription);
+        return @"";
+    }
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    return jsonString?:@"";
+}
+
+
+
+
+static inline UIImage *snapshotImageWithView(UIView *v) {
+    UIGraphicsBeginImageContextWithOptions(v.bounds.size, NO, [UIScreen mainScreen].scale);
+    [v.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+
+}
+
+static inline NSString *filePathFromImage(UIImage *img) {
+    NSString *markerFilePath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",[@((NSInteger)([[NSDate date] timeIntervalSince1970]*1000)) stringValue]]];
+    NSData *imageData = UIImageJPEGRepresentation(img, 0.75);
+    if (![imageData writeToFile:markerFilePath atomically:YES]){
+        return @"";
+    }
+    return markerFilePath;
+}
+
+
+static inline NSString *HEXStringFromColor(UIColor *color) {
+    if (CGColorGetNumberOfComponents(color.CGColor) < 4) {
+        const CGFloat *components = CGColorGetComponents(color.CGColor);
+        color = [UIColor colorWithRed:components[0]
+                                green:components[0]
+                                 blue:components[0]
+                                alpha:components[1]];
+    }
+    if (CGColorSpaceGetModel(CGColorGetColorSpace(color.CGColor)) != kCGColorSpaceModelRGB) {
+        return [NSString stringWithFormat:@"#FFFFFF"];
+    }
+    return [NSString stringWithFormat:@"#%02X%02X%02X", (int)((CGColorGetComponents(color.CGColor))[0]*255.0),
+            (int)((CGColorGetComponents(color.CGColor))[1]*255.0),
+            (int)((CGColorGetComponents(color.CGColor))[2]*255.0)];
 }
 
 #pragma mark - dealloc

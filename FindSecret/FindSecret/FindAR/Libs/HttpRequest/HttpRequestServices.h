@@ -13,7 +13,8 @@ typedef void(^httpRequestSuccessBlock)(HttpRequestServiceOperationModel *operati
 typedef void(^httpRequestSuccessFail)(HttpRequestServiceOperationModel *operationModel, NSError *error);
 
 //static NSString* const XBARHttpHeader = @"http://www.artachina.com/ar-xunmi/cloud/v1.1/fileuploads";
-static NSString* const XBARHttpHeader = @"http://www.artachina.com/ar-xunmi/cloud/file/uploads";
+//static NSString* const XBARHttpHeader = @"http://www.artachina.com/ar-xunmi/cloud/file/uploads";
+static NSString* const XBARHttpHeader = @"http://192.168.1.113:8090/ar-xunmi/cloud/file/uploads";
 
 static NSString* const ARAPP_KEY = @"fa20f953930f475991fcf4cd09dafc72";
 
@@ -60,6 +61,9 @@ static NSString* const ARAPP_KEY = @"fa20f953930f475991fcf4cd09dafc72";
 
 -(void)AFNPOSTRequestHeaderURL:(NSString*)header headerExpand:(NSDictionary*)expanding withParam:(NSDictionary*)parameters suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock;
 
+
+//上传视频和图片使用
+-(void)AFNPOSTRequestUploadParam:(NSDictionary*)parameters fileKeyNames:(NSArray*)keyNames filePaths:(NSArray*)arrPath  suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock;
 
 @end
 

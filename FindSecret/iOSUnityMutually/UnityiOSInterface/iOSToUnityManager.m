@@ -25,18 +25,16 @@
 +(void)startSaomiaoAR
 {
     UnitySendMessage("callUnity", [@"SceneSwitch" UTF8String], "2");
-    UnitySendMessage("callUnity", [@"ScanAR" UTF8String], "");
 }
 +(void)stopSaomiaoAR
 {
-//    UnitySendMessage("callUnity", [@"SceneSwitch" UTF8String], "2");
-    UnitySendMessage("callUnity", [@"EndScanAR" UTF8String], "");
+    UnitySendMessage("callUnity", [@"SceneClear" UTF8String], "");
 }
 
 +(void)arResultShow:(NSString *)result
 {
-    UnitySendMessage("callUnity", [@"SceneSwitch" UTF8String], "3");
-    UnitySendMessage("callUnity", [@"arResultShow" UTF8String], "");
+//    UnitySendMessage("callUnity", [@"SceneSwitch" UTF8String], "2");
+    UnitySendMessage("callUnity", [@"arResultShow" UTF8String], [result UTF8String]);
 }
 
 @end

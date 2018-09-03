@@ -158,6 +158,43 @@ static HttpRequestServices *service ;
 
 }
 
+//上传视频和图片使用
+-(void)AFNPOSTRequestUploadParam:(NSDictionary *)parameters fileKeyNames:(NSArray *)keyNames filePaths:(NSArray *)arrPath suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock
+{
+    
+    self.afnManager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    self.afnManager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    self.afnManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain",@"application/json", @"text/json", @"text/javascript",@"text/css", @"application/javascript",@"application/json", @"application/x-www-form-urlencoded",@"application/x-zip-compressed", nil];
+    // 设置超时时间
+    [self.afnManager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    self.afnManager.requestSerializer.timeoutInterval = 60*3.f;
+    [self.afnManager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
+    [self.afnManager POST:XBARHttpHeader parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        NSString  *imagePath = [[NSBundle mainBundle] pathForResource:@"B1D476F3-BD7D-4894-90E1-C2E00AE50576" ofType:@"MOV"] ;
+        NSData *data = [NSData dataWithContentsOfFile:imagePath];
+            [formData appendPartWithFileData:data name:@"B1D476F3-BD7D-4894-90E1-C2E00AE50576" fileName:@"B1D476F3-BD7D-4894-90E1-C2E00AE50576.MOV" mimeType:@"video/MOV"];
+//        for (int i=0; i<keyNames.count; i++) {
+//            NSString *keyName = keyNames[i];
+//            if (i>=arrPath.count) {
+//                break;
+//            }
+//            NSString *filePath = arrPath[i];
+//            NSURL *url = [NSURL fileURLWithPath:filePath];
+//            [formData appendPartWithFileURL:url name:keyName error:nil];
+//        }
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        NSLog(@"%@",uploadProgress.localizedDescription);
+    }  success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        NSLog(@"sucess:%@",dic);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"str:%@",error);
+        
+    }];
+}
+
 
 //  参数拼接处理
 -(NSMutableString *)requestParamWithParamers:(NSDictionary *)dicParmers encry:(int)encry

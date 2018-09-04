@@ -54,6 +54,7 @@
         _audioRecorder.meteringEnabled=YES;//如果要监控声波则必须设置为YES
         if (error) {
             NSLog(@"创建录音机对象时发生错误，错误信息：%@",error.localizedDescription);
+            [self recorderEncodeErrorDidOccur:error];
             return nil;
         }else{
             [_audioRecorder prepareToRecord];
@@ -138,7 +139,19 @@
 }
 
 +(NSString*)recordPath{
-    return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"recorder.caf"];
+    return [[self tempPath] stringByAppendingPathComponent:@"recorder.caf"];
+}
+
++(NSString*)documentPath{
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+}
+
++(NSString*)cachPath{
+    return [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+}
+
++(NSString*)tempPath{
+    return NSTemporaryDirectory();
 }
 
 /**
@@ -166,12 +179,16 @@
 }
 
 #pragma mark --delegate
-//录音失败
--(void)audioRecorderEncodeErrorDidOccur:(AVAudioRecorder *)recorder error:(NSError *)error
+-(void)recorderEncodeErrorDidOccur:(NSError*)error
 {
     if ([self.delegate respondsToSelector:@selector(xbAudioRecorderEncodeErrorDidOccur:error:)]) {
         [self.delegate xbAudioRecorderEncodeErrorDidOccur:self error:error];
     }
+}
+//录音失败
+-(void)audioRecorderEncodeErrorDidOccur:(AVAudioRecorder *)recorder error:(NSError *)error
+{
+    [self recorderEncodeErrorDidOccur:error];
 }
 
 -(void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag

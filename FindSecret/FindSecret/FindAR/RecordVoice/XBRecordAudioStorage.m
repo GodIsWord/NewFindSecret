@@ -60,9 +60,9 @@
     NSFileManager *manager = [NSFileManager defaultManager];
     NSError *error;
     NSDate* date = [NSDate dateWithTimeIntervalSinceNow:0];
-    NSTimeInterval time = [date timeIntervalSince1970];
+    NSTimeInterval time = [date timeIntervalSince1970]*1000;
     NSString *timeString = [NSString stringWithFormat:@"%.0f", time];
-    NSString *strPath = [NSString stringWithFormat:@"%@/%@.caf",[self recordAudioFolder],timeString];
+    NSString *strPath = [NSString stringWithFormat:@"%@/%@.mp3",[self recordAudioFolder],timeString];
     BOOL isSucess = [manager createFileAtPath:strPath contents:[NSData dataWithContentsOfFile:path] attributes:nil];
     NSLog(@"error:%@",error);
     
@@ -77,8 +77,16 @@
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
 }
 
++(NSString*)cachPath{
+    return [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+}
+
++(NSString*)tempPath{
+    return NSTemporaryDirectory();
+}
+
 +(NSString*)recordAudioFolder{
-    NSString *strPath = [[self documentPath] stringByAppendingPathComponent:@"recordAudioes"];
+    NSString *strPath = [[self tempPath] stringByAppendingPathComponent:@"recordAudioes"];
     if ([self createDirectoryPath:strPath]) {
         return strPath;
     }

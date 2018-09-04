@@ -12,6 +12,7 @@
 		8592617A212F07AB008D0667 /* XBUITestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85926178212F07AB008D0667 /* XBUITestViewController.m */; };
 		8592617B212F07AB008D0667 /* XBUITestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85926179212F07AB008D0667 /* XBUITestViewController.xib */; };
 		859261CE213835E6008D0667 /* libiPhone-lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 859261CD213835E6008D0667 /* libiPhone-lib.a */; };
+		BE9484B8213ED93100E16072 /* XBVideoWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9484B7213ED93100E16072 /* XBVideoWriter.m */; };
 		CA147A422133D7D700F2F2EE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B65210C0FF100C5BFBB /* Info.plist */; };
 		CA42A52C2137D8390007CCD1 /* UIButton+XBEnlargeEdge.m in Sources */ = {isa = PBXBuildFile; fileRef = CA42A52A2137D8010007CCD1 /* UIButton+XBEnlargeEdge.m */; };
 		CAE746682112AC1D000D05B7 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE746672112AC1D000D05B7 /* libc++.tbd */; };
@@ -397,6 +398,8 @@
 		85926178212F07AB008D0667 /* XBUITestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBUITestViewController.m; sourceTree = "<group>"; };
 		85926179212F07AB008D0667 /* XBUITestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBUITestViewController.xib; sourceTree = "<group>"; };
 		859261CD213835E6008D0667 /* libiPhone-lib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libiPhone-lib.a"; sourceTree = "<group>"; };
+		BE9484B6213ED93100E16072 /* XBVideoWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBVideoWriter.h; sourceTree = "<group>"; };
+		BE9484B7213ED93100E16072 /* XBVideoWriter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBVideoWriter.m; sourceTree = "<group>"; };
 		CA42A5292137D8010007CCD1 /* UIButton+XBEnlargeEdge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+XBEnlargeEdge.h"; sourceTree = "<group>"; };
 		CA42A52A2137D8010007CCD1 /* UIButton+XBEnlargeEdge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+XBEnlargeEdge.m"; sourceTree = "<group>"; };
 		CAE746672112AC1D000D05B7 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -1335,6 +1338,8 @@
 				E69314762137F61700E7FAE3 /* XBVideoEditController.m */,
 				E693147A2137F61700E7FAE3 /* XBVideoIntervalChooseView.h */,
 				E69314772137F61700E7FAE3 /* XBVideoIntervalChooseView.m */,
+				BE9484B6213ED93100E16072 /* XBVideoWriter.h */,
+				BE9484B7213ED93100E16072 /* XBVideoWriter.m */,
 			);
 			path = VideoEdit;
 			sourceTree = "<group>";
@@ -2530,6 +2535,7 @@
 				E693EE1A2137C21F00E7FAE3 /* iPhone_Sensors.mm in Sources */,
 				E6930CF12137D29900E7FAE3 /* Bulk_Generics_10.cpp in Sources */,
 				E6930CCF2137D29900E7FAE3 /* Bulk_Generics_19.cpp in Sources */,
+				BE9484B8213ED93100E16072 /* XBVideoWriter.m in Sources */,
 				E6930CF52137D29900E7FAE3 /* Bulk_Assembly-CSharp-firstpass_0.cpp in Sources */,
 				E60A09F921398C54009BC9F0 /* AFImageDownloader.m in Sources */,
 				E69315BC2137F61800E7FAE3 /* WXSTransitionManager+BoomAnimation.m in Sources */,

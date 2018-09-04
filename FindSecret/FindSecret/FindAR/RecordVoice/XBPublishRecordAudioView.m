@@ -66,7 +66,7 @@
     miaoshulable.backgroundColor = [UIColor clearColor];
     miaoshulable.textColor = [UIColor whiteColor];
     miaoshulable.text = @"按住开始录音，松开结束录音";
-    miaoshulable.hidden = YES;
+//    miaoshulable.hidden = YES;
     miaoshulable.textAlignment = NSTextAlignmentCenter;
     [self addSubview:miaoshulable];
     self.miaoshuLable = miaoshulable;
@@ -164,13 +164,13 @@
 - (void)startGifAnimation {
     [self.gifView startAnimation];
     [self.audeoManager startRecord];
-    self.miaoshuLable.hidden = NO;
+//    self.miaoshuLable.hidden = NO;
 }
 
 - (void)stopGifAnimation {
     [self.gifView stopAnimation];
     [self.recordControl reset];
-    self.miaoshuLable.hidden = YES;
+//    self.miaoshuLable.hidden = YES;
 }
 
 - (NSString *)gifPath {
@@ -203,7 +203,7 @@
 #pragma mark -- record delegate
 
 - (void)xbAudioManagerEncodeErrorDidOccur:(XBAudioManager *)recorder error:(NSError *)error {
-
+    [self stopGifAnimation];
 }
 
 - (void)xbAudioManagerDidFinishRecording:(XBAudioManager *)recorder successfully:(BOOL)flag {

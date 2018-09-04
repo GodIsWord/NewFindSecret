@@ -52,6 +52,7 @@
 		E60A0A13213BADA4009BC9F0 /* taiqiu.png in Resources */ = {isa = PBXBuildFile; fileRef = E60A0A12213BADA4009BC9F0 /* taiqiu.png */; };
 		E60A0A16213BE814009BC9F0 /* unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = E60A0A14213BE813009BC9F0 /* unselected.png */; };
 		E60A0A17213BE814009BC9F0 /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = E60A0A15213BE814009BC9F0 /* selected.png */; };
+		E60A0A1B213ED90C009BC9F0 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E60A0A19213ED90B009BC9F0 /* libmp3lame.a */; };
 		E60E3B59210C0FF000C5BFBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B58210C0FF000C5BFBB /* AppDelegate.m */; };
 		E60E3B5C210C0FF000C5BFBB /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E60E3B5B210C0FF000C5BFBB /* HomeViewController.m */; };
 		E60E3B61210C0FF100C5BFBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B60210C0FF100C5BFBB /* Assets.xcassets */; };
@@ -461,6 +462,8 @@
 		E60A0A12213BADA4009BC9F0 /* taiqiu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = taiqiu.png; sourceTree = "<group>"; };
 		E60A0A14213BE813009BC9F0 /* unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unselected.png; sourceTree = "<group>"; };
 		E60A0A15213BE814009BC9F0 /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected.png; sourceTree = "<group>"; };
+		E60A0A19213ED90B009BC9F0 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
+		E60A0A1A213ED90B009BC9F0 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
 		E60E3B54210C0FEF00C5BFBB /* FindSecret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindSecret.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E60E3B57210C0FF000C5BFBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E60E3B58210C0FF000C5BFBB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -980,6 +983,7 @@
 				E693EFEE2137C56D00E7FAE3 /* libiconv.2.tbd in Frameworks */,
 				E693EFEC2137C56200E7FAE3 /* UIKit.framework in Frameworks */,
 				E69315962137F61800E7FAE3 /* MAMapKit.framework in Frameworks */,
+				E60A0A1B213ED90C009BC9F0 /* libmp3lame.a in Frameworks */,
 				CAE746702112AC5B000D05B7 /* SystemConfiguration.framework in Frameworks */,
 				E69312AB2137F58B00E7FAE3 /* libNativeVideoPlayer.a in Frameworks */,
 				E693EFEA2137C55100E7FAE3 /* QuartzCore.framework in Frameworks */,
@@ -1135,6 +1139,15 @@
 				E60A0A0F213B8EF5009BC9F0 /* XBSelectFriendsTableViewCell.m */,
 			);
 			path = SelectFriends;
+			sourceTree = "<group>";
+		};
+		E60A0A18213ED8B8009BC9F0 /* Lames */ = {
+			isa = PBXGroup;
+			children = (
+				E60A0A1A213ED90B009BC9F0 /* lame.h */,
+				E60A0A19213ED90B009BC9F0 /* libmp3lame.a */,
+			);
+			path = Lames;
 			sourceTree = "<group>";
 		};
 		E60E3B4B210C0FEF00C5BFBB = {
@@ -1342,6 +1355,7 @@
 		E693147C2137F61700E7FAE3 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				E60A0A18213ED8B8009BC9F0 /* Lames */,
 				E60A09CA21398C53009BC9F0 /* AFNetworking */,
 				E60A09C621398C3B009BC9F0 /* HttpRequest */,
 				E693147D2137F61700E7FAE3 /* gaode */,
@@ -2716,6 +2730,7 @@
 					"$(SRCROOT)/Libraries/Plugins/iOS",
 					"$(PROJECT_DIR)/Libraries/Plugins/iOS",
 					"$(PROJECT_DIR)/Libraries",
+					"$(PROJECT_DIR)/FindSecret/FindAR/Libs/Lames",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = (
@@ -2782,6 +2797,7 @@
 					"$(SRCROOT)/Libraries/Plugins/iOS",
 					"$(PROJECT_DIR)/Libraries/Plugins/iOS",
 					"$(PROJECT_DIR)/Libraries",
+					"$(PROJECT_DIR)/FindSecret/FindAR/Libs/Lames",
 				);
 				OTHER_CFLAGS = (
 					"-DINIT_SCRIPTING_BACKEND=1",

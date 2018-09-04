@@ -16,7 +16,7 @@
 
 +(BOOL)removeWithPath:(NSString*)path;
 
-+(BOOL)saveAudioWithDataPath:(NSString*)path;
++(BOOL)saveAudioWithDataPath:(NSString*)path complate:(void((^)(void)))block;
 
 +(BOOL)fileExist:(NSString*)path;
 

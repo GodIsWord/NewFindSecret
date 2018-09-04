@@ -75,13 +75,13 @@
     //录音格式 无法使用
     [recordSettings setValue:@(kAudioFormatLinearPCM) forKey:AVFormatIDKey];
     //采样率 11025 确保转换成mp3格式不失真
-    [recordSettings setValue:@(4410) forKey:AVSampleRateKey];
+    [recordSettings setValue:@(44100) forKey:AVSampleRateKey];
     //通道数
-    [recordSettings setValue:@(2) forKey:AVNumberOfChannelsKey];
+    [recordSettings setValue:@(1) forKey:AVNumberOfChannelsKey];
     //线性采样位数
-    [recordSettings setValue:@(8) forKey:AVLinearPCMBitDepthKey];
+    [recordSettings setValue:@(16) forKey:AVLinearPCMBitDepthKey];
     //音频质量,采样质量
-    [recordSettings setValue:@(AVAudioQualityMax) forKey:AVEncoderAudioQualityKey];
+    [recordSettings setValue:@(AVAudioQualityMin) forKey:AVEncoderAudioQualityKey];
     [recordSettings setValue:@(128000) forKey:AVEncoderBitRateKey];
     
     return recordSettings;
@@ -139,7 +139,7 @@
 }
 
 +(NSString*)recordPath{
-    return [[self tempPath] stringByAppendingPathComponent:@"recorder.caf"];
+    return [[self tempPath] stringByAppendingPathComponent:@"recorder.wav"];
 }
 
 +(NSString*)documentPath{

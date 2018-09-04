@@ -191,12 +191,15 @@
                 jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@"\n" withString:@""];
                 jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@" " withString:@""];
                 NSDictionary *dic = @{@"arData":jsonStr};
-                [[HttpRequestServices sharedInstance] AFNPOSTRequestARHeaderWithParameter:dic suceesBlock:^(HttpRequestServiceOperationModel *operationModel, id responseObject) {
-                    
-                } failedBlock:^(HttpRequestServiceOperationModel *operationModel, NSError *error) {
-                    
-                }];
+               
             }
+            
+            //此处应该先请求甲方权限接口 再进行ar数据请求，测试阶段 直接进行ar数据请求
+            [[HttpRequestServices sharedInstance] AFGETRequestHeaderAppanding:arSMPOIResources withParameters:@{@"resId":@"145"} encry:0 suceesBlock:^(NSDictionary *responseObject) {
+                
+            } failedBlock:^(NSError *error) {
+                
+            }];
         }
             break;
 

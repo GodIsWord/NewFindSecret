@@ -9,14 +9,18 @@
 #import <Foundation/Foundation.h>
 @class HttpRequestServiceOperationModel;
 
-typedef void(^httpRequestSuccessBlock)(HttpRequestServiceOperationModel *operationModel, id responseObject);
-typedef void(^httpRequestSuccessFail)(HttpRequestServiceOperationModel *operationModel, NSError *error);
+typedef void(^httpRequestSuccessBlock)(NSDictionary *responseObject);
+typedef void(^httpRequestSuccessFail)(NSError *error);
 
+//http://www.artachina.com/ar-xunmi/cloud/resources
 //static NSString* const XBARHttpHeader = @"http://www.artachina.com/ar-xunmi/cloud/v1.1/fileuploads";
 //static NSString* const XBARHttpHeader = @"http://www.artachina.com/ar-xunmi/cloud/file/uploads";
-static NSString* const XBARHttpHeader = @"http://192.168.1.113:8090/ar-xunmi/cloud/file/uploads";
+static NSString* const XBARHttpHeader = @"http://www.artachina.com/ar-xunmi/cloud";
 
 static NSString* const ARAPP_KEY = @"fa20f953930f475991fcf4cd09dafc72";
+
+static NSString* const arFileUploads = @"file/uploads";//上传视频 音频 图片
+static NSString* const arSMPOIResources = @"resources";//下载识别图的点位信息
 
 @interface HttpRequestServices : NSObject
 
@@ -40,30 +44,25 @@ static NSString* const ARAPP_KEY = @"fa20f953930f475991fcf4cd09dafc72";
  */
 - (void)cancel;
 
+#pragma mark -- get 请求
+-(void)AFGETRequestHeaderAppanding:(NSString*)appending withParameters:(NSDictionary *)parameters encry:(int)encry suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock ;
 /**
  *GET 请求
- */
--(void)AFGETRequestForTarget:(id)target withParameters:(NSDictionary *)parameters appending:(NSString*)appending suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock ;
-/**
- *GET 请求
-  *@param target 请求目标暂时没用
  *@param header 请求头
  *@param parameters 用于拼接字符串比如 key=1234&page＝10之类的数据
  *@param appending 直接拼接在请求头后面的字符串 和 parameters关系 优先拼接appending 如果没有就拼接parameters
  *@param encry 是否加密 0是不加密
  */
--(void)AFGETRequestForTarget:(id)target headerUrl:(NSString*)header appending:(NSString*)appending withParameters:(NSDictionary *)parameters encry:(int)encry suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock ;
+-(void)AFGETRequestHeaderUrl:(NSString*)header appending:(NSString*)appending withParameters:(NSDictionary *)parameters encry:(int)encry suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock ;
 
-/**
- *post 请求
- */
--(void)AFNPOSTRequestARHeaderWithParameter:(NSDictionary*)parameters suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock ;
+#pragma mark -- post 请求
+-(void)AFNPOSTRequestHeaderAppanding:(NSString*)appanding withParameters:(NSDictionary*)parameters suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock;
 
--(void)AFNPOSTRequestHeaderURL:(NSString*)header headerExpand:(NSDictionary*)expanding withParam:(NSDictionary*)parameters suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock;
+-(void)AFNPOSTRequestHeaderURL:(NSString*)header headerExpand:(NSString*)expanding withParameters:(NSDictionary*)parameters suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock;
 
 
 //上传视频和图片使用
--(void)AFNPOSTRequestUploadParam:(NSDictionary*)parameters fileKeyNames:(NSArray*)keyNames filePaths:(NSArray*)arrPath  suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock;
+-(void)AFNPOSTRequestUploadAppending:(NSString*)appending withParameters:(NSDictionary*)parameters fileKeyNames:(NSArray*)keyNames filePaths:(NSArray*)arrPath  suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock;
 
 @end
 

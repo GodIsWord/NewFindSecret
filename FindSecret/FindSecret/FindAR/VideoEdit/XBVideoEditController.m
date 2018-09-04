@@ -334,7 +334,7 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
 
 - (void)confirm {
     NSLog(@"如果有回调的话");
-    NSString *str = [NSString stringWithFormat:@"%ld.mov",(long)[[NSDate date] timeIntervalSince1970]];
+    NSString *str = [NSString stringWithFormat:@"%ld.mp4",(long)([[NSDate date] timeIntervalSince1970]*1000)];
     NSString *tempVideoPath = [NSTemporaryDirectory() stringByAppendingPathComponent:str];
     if ([[NSFileManager defaultManager] fileExistsAtPath:tempVideoPath]) {
         NSError *error;
@@ -350,7 +350,7 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
     AVAssetExportSession *exportSession = [AVAssetExportSession exportSessionWithAsset:asset presetName:AVAssetExportPresetPassthrough];
     NSURL *tempUrl = [NSURL fileURLWithPath:tempVideoPath];
     exportSession.outputURL = tempUrl;
-    exportSession.outputFileType = AVFileTypeQuickTimeMovie;
+    exportSession.outputFileType = AVFileTypeMPEG4;
 
     CGFloat startSecond = CMTimeGetSeconds(self.startTime);
     CGFloat stopSecond = CMTimeGetSeconds(self.stopTime);

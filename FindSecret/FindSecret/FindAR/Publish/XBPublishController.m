@@ -195,9 +195,9 @@
         NSString *path = self.filePaths[i];
         [arrKenmas addObject:[[NSFileManager defaultManager] displayNameAtPath:path]];
     }
-    [[HttpRequestServices sharedInstance] AFNPOSTRequestUploadParam:dic fileKeyNames:arrKenmas filePaths:self.filePaths suceesBlock:^(HttpRequestServiceOperationModel *operationModel, id responseObject) {
+    [[HttpRequestServices sharedInstance] AFNPOSTRequestUploadAppending:arFileUploads withParameters:dic fileKeyNames:arrKenmas filePaths:self.filePaths suceesBlock:^(NSDictionary *responseObject) {
         
-    } failedBlock:^(HttpRequestServiceOperationModel *operationModel, NSError *error) {
+    } failedBlock:^(NSError *error) {
         
     }];
 }

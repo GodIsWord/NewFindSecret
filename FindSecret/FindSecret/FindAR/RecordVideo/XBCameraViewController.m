@@ -43,6 +43,16 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 @property (nonatomic, assign) CGFloat buttonsCenterY;
 @property (nonatomic, assign) CGSize buttonsSize;
 
+
+//----mp4----
+@property (nonatomic, strong) AVAssetWriter *assetWriter;
+@property (nonatomic, strong) AVAssetWriterInput *assetWriterVideoInput;
+@property (nonatomic, strong) AVAssetWriterInput *assetWriterAudioInput;
+@property (nonatomic, strong) NSDictionary *videoCompressionSettings;
+@property (nonatomic, strong) NSDictionary *audioCompressionSettings;
+@property (nonatomic, assign) BOOL canWrite;
+
+
 @end
 
 @implementation XBCameraViewController
@@ -351,7 +361,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
             //预览图层和视频方向保持一致
             
             captureConnection.videoOrientation = [self.captureVideoPreviewLayer connection].videoOrientation;
-            NSString *str = [NSString stringWithFormat:@"%ld.mov",(long)[[NSDate date] timeIntervalSince1970]];
+            NSString *str = [NSString stringWithFormat:@"%ld.mov",(long)([[NSDate date] timeIntervalSince1970]*1000)];
             NSString *outputFielPath = [NSTemporaryDirectory() stringByAppendingString:str];
             NSURL *fileUrl = [NSURL fileURLWithPath:outputFielPath];
             [self.captureMovieFileOutPut startRecordingToOutputFileURL:fileUrl recordingDelegate:self];
@@ -467,6 +477,10 @@ static int gCheckCount = 10;
     }
 }
 
+
+
+
+
 #pragma mark - 视频输出代理
 
 - (void)captureOutput:(AVCaptureFileOutput *)captureOutput didStartRecordingToOutputFileAtURL:(NSURL *)fileURL fromConnections:(NSArray *)connections {
@@ -495,6 +509,76 @@ static int gCheckCount = 10;
 //    }];
 
 }
+
+
+
+#pragma mark -
+
+/**
+ *  设置写入视频属性
+ */
+
+- (void)setUpWriter
+{
+
+    NSString *videoPath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%ld.mp4",(long)[[NSDate date] timeIntervalSince1970] * 1000]];
+    
+    self.assetWriter = [AVAssetWriter assetWriterWithURL:[NSURL URLWithString:videoPath] fileType:AVFileTypeMPEG4 error:nil];
+    //写入视频大小
+    NSInteger numPixels = SCREEN_WIDTH * SCREEN_HEIGHT;
+    
+    //每像素比特
+    CGFloat bitsPerPixel = 12.0;
+    NSInteger bitsPerSecond = numPixels * bitsPerPixel;
+    
+    // 码率和帧率设置
+    NSDictionary *compressionProperties = @{ AVVideoAverageBitRateKey : @(bitsPerSecond),
+                                             AVVideoExpectedSourceFrameRateKey : @(15),
+                                             AVVideoMaxKeyFrameIntervalKey : @(15),
+                                             AVVideoProfileLevelKey : AVVideoProfileLevelH264BaselineAutoLevel };
+    CGFloat width = SCREEN_WIDTH;
+    CGFloat height = SCREEN_HEIGHT;
+    //视频属性
+    self.videoCompressionSettings = @{ AVVideoCodecKey : AVVideoCodecH264,
+                                       AVVideoWidthKey : @(width * 2),
+                                       AVVideoHeightKey : @(height * 2),
+                                       AVVideoScalingModeKey : AVVideoScalingModeResizeAspectFill,
+                                       AVVideoCompressionPropertiesKey : compressionProperties };
+    
+    _assetWriterVideoInput = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeVideo outputSettings:self.videoCompressionSettings];
+    //expectsMediaDataInRealTime 必须设为yes，需要从capture session 实时获取数据
+    _assetWriterVideoInput.expectsMediaDataInRealTime = YES;
+        
+    // 音频设置
+    self.audioCompressionSettings = @{ AVEncoderBitRatePerChannelKey : @(28000),
+                                       AVFormatIDKey : @(kAudioFormatMPEG4AAC),
+                                       AVNumberOfChannelsKey : @(1),
+                                       AVSampleRateKey : @(22050) };
+    
+    _assetWriterAudioInput = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeAudio outputSettings:self.audioCompressionSettings];
+    _assetWriterAudioInput.expectsMediaDataInRealTime = YES;
+    
+    if ([_assetWriter canAddInput:_assetWriterVideoInput])
+    {
+        [_assetWriter addInput:_assetWriterVideoInput];
+    }
+    else
+    {
+        NSLog(@"AssetWriter videoInput append Failed");
+    }
+    
+    if ([_assetWriter canAddInput:_assetWriterAudioInput])
+    {
+        [_assetWriter addInput:_assetWriterAudioInput];
+    }
+    else
+    {
+        NSLog(@"AssetWriter audioInput Append Failed");
+    }
+    
+    _canWrite = NO;
+}
+
 
 #pragma mark - Camera
 

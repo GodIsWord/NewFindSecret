@@ -12,6 +12,8 @@
 #import "iOSToUnityManager.h"
 #import "XBUnitySaomiaoSubbViews.h"
 
+#import "HttpRequestServices.h"
+
 @interface XBUnitySubbviewManager()
 
 @property(nonatomic,copy) void((^picturBlock)(NSString *));
@@ -94,6 +96,12 @@
     [iOSToUnityManager stopSaomiaoAR];
 }
 
+//加载poi数据( 包含扫描权限获取 )
++(void)arResultShow:(NSString*)result
+{
+    [iOSToUnityManager arResultShow:result];
+}
+
 #pragma mark -- unity回调
 +(void)takePictureSuccess:(NSString*)path
 {
@@ -105,6 +113,24 @@
     }
 }
 
+/**
+ 云识别返回metaID 用来验证当前用户是不是可识别这张图片和场景
+ 
+ @param metaID ar识别的ID 与用户ID 统一绑定 请求扫描权限
+ */
++(void)arCloudSuccess:(NSString *)metaID
+{
+    if (metaID.length<=0) {
+        return;
+    }
+    //此处应该先请求甲方权限接口 再进行ar数据请求，测试阶段 直接进行ar数据请求
+    [[HttpRequestServices sharedInstance] AFGETRequestHeaderAppanding:arSMPOIResources withParameters:@{@"resId":metaID} encry:0 suceesBlock:^(NSDictionary *responseObject) {
+        
+    } failedBlock:^(NSError *error) {
+        
+    }];
+}
+
 +(void)saomiaoSuccess:(NSString *)mesg
 {
     NSLog(@"saomiaoSuccess:%@",mesg);
@@ -112,3 +138,21 @@
 }
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

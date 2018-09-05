@@ -76,67 +76,57 @@ static HttpRequestServices *service ;
     return isExistenceNetwork;
 }
 #pragma mark - get请求
--(void)AFGETRequestForTarget:(id)target withParameters:(NSDictionary *)parameters appending:(NSString*)appending suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock
+-(void)AFGETRequestHeaderAppanding:(NSString*)appending withParameters:(NSDictionary *)parameters encry:(int)encry suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock
 {
     
-    [self AFGETRequestForTarget:target headerUrl:XBARHttpHeader appending:appending withParameters:parameters encry:0 suceesBlock:successBlock failedBlock:failedBlock];
+    [self AFGETRequestHeaderUrl:XBARHttpHeader appending:appending withParameters:parameters encry:0 suceesBlock:successBlock failedBlock:failedBlock];
     
 }
--(void)AFGETRequestForTarget:(id)target headerUrl:(NSString*)header appending:(NSString*)appending withParameters:(NSDictionary *)parameters encry:(int)encry suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock
+-(void)AFGETRequestHeaderUrl:(NSString*)header appending:(NSString*)appending withParameters:(NSDictionary *)parameters encry:(int)encry suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock
 {
     NSString * url = header;
     if (appending.length>0) {
-        url = [url stringByAppendingString:appending];
-    }
-    
-    if (parameters.count>0) {
-        NSString *strParam = [self requestParamWithParamers:parameters encry:encry];
-        url = [url stringByAppendingString:strParam];
+        url = [url stringByAppendingPathComponent:appending];
     }
     
     NSLog(@"url:%@",url);
     [self.afnManager GET:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        HttpRequestServiceOperationModel *model = [[HttpRequestServiceOperationModel alloc] init];
-        model.responseDictionary = responseObject;
-        successBlock(model,responseObject);
+        successBlock(responseObject);
         NSLog(@"responsObject:%@",responseObject);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
-        failedBlock(nil,error);
+        failedBlock(error);
     }];
     
 }
 #pragma mark - post请求
--(void)AFNPOSTRequestARHeaderWithParameter:(NSDictionary*)parameters suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock
+-(void)AFNPOSTRequestHeaderAppanding:(NSString*)appanding withParameters:(NSDictionary*)parameters suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock
 {
-    //添加请求头
-    NSString *time= [NSString stringWithFormat:@"%.0f",[[NSDate dateWithTimeIntervalSinceNow:0] timeIntervalSince1970]];
-    NSString *strMD5 = [[NSString stringWithFormat:@"%@%@",ARAPP_KEY,time] MD5ForLower32Bate];
-//    [self.afnManager.requestSerializer setValue:strMD5 forHTTPHeaderField:@"signature"];
-//    [self.afnManager.requestSerializer setValue:time forHTTPHeaderField:@"timestamp"];
     
-    [self AFNPOSTRequestHeaderURL:XBARHttpHeader headerExpand:@{@"signature":strMD5,@"timestamp":time} withParam:parameters suceesBlock:successBlock failedBlock:failedBlock];
     
+    [self AFNPOSTRequestHeaderURL:XBARHttpHeader headerExpand:appanding withParameters:parameters suceesBlock:successBlock failedBlock:failedBlock];
 }
--(void)AFNPOSTRequestHeaderURL:(NSString*)header headerExpand:(NSDictionary*)expanding withParam:(NSDictionary*)parameters suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock
+-(void)AFNPOSTRequestHeaderURL:(NSString*)header headerExpand:(NSString*)expanding withParameters:(NSDictionary*)parameters suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock
 {
-    self.afnManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain",@"application/json", @"text/json", @"text/javascript",@"text/css", @"application/javascript",@"application/json", @"application/x-www-form-urlencoded", nil];
+    
     
     self.afnManager.requestSerializer = [AFHTTPRequestSerializer serializer];
     self.afnManager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
-    NSArray *allkeys = expanding.allKeys;
-    for (id key in allkeys) {
-        if ([key isKindOfClass:NSString.class] && [[expanding objectForKey:key] isKindOfClass:NSString.class]) {
-//            [self.afnManager.requestSerializer setValue:[expanding objectForKey:key] forHTTPHeaderField:key];
-        }
-    }
+    self.afnManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain",@"application/json", @"text/json", @"text/javascript",@"text/css", @"application/javascript",@"application/json", @"application/x-www-form-urlencoded", nil];
     
-    NSString *encodedURL = [header stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    //添加请求头
+//    NSString *time= [NSString stringWithFormat:@"%.0f",[[NSDate dateWithTimeIntervalSinceNow:0] timeIntervalSince1970]];
+//    NSString *strMD5 = [[NSString stringWithFormat:@"%@%@",ARAPP_KEY,time] MD5ForLower32Bate];
+//    [self.afnManager.requestSerializer setValue:time forHTTPHeaderField:@"timestamp"];
+//    [self.afnManager.requestSerializer setValue:strMD5 forHTTPHeaderField:@"signature"];
     
     
+    NSString *strURl = [header stringByAppendingPathComponent:expanding];
+    
+    NSString *encodedURL = [strURl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     [self.afnManager POST:encodedURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"responsObject:%@",responseObject);
@@ -145,21 +135,19 @@ static HttpRequestServices *service ;
         HttpRequestServiceOperationModel *model = [[HttpRequestServiceOperationModel alloc] init];
         model.responseDictionary = dic;
         if (successBlock) {
-            successBlock(model,responseObject);
+            successBlock(dic);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
-        HttpRequestServiceOperationModel *model = [[HttpRequestServiceOperationModel alloc] init];
-        model.responseDictionary = @{@"desc":error.description};
         if (failedBlock) {
-            failedBlock(model,error);
+            failedBlock(error);
         }
     }];
 
 }
 
 //上传视频和图片使用
--(void)AFNPOSTRequestUploadParam:(NSDictionary *)parameters fileKeyNames:(NSArray *)keyNames filePaths:(NSArray *)arrPath suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock
+-(void)AFNPOSTRequestUploadAppending:(NSString*)appending withParameters:(NSDictionary*)parameters fileKeyNames:(NSArray*)keyNames filePaths:(NSArray*)arrPath  suceesBlock:(httpRequestSuccessBlock)successBlock failedBlock:(httpRequestSuccessFail)failedBlock
 {
     
     self.afnManager.requestSerializer = [AFHTTPRequestSerializer serializer];
@@ -171,7 +159,7 @@ static HttpRequestServices *service ;
     self.afnManager.requestSerializer.timeoutInterval = 60*3.f;
     [self.afnManager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     
-    [self.afnManager POST:XBARHttpHeader parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    [self.afnManager POST:[XBARHttpHeader stringByAppendingPathComponent:appending] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         NSString  *imagePath = [[NSBundle mainBundle] pathForResource:@"B1D476F3-BD7D-4894-90E1-C2E00AE50576" ofType:@"MOV"] ;
         NSData *data = [NSData dataWithContentsOfFile:imagePath];
             [formData appendPartWithFileData:data name:@"B1D476F3-BD7D-4894-90E1-C2E00AE50576" fileName:@"B1D476F3-BD7D-4894-90E1-C2E00AE50576.MOV" mimeType:@"video/MOV"];

@@ -164,13 +164,11 @@
 - (void)startGifAnimation {
     [self.gifView startAnimation];
     [self.audeoManager startRecord];
-//    self.miaoshuLable.hidden = NO;
 }
 
 - (void)stopGifAnimation {
     [self.gifView stopAnimation];
     [self.recordControl reset];
-//    self.miaoshuLable.hidden = YES;
 }
 
 - (NSString *)gifPath {
@@ -179,7 +177,7 @@
     if (![manager fileExistsAtPath:path]) {
         return nil;
     }
-    path = [path stringByAppendingPathComponent:@"voice_big3x"];//[path stringByAppendingPathComponent:@"vioce_big@3x.gif"];//
+    path = [path stringByAppendingPathComponent:@"voice_big3x"];
     return path;
 }
 

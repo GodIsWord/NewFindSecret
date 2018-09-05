@@ -695,8 +695,8 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     markerImageData[@"height"] = @(CGRectGetHeight(self.captureImageView.frame) * scale);
     markerImageData[@"width"] = @(CGRectGetWidth(self.captureImageView.frame) * scale);
     UIImage *imageSnapshot = snapshotImageWithView(self.captureImageView);
-    
-    NSString *markerFilePath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",[@((NSInteger)[[NSDate date] timeIntervalSince1970]) stringValue]]];
+    //NSTemporaryDirectory()
+    NSString *markerFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",[@((NSInteger)([[NSDate date] timeIntervalSince1970]*1000)) stringValue]]];
     NSData *imageData = UIImageJPEGRepresentation(imageSnapshot, 0.75);
     if (![imageData writeToFile:markerFilePath atomically:YES]){
         return @"";
@@ -782,7 +782,7 @@ static inline UIImage *snapshotImageWithView(UIView *v) {
 
 static inline NSString *filePathFromImage(UIImage *img) {
 
-    NSString *markerFilePath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",[@((NSInteger)([[NSDate date] timeIntervalSince1970]*1000)) stringValue]]];
+    NSString *markerFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",[@((NSInteger)([[NSDate date] timeIntervalSince1970]*1000)) stringValue]]];
 
     NSData *imageData = UIImageJPEGRepresentation(img, 0.75);
     if (![imageData writeToFile:markerFilePath atomically:YES]){

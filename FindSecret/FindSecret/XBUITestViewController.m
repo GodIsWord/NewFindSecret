@@ -7,7 +7,7 @@
 //
 
 #import "XBUITestViewController.h"
-
+#import "XBVideoWriter.h"
 @interface XBUITestViewController ()
 
 @end
@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    NSLog(@"%@",NSStringFromCGSize([XBVideoWriter maximumFrameSize]));
     // Do any additional setup after loading the view from its nib.
 }
 - (void)viewDidAppear:(BOOL)animated {

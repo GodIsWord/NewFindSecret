@@ -62,7 +62,7 @@
 }
 
 -(void)timerAction:(NSTimer*)timer{
-    NSLog(@"timerAction");
+//    NSLog(@"timerAction");
     switch (_type) {
         case 0:
         {
@@ -72,13 +72,13 @@
             break;
         case 1:
         {
-//            [XBRecordAudioToastView showWithVolume:self.recorder.currentVolume];
+            [XBRecordAudioToastView showWithVolume:self.recorder.currentVolume];
             
         }
             break;
         case 2:
         {
-//            [XBRecordAudioToastView showWithVolume:self.player.currentVolume];
+            [XBRecordAudioToastView showWithVolume:self.player.currentVolume];
             NSLog(@"audioe duration:%f",[self.player duration]);
         }
             break;
@@ -120,7 +120,7 @@
     
     [self.player playWithContentOfURL:url error:nil];
     _type = 2;
-//    [self.timer setFireDate:[NSDate distantPast]];
+    [self.timer setFireDate:[NSDate distantPast]];
 }
 
 -(void)stopPlay{
@@ -148,11 +148,13 @@
 
 -(void)xbAudioRecorderDidFinishRecording:(XBRecordAudio *)recorder successfully:(BOOL)flag{
     //隐藏声音强度的view
-    [XBRecordAudioStorage saveAudioWithDataPath:[XBRecordAudio recordPath]];
-    self.type = 0;
-    if ([self.recordDelegate respondsToSelector:@selector(xbAudioManagerDidFinishRecording:successfully:)]) {
-        [self.recordDelegate xbAudioManagerDidFinishRecording:self successfully:flag];
-    }
+    __weak typeof(self) weakSelf = self;
+    [XBRecordAudioStorage saveAudioWithDataPath:[XBRecordAudio recordPath] complate:^{
+        weakSelf.type = 0;
+        if ([weakSelf.recordDelegate respondsToSelector:@selector(xbAudioManagerDidFinishRecording:successfully:)]) {
+            [weakSelf.recordDelegate xbAudioManagerDidFinishRecording:weakSelf successfully:flag];
+        }
+    }];
 }
 
 -(void)xbAudioRecorderEncodeErrorDidOccur:(XBRecordAudio *)recorder error:(NSError *)error{

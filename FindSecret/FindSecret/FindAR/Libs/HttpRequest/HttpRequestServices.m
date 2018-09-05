@@ -92,8 +92,8 @@ static HttpRequestServices *service ;
     NSLog(@"url:%@",url);
     [self.afnManager GET:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        successBlock(responseObject);
         NSLog(@"responsObject:%@",responseObject);
+        successBlock(responseObject);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
@@ -160,18 +160,21 @@ static HttpRequestServices *service ;
     [self.afnManager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     
     [self.afnManager POST:[XBARHttpHeader stringByAppendingPathComponent:appending] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        NSString  *imagePath = [[NSBundle mainBundle] pathForResource:@"B1D476F3-BD7D-4894-90E1-C2E00AE50576" ofType:@"MOV"] ;
-        NSData *data = [NSData dataWithContentsOfFile:imagePath];
-            [formData appendPartWithFileData:data name:@"B1D476F3-BD7D-4894-90E1-C2E00AE50576" fileName:@"B1D476F3-BD7D-4894-90E1-C2E00AE50576.MOV" mimeType:@"video/MOV"];
-//        for (int i=0; i<keyNames.count; i++) {
-//            NSString *keyName = keyNames[i];
-//            if (i>=arrPath.count) {
-//                break;
-//            }
-//            NSString *filePath = arrPath[i];
+        
+        for (int i=0; i<keyNames.count; i++) {
+            NSString *keyName = keyNames[i];
+            if (i>=arrPath.count) {
+                break;
+            }
+            NSString *filePath = arrPath[i];
 //            NSURL *url = [NSURL fileURLWithPath:filePath];
 //            [formData appendPartWithFileURL:url name:keyName error:nil];
-//        }
+            
+            NSArray *arrName = [keyName componentsSeparatedByString:@"."];
+            NSString  *imagePath = filePath;
+            NSData *data = [NSData dataWithContentsOfFile:imagePath];
+            [formData appendPartWithFileData:data name:keyName fileName:arrName[0] mimeType:[NSString stringWithFormat:@"video/%@",arrName[1]]];
+        }
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         NSLog(@"%@",uploadProgress.localizedDescription);
     }  success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

@@ -59,7 +59,7 @@
     
     if (!path) return NO;
     
-    dispatch_queue_t quet = dispatch_queue_create("dafdse", DISPATCH_QUEUE_CONCURRENT);
+//    dispatch_queue_t quet = dispatch_queue_create("dafdse", DISPATCH_QUEUE_CONCURRENT);
 //    dispatch_semaphore_t signal = dispatch_semaphore_create(1);
     __block NSString *strPath = nil;
 //    dispatch_async(quet, ^{

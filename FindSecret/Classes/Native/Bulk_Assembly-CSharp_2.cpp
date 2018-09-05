@@ -16,20 +16,26 @@
 #include "class-internals.h"
 #include "codegen/il2cpp-codegen.h"
 #include "mscorlib_System_Array3549286319.h"
-#include "AssemblyU2DCSharp_ServerNotify3702894395.h"
+#include "AssemblyU2DCSharp_SCY_SceneManager3668852453.h"
 #include "mscorlib_System_Void1185182177.h"
+#include "UnityEngine_UnityEngine_MonoBehaviour3962482529.h"
+#include "mscorlib_System_String1847450689.h"
+#include "UnityEngine_UnityEngine_AsyncOperation1445031843.h"
+#include "AssemblyU2DCSharp_ServerErrorResponder2994808200.h"
+#include "AssemblyU2DCSharp_ZGGame_BaseResponder900286719.h"
+#include "mscorlib_System_Int162552820387.h"
+#include "AssemblyU2DCSharp_message_GCInfoPrompt2466199522.h"
+#include "AssemblyU2DCSharp_ServerNotify3702894395.h"
 #include "mscorlib_System_Object3080106164.h"
 #include "mscorlib_System_Int322950945753.h"
 #include "AssemblyU2DCSharp_SettingUI3095135305.h"
 #include "AssemblyU2DCSharp_ZGGame_UIView1697530740.h"
-#include "mscorlib_System_String1847450689.h"
 #include "UnityEngine_UnityEngine_GameObject1113636619.h"
 #include "AssemblyU2DCSharp_ZGGame_View352704265.h"
 #include "mscorlib_System_IntPtr840150181.h"
 #include "UnityEngine_UI_UnityEngine_UI_Button4055032469.h"
 #include "UnityEngine_UnityEngine_Events_UnityAction3245792599.h"
 #include "AssemblyU2DCSharp_SoundDelayBehaviour3081048162.h"
-#include "UnityEngine_UnityEngine_MonoBehaviour3962482529.h"
 #include "UnityEngine_UnityEngine_AudioSource3935305588.h"
 #include "UnityEngine_UnityEngine_Component1923634451.h"
 #include "UnityEngine_UnityEngine_Behaviour1437897464.h"
@@ -51,7 +57,6 @@
 #include "AssemblyU2DCSharp_Test650638817.h"
 #include "AssemblyU2DCSharp_Test_U3CLoadFontU3Ec__Iterator0851535555.h"
 #include "UnityEngine_UnityEngine_Networking_UnityWebRequest463507806.h"
-#include "UnityEngine_UnityEngine_AsyncOperation1445031843.h"
 #include "AssemblyU2DCSharp_TestCompass583077822.h"
 #include "AssemblyU2DCSharp_MapNotify962670051.h"
 #include "AssemblyU2DCSharp_TestCompass_U3CupdateAngleU3Ec__2990087458.h"
@@ -175,8 +180,6 @@
 #include "mscorlib_System_Collections_Generic_Dictionary_2_g3346159252.h"
 #include "mscorlib_System_Collections_Generic_List_1_Enumera3961135467.h"
 #include "mscorlib_System_AsyncCallback3962456242.h"
-#include "AssemblyU2DCSharp_ZGGame_BaseResponder900286719.h"
-#include "mscorlib_System_Int162552820387.h"
 #include "AssemblyU2DCSharp_ZGGame_NetInfoData779613672.h"
 #include "AssemblyU2DCSharp_ZGGame_BaseSender3360968287.h"
 #include "AssemblyU2DCSharp_ZGGame_SocketUtil1925728610.h"
@@ -305,14 +308,25 @@
 #include "mscorlib_System_Collections_Generic_List_1_Enumerat763882063.h"
 #include "mscorlib_System_Collections_Generic_Dictionary_2_g3614415714.h"
 #include "AssemblyU2DCSharp_ZGGame_UpdateBehaviour_U3CtimeCo3308776043.h"
-#include "AssemblyU2DCSharp_ZGGame_VectorUtil4169699629.h"
-#include "AssemblyU2DCSharp_ZGGame_ViewUpdateBehaviour731634096.h"
-#include "AssemblyU2DCSharp_ZGGame_ViewBehaviour3242029334.h"
 
-// ServerNotify
-struct ServerNotify_t3702894395;
+// SCY.SceneManager
+struct SceneManager_t3668852453;
+// UnityEngine.MonoBehaviour
+struct MonoBehaviour_t3962482529;
+// System.String
+struct String_t;
+// UnityEngine.AsyncOperation
+struct AsyncOperation_t1445031843;
+// ServerErrorResponder
+struct ServerErrorResponder_t2994808200;
+// ZGGame.BaseResponder
+struct BaseResponder_t900286719;
+// message.GCInfoPrompt
+struct GCInfoPrompt_t2466199522;
 // System.Object
 struct Il2CppObject;
+// ServerNotify
+struct ServerNotify_t3702894395;
 // SettingUI
 struct SettingUI_t3095135305;
 // ZGGame.UIView
@@ -321,16 +335,12 @@ struct UIView_t1697530740;
 struct View_t352704265;
 // UnityEngine.GameObject
 struct GameObject_t1113636619;
-// System.String
-struct String_t;
 // UnityEngine.UI.Button
 struct Button_t4055032469;
 // UnityEngine.Events.UnityAction
 struct UnityAction_t3245792599;
 // SoundDelayBehaviour
 struct SoundDelayBehaviour_t3081048162;
-// UnityEngine.MonoBehaviour
-struct MonoBehaviour_t3962482529;
 // UnityEngine.Component
 struct Component_t1923634451;
 // UnityEngine.AudioSource
@@ -363,8 +373,6 @@ struct Test_t650638817;
 struct U3CLoadFontU3Ec__Iterator0_t851535555;
 // UnityEngine.Networking.UnityWebRequest
 struct UnityWebRequest_t463507806;
-// UnityEngine.AsyncOperation
-struct AsyncOperation_t1445031843;
 // TestCompass
 struct TestCompass_t583077822;
 // System.Object[]
@@ -565,8 +573,6 @@ struct Dictionary_2_t59406530;
 struct IAsyncResult_t767004451;
 // System.AsyncCallback
 struct AsyncCallback_t3962456242;
-// ZGGame.BaseResponder
-struct BaseResponder_t900286719;
 // ZGGame.IResponder
 struct IResponder_t3402282750;
 // ZGGame.NetInfoData
@@ -813,14 +819,8 @@ struct List_1_t346712928;
 struct Dictionary_2_t3614415714;
 // ZGGame.UpdateBehaviour/<timeCoroutine>c__Iterator0
 struct U3CtimeCoroutineU3Ec__Iterator0_t3308776043;
-// ZGGame.VectorUtil
-struct VectorUtil_t4169699629;
-// ZGGame.ViewUpdateBehaviour
-struct ViewUpdateBehaviour_t731634096;
-// ZGGame.ViewBehaviour[]
-struct ViewBehaviourU5BU5D_t144419283;
-// ZGGame.ViewBehaviour
-struct ViewBehaviour_t3242029334;
+extern const MethodInfo* BaseResponder_getData_TisGCInfoPrompt_t2466199522_m3185394312_MethodInfo_var;
+extern const uint32_t ServerErrorResponder_onResult_m2636996335_MetadataUsageId;
 extern Il2CppClass* ServerNotify_t3702894395_il2cpp_TypeInfo_var;
 extern const uint32_t ServerNotify__cctor_m858231203_MetadataUsageId;
 extern Il2CppClass* AVRes_t2883758818_il2cpp_TypeInfo_var;
@@ -1807,25 +1807,6 @@ extern const uint32_t U3CtimeCoroutineU3Ec__Iterator0_MoveNext_m1722434325_Metad
 extern const uint32_t U3CtimeCoroutineU3Ec__Iterator0_Reset_m784599821_MetadataUsageId;
 extern const uint32_t UrlLoader__ctor_m3146193182_MetadataUsageId;
 extern const uint32_t UrlLoader_start_m87504382_MetadataUsageId;
-extern const MethodInfo* GameObject_AddComponent_TisViewUpdateBehaviour_t731634096_m3108491711_MethodInfo_var;
-extern const uint32_t View_set_updateEnabled_m3973298699_MetadataUsageId;
-extern Il2CppCodeGenString* _stringLiteral714846417;
-extern const uint32_t View_setParent_m1446785205_MetadataUsageId;
-extern const uint32_t View_destroy_m994198498_MetadataUsageId;
-extern const uint32_t View_onCreate_m2617753849_MetadataUsageId;
-extern const uint32_t View_onEvents_m2793097500_MetadataUsageId;
-extern const MethodInfo* GameObject_GetComponentsInChildren_TisViewBehaviour_t3242029334_m1505590081_MethodInfo_var;
-extern const uint32_t View_onBaseEventHandler_m2274025346_MetadataUsageId;
-extern const MethodInfo* View_assetsLoaderComplete_m1918077554_MethodInfo_var;
-extern const uint32_t View_setView_m3247356166_MetadataUsageId;
-extern Il2CppCodeGenString* _stringLiteral3737341401;
-extern const uint32_t View_assetsLoaderComplete_m1918077554_MetadataUsageId;
-extern const MethodInfo* GameObject_GetComponent_TisViewBehaviour_t3242029334_m4045230017_MethodInfo_var;
-extern const MethodInfo* GameObject_AddComponent_TisViewBehaviour_t3242029334_m1883229266_MethodInfo_var;
-extern Il2CppCodeGenString* _stringLiteral1264378944;
-extern const uint32_t View_setView_m3639370038_MetadataUsageId;
-extern Il2CppCodeGenString* _stringLiteral846298176;
-extern const uint32_t View_getObj_m403811221_MetadataUsageId;
 
 // System.Object[]
 struct ObjectU5BU5D_t2843939325  : public Il2CppArray
@@ -2224,45 +2205,10 @@ public:
 		m_Items[index] = value;
 	}
 };
-// ZGGame.ViewBehaviour[]
-struct ViewBehaviourU5BU5D_t144419283  : public Il2CppArray
-{
-public:
-	ALIGN_FIELD (8) ViewBehaviour_t3242029334 * m_Items[1];
-
-public:
-	inline ViewBehaviour_t3242029334 * GetAt(il2cpp_array_size_t index) const
-	{
-		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
-		return m_Items[index];
-	}
-	inline ViewBehaviour_t3242029334 ** GetAddressAt(il2cpp_array_size_t index)
-	{
-		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
-		return m_Items + index;
-	}
-	inline void SetAt(il2cpp_array_size_t index, ViewBehaviour_t3242029334 * value)
-	{
-		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
-		m_Items[index] = value;
-		Il2CppCodeGenWriteBarrier(m_Items + index, value);
-	}
-	inline ViewBehaviour_t3242029334 * GetAtUnchecked(il2cpp_array_size_t index) const
-	{
-		return m_Items[index];
-	}
-	inline ViewBehaviour_t3242029334 ** GetAddressAtUnchecked(il2cpp_array_size_t index)
-	{
-		return m_Items + index;
-	}
-	inline void SetAtUnchecked(il2cpp_array_size_t index, ViewBehaviour_t3242029334 * value)
-	{
-		m_Items[index] = value;
-		Il2CppCodeGenWriteBarrier(m_Items + index, value);
-	}
-};
 
 
+// T ZGGame.BaseResponder::getData<System.Object>()
+extern "C"  Il2CppObject * BaseResponder_getData_TisIl2CppObject_m1394697272_gshared (BaseResponder_t900286719 * __this, const MethodInfo* method);
 // T ZGGame.View::getComponent<System.Object>(System.String)
 extern "C"  Il2CppObject * View_getComponent_TisIl2CppObject_m3746954745_gshared (View_t352704265 * __this, String_t* ___objName0, const MethodInfo* method);
 // !!0 UnityEngine.Component::GetComponent<System.Object>()
@@ -2439,9 +2385,15 @@ extern "C"  void Dictionary_2_set_Item_m2959982882_gshared (Dictionary_2_t203385
 extern "C"  bool Dictionary_2_TryGetValue_m3840191738_gshared (Dictionary_2_t2033852802 * __this, int32_t p0, Il2CppObject ** p1, const MethodInfo* method);
 // System.Void System.Collections.Generic.Dictionary`2<ZGGame.UILayer,System.Object>::.ctor()
 extern "C"  void Dictionary_2__ctor_m3433586707_gshared (Dictionary_2_t2033852802 * __this, const MethodInfo* method);
-// !!0[] UnityEngine.GameObject::GetComponentsInChildren<System.Object>()
-extern "C"  ObjectU5BU5D_t2843939325* GameObject_GetComponentsInChildren_TisIl2CppObject_m693386741_gshared (GameObject_t1113636619 * __this, const MethodInfo* method);
 
+// System.Void UnityEngine.MonoBehaviour::.ctor()
+extern "C"  void MonoBehaviour__ctor_m1339182015 (MonoBehaviour_t3962482529 * __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+// UnityEngine.AsyncOperation UnityEngine.SceneManagement.SceneManager::LoadSceneAsync(System.String)
+extern "C"  AsyncOperation_t1445031843 * SceneManager_LoadSceneAsync_m3551625386 (Il2CppObject * __this /* static, unused */, String_t* p0, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+// System.Void ZGGame.BaseResponder::.ctor()
+extern "C"  void BaseResponder__ctor_m347777800 (BaseResponder_t900286719 * __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+// T ZGGame.BaseResponder::getData<message.GCInfoPrompt>()
+#define BaseResponder_getData_TisGCInfoPrompt_t2466199522_m3185394312(__this, method) ((  GCInfoPrompt_t2466199522 * (*) (BaseResponder_t900286719 *, const MethodInfo*))BaseResponder_getData_TisIl2CppObject_m1394697272_gshared)(__this, method)
 // System.Void System.Object::.ctor()
 extern "C"  void Object__ctor_m297566312 (Il2CppObject * __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // System.Void ZGGame.UIView::.ctor()
@@ -2460,8 +2412,6 @@ extern "C"  void UIView_onView_m2000756510 (UIView_t1697530740 * __this, const M
 extern "C"  void UnityAction__ctor_m2801230893 (UnityAction_t3245792599 * __this, Il2CppObject * p0, IntPtr_t p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // System.Void UIUtil::addButtonClick(UnityEngine.UI.Button,UnityEngine.Events.UnityAction)
 extern "C"  void UIUtil_addButtonClick_m640380418 (Il2CppObject * __this /* static, unused */, Button_t4055032469 * ___btn0, UnityAction_t3245792599 * ___call1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// System.Void UnityEngine.MonoBehaviour::.ctor()
-extern "C"  void MonoBehaviour__ctor_m1339182015 (MonoBehaviour_t3962482529 * __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // !!0 UnityEngine.Component::GetComponent<UnityEngine.AudioSource>()
 #define Component_GetComponent_TisAudioSource_t3935305588_m1977431131(__this, method) ((  AudioSource_t3935305588 * (*) (Component_t1923634451 *, const MethodInfo*))Component_GetComponent_TisIl2CppObject_m2735705429_gshared)(__this, method)
 // System.Void UnityEngine.Behaviour::set_enabled(System.Boolean)
@@ -4034,51 +3984,60 @@ extern "C"  Texture2D_t3840446185 * WWW_get_texture_m1724981587 (WWW_t3688466362
 extern "C"  void UrlLoader_destroy_m2745159833 (UrlLoader_t4028468321 * __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // System.Void UnityEngine.WWW::Dispose()
 extern "C"  void WWW_Dispose_m2234569747 (WWW_t3688466362 * __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// UnityEngine.Vector3 UnityEngine.Vector2::op_Implicit(UnityEngine.Vector2)
-extern "C"  Vector3_t3722313464  Vector2_op_Implicit_m1988559315 (Il2CppObject * __this /* static, unused */, Vector2_t2156229523  p0, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// UnityEngine.Camera UnityEngine.Camera::get_main()
-extern "C"  Camera_t4157153871 * Camera_get_main_m882983993 (Il2CppObject * __this /* static, unused */, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// UnityEngine.Vector3 UnityEngine.Camera::ScreenToWorldPoint(UnityEngine.Vector3)
-extern "C"  Vector3_t3722313464  Camera_ScreenToWorldPoint_m1238306073 (Camera_t4157153871 * __this, Vector3_t3722313464  p0, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// !!0 UnityEngine.GameObject::AddComponent<ZGGame.ViewUpdateBehaviour>()
-#define GameObject_AddComponent_TisViewUpdateBehaviour_t731634096_m3108491711(__this, method) ((  ViewUpdateBehaviour_t731634096 * (*) (GameObject_t1113636619 *, const MethodInfo*))GameObject_AddComponent_TisIl2CppObject_m914906257_gshared)(__this, method)
-// UnityEngine.Quaternion UnityEngine.Quaternion::get_identity()
-extern "C"  Quaternion_t2301928331  Quaternion_get_identity_m3578010038 (Il2CppObject * __this /* static, unused */, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// System.Void UnityEngine.Transform::set_rotation(UnityEngine.Quaternion)
-extern "C"  void Transform_set_rotation_m853119278 (Transform_t3600365921 * __this, Quaternion_t2301928331  p0, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// UnityEngine.Transform ZGGame.MVC::get_renderStore()
-extern "C"  Transform_t3600365921 * MVC_get_renderStore_m3017518791 (Il2CppObject * __this /* static, unused */, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// System.Void ZGGame.BaseCls::clearEvent()
-extern "C"  void BaseCls_clearEvent_m3553316389 (BaseCls_t159170423 * __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// System.Void ZGGame.BaseCls::onCreate()
-extern "C"  void BaseCls_onCreate_m1822640984 (BaseCls_t159170423 * __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// System.Void ZGGame.BaseCls::onError()
-extern "C"  void BaseCls_onError_m2643052202 (BaseCls_t159170423 * __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// System.Void ZGGame.BaseCls::onEvents()
-extern "C"  void BaseCls_onEvents_m2949624486 (BaseCls_t159170423 * __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// System.Void ZGGame.BaseCls::onBaseEventHandler(System.Int32,System.Object)
-extern "C"  void BaseCls_onBaseEventHandler_m1001326829 (BaseCls_t159170423 * __this, int32_t ___type0, Il2CppObject * ___data1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// !!0[] UnityEngine.GameObject::GetComponentsInChildren<ZGGame.ViewBehaviour>()
-#define GameObject_GetComponentsInChildren_TisViewBehaviour_t3242029334_m1505590081(__this, method) ((  ViewBehaviourU5BU5D_t144419283* (*) (GameObject_t1113636619 *, const MethodInfo*))GameObject_GetComponentsInChildren_TisIl2CppObject_m693386741_gshared)(__this, method)
-// ZGGame.View ZGGame.ViewBehaviour::get_view()
-extern "C"  View_t352704265 * ViewBehaviour_get_view_m2705212599 (ViewBehaviour_t3242029334 * __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// System.Void ZGGame.AssetsManager::loadAsset(System.String,ZGGame.LoadComplete,System.Object)
-extern "C"  void AssetsManager_loadAsset_m1386223408 (Il2CppObject * __this /* static, unused */, String_t* ___assetName0, LoadComplete_t137156152 * ___loadCompleteHandler1, Il2CppObject * ___tag2, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// UnityEngine.Object UnityEngine.AssetBundle::get_mainAsset()
-extern "C"  Object_t631007953 * AssetBundle_get_mainAsset_m2462808460 (AssetBundle_t1153907252 * __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// !!0 UnityEngine.GameObject::GetComponent<ZGGame.ViewBehaviour>()
-#define GameObject_GetComponent_TisViewBehaviour_t3242029334_m4045230017(__this, method) ((  ViewBehaviour_t3242029334 * (*) (GameObject_t1113636619 *, const MethodInfo*))GameObject_GetComponent_TisIl2CppObject_m2385344436_gshared)(__this, method)
-// !!0 UnityEngine.GameObject::AddComponent<ZGGame.ViewBehaviour>()
-#define GameObject_AddComponent_TisViewBehaviour_t3242029334_m1883229266(__this, method) ((  ViewBehaviour_t3242029334 * (*) (GameObject_t1113636619 *, const MethodInfo*))GameObject_AddComponent_TisIl2CppObject_m914906257_gshared)(__this, method)
-// System.Void ZGGame.ViewBehaviour::init(ZGGame.View)
-extern "C"  void ViewBehaviour_init_m1321944222 (ViewBehaviour_t3242029334 * __this, View_t352704265 * ___r0, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// UnityEngine.GameObject ZGGame.ViewBehaviour::viewObject(System.String)
-extern "C"  GameObject_t1113636619 * ViewBehaviour_viewObject_m220003391 (ViewBehaviour_t3242029334 * __this, String_t* ___objName0, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+// System.Void SCY.SceneManager::.ctor()
+extern "C"  void SceneManager__ctor_m312209997 (SceneManager_t3668852453 * __this, const MethodInfo* method)
+{
+	{
+		MonoBehaviour__ctor_m1339182015(__this, /*hidden argument*/NULL);
+		return;
+	}
+}
+// System.Void SCY.SceneManager::LoadScene(System.String)
+extern "C"  void SceneManager_LoadScene_m2870954729 (Il2CppObject * __this /* static, unused */, String_t* ___sceneName0, const MethodInfo* method)
+{
+	{
+		String_t* L_0 = ___sceneName0;
+		SceneManager_LoadSceneAsync_m3551625386(NULL /*static, unused*/, L_0, /*hidden argument*/NULL);
+		return;
+	}
+}
+// System.Void ServerErrorResponder::.ctor()
+extern "C"  void ServerErrorResponder__ctor_m82414341 (ServerErrorResponder_t2994808200 * __this, const MethodInfo* method)
+{
+	{
+		BaseResponder__ctor_m347777800(__this, /*hidden argument*/NULL);
+		return;
+	}
+}
+// System.Void ServerErrorResponder::init()
+extern "C"  void ServerErrorResponder_init_m203941813 (ServerErrorResponder_t2994808200 * __this, const MethodInfo* method)
+{
+	{
+		((BaseResponder_t900286719 *)__this)->set_reciveCode_0((int16_t)6);
+		return;
+	}
+}
+// System.Void ServerErrorResponder::onResult()
+extern "C"  void ServerErrorResponder_onResult_m2636996335 (ServerErrorResponder_t2994808200 * __this, const MethodInfo* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_method (ServerErrorResponder_onResult_m2636996335_MetadataUsageId);
+		s_Il2CppMethodInitialized = true;
+	}
+	GCInfoPrompt_t2466199522 * V_0 = NULL;
+	{
+		GCInfoPrompt_t2466199522 * L_0 = BaseResponder_getData_TisGCInfoPrompt_t2466199522_m3185394312(__this, /*hidden argument*/BaseResponder_getData_TisGCInfoPrompt_t2466199522_m3185394312_MethodInfo_var);
+		V_0 = L_0;
+		return;
+	}
+}
 // System.Void ServerNotify::.ctor()
 extern "C"  void ServerNotify__ctor_m975232938 (ServerNotify_t3702894395 * __this, const MethodInfo* method)
 {
@@ -28719,959 +28678,6 @@ extern "C"  void UrlLoader_destroy_m2745159833 (UrlLoader_t4028468321 * __this, 
 	}
 
 IL_0016:
-	{
-		return;
-	}
-}
-// System.Void ZGGame.VectorUtil::.ctor()
-extern "C"  void VectorUtil__ctor_m1781069870 (VectorUtil_t4169699629 * __this, const MethodInfo* method)
-{
-	{
-		Object__ctor_m297566312(__this, /*hidden argument*/NULL);
-		return;
-	}
-}
-// UnityEngine.Vector3 ZGGame.VectorUtil::pointToWorld(UnityEngine.Vector2,UnityEngine.Transform)
-extern "C"  Vector3_t3722313464  VectorUtil_pointToWorld_m1967526226 (Il2CppObject * __this /* static, unused */, Vector2_t2156229523  ___vec20, Transform_t3600365921 * ___target1, const MethodInfo* method)
-{
-	Vector3_t3722313464  V_0;
-	memset(&V_0, 0, sizeof(V_0));
-	Vector3_t3722313464  V_1;
-	memset(&V_1, 0, sizeof(V_1));
-	Vector3_t3722313464  V_2;
-	memset(&V_2, 0, sizeof(V_2));
-	{
-		Vector2_t2156229523  L_0 = ___vec20;
-		Vector3_t3722313464  L_1 = Vector2_op_Implicit_m1988559315(NULL /*static, unused*/, L_0, /*hidden argument*/NULL);
-		V_0 = L_1;
-		Camera_t4157153871 * L_2 = Camera_get_main_m882983993(NULL /*static, unused*/, /*hidden argument*/NULL);
-		Transform_t3600365921 * L_3 = ___target1;
-		NullCheck(L_3);
-		Vector3_t3722313464  L_4 = Transform_get_position_m102368104(L_3, /*hidden argument*/NULL);
-		NullCheck(L_2);
-		Vector3_t3722313464  L_5 = Camera_WorldToScreenPoint_m491883527(L_2, L_4, /*hidden argument*/NULL);
-		V_1 = L_5;
-		float L_6 = (&V_1)->get_z_3();
-		(&V_0)->set_z_3(L_6);
-		Camera_t4157153871 * L_7 = Camera_get_main_m882983993(NULL /*static, unused*/, /*hidden argument*/NULL);
-		Vector3_t3722313464  L_8 = V_0;
-		NullCheck(L_7);
-		Vector3_t3722313464  L_9 = Camera_ScreenToWorldPoint_m1238306073(L_7, L_8, /*hidden argument*/NULL);
-		V_2 = L_9;
-		Vector3_t3722313464  L_10 = V_2;
-		return L_10;
-	}
-}
-// System.Void ZGGame.View::.ctor()
-extern "C"  void View__ctor_m2323372043 (View_t352704265 * __this, const MethodInfo* method)
-{
-	{
-		__this->set__destroyed_4((bool)1);
-		BaseCls__ctor_m1626355596(__this, /*hidden argument*/NULL);
-		return;
-	}
-}
-// System.Boolean ZGGame.View::get_updateEnabled()
-extern "C"  bool View_get_updateEnabled_m976462067 (View_t352704265 * __this, const MethodInfo* method)
-{
-	{
-		bool L_0 = __this->get__updateEnabled_2();
-		return L_0;
-	}
-}
-// System.Void ZGGame.View::set_updateEnabled(System.Boolean)
-extern "C"  void View_set_updateEnabled_m3973298699 (View_t352704265 * __this, bool ___value0, const MethodInfo* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (View_set_updateEnabled_m3973298699_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		bool L_0 = __this->get__updateEnabled_2();
-		bool L_1 = ___value0;
-		if ((((int32_t)L_0) == ((int32_t)L_1)))
-		{
-			goto IL_0085;
-		}
-	}
-	{
-		bool L_2 = ___value0;
-		__this->set__updateEnabled_2(L_2);
-		GameObject_t1113636619 * L_3 = View_get_viewObj_m1725810418(__this, /*hidden argument*/NULL);
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
-		bool L_4 = Object_op_Inequality_m1920811489(NULL /*static, unused*/, L_3, (Object_t631007953 *)NULL, /*hidden argument*/NULL);
-		if (!L_4)
-		{
-			goto IL_0085;
-		}
-	}
-	{
-		bool L_5 = __this->get__updateEnabled_2();
-		if (!L_5)
-		{
-			goto IL_0062;
-		}
-	}
-	{
-		ViewUpdateBehaviour_t731634096 * L_6 = __this->get__vub_8();
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
-		bool L_7 = Object_op_Equality_m1454075600(NULL /*static, unused*/, L_6, (Object_t631007953 *)NULL, /*hidden argument*/NULL);
-		if (!L_7)
-		{
-			goto IL_0062;
-		}
-	}
-	{
-		GameObject_t1113636619 * L_8 = View_get_viewObj_m1725810418(__this, /*hidden argument*/NULL);
-		NullCheck(L_8);
-		ViewUpdateBehaviour_t731634096 * L_9 = GameObject_AddComponent_TisViewUpdateBehaviour_t731634096_m3108491711(L_8, /*hidden argument*/GameObject_AddComponent_TisViewUpdateBehaviour_t731634096_m3108491711_MethodInfo_var);
-		__this->set__vub_8(L_9);
-		ViewUpdateBehaviour_t731634096 * L_10 = __this->get__vub_8();
-		NullCheck(L_10);
-		L_10->set__v_2(__this);
-		goto IL_0085;
-	}
-
-IL_0062:
-	{
-		ViewUpdateBehaviour_t731634096 * L_11 = __this->get__vub_8();
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
-		bool L_12 = Object_op_Inequality_m1920811489(NULL /*static, unused*/, L_11, (Object_t631007953 *)NULL, /*hidden argument*/NULL);
-		if (!L_12)
-		{
-			goto IL_0085;
-		}
-	}
-	{
-		ViewUpdateBehaviour_t731634096 * L_13 = __this->get__vub_8();
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
-		Object_Destroy_m2752645118(NULL /*static, unused*/, L_13, /*hidden argument*/NULL);
-		__this->set__vub_8((ViewUpdateBehaviour_t731634096 *)NULL);
-	}
-
-IL_0085:
-	{
-		return;
-	}
-}
-// UnityEngine.Transform ZGGame.View::get_parent()
-extern "C"  Transform_t3600365921 * View_get_parent_m1264525465 (View_t352704265 * __this, const MethodInfo* method)
-{
-	{
-		Transform_t3600365921 * L_0 = __this->get__parent_3();
-		return L_0;
-	}
-}
-// System.Boolean ZGGame.View::get_destroyed()
-extern "C"  bool View_get_destroyed_m845235789 (View_t352704265 * __this, const MethodInfo* method)
-{
-	{
-		bool L_0 = __this->get__destroyed_4();
-		return L_0;
-	}
-}
-// UnityEngine.GameObject ZGGame.View::get_viewObj()
-extern "C"  GameObject_t1113636619 * View_get_viewObj_m1725810418 (View_t352704265 * __this, const MethodInfo* method)
-{
-	{
-		GameObject_t1113636619 * L_0 = __this->get__view_5();
-		return L_0;
-	}
-}
-// System.Void ZGGame.View::setParent(UnityEngine.Transform)
-extern "C"  void View_setParent_m1446785205 (View_t352704265 * __this, Transform_t3600365921 * ___t0, const MethodInfo* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (View_setParent_m1446785205_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	Vector3_t3722313464  V_0;
-	memset(&V_0, 0, sizeof(V_0));
-	{
-		Transform_t3600365921 * L_0 = ___t0;
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
-		bool L_1 = Object_op_Equality_m1454075600(NULL /*static, unused*/, L_0, (Object_t631007953 *)NULL, /*hidden argument*/NULL);
-		if (!L_1)
-		{
-			goto IL_0021;
-		}
-	}
-	{
-		ObjectU5BU5D_t2843939325* L_2 = ((ObjectU5BU5D_t2843939325*)SZArrayNew(ObjectU5BU5D_t2843939325_il2cpp_TypeInfo_var, (uint32_t)1));
-		NullCheck(L_2);
-		ArrayElementTypeCheck (L_2, __this);
-		(L_2)->SetAt(static_cast<il2cpp_array_size_t>(0), (Il2CppObject *)__this);
-		IL2CPP_RUNTIME_CLASS_INIT(Main_t1605830478_il2cpp_TypeInfo_var);
-		Main_LogFormat_m2068372430(NULL /*static, unused*/, _stringLiteral714846417, L_2, /*hidden argument*/NULL);
-		return;
-	}
-
-IL_0021:
-	{
-		Transform_t3600365921 * L_3 = __this->get__parent_3();
-		Transform_t3600365921 * L_4 = ___t0;
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
-		bool L_5 = Object_op_Inequality_m1920811489(NULL /*static, unused*/, L_3, L_4, /*hidden argument*/NULL);
-		if (!L_5)
-		{
-			goto IL_00c1;
-		}
-	}
-	{
-		Transform_t3600365921 * L_6 = ___t0;
-		__this->set__parent_3(L_6);
-		GameObject_t1113636619 * L_7 = __this->get__view_5();
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
-		bool L_8 = Object_op_Inequality_m1920811489(NULL /*static, unused*/, L_7, (Object_t631007953 *)NULL, /*hidden argument*/NULL);
-		if (!L_8)
-		{
-			goto IL_00c1;
-		}
-	}
-	{
-		GameObject_t1113636619 * L_9 = __this->get__view_5();
-		NullCheck(L_9);
-		Transform_t3600365921 * L_10 = GameObject_get_transform_m393750976(L_9, /*hidden argument*/NULL);
-		Transform_t3600365921 * L_11 = __this->get__parent_3();
-		NullCheck(L_10);
-		Transform_SetParent_m3556932896(L_10, L_11, /*hidden argument*/NULL);
-		GameObject_t1113636619 * L_12 = __this->get__view_5();
-		NullCheck(L_12);
-		Transform_t3600365921 * L_13 = GameObject_get_transform_m393750976(L_12, /*hidden argument*/NULL);
-		Quaternion_t2301928331  L_14 = Quaternion_get_identity_m3578010038(NULL /*static, unused*/, /*hidden argument*/NULL);
-		NullCheck(L_13);
-		Transform_set_rotation_m853119278(L_13, L_14, /*hidden argument*/NULL);
-		GameObject_t1113636619 * L_15 = __this->get__view_5();
-		NullCheck(L_15);
-		Transform_t3600365921 * L_16 = GameObject_get_transform_m393750976(L_15, /*hidden argument*/NULL);
-		Vector3_t3722313464  L_17 = Vector3_get_one_m1058616769(NULL /*static, unused*/, /*hidden argument*/NULL);
-		NullCheck(L_16);
-		Transform_set_localScale_m2795501682(L_16, L_17, /*hidden argument*/NULL);
-		GameObject_t1113636619 * L_18 = __this->get__view_5();
-		NullCheck(L_18);
-		Transform_t3600365921 * L_19 = GameObject_get_transform_m393750976(L_18, /*hidden argument*/NULL);
-		GameObject_t1113636619 * L_20 = __this->get__view_5();
-		NullCheck(L_20);
-		Transform_t3600365921 * L_21 = GameObject_get_transform_m393750976(L_20, /*hidden argument*/NULL);
-		NullCheck(L_21);
-		Vector3_t3722313464  L_22 = Transform_get_localPosition_m265057664(L_21, /*hidden argument*/NULL);
-		V_0 = L_22;
-		float L_23 = (&V_0)->get_z_3();
-		Vector3_t3722313464  L_24;
-		memset(&L_24, 0, sizeof(L_24));
-		Vector3__ctor_m1197556204(&L_24, (0.0f), (0.0f), L_23, /*hidden argument*/NULL);
-		NullCheck(L_19);
-		Transform_set_localPosition_m3327877514(L_19, L_24, /*hidden argument*/NULL);
-	}
-
-IL_00c1:
-	{
-		Transform_t3600365921 * L_25 = __this->get__parent_3();
-		IL2CPP_RUNTIME_CLASS_INIT(MVC_t87461340_il2cpp_TypeInfo_var);
-		Transform_t3600365921 * L_26 = MVC_get_renderStore_m3017518791(NULL /*static, unused*/, /*hidden argument*/NULL);
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
-		bool L_27 = Object_op_Inequality_m1920811489(NULL /*static, unused*/, L_25, L_26, /*hidden argument*/NULL);
-		if (!L_27)
-		{
-			goto IL_00e1;
-		}
-	}
-	{
-		bool L_28 = __this->get__destroyed_4();
-		if (L_28)
-		{
-			goto IL_00ec;
-		}
-	}
-
-IL_00e1:
-	{
-		if (((Il2CppObject *)IsInst(__this, IRender_t2557459160_il2cpp_TypeInfo_var)))
-		{
-			goto IL_0100;
-		}
-	}
-
-IL_00ec:
-	{
-		__this->set__destroyed_4((bool)0);
-		((BaseCls_t159170423 *)__this)->set_enabled_0((bool)1);
-		VirtActionInvoker0::Invoke(10 /* System.Void ZGGame.View::onAddScene() */, __this);
-	}
-
-IL_0100:
-	{
-		return;
-	}
-}
-// System.Void ZGGame.View::destroy()
-extern "C"  void View_destroy_m994198498 (View_t352704265 * __this, const MethodInfo* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (View_destroy_m994198498_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		((BaseCls_t159170423 *)__this)->set_enabled_0((bool)0);
-		__this->set__parent_3((Transform_t3600365921 *)NULL);
-		__this->set__destroyed_4((bool)1);
-		GameObject_t1113636619 * L_0 = __this->get__view_5();
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
-		bool L_1 = Object_op_Inequality_m1920811489(NULL /*static, unused*/, L_0, (Object_t631007953 *)NULL, /*hidden argument*/NULL);
-		if (!L_1)
-		{
-			goto IL_006a;
-		}
-	}
-	{
-		if (((Il2CppObject *)IsInst(__this, IRender_t2557459160_il2cpp_TypeInfo_var)))
-		{
-			goto IL_004e;
-		}
-	}
-	{
-		GameObject_t1113636619 * L_2 = __this->get__view_5();
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
-		Object_Destroy_m2752645118(NULL /*static, unused*/, L_2, /*hidden argument*/NULL);
-		__this->set__view_5((GameObject_t1113636619 *)NULL);
-		BaseCls_clearEvent_m3553316389(__this, /*hidden argument*/NULL);
-		goto IL_0065;
-	}
-
-IL_004e:
-	{
-		IL2CPP_RUNTIME_CLASS_INIT(MVC_t87461340_il2cpp_TypeInfo_var);
-		Transform_t3600365921 * L_3 = MVC_get_renderStore_m3017518791(NULL /*static, unused*/, /*hidden argument*/NULL);
-		View_setParent_m1446785205(__this, L_3, /*hidden argument*/NULL);
-		GameObject_t1113636619 * L_4 = __this->get__view_5();
-		NullCheck(L_4);
-		GameObject_SetActive_m3735894026(L_4, (bool)0, /*hidden argument*/NULL);
-	}
-
-IL_0065:
-	{
-		goto IL_0070;
-	}
-
-IL_006a:
-	{
-		BaseCls_clearEvent_m3553316389(__this, /*hidden argument*/NULL);
-	}
-
-IL_0070:
-	{
-		IL2CPP_RUNTIME_CLASS_INIT(GlobalNotify_t183697669_il2cpp_TypeInfo_var);
-		int32_t L_5 = ((GlobalNotify_t183697669_StaticFields*)GlobalNotify_t183697669_il2cpp_TypeInfo_var->static_fields)->get_VIEW_DESTRYED_5();
-		IL2CPP_RUNTIME_CLASS_INIT(EventDispatcher_t3647894359_il2cpp_TypeInfo_var);
-		EventDispatcher_dispatch_m1564087490(NULL /*static, unused*/, L_5, __this, /*hidden argument*/NULL);
-		VirtActionInvoker0::Invoke(16 /* System.Void ZGGame.View::onDestroy() */, __this);
-		return;
-	}
-}
-// System.Void ZGGame.View::onCreate()
-extern "C"  void View_onCreate_m2617753849 (View_t352704265 * __this, const MethodInfo* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (View_onCreate_m2617753849_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		BaseCls_onCreate_m1822640984(__this, /*hidden argument*/NULL);
-		IL2CPP_RUNTIME_CLASS_INIT(GlobalNotify_t183697669_il2cpp_TypeInfo_var);
-		int32_t L_0 = ((GlobalNotify_t183697669_StaticFields*)GlobalNotify_t183697669_il2cpp_TypeInfo_var->static_fields)->get_VIEW_CREATED_3();
-		IL2CPP_RUNTIME_CLASS_INIT(EventDispatcher_t3647894359_il2cpp_TypeInfo_var);
-		EventDispatcher_dispatch_m1564087490(NULL /*static, unused*/, L_0, __this, /*hidden argument*/NULL);
-		return;
-	}
-}
-// System.Void ZGGame.View::onError()
-extern "C"  void View_onError_m3012510147 (View_t352704265 * __this, const MethodInfo* method)
-{
-	{
-		BaseCls_onError_m2643052202(__this, /*hidden argument*/NULL);
-		View_destroy_m994198498(__this, /*hidden argument*/NULL);
-		return;
-	}
-}
-// System.Void ZGGame.View::onEvents()
-extern "C"  void View_onEvents_m2793097500 (View_t352704265 * __this, const MethodInfo* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (View_onEvents_m2793097500_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		BaseCls_onEvents_m2949624486(__this, /*hidden argument*/NULL);
-		IL2CPP_RUNTIME_CLASS_INIT(GlobalNotify_t183697669_il2cpp_TypeInfo_var);
-		int32_t L_0 = ((GlobalNotify_t183697669_StaticFields*)GlobalNotify_t183697669_il2cpp_TypeInfo_var->static_fields)->get_VIEW_DISPLAY_DESTRYED_6();
-		BaseCls_addEvent_m3044401325(__this, L_0, /*hidden argument*/NULL);
-		int32_t L_1 = ((GlobalNotify_t183697669_StaticFields*)GlobalNotify_t183697669_il2cpp_TypeInfo_var->static_fields)->get_VIEW_DISPLAY_ENABLE_7();
-		BaseCls_addEvent_m3044401325(__this, L_1, /*hidden argument*/NULL);
-		int32_t L_2 = ((GlobalNotify_t183697669_StaticFields*)GlobalNotify_t183697669_il2cpp_TypeInfo_var->static_fields)->get_VIEW_DISPLAY_DISABLE_8();
-		BaseCls_addEvent_m3044401325(__this, L_2, /*hidden argument*/NULL);
-		return;
-	}
-}
-// System.Void ZGGame.View::onBaseEventHandler(System.Int32,System.Object)
-extern "C"  void View_onBaseEventHandler_m2274025346 (View_t352704265 * __this, int32_t ___type0, Il2CppObject * ___data1, const MethodInfo* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (View_onBaseEventHandler_m2274025346_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	GameObject_t1113636619 * V_0 = NULL;
-	ViewBehaviourU5BU5D_t144419283* V_1 = NULL;
-	ViewBehaviour_t3242029334 * V_2 = NULL;
-	ViewBehaviourU5BU5D_t144419283* V_3 = NULL;
-	int32_t V_4 = 0;
-	View_t352704265 * V_5 = NULL;
-	{
-		int32_t L_0 = ___type0;
-		Il2CppObject * L_1 = ___data1;
-		BaseCls_onBaseEventHandler_m1001326829(__this, L_0, L_1, /*hidden argument*/NULL);
-		GameObject_t1113636619 * L_2 = __this->get__view_5();
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
-		bool L_3 = Object_op_Inequality_m1920811489(NULL /*static, unused*/, L_2, (Object_t631007953 *)NULL, /*hidden argument*/NULL);
-		if (!L_3)
-		{
-			goto IL_00e6;
-		}
-	}
-	{
-		Il2CppObject * L_4 = ___data1;
-		V_0 = ((GameObject_t1113636619 *)IsInstSealed(L_4, GameObject_t1113636619_il2cpp_TypeInfo_var));
-		GameObject_t1113636619 * L_5 = V_0;
-		GameObject_t1113636619 * L_6 = __this->get__view_5();
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
-		bool L_7 = Object_op_Equality_m1454075600(NULL /*static, unused*/, L_5, L_6, /*hidden argument*/NULL);
-		if (!L_7)
-		{
-			goto IL_00de;
-		}
-	}
-	{
-		int32_t L_8 = ___type0;
-		IL2CPP_RUNTIME_CLASS_INIT(GlobalNotify_t183697669_il2cpp_TypeInfo_var);
-		int32_t L_9 = ((GlobalNotify_t183697669_StaticFields*)GlobalNotify_t183697669_il2cpp_TypeInfo_var->static_fields)->get_VIEW_DISPLAY_DESTRYED_6();
-		if ((!(((uint32_t)L_8) == ((uint32_t)L_9))))
-		{
-			goto IL_0090;
-		}
-	}
-	{
-		GameObject_t1113636619 * L_10 = __this->get__view_5();
-		NullCheck(L_10);
-		ViewBehaviourU5BU5D_t144419283* L_11 = GameObject_GetComponentsInChildren_TisViewBehaviour_t3242029334_m1505590081(L_10, /*hidden argument*/GameObject_GetComponentsInChildren_TisViewBehaviour_t3242029334_m1505590081_MethodInfo_var);
-		V_1 = L_11;
-		ViewBehaviourU5BU5D_t144419283* L_12 = V_1;
-		V_3 = L_12;
-		V_4 = 0;
-		goto IL_0086;
-	}
-
-IL_0052:
-	{
-		ViewBehaviourU5BU5D_t144419283* L_13 = V_3;
-		int32_t L_14 = V_4;
-		NullCheck(L_13);
-		int32_t L_15 = L_14;
-		ViewBehaviour_t3242029334 * L_16 = (L_13)->GetAt(static_cast<il2cpp_array_size_t>(L_15));
-		V_2 = L_16;
-		ViewBehaviour_t3242029334 * L_17 = V_2;
-		NullCheck(L_17);
-		View_t352704265 * L_18 = ViewBehaviour_get_view_m2705212599(L_17, /*hidden argument*/NULL);
-		V_5 = L_18;
-		ViewBehaviour_t3242029334 * L_19 = V_2;
-		if (!((Il2CppObject *)IsInst(L_19, IRender_t2557459160_il2cpp_TypeInfo_var)))
-		{
-			goto IL_0079;
-		}
-	}
-	{
-		View_t352704265 * L_20 = V_5;
-		if ((!(((Il2CppObject*)(View_t352704265 *)L_20) == ((Il2CppObject*)(View_t352704265 *)__this))))
-		{
-			goto IL_0079;
-		}
-	}
-	{
-		__this->set__view_5((GameObject_t1113636619 *)NULL);
-	}
-
-IL_0079:
-	{
-		View_t352704265 * L_21 = V_5;
-		NullCheck(L_21);
-		View_destroy_m994198498(L_21, /*hidden argument*/NULL);
-		int32_t L_22 = V_4;
-		V_4 = ((int32_t)((int32_t)L_22+(int32_t)1));
-	}
-
-IL_0086:
-	{
-		int32_t L_23 = V_4;
-		ViewBehaviourU5BU5D_t144419283* L_24 = V_3;
-		NullCheck(L_24);
-		if ((((int32_t)L_23) < ((int32_t)(((int32_t)((int32_t)(((Il2CppArray *)L_24)->max_length)))))))
-		{
-			goto IL_0052;
-		}
-	}
-
-IL_0090:
-	{
-		int32_t L_25 = ___type0;
-		IL2CPP_RUNTIME_CLASS_INIT(GlobalNotify_t183697669_il2cpp_TypeInfo_var);
-		int32_t L_26 = ((GlobalNotify_t183697669_StaticFields*)GlobalNotify_t183697669_il2cpp_TypeInfo_var->static_fields)->get_VIEW_UPDATE_4();
-		if ((!(((uint32_t)L_25) == ((uint32_t)L_26))))
-		{
-			goto IL_00a6;
-		}
-	}
-	{
-		float L_27 = Time_get_deltaTime_m3562456068(NULL /*static, unused*/, /*hidden argument*/NULL);
-		VirtActionInvoker1< float >::Invoke(12 /* System.Void ZGGame.View::frameUpdate(System.Single) */, __this, L_27);
-	}
-
-IL_00a6:
-	{
-		int32_t L_28 = ___type0;
-		IL2CPP_RUNTIME_CLASS_INIT(GlobalNotify_t183697669_il2cpp_TypeInfo_var);
-		int32_t L_29 = ((GlobalNotify_t183697669_StaticFields*)GlobalNotify_t183697669_il2cpp_TypeInfo_var->static_fields)->get_VIEW_DISPLAY_ENABLE_7();
-		if ((!(((uint32_t)L_28) == ((uint32_t)L_29))))
-		{
-			goto IL_00c2;
-		}
-	}
-	{
-		bool L_30 = __this->get__destroyed_4();
-		if (L_30)
-		{
-			goto IL_00c2;
-		}
-	}
-	{
-		VirtActionInvoker0::Invoke(14 /* System.Void ZGGame.View::onActive() */, __this);
-	}
-
-IL_00c2:
-	{
-		int32_t L_31 = ___type0;
-		IL2CPP_RUNTIME_CLASS_INIT(GlobalNotify_t183697669_il2cpp_TypeInfo_var);
-		int32_t L_32 = ((GlobalNotify_t183697669_StaticFields*)GlobalNotify_t183697669_il2cpp_TypeInfo_var->static_fields)->get_VIEW_DISPLAY_DISABLE_8();
-		if ((!(((uint32_t)L_31) == ((uint32_t)L_32))))
-		{
-			goto IL_00de;
-		}
-	}
-	{
-		bool L_33 = __this->get__destroyed_4();
-		if (L_33)
-		{
-			goto IL_00de;
-		}
-	}
-	{
-		VirtActionInvoker0::Invoke(15 /* System.Void ZGGame.View::onDisActive() */, __this);
-	}
-
-IL_00de:
-	{
-		int32_t L_34 = ___type0;
-		Il2CppObject * L_35 = ___data1;
-		VirtActionInvoker2< int32_t, Il2CppObject * >::Invoke(13 /* System.Void ZGGame.View::onViewEventHandler(System.Int32,System.Object) */, __this, L_34, L_35);
-	}
-
-IL_00e6:
-	{
-		return;
-	}
-}
-// System.Void ZGGame.View::setView(System.String)
-extern "C"  void View_setView_m3247356166 (View_t352704265 * __this, String_t* ___assetsName0, const MethodInfo* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (View_setView_m3247356166_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		String_t* L_0 = ___assetsName0;
-		IntPtr_t L_1;
-		L_1.set_m_value_0((void*)(void*)View_assetsLoaderComplete_m1918077554_MethodInfo_var);
-		LoadComplete_t137156152 * L_2 = (LoadComplete_t137156152 *)il2cpp_codegen_object_new(LoadComplete_t137156152_il2cpp_TypeInfo_var);
-		LoadComplete__ctor_m3589493758(L_2, __this, L_1, /*hidden argument*/NULL);
-		IL2CPP_RUNTIME_CLASS_INIT(AssetsManager_t1015260537_il2cpp_TypeInfo_var);
-		AssetsManager_loadAsset_m1386223408(NULL /*static, unused*/, L_0, L_2, NULL, /*hidden argument*/NULL);
-		return;
-	}
-}
-// System.Void ZGGame.View::assetsLoaderComplete(ZGGame.LoadData)
-extern "C"  void View_assetsLoaderComplete_m1918077554 (View_t352704265 * __this, LoadData_t4179347895 * ___ld0, const MethodInfo* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (View_assetsLoaderComplete_m1918077554_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		bool L_0 = View_get_destroyed_m845235789(__this, /*hidden argument*/NULL);
-		if (!L_0)
-		{
-			goto IL_000c;
-		}
-	}
-	{
-		return;
-	}
-
-IL_000c:
-	{
-		LoadData_t4179347895 * L_1 = ___ld0;
-		NullCheck(L_1);
-		AssetBundle_t1153907252 * L_2 = L_1->get_assetBundle_3();
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
-		bool L_3 = Object_op_Equality_m1454075600(NULL /*static, unused*/, L_2, (Object_t631007953 *)NULL, /*hidden argument*/NULL);
-		if (L_3)
-		{
-			goto IL_0033;
-		}
-	}
-	{
-		LoadData_t4179347895 * L_4 = ___ld0;
-		NullCheck(L_4);
-		AssetBundle_t1153907252 * L_5 = L_4->get_assetBundle_3();
-		NullCheck(L_5);
-		Object_t631007953 * L_6 = AssetBundle_get_mainAsset_m2462808460(L_5, /*hidden argument*/NULL);
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
-		bool L_7 = Object_op_Equality_m1454075600(NULL /*static, unused*/, L_6, (Object_t631007953 *)NULL, /*hidden argument*/NULL);
-		if (!L_7)
-		{
-			goto IL_004d;
-		}
-	}
-
-IL_0033:
-	{
-		ObjectU5BU5D_t2843939325* L_8 = ((ObjectU5BU5D_t2843939325*)SZArrayNew(ObjectU5BU5D_t2843939325_il2cpp_TypeInfo_var, (uint32_t)1));
-		LoadData_t4179347895 * L_9 = ___ld0;
-		NullCheck(L_9);
-		String_t* L_10 = L_9->get_fileName_0();
-		NullCheck(L_8);
-		ArrayElementTypeCheck (L_8, L_10);
-		(L_8)->SetAt(static_cast<il2cpp_array_size_t>(0), (Il2CppObject *)L_10);
-		IL2CPP_RUNTIME_CLASS_INIT(Main_t1605830478_il2cpp_TypeInfo_var);
-		Main_LogFormat_m2068372430(NULL /*static, unused*/, _stringLiteral3737341401, L_8, /*hidden argument*/NULL);
-		return;
-	}
-
-IL_004d:
-	{
-		LoadData_t4179347895 * L_11 = ___ld0;
-		NullCheck(L_11);
-		AssetBundle_t1153907252 * L_12 = L_11->get_assetBundle_3();
-		NullCheck(L_12);
-		Object_t631007953 * L_13 = AssetBundle_get_mainAsset_m2462808460(L_12, /*hidden argument*/NULL);
-		View_setView_m3639370038(__this, ((GameObject_t1113636619 *)IsInstSealed(L_13, GameObject_t1113636619_il2cpp_TypeInfo_var)), /*hidden argument*/NULL);
-		return;
-	}
-}
-// System.Void ZGGame.View::setView(UnityEngine.GameObject)
-extern "C"  void View_setView_m3639370038 (View_t352704265 * __this, GameObject_t1113636619 * ___obj0, const MethodInfo* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (View_setView_m3639370038_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	Exception_t1436737249 * V_0 = NULL;
-	Exception_t1436737249 * __last_unhandled_exception = 0;
-	NO_UNUSED_WARNING (__last_unhandled_exception);
-	Exception_t1436737249 * __exception_local = 0;
-	NO_UNUSED_WARNING (__exception_local);
-	int32_t __leave_target = 0;
-	NO_UNUSED_WARNING (__leave_target);
-	{
-		Transform_t3600365921 * L_0 = __this->get__parent_3();
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
-		bool L_1 = Object_op_Equality_m1454075600(NULL /*static, unused*/, L_0, (Object_t631007953 *)NULL, /*hidden argument*/NULL);
-		if (!L_1)
-		{
-			goto IL_002c;
-		}
-	}
-	{
-		ObjectU5BU5D_t2843939325* L_2 = ((ObjectU5BU5D_t2843939325*)SZArrayNew(ObjectU5BU5D_t2843939325_il2cpp_TypeInfo_var, (uint32_t)1));
-		NullCheck(L_2);
-		ArrayElementTypeCheck (L_2, __this);
-		(L_2)->SetAt(static_cast<il2cpp_array_size_t>(0), (Il2CppObject *)__this);
-		IL2CPP_RUNTIME_CLASS_INIT(Main_t1605830478_il2cpp_TypeInfo_var);
-		Main_LogFormat_m2068372430(NULL /*static, unused*/, _stringLiteral1264378944, L_2, /*hidden argument*/NULL);
-		View_destroy_m994198498(__this, /*hidden argument*/NULL);
-		return;
-	}
-
-IL_002c:
-	{
-		String_t* L_3 = __this->get__assetsName_6();
-		GameObject_t1113636619 * L_4 = ___obj0;
-		NullCheck(L_4);
-		String_t* L_5 = Object_get_name_m1414505214(L_4, /*hidden argument*/NULL);
-		IL2CPP_RUNTIME_CLASS_INIT(String_t_il2cpp_TypeInfo_var);
-		bool L_6 = String_op_Inequality_m215368492(NULL /*static, unused*/, L_3, L_5, /*hidden argument*/NULL);
-		if (!L_6)
-		{
-			goto IL_005a;
-		}
-	}
-	{
-		GameObject_t1113636619 * L_7 = ___obj0;
-		NullCheck(L_7);
-		String_t* L_8 = Object_get_name_m1414505214(L_7, /*hidden argument*/NULL);
-		__this->set__assetsName_6(L_8);
-		GameObject_t1113636619 * L_9 = ___obj0;
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
-		GameObject_t1113636619 * L_10 = Object_Instantiate_TisGameObject_t1113636619_m4070250708(NULL /*static, unused*/, L_9, /*hidden argument*/Object_Instantiate_TisGameObject_t1113636619_m4070250708_MethodInfo_var);
-		__this->set__view_5(L_10);
-	}
-
-IL_005a:
-	{
-		GameObject_t1113636619 * L_11 = __this->get__view_5();
-		NullCheck(L_11);
-		ViewBehaviour_t3242029334 * L_12 = GameObject_GetComponent_TisViewBehaviour_t3242029334_m4045230017(L_11, /*hidden argument*/GameObject_GetComponent_TisViewBehaviour_t3242029334_m4045230017_MethodInfo_var);
-		__this->set__vb_7(L_12);
-		ViewBehaviour_t3242029334 * L_13 = __this->get__vb_7();
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
-		bool L_14 = Object_op_Equality_m1454075600(NULL /*static, unused*/, L_13, (Object_t631007953 *)NULL, /*hidden argument*/NULL);
-		if (!L_14)
-		{
-			goto IL_0099;
-		}
-	}
-	{
-		GameObject_t1113636619 * L_15 = __this->get__view_5();
-		NullCheck(L_15);
-		ViewBehaviour_t3242029334 * L_16 = GameObject_AddComponent_TisViewBehaviour_t3242029334_m1883229266(L_15, /*hidden argument*/GameObject_AddComponent_TisViewBehaviour_t3242029334_m1883229266_MethodInfo_var);
-		__this->set__vb_7(L_16);
-		ViewBehaviour_t3242029334 * L_17 = __this->get__vb_7();
-		NullCheck(L_17);
-		ViewBehaviour_init_m1321944222(L_17, __this, /*hidden argument*/NULL);
-	}
-
-IL_0099:
-	{
-		Transform_t3600365921 * L_18 = __this->get__parent_3();
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
-		bool L_19 = Object_op_Inequality_m1920811489(NULL /*static, unused*/, L_18, (Object_t631007953 *)NULL, /*hidden argument*/NULL);
-		if (!L_19)
-		{
-			goto IL_011f;
-		}
-	}
-	{
-		GameObject_t1113636619 * L_20 = __this->get__view_5();
-		NullCheck(L_20);
-		Transform_t3600365921 * L_21 = GameObject_get_transform_m393750976(L_20, /*hidden argument*/NULL);
-		NullCheck(L_21);
-		Transform_t3600365921 * L_22 = Transform_get_parent_m1293647796(L_21, /*hidden argument*/NULL);
-		Transform_t3600365921 * L_23 = __this->get__parent_3();
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
-		bool L_24 = Object_op_Inequality_m1920811489(NULL /*static, unused*/, L_22, L_23, /*hidden argument*/NULL);
-		if (!L_24)
-		{
-			goto IL_011f;
-		}
-	}
-	{
-		GameObject_t1113636619 * L_25 = __this->get__view_5();
-		NullCheck(L_25);
-		Transform_t3600365921 * L_26 = GameObject_get_transform_m393750976(L_25, /*hidden argument*/NULL);
-		Transform_t3600365921 * L_27 = __this->get__parent_3();
-		NullCheck(L_26);
-		Transform_SetParent_m3556932896(L_26, L_27, /*hidden argument*/NULL);
-		GameObject_t1113636619 * L_28 = __this->get__view_5();
-		NullCheck(L_28);
-		Transform_t3600365921 * L_29 = GameObject_get_transform_m393750976(L_28, /*hidden argument*/NULL);
-		Quaternion_t2301928331  L_30 = Quaternion_get_identity_m3578010038(NULL /*static, unused*/, /*hidden argument*/NULL);
-		NullCheck(L_29);
-		Transform_set_rotation_m853119278(L_29, L_30, /*hidden argument*/NULL);
-		GameObject_t1113636619 * L_31 = __this->get__view_5();
-		NullCheck(L_31);
-		Transform_t3600365921 * L_32 = GameObject_get_transform_m393750976(L_31, /*hidden argument*/NULL);
-		Vector3_t3722313464  L_33 = Vector3_get_one_m1058616769(NULL /*static, unused*/, /*hidden argument*/NULL);
-		NullCheck(L_32);
-		Transform_set_localScale_m2795501682(L_32, L_33, /*hidden argument*/NULL);
-		GameObject_t1113636619 * L_34 = __this->get__view_5();
-		NullCheck(L_34);
-		Transform_t3600365921 * L_35 = GameObject_get_transform_m393750976(L_34, /*hidden argument*/NULL);
-		Vector3_t3722313464  L_36 = Vector3_get_zero_m1640475482(NULL /*static, unused*/, /*hidden argument*/NULL);
-		NullCheck(L_35);
-		Transform_set_localPosition_m3327877514(L_35, L_36, /*hidden argument*/NULL);
-	}
-
-IL_011f:
-	{
-		GameObject_t1113636619 * L_37 = __this->get__view_5();
-		NullCheck(L_37);
-		GameObject_SetActive_m3735894026(L_37, (bool)1, /*hidden argument*/NULL);
-	}
-
-IL_012b:
-	try
-	{ // begin try (depth: 1)
-		VirtActionInvoker0::Invoke(11 /* System.Void ZGGame.View::onView() */, __this);
-		goto IL_0143;
-	} // end try (depth: 1)
-	catch(Il2CppExceptionWrapper& e)
-	{
-		__exception_local = (Exception_t1436737249 *)e.ex;
-		if(il2cpp_codegen_class_is_assignable_from (Exception_t1436737249_il2cpp_TypeInfo_var, e.ex->klass))
-			goto CATCH_0136;
-		throw e;
-	}
-
-CATCH_0136:
-	{ // begin catch(System.Exception)
-		V_0 = ((Exception_t1436737249 *)__exception_local);
-		Exception_t1436737249 * L_38 = V_0;
-		IL2CPP_RUNTIME_CLASS_INIT(Main_t1605830478_il2cpp_TypeInfo_var);
-		Main_Log_m3366513441(NULL /*static, unused*/, L_38, 2, /*hidden argument*/NULL);
-		goto IL_0143;
-	} // end catch (depth: 1)
-
-IL_0143:
-	{
-		return;
-	}
-}
-// UnityEngine.GameObject ZGGame.View::getObj(System.String)
-extern "C"  GameObject_t1113636619 * View_getObj_m403811221 (View_t352704265 * __this, String_t* ___objName0, const MethodInfo* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (View_getObj_m403811221_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		GameObject_t1113636619 * L_0 = __this->get__view_5();
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
-		bool L_1 = Object_op_Equality_m1454075600(NULL /*static, unused*/, L_0, (Object_t631007953 *)NULL, /*hidden argument*/NULL);
-		if (L_1)
-		{
-			goto IL_0022;
-		}
-	}
-	{
-		ViewBehaviour_t3242029334 * L_2 = __this->get__vb_7();
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
-		bool L_3 = Object_op_Equality_m1454075600(NULL /*static, unused*/, L_2, (Object_t631007953 *)NULL, /*hidden argument*/NULL);
-		if (!L_3)
-		{
-			goto IL_002f;
-		}
-	}
-
-IL_0022:
-	{
-		IL2CPP_RUNTIME_CLASS_INIT(Main_t1605830478_il2cpp_TypeInfo_var);
-		Main_Log_m3366513441(NULL /*static, unused*/, _stringLiteral846298176, 2, /*hidden argument*/NULL);
-		return (GameObject_t1113636619 *)NULL;
-	}
-
-IL_002f:
-	{
-		ViewBehaviour_t3242029334 * L_4 = __this->get__vb_7();
-		String_t* L_5 = ___objName0;
-		NullCheck(L_4);
-		GameObject_t1113636619 * L_6 = ViewBehaviour_viewObject_m220003391(L_4, L_5, /*hidden argument*/NULL);
-		return L_6;
-	}
-}
-// System.Void ZGGame.View::initData(System.Object)
-extern "C"  void View_initData_m4088204157 (View_t352704265 * __this, Il2CppObject * ___data0, const MethodInfo* method)
-{
-	{
-		return;
-	}
-}
-// System.Object ZGGame.View::get_viewData()
-extern "C"  Il2CppObject * View_get_viewData_m3839127380 (View_t352704265 * __this, const MethodInfo* method)
-{
-	{
-		return NULL;
-	}
-}
-// System.Void ZGGame.View::behaviourUpdate()
-extern "C"  void View_behaviourUpdate_m3989101056 (View_t352704265 * __this, const MethodInfo* method)
-{
-	{
-		float L_0 = Time_get_deltaTime_m3562456068(NULL /*static, unused*/, /*hidden argument*/NULL);
-		VirtActionInvoker1< float >::Invoke(12 /* System.Void ZGGame.View::frameUpdate(System.Single) */, __this, L_0);
-		return;
-	}
-}
-// System.Void ZGGame.View::onAddScene()
-extern "C"  void View_onAddScene_m449007652 (View_t352704265 * __this, const MethodInfo* method)
-{
-	{
-		return;
-	}
-}
-// System.Void ZGGame.View::onView()
-extern "C"  void View_onView_m1690512643 (View_t352704265 * __this, const MethodInfo* method)
-{
-	{
-		return;
-	}
-}
-// System.Void ZGGame.View::frameUpdate(System.Single)
-extern "C"  void View_frameUpdate_m255775287 (View_t352704265 * __this, float ___t0, const MethodInfo* method)
-{
-	{
-		return;
-	}
-}
-// System.Void ZGGame.View::onViewEventHandler(System.Int32,System.Object)
-extern "C"  void View_onViewEventHandler_m4064945152 (View_t352704265 * __this, int32_t ___type0, Il2CppObject * ___data1, const MethodInfo* method)
-{
-	{
-		return;
-	}
-}
-// System.Void ZGGame.View::onActive()
-extern "C"  void View_onActive_m8936508 (View_t352704265 * __this, const MethodInfo* method)
-{
-	{
-		return;
-	}
-}
-// System.Void ZGGame.View::onDisActive()
-extern "C"  void View_onDisActive_m3123373739 (View_t352704265 * __this, const MethodInfo* method)
-{
-	{
-		return;
-	}
-}
-// System.Void ZGGame.View::onDestroy()
-extern "C"  void View_onDestroy_m860746184 (View_t352704265 * __this, const MethodInfo* method)
-{
 	{
 		return;
 	}

@@ -24,15 +24,15 @@ struct Point_t1038053449;
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
 
-// MainController/<LoadAudio>c__AnonStoreyB
-struct  U3CLoadAudioU3Ec__AnonStoreyB_t2021903192  : public Il2CppObject
+// MainController/<LoadText>c__AnonStoreyC
+struct  U3CLoadTextU3Ec__AnonStoreyC_t2752227478  : public Il2CppObject
 {
 public:
-	// Point MainController/<LoadAudio>c__AnonStoreyB::point
+	// Point MainController/<LoadText>c__AnonStoreyC::point
 	Point_t1038053449 * ___point_0;
 
 public:
-	inline static int32_t get_offset_of_point_0() { return static_cast<int32_t>(offsetof(U3CLoadAudioU3Ec__AnonStoreyB_t2021903192, ___point_0)); }
+	inline static int32_t get_offset_of_point_0() { return static_cast<int32_t>(offsetof(U3CLoadTextU3Ec__AnonStoreyC_t2752227478, ___point_0)); }
 	inline Point_t1038053449 * get_point_0() const { return ___point_0; }
 	inline Point_t1038053449 ** get_address_of_point_0() { return &___point_0; }
 	inline void set_point_0(Point_t1038053449 * value)

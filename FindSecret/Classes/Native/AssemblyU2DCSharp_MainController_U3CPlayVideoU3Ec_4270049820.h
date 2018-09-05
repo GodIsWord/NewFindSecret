@@ -24,15 +24,15 @@ struct GameObject_t1113636619;
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
 
-// MainController/<PlayVideo>c__AnonStoreyD
-struct  U3CPlayVideoU3Ec__AnonStoreyD_t2696071708  : public Il2CppObject
+// MainController/<PlayVideo>c__AnonStoreyA
+struct  U3CPlayVideoU3Ec__AnonStoreyA_t4270049820  : public Il2CppObject
 {
 public:
-	// UnityEngine.GameObject MainController/<PlayVideo>c__AnonStoreyD::videoPlayTarget
+	// UnityEngine.GameObject MainController/<PlayVideo>c__AnonStoreyA::videoPlayTarget
 	GameObject_t1113636619 * ___videoPlayTarget_0;
 
 public:
-	inline static int32_t get_offset_of_videoPlayTarget_0() { return static_cast<int32_t>(offsetof(U3CPlayVideoU3Ec__AnonStoreyD_t2696071708, ___videoPlayTarget_0)); }
+	inline static int32_t get_offset_of_videoPlayTarget_0() { return static_cast<int32_t>(offsetof(U3CPlayVideoU3Ec__AnonStoreyA_t4270049820, ___videoPlayTarget_0)); }
 	inline GameObject_t1113636619 * get_videoPlayTarget_0() const { return ___videoPlayTarget_0; }
 	inline GameObject_t1113636619 ** get_address_of_videoPlayTarget_0() { return &___videoPlayTarget_0; }
 	inline void set_videoPlayTarget_0(GameObject_t1113636619 * value)

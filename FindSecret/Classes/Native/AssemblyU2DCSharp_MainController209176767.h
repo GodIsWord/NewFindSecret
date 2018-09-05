@@ -27,8 +27,6 @@ struct String_t;
 struct List_1_t2585711361;
 // System.Collections.Generic.Dictionary`2<System.String,UnityEngine.AssetBundle>
 struct Dictionary_2_t939163551;
-// System.Collections.IEnumerator
-struct IEnumerator_t1853284238;
 // System.Collections.Generic.List`1<RealImageTarget>
 struct List_1_t1495640667;
 // EasyAR.ImageTarget
@@ -65,16 +63,16 @@ public:
 	String_t* ___curTargetUid_19;
 	// System.String MainController::AudioGIFPath
 	String_t* ___AudioGIFPath_20;
+	// System.String MainController::LoadingGIFPath
+	String_t* ___LoadingGIFPath_21;
 	// System.Boolean MainController::isScanSuccess
-	bool ___isScanSuccess_21;
+	bool ___isScanSuccess_22;
 	// System.Int32 MainController::progress
-	int32_t ___progress_22;
+	int32_t ___progress_23;
 	// System.Collections.Generic.List`1<UnityEngine.GameObject> MainController::bufferGo
-	List_1_t2585711361 * ___bufferGo_23;
+	List_1_t2585711361 * ___bufferGo_24;
 	// System.Collections.Generic.Dictionary`2<System.String,UnityEngine.AssetBundle> MainController::abBuffer
-	Dictionary_2_t939163551 * ___abBuffer_24;
-	// System.Collections.IEnumerator MainController::ienu
-	Il2CppObject * ___ienu_25;
+	Dictionary_2_t939163551 * ___abBuffer_25;
 	// System.Collections.Generic.List`1<RealImageTarget> MainController::bufferTarget
 	List_1_t1495640667 * ___bufferTarget_26;
 	// EasyAR.ImageTarget MainController::curCloudImageTarget
@@ -154,47 +152,47 @@ public:
 		Il2CppCodeGenWriteBarrier(&___AudioGIFPath_20, value);
 	}
 
-	inline static int32_t get_offset_of_isScanSuccess_21() { return static_cast<int32_t>(offsetof(MainController_t209176767, ___isScanSuccess_21)); }
-	inline bool get_isScanSuccess_21() const { return ___isScanSuccess_21; }
-	inline bool* get_address_of_isScanSuccess_21() { return &___isScanSuccess_21; }
-	inline void set_isScanSuccess_21(bool value)
+	inline static int32_t get_offset_of_LoadingGIFPath_21() { return static_cast<int32_t>(offsetof(MainController_t209176767, ___LoadingGIFPath_21)); }
+	inline String_t* get_LoadingGIFPath_21() const { return ___LoadingGIFPath_21; }
+	inline String_t** get_address_of_LoadingGIFPath_21() { return &___LoadingGIFPath_21; }
+	inline void set_LoadingGIFPath_21(String_t* value)
 	{
-		___isScanSuccess_21 = value;
+		___LoadingGIFPath_21 = value;
+		Il2CppCodeGenWriteBarrier(&___LoadingGIFPath_21, value);
 	}
 
-	inline static int32_t get_offset_of_progress_22() { return static_cast<int32_t>(offsetof(MainController_t209176767, ___progress_22)); }
-	inline int32_t get_progress_22() const { return ___progress_22; }
-	inline int32_t* get_address_of_progress_22() { return &___progress_22; }
-	inline void set_progress_22(int32_t value)
+	inline static int32_t get_offset_of_isScanSuccess_22() { return static_cast<int32_t>(offsetof(MainController_t209176767, ___isScanSuccess_22)); }
+	inline bool get_isScanSuccess_22() const { return ___isScanSuccess_22; }
+	inline bool* get_address_of_isScanSuccess_22() { return &___isScanSuccess_22; }
+	inline void set_isScanSuccess_22(bool value)
 	{
-		___progress_22 = value;
+		___isScanSuccess_22 = value;
 	}
 
-	inline static int32_t get_offset_of_bufferGo_23() { return static_cast<int32_t>(offsetof(MainController_t209176767, ___bufferGo_23)); }
-	inline List_1_t2585711361 * get_bufferGo_23() const { return ___bufferGo_23; }
-	inline List_1_t2585711361 ** get_address_of_bufferGo_23() { return &___bufferGo_23; }
-	inline void set_bufferGo_23(List_1_t2585711361 * value)
+	inline static int32_t get_offset_of_progress_23() { return static_cast<int32_t>(offsetof(MainController_t209176767, ___progress_23)); }
+	inline int32_t get_progress_23() const { return ___progress_23; }
+	inline int32_t* get_address_of_progress_23() { return &___progress_23; }
+	inline void set_progress_23(int32_t value)
 	{
-		___bufferGo_23 = value;
-		Il2CppCodeGenWriteBarrier(&___bufferGo_23, value);
+		___progress_23 = value;
 	}
 
-	inline static int32_t get_offset_of_abBuffer_24() { return static_cast<int32_t>(offsetof(MainController_t209176767, ___abBuffer_24)); }
-	inline Dictionary_2_t939163551 * get_abBuffer_24() const { return ___abBuffer_24; }
-	inline Dictionary_2_t939163551 ** get_address_of_abBuffer_24() { return &___abBuffer_24; }
-	inline void set_abBuffer_24(Dictionary_2_t939163551 * value)
+	inline static int32_t get_offset_of_bufferGo_24() { return static_cast<int32_t>(offsetof(MainController_t209176767, ___bufferGo_24)); }
+	inline List_1_t2585711361 * get_bufferGo_24() const { return ___bufferGo_24; }
+	inline List_1_t2585711361 ** get_address_of_bufferGo_24() { return &___bufferGo_24; }
+	inline void set_bufferGo_24(List_1_t2585711361 * value)
 	{
-		___abBuffer_24 = value;
-		Il2CppCodeGenWriteBarrier(&___abBuffer_24, value);
+		___bufferGo_24 = value;
+		Il2CppCodeGenWriteBarrier(&___bufferGo_24, value);
 	}
 
-	inline static int32_t get_offset_of_ienu_25() { return static_cast<int32_t>(offsetof(MainController_t209176767, ___ienu_25)); }
-	inline Il2CppObject * get_ienu_25() const { return ___ienu_25; }
-	inline Il2CppObject ** get_address_of_ienu_25() { return &___ienu_25; }
-	inline void set_ienu_25(Il2CppObject * value)
+	inline static int32_t get_offset_of_abBuffer_25() { return static_cast<int32_t>(offsetof(MainController_t209176767, ___abBuffer_25)); }
+	inline Dictionary_2_t939163551 * get_abBuffer_25() const { return ___abBuffer_25; }
+	inline Dictionary_2_t939163551 ** get_address_of_abBuffer_25() { return &___abBuffer_25; }
+	inline void set_abBuffer_25(Dictionary_2_t939163551 * value)
 	{
-		___ienu_25 = value;
-		Il2CppCodeGenWriteBarrier(&___ienu_25, value);
+		___abBuffer_25 = value;
+		Il2CppCodeGenWriteBarrier(&___abBuffer_25, value);
 	}
 
 	inline static int32_t get_offset_of_bufferTarget_26() { return static_cast<int32_t>(offsetof(MainController_t209176767, ___bufferTarget_26)); }

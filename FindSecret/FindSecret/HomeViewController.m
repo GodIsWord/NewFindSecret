@@ -73,9 +73,8 @@
                         @"文字",
                         @"创作AR内容",
                         @"UI测试",
-                        @"启动AR",
-                        @"AR扫描",
-                        @"上传接口测试"];
+                        @"启动AR，制作内容并上传",
+                        @"AR扫描"];
 }
 
 -(void)initTableView{
@@ -140,7 +139,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *imagePath = nil;
     switch (indexPath.row) {
             case 0:
             {
@@ -166,42 +164,12 @@
             case 4:{
                 [XBUnitySubbviewManager showTakePhotoComplate:^(NSString *path) {
                     [self gotoVideoEditWithImagePath:path];
-                    imagePath = path;
                 }];
-                
                 
             }
             break;
         case 5:{
             [XBUnitySubbviewManager startSaomiao];
-        }
-            break;
-        case 6:{
-            
-//            NSDictionary *dic = @{@"arHotData":@[@{@"color":@"#FF0000FF",@"font":@"songti",@"text":@"回宿舍手机",@"height":@0.025675675,@"type":@"3",@"width":@0.2777778,@"x":@0.26904297,@"y":@0.4155273},
-//                                                 @{@"duration":@4341,@"filePath":@"/storage/emulated/0/ARXunMi/mediaedit/19432719-4ba9-4dcc-940e-81486a2ce979.mp3",@"height":@0.054054055,@"type":@"4",@"width":@0.26759258,@"x":@0.19552006,@"y":@0.568572},
-//                                                 @{@"duration":@3072,@"filePath":@"/storage/emulated/0/ARXunMi/mediaedit/video_1534399169159.mp4",@"thumbFilePath":@"/storage/emulated/0/ARXunMi/mediaedit/6d529a49-0e49-4335-a49b-f1f634241591.jpg",@"height":@0.2027027,@"type":@"1",@"width":@0.23425926,@"x":@0.5373537,@"y":@0.32226562}],
-//                                  @"markerImageData":@{@"height":@2220,@"markerImagePath":@"/storage/emulated/0/ARXunMi/mediaedit/a05a3c4d-06db-4887-a406-c6262ae7a333.jpg",@"width":@1080}};
-            if (imagePath.length>0) {
-                NSDictionary *dicStr = @{@"arHotData":@[@{@"color":@"#FF00FF",@"font":@"songti",@"text":@"回宿舍手机",@"height":@0.025675675,@"type":@"3",@"width":@0.2777778,@"x":@0.26904297,@"y":@0.4155273}
-                                                     ],
-                                      @"markerImageData":@{@"height":@1920,@"markerImagePath":imagePath,@"width":@1080}};
-                NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dicStr options:NSJSONWritingPrettyPrinted error:nil];
-                NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-                jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-                jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@" " withString:@""];
-                NSDictionary *dic = @{@"arData":jsonStr};
-               
-            }
-            
-            //此处应该先请求甲方权限接口 再进行ar数据请求，测试阶段 直接进行ar数据请求
-            [[HttpRequestServices sharedInstance] AFGETRequestHeaderAppanding:arSMPOIResources withParameters:@{@"resId":@"295"} encry:0 suceesBlock:^(NSDictionary *responseObject) {
-
-            } failedBlock:^(NSError *error) {
-
-            }];
-            
-//            [[HttpRequestServices sharedInstance] AFNPOSTRequestHeaderAppanding:arSMPOIResources withParameters:@{@"resId":@295} suceesBlock:nil failedBlock:nil];
         }
             break;
 

@@ -195,6 +195,9 @@
         NSString *path = self.filePaths[i];
         [arrKenmas addObject:[[NSFileManager defaultManager] displayNameAtPath:path]];
     }
+    
+    NSLog(@"json:%@,arrKeyNames:%@,arrFilePath:%@",self.jsonStr,arrKenmas,self.filePaths);
+    
     [[HttpRequestServices sharedInstance] AFNPOSTRequestUploadAppending:arFileUploads withParameters:dic fileKeyNames:arrKenmas filePaths:self.filePaths suceesBlock:^(NSDictionary *responseObject) {
         
     } failedBlock:^(NSError *error) {

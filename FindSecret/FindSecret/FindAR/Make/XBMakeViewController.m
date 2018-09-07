@@ -736,14 +736,14 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
                 info[@"filePath"] = [manger displayNameAtPath:url];
                 NSString *thumbNailImagePath = filePathFromImage(itemView.thumbnailImage);
                 info[@"thumbFilePath"] = [manger displayNameAtPath:thumbNailImagePath];
-                info[@"duration"] = @([XBAVTools mediaDurationWithPath:url]);
+                info[@"duration"] = @((NSInteger)([XBAVTools mediaDurationWithPath:url]*1000+0.5));
                 [self.arrFilePath addObject:url];
                 [self.arrFilePath addObject:thumbNailImagePath];
                 
             } else if (itemView.type == XBMakeContentItemTypeAudio) {
                 NSString *url = itemView.audioURL.absoluteString;
                 info[@"filePath"] = [manger displayNameAtPath:url];
-                info[@"duration"] = @([XBAVTools mediaDurationWithPath:url]);
+                info[@"duration"] = @((NSInteger)([XBAVTools mediaDurationWithPath:url]*1000+0.5));
                 [self.arrFilePath addObject:url];
             } 
             [arHotData addObject:info];

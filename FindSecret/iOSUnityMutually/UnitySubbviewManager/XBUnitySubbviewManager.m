@@ -141,9 +141,20 @@
     //1.进行扫描权限请求
     //2.进行ar数据请求
     NSLog(@"metaID:%@",metaID);
-    [[HttpRequestServices sharedInstance] AFGETRequestHeaderAppanding:arSMPOIResources withParameters:@{@"resId":metaID} encry:0 suceesBlock:^(NSDictionary *responseObject) {
+    
+    NSData *data = [metaID dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSLog(@"metaID idc:%@",dic);
+    [[HttpRequestServices sharedInstance] AFGETRequestHeaderAppanding:arSMPOIResources withParameters:dic encry:0 suceesBlock:^(NSDictionary *responseObject) {
         
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
+        if(![responseObject[@"code"] isEqualToString:@"200"] && [(NSDictionary*)responseObject[@"data"] count]<=0){
+            NSLog(@"msg 请求结果有问题 ：%@",responseObject[@"msg"]);
+            return ;
+        }
+        
+        NSDictionary *dic = @{@"data":responseObject[@"data"]};
+        
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
         NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@"\n" withString:@""];
         jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@" " withString:@""];

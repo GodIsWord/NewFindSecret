@@ -90,14 +90,28 @@ static HttpRequestServices *service ;
     }
     
     NSLog(@"url:%@",url);
+    
+    self.afnManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain",@"application/json", @"text/json", @"text/javascript",@"text/css", @"application/javascript",@"application/json", @"application/x-www-form-urlencoded", nil];
+    
+    
     [self.afnManager GET:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        NSLog(@"responsObject:%@",responseObject);
-        successBlock(responseObject);
+        NSDictionary *dic = nil;
+        if([responseObject isKindOfClass:NSData.class]){
+            dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        }if([responseObject isKindOfClass:NSDictionary.class]){
+            dic = responseObject;
+        }
+        NSLog(@"responsObject:%@",dic);
+        if(successBlock){
+            successBlock(dic);
+        }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
-        failedBlock(error);
+        if(failedBlock){
+            failedBlock(error);
+        }
     }];
     
 }

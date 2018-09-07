@@ -195,11 +195,13 @@
             }
             
             //此处应该先请求甲方权限接口 再进行ar数据请求，测试阶段 直接进行ar数据请求
-            [[HttpRequestServices sharedInstance] AFGETRequestHeaderAppanding:arSMPOIResources withParameters:@{@"resId":@"145"} encry:0 suceesBlock:^(NSDictionary *responseObject) {
-                
+            [[HttpRequestServices sharedInstance] AFGETRequestHeaderAppanding:arSMPOIResources withParameters:@{@"resId":@"295"} encry:0 suceesBlock:^(NSDictionary *responseObject) {
+
             } failedBlock:^(NSError *error) {
-                
+
             }];
+            
+//            [[HttpRequestServices sharedInstance] AFNPOSTRequestHeaderAppanding:arSMPOIResources withParameters:@{@"resId":@295} suceesBlock:nil failedBlock:nil];
         }
             break;
 

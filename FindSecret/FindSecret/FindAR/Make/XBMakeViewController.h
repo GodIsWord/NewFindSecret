@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol XBMakeViewControllerDelegate <NSObject>
+
+-(void)makeViewControllerFinish:(NSDictionary*)requestJson filePaths:(NSSet*)filePaths backImageFilePath:(NSString*)backFilePath snapshotImag:(UIImage*)snapImage;
+
+@end
+
 @interface XBMakeViewController : UIViewController
 @property  (nonatomic, assign) BOOL onlyAddContentMode;
 @property  (nonatomic, copy) NSString *contentImagePath;
-- (NSString *)requestJson;
+
+@property (nonatomic,weak) id<XBMakeViewControllerDelegate> delegate;
+
 @end

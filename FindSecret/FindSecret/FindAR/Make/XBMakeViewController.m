@@ -13,7 +13,7 @@
 #import "XBPublishRecordAudioViewController.h"
 #import "XBAVTools.h"
 
-#import "XBPublishController.h"
+//#import "XBPublishController.h"
 
 
 
@@ -596,16 +596,8 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 }
 
 - (void)nextStepAction {
-    NSString *jsonStr = [self requestJson];
-    NSLog(@"%@",jsonStr);
-    XBPublishController *publish = [[XBPublishController alloc] init];
-    publish.jsonStr = jsonStr;
-    NSMutableArray *array = [NSMutableArray array];
-    for (NSString *path in self.arrFilePath) {
-        [array addObject:path];
-    }
-    publish.filePaths = array;
-    [self.navigationController pushViewController:publish animated:YES];
+    [self requestJson];
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (void)cancelAction {
@@ -670,7 +662,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     _contentImage = contentImage;
     
 }
-- (NSString *)requestJson {
+- (void)requestJson {
     if (self.stage != XBMakeContentStageCaptureAddContent) {
         return @"";
     }
@@ -697,13 +689,16 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     
     markerImageData[@"height"] = @(CGRectGetHeight(self.captureImageView.frame) * scale);
     markerImageData[@"width"] = @(CGRectGetWidth(self.captureImageView.frame) * scale);
-    UIImage *imageSnapshot = self.contentImage;//snapshotImageWithView(self.captureImageView);
+    
+    UIImage *imageSnapshot = snapshotImageWithView(self.captureImageView);
     //NSTemporaryDirectory()
-    NSString *markerFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",[@((NSInteger)([[NSDate date] timeIntervalSince1970]*1000)) stringValue]]];
-    NSData *imageData = UIImageJPEGRepresentation(imageSnapshot, 0.75);
-    if (![imageData writeToFile:markerFilePath atomically:YES]){
-        return @"";
-    }
+//    NSString *markerFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",[@((NSInteger)([[NSDate date] timeIntervalSince1970]*1000)) stringValue]]];
+//    NSData *imageData = UIImageJPEGRepresentation(imageSnapshot, 0.75);
+//    if (![imageData writeToFile:markerFilePath atomically:YES]){
+//        return @"";
+//    }
+    
+    NSString *markerFilePath = self.contentImagePath ?: @"";
     
     NSFileManager *manger = [NSFileManager defaultManager];
     
@@ -721,8 +716,8 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     for (XBMakeContentItemView *itemView in self.captureImageView.subviews) {
         if ([itemView isKindOfClass:XBMakeContentItemView.self]) {
             NSMutableDictionary *info = [NSMutableDictionary dictionary];
-            info[@"x"] = @(itemView.frame.origin.x / backWidth);
-            info[@"y"] = @(itemView.frame.origin.y / backHeight);
+            info[@"x"] = @(itemView.center.x / backWidth);
+            info[@"y"] = @(itemView.center.y / backHeight);
             info[@"width"] = @(itemView.frame.size.width / backWidth);
             info[@"height"] = @(itemView.frame.size.height / backHeight);
             info[@"type"] = @(itemView.type);
@@ -761,14 +756,18 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
         dicInfo[@"arHotData"] = arHotData;
     }
     
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dicInfo options:0 error:&error];
-    if (error) {
-        NSLog(@"%@",error.localizedDescription);
-        return @"";
+    if ([self.delegate respondsToSelector:@selector(makeViewControllerFinish:filePaths:backImageFilePath:snapshotImag:)]) {
+        [self.delegate makeViewControllerFinish:dicInfo filePaths:self.arrFilePath backImageFilePath:self.contentImagePath snapshotImag:imageSnapshot];
     }
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    return jsonString?:@"";
+    
+//    NSError *error;
+//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dicInfo options:0 error:&error];
+//    if (error) {
+//        NSLog(@"%@",error.localizedDescription);
+//        return @"";
+//    }
+//    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+//    return jsonString?:@"";
 }
 
 

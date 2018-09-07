@@ -110,7 +110,7 @@
 {
     self.manager.playDelegate = self;
     if ([self.manager lastAudioDuration]>0) {
-        self.secondsLabel.text = [NSString stringWithFormat:@"%.0fs",[self.manager lastAudioDuration]];
+        self.secondsLabel.text = [NSString stringWithFormat:@"%.1fs",[self.manager lastAudioDuration]];
     }else{
         self.secondsLabel.text = @"";
     }

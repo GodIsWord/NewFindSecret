@@ -36,6 +36,7 @@
     [super viewDidLoad];
     self.title = @"发布";
     self.view.backgroundColor = [UIColor whiteColor];
+    
     static NSString *ID = @"cell";
     
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(20, 20, SCREEN_WIDTH-40, 80*3+2) style:UITableViewStyleGrouped];
@@ -167,6 +168,9 @@
         make.left.equalTo(view).offset(20);
         make.width.height.mas_equalTo(80);
     }];
+    
+    self.picView.image = self.snapshotImage;
+    
     return view;
     
 }

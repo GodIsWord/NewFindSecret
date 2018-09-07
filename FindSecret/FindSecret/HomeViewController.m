@@ -22,7 +22,9 @@
 #import "XBUnitySubbviewManager.h"
 #import "HttpRequestServices.h"
 
-@interface HomeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource>
+
+
+@interface HomeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource,XBMakeViewControllerDelegate>
 
 @property(nonatomic, strong) NSDictionary *userInfo;
 @property (weak,nonatomic) UILabel *addressLabel;
@@ -101,8 +103,9 @@
     XBMakeViewController *makeViewController = [[XBMakeViewController alloc] init];
     makeViewController.contentImagePath = path;
     makeViewController.onlyAddContentMode = YES;
-    UINavigationController *navigationController1 = [[UINavigationController alloc] initWithRootViewController:makeViewController];
-    [self presentViewController:navigationController1 animated:NO completion:nil];
+    makeViewController.delegate = self;
+//    UINavigationController *navigationController1 = [[UINavigationController alloc] initWithRootViewController:makeViewController];
+    [self.navigationController presentViewController:makeViewController animated:NO completion:nil];
     
 }
 -(void)gotoMakeImage
@@ -135,7 +138,6 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 44;
 }
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -178,4 +180,33 @@
             break;
     }
 }
+
+#pragma mark --- makeViewControllerDelegate
+-(void)makeViewControllerFinish:(NSDictionary *)requestJson filePaths:(NSSet*)filePaths backImageFilePath:(NSString *)backFilePath snapshotImag:(UIImage *)snapImage
+{
+    
+    if (requestJson.count<=0 || filePaths.count<=0) {
+        return;
+    }
+    
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:requestJson options:0 error:&error];
+    if (error) {
+        NSLog(@"%@",error.localizedDescription);
+        return @"";
+    }
+    NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",jsonStr);
+    NSMutableArray *array = [NSMutableArray array];
+    for (NSString *path in filePaths) {
+        [array addObject:path];
+    }
+    XBPublishController *publish = [[XBPublishController alloc] init];
+    publish.jsonStr = jsonStr;
+    publish.filePaths = array;
+    [self.navigationController pushViewController:publish animated:YES];
+}
+
+
+
 @end

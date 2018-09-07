@@ -172,9 +172,9 @@ static HttpRequestServices *service ;
     
     self.afnManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain",@"application/json", @"text/json", @"text/javascript",@"text/css", @"application/javascript",@"application/json", @"application/x-www-form-urlencoded",@"application/x-zip-compressed", nil];
     // 设置超时时间
-    [self.afnManager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-    self.afnManager.requestSerializer.timeoutInterval = 60*3.f;
-    [self.afnManager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+//    [self.afnManager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+//    self.afnManager.requestSerializer.timeoutInterval = 60*3.f;
+//    [self.afnManager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     
     [self.afnManager POST:[XBARHttpHeader stringByAppendingPathComponent:appending] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
@@ -184,12 +184,15 @@ static HttpRequestServices *service ;
                 break;
             }
             NSString *filePath = arrPath[i];
-//            NSURL *url = [NSURL fileURLWithPath:filePath];
-//            [formData appendPartWithFileURL:url name:keyName error:nil];
-            
+            if ([filePath containsString:@"file:///private"]) {
+                filePath = [filePath stringByReplacingOccurrencesOfString:@"file:///private" withString:@""];
+            }
             NSArray *arrName = [keyName componentsSeparatedByString:@"."];
             NSString  *imagePath = filePath;
             NSData *data = [NSData dataWithContentsOfFile:imagePath];
+            if (!data) {
+                continue;
+            }
             [formData appendPartWithFileData:data name:keyName fileName:arrName[0] mimeType:[NSString stringWithFormat:@"video/%@",arrName[1]]];
         }
     } progress:^(NSProgress * _Nonnull uploadProgress) {

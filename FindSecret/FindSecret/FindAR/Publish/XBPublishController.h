@@ -11,4 +11,5 @@
 @interface XBPublishController : UITableViewController
 @property(nonatomic,copy) NSString *jsonStr;
 @property(nonatomic,copy) NSArray *filePaths;
+@property(nonatomic,strong) UIImage *snapshotImage;
 @end

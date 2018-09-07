@@ -2752,7 +2752,7 @@
 					CoreMotion,
 					"-weak-lSystem",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ar.xunmi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cxlf.seeksecret;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				UNITY_RUNTIME_VERSION = 5.6.6f2;
@@ -2818,7 +2818,7 @@
 					CoreMotion,
 					"-weak-lSystem",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ar.xunmi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cxlf.seeksecret;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				UNITY_RUNTIME_VERSION = 5.6.6f2;

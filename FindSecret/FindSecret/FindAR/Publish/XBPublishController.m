@@ -182,7 +182,7 @@
     return view;
 }
 -(void)publishBUttonDidClicked:(UIButton *)sender{
-//    [self uploadData];
+    [self uploadData];
 }
 -(void)uploadData
 {
@@ -209,7 +209,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 49;
+    return 49+60;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 64;
@@ -247,11 +247,11 @@
         [self.navigationController pushViewController:vc animated:YES];
         
     }else if (indexPath.row == 2){
-//        XBWhoCanSeeController *vc = [XBWhoCanSeeController new];
-//        vc.type = 2;
-//        vc.delegate = self;
-//        [self.navigationController pushViewController:vc animated:YES];
-        [self uploadData];
+        XBWhoCanSeeController *vc = [XBWhoCanSeeController new];
+        vc.type = 2;
+        vc.delegate = self;
+        [self.navigationController pushViewController:vc animated:YES];
+        
     }
     
 }

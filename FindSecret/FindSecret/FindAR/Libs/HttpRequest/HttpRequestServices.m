@@ -144,10 +144,13 @@ static HttpRequestServices *service ;
     
     [self.afnManager POST:encodedURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"responsObject:%@",responseObject);
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+        NSDictionary *dic = nil;
         
-        HttpRequestServiceOperationModel *model = [[HttpRequestServiceOperationModel alloc] init];
-        model.responseDictionary = dic;
+        if([responseObject isKindOfClass:NSData.class]){
+            dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        }if([responseObject isKindOfClass:NSDictionary.class]){
+            dic = responseObject;
+        }
         if (successBlock) {
             successBlock(dic);
         }
@@ -192,11 +195,21 @@ static HttpRequestServices *service ;
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         NSLog(@"%@",uploadProgress.localizedDescription);
     }  success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        NSDictionary *dic = nil;
+        if([responseObject isKindOfClass:NSData.class]){
+            dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        }if([responseObject isKindOfClass:NSDictionary.class]){
+            dic = responseObject;
+        }
         NSLog(@"sucess:%@",dic);
+        if(successBlock){
+            successBlock(dic);
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"str:%@",error);
-        
+        if(failedBlock){
+            failedBlock(error);
+        }
     }];
 }
 

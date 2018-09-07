@@ -51,6 +51,16 @@
     self.userImageDataSource = [NSMutableArray arrayWithObjects:@"",@"",@"", nil];
 }
 
+-(void)popToHome
+{
+    for (UIViewController *control in self.navigationController.viewControllers) {
+        if ([control isKindOfClass:NSClassFromString(@"HomeViewController")]) {
+            [self.navigationController popToViewController:control animated:YES];
+            break;
+        }
+    }
+}
+
 #pragma mark -- textView Delegate
 // 开始编辑
 - (void)textViewDidBeginEditing:(UITextView *)textView{
@@ -199,7 +209,7 @@
     NSLog(@"json:%@,arrKeyNames:%@,arrFilePath:%@",self.jsonStr,arrKenmas,self.filePaths);
     
     [[HttpRequestServices sharedInstance] AFNPOSTRequestUploadAppending:arFileUploads withParameters:dic fileKeyNames:arrKenmas filePaths:self.filePaths suceesBlock:^(NSDictionary *responseObject) {
-        
+        [self popToHome];
     } failedBlock:^(NSError *error) {
         
     }];

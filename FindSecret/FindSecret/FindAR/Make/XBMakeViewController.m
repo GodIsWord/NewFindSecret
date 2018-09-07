@@ -67,6 +67,8 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 @property (nonatomic, strong) NSMutableSet *arrFilePath;
 
+@property (nonatomic, strong) UIImage *contentImage;
+
 @end
 
 @implementation XBMakeViewController
@@ -80,6 +82,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     [self initCapture];
     [self initTopToolBar];
     
+    self.contentImage = [UIImage imageWithContentsOfFile:self.contentImagePath];
     self.contentImage ? [self switchAddContentMode] : [self switchCaptureMode];
     
     self.arrFilePath = [NSMutableSet set];
@@ -694,7 +697,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     
     markerImageData[@"height"] = @(CGRectGetHeight(self.captureImageView.frame) * scale);
     markerImageData[@"width"] = @(CGRectGetWidth(self.captureImageView.frame) * scale);
-    UIImage *imageSnapshot = snapshotImageWithView(self.captureImageView);
+    UIImage *imageSnapshot = self.contentImage;//snapshotImageWithView(self.captureImageView);
     //NSTemporaryDirectory()
     NSString *markerFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",[@((NSInteger)([[NSDate date] timeIntervalSince1970]*1000)) stringValue]]];
     NSData *imageData = UIImageJPEGRepresentation(imageSnapshot, 0.75);

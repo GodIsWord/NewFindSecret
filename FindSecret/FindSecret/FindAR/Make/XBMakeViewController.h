@@ -10,6 +10,6 @@
 
 @interface XBMakeViewController : UIViewController
 @property  (nonatomic, assign) BOOL onlyAddContentMode;
-@property  (nonatomic, strong) UIImage *contentImage;
+@property  (nonatomic, copy) NSString *contentImagePath;
 - (NSString *)requestJson;
 @end

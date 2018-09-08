@@ -492,6 +492,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     NSAttributedString *attributedString = textEditController.contentLabel.attributedText;
     if (attributedString.length > 0) {
         XBMakeContentItemView *itemView = [XBMakeContentItemView contentItemViewWithAttributedString:attributedString];
+        itemView.arFontName = textEditController.fontARDisplayName;
         __weak typeof(self)wSelf = self;
         __weak typeof(itemView)wItemView = itemView;
         itemView.didClickedEditBtn = ^{
@@ -726,8 +727,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
                 NSDictionary *attributes = [attributedText attributesAtIndex:0 effectiveRange:NULL];
                 UIColor * color = attributes[NSForegroundColorAttributeName];
                 info[@"color"] = HEXStringFromColor(color);
-                UIFont *font = attributes[NSFontAttributeName];
-                info[@"font"] = font.fontName;
+                info[@"font"] = itemView.arFontName;
                 info[@"text"] = attributedText.string;
             } else if (itemView.type == XBMakeContentItemTypeVideo) {
                 NSString *url = itemView.videoURL.absoluteString;

@@ -19,12 +19,14 @@
 @property (nonatomic, strong) UIToolbar *customAccessoryView;
 @property (nonatomic, strong) UIView *customInputView;
 @property (nonatomic, strong) NSArray *styleArray;
+@property (nonatomic, strong) NSArray *styleDisplayNameArray;
 @property (nonatomic, strong) NSArray *colorArray;
 @property (nonatomic, strong) UIButton *keyboardButton;
 @property (nonatomic, strong) UIButton *styleButton;
 @property (nonatomic, strong) UILabel *keyboardLabel;
 @property (nonatomic, strong) UILabel *styleLabel;
 @property (nonatomic, strong, readwrite) UILabel *contentLabel;
+@property (nonatomic, strong, readwrite) NSString *fontARDisplayName;
 @property (nonatomic, assign) double keyboardHeight;
 @property (nonatomic, strong) NSMutableDictionary *attributes;
 @property (nonatomic, strong) CAShapeLayer *border;
@@ -32,10 +34,12 @@
 
 @implementation XBTextEditController
 
+
 //    文字样式有时候不起作用 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.styleArray = @[@"", @"SimHei", @"SimSun", @"KaiTi", @"youyuan", @"STXingkai"];
+    self.styleArray = @[@"SimHei", @"SimSun", @"KaiTi", @"youyuan", @"STXingkai"];
+    self.styleDisplayNameArray = @[@"heiti", @"songti", @"kaiti", @"yuanti" , @"xingkai"];
     self.colorArray = @[[UIColor whiteColor], [UIColor blackColor], [UIColor redColor], [UIColor orangeColor], [UIColor yellowColor], [UIColor greenColor], [UIColor blueColor], [UIColor purpleColor]];
     self.view.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.backGroundView];
@@ -246,6 +250,8 @@
 
 - (void)changeTextStyles:(UIButton *)sender {
     NSString *str = self.styleArray[sender.tag - 101];
+    self.fontARDisplayName = self.styleDisplayNameArray[sender.tag - 101];
+    
     self.contentLabel.font = str.length > 0 ? [UIFont fontWithName:str size:20] : [UIFont systemFontOfSize:20];
     self.attributes[NSFontAttributeName] = self.contentLabel.font;
 }

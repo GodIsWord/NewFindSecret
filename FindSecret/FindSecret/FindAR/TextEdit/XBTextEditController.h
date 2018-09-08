@@ -16,5 +16,6 @@
 
 @interface XBTextEditController : UIViewController
 @property (nonatomic, strong, readonly) UILabel *contentLabel;
+@property (nonatomic, strong, readonly) NSString *fontARDisplayName;
 @property (nonatomic, weak) id<XBTextEditControllerDelegate> delegate;
 @end

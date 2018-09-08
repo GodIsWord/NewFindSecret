@@ -21,6 +21,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentItemType) {
 @property (nonatomic, strong, readonly) NSURL *videoURL;
 @property (nonatomic, strong, readonly) UIImage *thumbnailImage;
 @property (nonatomic, strong, readonly) NSURL *audioURL;
+@property (nonatomic, copy) NSString *arFontName;
 
 @property (nonatomic, copy) void (^didClickedContentView)(void);
 @property (nonatomic, copy) void (^didClickedCloseBtn)(void);

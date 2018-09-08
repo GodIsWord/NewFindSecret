@@ -209,11 +209,6 @@
 		E69314512137F58C00E7FAE3 /* RegisterFeatures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E69310C22137F58800E7FAE3 /* RegisterFeatures.cpp */; };
 		E69314532137F58C00E7FAE3 /* NativeShare.mm in Sources */ = {isa = PBXBuildFile; fileRef = E69310C92137F58800E7FAE3 /* NativeShare.mm */; };
 		E69314542137F58C00E7FAE3 /* RegisterMonoModules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E69310CA2137F58800E7FAE3 /* RegisterMonoModules.cpp */; };
-		E69315802137F61800E7FAE3 /* Kaiti.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E693145B2137F61700E7FAE3 /* Kaiti.ttf */; };
-		E69315812137F61800E7FAE3 /* 浪漫雅圆.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E693145C2137F61700E7FAE3 /* 浪漫雅圆.ttf */; };
-		E69315822137F61800E7FAE3 /* SimHei.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E693145D2137F61700E7FAE3 /* SimHei.ttf */; };
-		E69315832137F61800E7FAE3 /* STXINGKAI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E693145E2137F61700E7FAE3 /* STXINGKAI.ttf */; };
-		E69315842137F61800E7FAE3 /* SimSun.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E693145F2137F61700E7FAE3 /* SimSun.ttf */; };
 		E69315852137F61800E7FAE3 /* XBTextEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = E69314602137F61700E7FAE3 /* XBTextEditController.m */; };
 		E69315862137F61800E7FAE3 /* XBAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E69314622137F61700E7FAE3 /* XBAudioManager.m */; };
 		E69315872137F61800E7FAE3 /* XBPublishLisonItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E69314632137F61700E7FAE3 /* XBPublishLisonItemView.m */; };
@@ -386,6 +381,11 @@
 		E693EFEA2137C55100E7FAE3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E693EFE92137C55100E7FAE3 /* QuartzCore.framework */; };
 		E693EFEC2137C56200E7FAE3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E693EFEB2137C56200E7FAE3 /* UIKit.framework */; };
 		E693EFEE2137C56D00E7FAE3 /* libiconv.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E693EFED2137C56D00E7FAE3 /* libiconv.2.tbd */; };
+		E6AFE24F2143CC6B007A74F8 /* Kaiti.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6AFE24A2143CC6B007A74F8 /* Kaiti.ttf */; };
+		E6AFE2502143CC6B007A74F8 /* SimHei.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6AFE24B2143CC6B007A74F8 /* SimHei.ttf */; };
+		E6AFE2512143CC6B007A74F8 /* STXINGKAI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6AFE24C2143CC6B007A74F8 /* STXINGKAI.ttf */; };
+		E6AFE2522143CC6B007A74F8 /* SimSun.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6AFE24D2143CC6B007A74F8 /* SimSun.ttf */; };
+		E6AFE2532143CC6B007A74F8 /* yuanti.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6AFE24E2143CC6B007A74F8 /* yuanti.ttf */; };
 		E6B226BB213812DB00D67944 /* XBUnitySubbviewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B226BA213812DB00D67944 /* XBUnitySubbviewManager.m */; };
 		E6B226BE2138155400D67944 /* XBUnityTakePhotoSubbViews.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B226BD2138155400D67944 /* XBUnityTakePhotoSubbViews.m */; };
 /* End PBXBuildFile section */
@@ -556,11 +556,6 @@
 		E69310CA2137F58800E7FAE3 /* RegisterMonoModules.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RegisterMonoModules.cpp; sourceTree = "<group>"; };
 		E69312A62137F58B00E7FAE3 /* RegisterFeatures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterFeatures.h; sourceTree = "<group>"; };
 		E69314592137F61700E7FAE3 /* XBTextEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBTextEditController.h; sourceTree = "<group>"; };
-		E693145B2137F61700E7FAE3 /* Kaiti.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kaiti.ttf; sourceTree = "<group>"; };
-		E693145C2137F61700E7FAE3 /* 浪漫雅圆.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "浪漫雅圆.ttf"; sourceTree = "<group>"; };
-		E693145D2137F61700E7FAE3 /* SimHei.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimHei.ttf; sourceTree = "<group>"; };
-		E693145E2137F61700E7FAE3 /* STXINGKAI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = STXINGKAI.ttf; sourceTree = "<group>"; };
-		E693145F2137F61700E7FAE3 /* SimSun.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimSun.ttf; sourceTree = "<group>"; };
 		E69314602137F61700E7FAE3 /* XBTextEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBTextEditController.m; sourceTree = "<group>"; };
 		E69314622137F61700E7FAE3 /* XBAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBAudioManager.m; sourceTree = "<group>"; };
 		E69314632137F61700E7FAE3 /* XBPublishLisonItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBPublishLisonItemView.m; sourceTree = "<group>"; };
@@ -972,6 +967,11 @@
 		E693FEDE2137D20A00E7FAE3 /* Bulk_Generics_11.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bulk_Generics_11.cpp; sourceTree = "<group>"; };
 		E693FFA12137D21000E7FAE3 /* Bulk_Generics_10.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bulk_Generics_10.cpp; sourceTree = "<group>"; };
 		E6A0BA6C21131B0700326AE9 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		E6AFE24A2143CC6B007A74F8 /* Kaiti.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kaiti.ttf; sourceTree = "<group>"; };
+		E6AFE24B2143CC6B007A74F8 /* SimHei.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimHei.ttf; sourceTree = "<group>"; };
+		E6AFE24C2143CC6B007A74F8 /* STXINGKAI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = STXINGKAI.ttf; sourceTree = "<group>"; };
+		E6AFE24D2143CC6B007A74F8 /* SimSun.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimSun.ttf; sourceTree = "<group>"; };
+		E6AFE24E2143CC6B007A74F8 /* yuanti.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = yuanti.ttf; sourceTree = "<group>"; };
 		E6B226B9213812DB00D67944 /* XBUnitySubbviewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBUnitySubbviewManager.h; sourceTree = "<group>"; };
 		E6B226BA213812DB00D67944 /* XBUnitySubbviewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBUnitySubbviewManager.m; sourceTree = "<group>"; };
 		E6B226BC2138155400D67944 /* XBUnityTakePhotoSubbViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBUnityTakePhotoSubbViews.h; sourceTree = "<group>"; };
@@ -1300,23 +1300,11 @@
 		E69314582137F61700E7FAE3 /* TextEdit */ = {
 			isa = PBXGroup;
 			children = (
-				E693145A2137F61700E7FAE3 /* ttf */,
+				E6AFE2492143CC6B007A74F8 /* ttf */,
 				E69314592137F61700E7FAE3 /* XBTextEditController.h */,
 				E69314602137F61700E7FAE3 /* XBTextEditController.m */,
 			);
 			path = TextEdit;
-			sourceTree = "<group>";
-		};
-		E693145A2137F61700E7FAE3 /* ttf */ = {
-			isa = PBXGroup;
-			children = (
-				E693145B2137F61700E7FAE3 /* Kaiti.ttf */,
-				E693145C2137F61700E7FAE3 /* 浪漫雅圆.ttf */,
-				E693145D2137F61700E7FAE3 /* SimHei.ttf */,
-				E693145E2137F61700E7FAE3 /* STXINGKAI.ttf */,
-				E693145F2137F61700E7FAE3 /* SimSun.ttf */,
-			);
-			path = ttf;
 			sourceTree = "<group>";
 		};
 		E69314612137F61700E7FAE3 /* RecordVoice */ = {
@@ -2134,6 +2122,18 @@
 			path = Native;
 			sourceTree = "<group>";
 		};
+		E6AFE2492143CC6B007A74F8 /* ttf */ = {
+			isa = PBXGroup;
+			children = (
+				E6AFE24A2143CC6B007A74F8 /* Kaiti.ttf */,
+				E6AFE24B2143CC6B007A74F8 /* SimHei.ttf */,
+				E6AFE24C2143CC6B007A74F8 /* STXINGKAI.ttf */,
+				E6AFE24D2143CC6B007A74F8 /* SimSun.ttf */,
+				E6AFE24E2143CC6B007A74F8 /* yuanti.ttf */,
+			);
+			path = ttf;
+			sourceTree = "<group>";
+		};
 		E6B226B82138129500D67944 /* UnitySubbviewManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -2214,29 +2214,29 @@
 				E60A09F621398C54009BC9F0 /* LICENSE in Resources */,
 				E69315D12137F61800E7FAE3 /* XBMakeToolView.xib in Resources */,
 				E60A0A17213BE814009BC9F0 /* selected.png in Resources */,
-				E69315802137F61800E7FAE3 /* Kaiti.ttf in Resources */,
+				E6AFE2512143CC6B007A74F8 /* STXINGKAI.ttf in Resources */,
 				E60A0A16213BE814009BC9F0 /* unselected.png in Resources */,
 				E60E3B64210C0FF100C5BFBB /* LaunchScreen.storyboard in Resources */,
 				8592617B212F07AB008D0667 /* XBUITestViewController.xib in Resources */,
-				E69315812137F61800E7FAE3 /* 浪漫雅圆.ttf in Resources */,
 				E69315F42137F61800E7FAE3 /* README.md in Resources */,
 				E69315AE2137F61800E7FAE3 /* LICENSE in Resources */,
-				E69315842137F61800E7FAE3 /* SimSun.ttf in Resources */,
-				E69315822137F61800E7FAE3 /* SimHei.ttf in Resources */,
 				E69315982137F61800E7FAE3 /* LICENSE in Resources */,
 				E60A09F721398C54009BC9F0 /* README.md in Resources */,
+				E6AFE2502143CC6B007A74F8 /* SimHei.ttf in Resources */,
 				E693EFD02137C2DE00E7FAE3 /* Data in Resources */,
 				E69315AD2137F61800E7FAE3 /* README.md in Resources */,
+				E6AFE2532143CC6B007A74F8 /* yuanti.ttf in Resources */,
+				E6AFE2522143CC6B007A74F8 /* SimSun.ttf in Resources */,
 				E60A0A13213BADA4009BC9F0 /* taiqiu.png in Resources */,
 				E69315B92137F61800E7FAE3 /* README.md in Resources */,
 				E69315E02137F61800E7FAE3 /* LICENSE in Resources */,
 				E60A09BE21386C66009BC9F0 /* shanguangdengkai_normal@3x.png in Resources */,
 				E60E3B61210C0FF100C5BFBB /* Assets.xcassets in Resources */,
 				CA147A422133D7D700F2F2EE /* Info.plist in Resources */,
-				E69315832137F61800E7FAE3 /* STXINGKAI.ttf in Resources */,
 				E693159B2137F61800E7FAE3 /* MJRefresh.bundle in Resources */,
 				E693158C2137F61800E7FAE3 /* recordVoice.bundle in Resources */,
 				E60A09BD21386C66009BC9F0 /* shanguangdengguanbi_normal@3x.png in Resources */,
+				E6AFE24F2143CC6B007A74F8 /* Kaiti.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

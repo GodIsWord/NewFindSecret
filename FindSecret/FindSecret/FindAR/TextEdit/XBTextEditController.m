@@ -38,8 +38,8 @@
 //    文字样式有时候不起作用 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.styleArray = @[@"SimHei", @"SimSun", @"KaiTi", @"youyuan", @"STXingkai"];
-    self.styleDisplayNameArray = @[@"heiti", @"songti", @"kaiti", @"yuanti" , @"xingkai"];
+    self.styleArray = @[@"SimSun", @"SimHei", @"KaiTi", @"youyuan", @"STXingkai"];
+    self.styleDisplayNameArray = @[@"songti", @"heiti", @"kaiti", @"yuanti" , @"xingkai"];
     self.colorArray = @[[UIColor whiteColor], [UIColor blackColor], [UIColor redColor], [UIColor orangeColor], [UIColor yellowColor], [UIColor greenColor], [UIColor blueColor], [UIColor purpleColor]];
     self.view.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.backGroundView];
@@ -164,7 +164,7 @@
 - (void)createTextButton {
 
 
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < self.styleArray.count; i++) {
         UIButton *textButton = [[UIButton alloc] init];
         [self.customInputView addSubview:textButton];
         textButton.tag = 101 + i;

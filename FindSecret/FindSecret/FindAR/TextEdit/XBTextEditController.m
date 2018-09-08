@@ -367,7 +367,8 @@
 - (NSMutableDictionary *)attributes {
     if (!_attributes) {
         _attributes = [NSMutableDictionary dictionary];
-        [_attributes addEntriesFromDictionary:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:20]}];
+        [_attributes addEntriesFromDictionary:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:_styleArray[0] size:20]}];
+        _fontARDisplayName = _styleDisplayNameArray[0];
     }
     return _attributes;
 }

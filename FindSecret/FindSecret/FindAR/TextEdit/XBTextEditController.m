@@ -35,7 +35,7 @@
 //    文字样式有时候不起作用 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.styleArray = @[@"", @"SimHei", @"SimSun", @"Kaiti", @"ZhunYuan", @"STXINGKAI"];
+    self.styleArray = @[@"", @"SimHei", @"SimSun", @"KaiTi", @"youyuan", @"STXingkai"];
     self.colorArray = @[[UIColor whiteColor], [UIColor blackColor], [UIColor redColor], [UIColor orangeColor], [UIColor yellowColor], [UIColor greenColor], [UIColor blueColor], [UIColor purpleColor]];
     self.view.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.backGroundView];

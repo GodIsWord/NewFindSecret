@@ -42,6 +42,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 @end
 
 @interface XBMakeViewController () <XBMakeToolViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, XBVideoEditControllerDelegate, XBCameraViewControllerDelegate, MSRecordControlDelegate,XBPublishRecordAudioViewDelegate,XBTextEditControllerDelegate>
+
 @property (nonatomic, strong) XBMakeToolbar *topToolbar;
 @property (nonatomic, strong) UIImageView *captureImageView;
 @property (nonatomic, strong) XBMakeToolView *toolView;
@@ -77,10 +78,10 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     [self initCapture];
     [self initTopToolBar];
     
-    if (self.contentImage == nil ) {
-        if (self.contentImagePath) {
-            self.contentImage = [UIImage imageWithContentsOfFile:self.contentImagePath];
-        }
+    if (self.contentImage == nil  && self.contentImagePath) {
+        self.contentImage = [UIImage imageWithContentsOfFile:self.contentImagePath];
+    } else if ( self.contentImage && self.contentImagePath == nil ){
+        self.contentImagePath = filePathFromImage(self.contentImage);
     }
     self.contentImage ? [self switchAddContentMode] : [self switchCaptureMode];
     self.arrFilePath = [NSMutableSet set];
@@ -538,12 +539,12 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 #pragma mark - XBCameraViewControllerDelegate
 
-- (void)cameraViewController:(XBCameraViewController *)cameraViewController didProcessingCompletedWithVideoUrl:(NSURL *)url {
-    XBMakeContentItemView *itemView = [XBMakeContentItemView contentItemViewWithVideoUrl:url];
+- (void)cameraViewController:(XBCameraViewController *)cameraViewController didProcessingCompletedWithVideoURL:(NSURL *)URL {
+    XBMakeContentItemView *itemView = [XBMakeContentItemView contentItemViewWithVideoUrl:URL];
     __weak typeof(itemView) wItemView = itemView;
     itemView.didClickedContentView = ^{
-        NSLog(@"play url:%@",url.absoluteString);
-        [XBAVTools playVideoWithFilePath:url.absoluteString inView:wItemView.contentView independent:NO completedHandle:^(NSError *error) {
+        NSLog(@"play url:%@",URL.absoluteString);
+        [XBAVTools playVideoWithFilePath:URL.absoluteString inView:wItemView.contentView independent:NO completedHandle:^(NSError *error) {
             NSLog(@"哈哈");
         }];
     };
@@ -662,56 +663,53 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     
 }
 - (void)requestJson {
+    
+    // clear
+    
+    [self.arrFilePath removeAllObjects];
+    
     if (self.stage != XBMakeContentStageCaptureAddContent) {
-        return @"";
+        return;
     }
-    //markerImageData
+    
     UIImage *markerImage = self.captureImageView.image?:self.contentImage;
     if (!markerImage) {
-        return @"";
+        return;
     }
-    /*
-     
-     {
-     "height": 2220,
-     "markerImagePath": "/storage/emulated/0/ARXunMi/mediaedit/a05a3c4d-06db-4887-a406-c6262ae7a333.jpg",
-     "width": 1080
-     }
-     */
     
     CGFloat scale = [UIScreen mainScreen].scale;
-    
     NSMutableDictionary *markerImageData = [NSMutableDictionary dictionary];
-    
     CGFloat backWidth = self.captureImageView.bounds.size.width;
     CGFloat backHeight = self.captureImageView.bounds.size.height;
     
     markerImageData[@"height"] = @(CGRectGetHeight(self.captureImageView.frame) * scale);
     markerImageData[@"width"] = @(CGRectGetWidth(self.captureImageView.frame) * scale);
     
-    UIImage *imageSnapshot = snapshotImageWithView(self.captureImageView);
-    //NSTemporaryDirectory()
-//    NSString *markerFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",[@((NSInteger)([[NSDate date] timeIntervalSince1970]*1000)) stringValue]]];
-//    NSData *imageData = UIImageJPEGRepresentation(imageSnapshot, 0.75);
-//    if (![imageData writeToFile:markerFilePath atomically:YES]){
-//        return @"";
-//    }
     
-    NSString *markerFilePath = self.contentImagePath ?: @"";
+    // 加工后的截图
+    UIImage *imageSnapshot = snapshotImageWithView(self.captureImageView);
+    
+    NSString *markerFilePath;
+    if (self.contentImagePath) {
+        markerFilePath = self.contentImagePath;
+    }else {
+        NSString *filePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",[@((NSInteger)([[NSDate date] timeIntervalSince1970]*1000)) stringValue]]];
+        NSData *imageData = UIImageJPEGRepresentation(imageSnapshot, 0.75);
+        if (![imageData writeToFile:filePath atomically:YES]){
+            return;
+        }
+        markerFilePath = filePath;
+    }
     
     NSFileManager *manger = [NSFileManager defaultManager];
-    
     NSString *markerImageName = [manger displayNameAtPath:markerFilePath];
-    
     markerImageData[@"markerImagePath"] = markerImageName;
     
-    [self.arrFilePath removeAllObjects];
-    
+    // 保存加工后的截图路径
     [self.arrFilePath addObject:markerFilePath];
-    //arHotData
-
-    NSMutableArray *arHotData = [NSMutableArray array];
     
+    //arHotData
+    NSMutableArray *arHotData = [NSMutableArray array];
     for (XBMakeContentItemView *itemView in self.captureImageView.subviews) {
         if ([itemView isKindOfClass:XBMakeContentItemView.self]) {
             NSMutableDictionary *info = [NSMutableDictionary dictionary];
@@ -754,18 +752,13 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
         dicInfo[@"arHotData"] = arHotData;
     }
     
+    NSLog(@"\nrquestParams:\n%@",dicInfo);
+    
+    NSLog(@"\n上传路径:\n%@",[self.arrFilePath allObjects]);
+    
     if ([self.delegate respondsToSelector:@selector(makeViewControllerFinish:filePaths:backImageFilePath:snapshotImag:)]) {
         [self.delegate makeViewControllerFinish:dicInfo filePaths:self.arrFilePath backImageFilePath:self.contentImagePath snapshotImag:imageSnapshot];
     }
-    
-//    NSError *error;
-//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dicInfo options:0 error:&error];
-//    if (error) {
-//        NSLog(@"%@",error.localizedDescription);
-//        return @"";
-//    }
-//    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-//    return jsonString?:@"";
 }
 
 

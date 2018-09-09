@@ -12,17 +12,17 @@ typedef NS_ENUM(NSUInteger, XBCameraCaptureMode) {
     XBCameraCaptureModePhoto,
     XBCameraCaptureModeVideo,
 };
-typedef NS_ENUM( NSInteger, ZRRecordingStatus) {
-    ZRRecordingStatusIdle = 0,
-    ZRRecordingStatusRecording,
-    ZRRecordingStatusFinished,
-    ZRRecordingStatusFailed,
+typedef NS_ENUM( NSInteger, XBRecordingStatus) {
+    XBRecordingStatusIdle = 0,
+    XBRecordingStatusRecording,
+    XBRecordingStatusFinished,
+    XBRecordingStatusFailed,
 };
 
 @class XBCameraViewController;
 @protocol XBCameraViewControllerDelegate <NSObject>
 @optional
-- (void)cameraViewController:(XBCameraViewController *)cameraViewController didProcessingCompletedWithVideoUrl:(NSURL *)url;
+- (void)cameraViewController:(XBCameraViewController *)cameraViewController didProcessingCompletedWithVideoURL:(NSURL *)URL;
 - (void)cameraViewController:(XBCameraViewController *)cameraViewController didProcessingCompletedWithImage:(UIImage *)image;
 @end
 
@@ -34,6 +34,7 @@ typedef NS_ENUM( NSInteger, ZRRecordingStatus) {
  *       最高6.0，视频文件大小不会占用太多
  **/
 @property (nonatomic, assign) float averageBitRate;
+@property (nonatomic, assign) CGSize outputSize;
 @property (nonatomic, weak) id <XBCameraViewControllerDelegate>delegate;
 @property (nonatomic, assign) XBCameraCaptureMode captureMode;
 @end

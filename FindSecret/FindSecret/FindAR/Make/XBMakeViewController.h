@@ -10,14 +10,14 @@
 
 @protocol XBMakeViewControllerDelegate <NSObject>
 
--(void)makeViewControllerFinish:(NSDictionary*)requestJson filePaths:(NSSet*)filePaths backImageFilePath:(NSString*)backFilePath snapshotImag:(UIImage*)snapImage;
+- (void)makeViewControllerFinish:(NSDictionary *)requestJson filePaths:(NSSet *)filePaths backImageFilePath:(NSString *)backFilePath snapshotImag:(UIImage *)snapImage;
 
 @end
 
 @interface XBMakeViewController : UIViewController
-@property  (nonatomic, assign) BOOL onlyAddContentMode;
-@property  (nonatomic, copy) NSString *contentImagePath;
+@property (nonatomic, assign) BOOL onlyAddContentMode;
+@property (nonatomic, copy) NSString *contentImagePath;
 @property (nonatomic, strong) UIImage *contentImage;
-@property (nonatomic,weak) id<XBMakeViewControllerDelegate> delegate;
+@property (nonatomic, weak) id <XBMakeViewControllerDelegate> delegate;
 
 @end

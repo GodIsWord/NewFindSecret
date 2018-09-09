@@ -136,7 +136,7 @@
 
 + (instancetype)contentItemViewWithAudioURL:(NSURL *)audioURL {
     XBMakeAudioItemView *itemView = [[XBMakeAudioItemView alloc] initWithFrame:CGRectMake(0, 0, 180, 40)];
-    itemView.descLabel.text = [NSString stringWithFormat:@"%.01f`s",[XBAVTools mediaDurationWithPath:audioURL.absoluteString]];
+    itemView.descLabel.text = [NSString stringWithFormat:@"%.01fs",[XBAVTools mediaDurationWithPath:audioURL.absoluteString]];
     
     XBMakeContentItemView *view = [[[UINib nibWithNibName:@"XBMakeContentItemView" bundle:nil] instantiateWithOwner:nil options:nil] firstObject];
     view.audioURL = audioURL;

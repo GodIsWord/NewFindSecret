@@ -78,8 +78,9 @@
 + (instancetype)contentItemViewWithAttributedString:(NSAttributedString *)attributedString {
     
     UILabel *contentLab = [[UILabel alloc] init];
-    contentLab.numberOfLines = 0;
     contentLab.attributedText = attributedString;
+    contentLab.numberOfLines = 0;
+    contentLab.frame = CGRectMake(0, 0, ScreenWidth-40, 1000);
     [contentLab sizeToFit];
 
     XBMakeContentItemView *view = [[[UINib nibWithNibName:@"XBMakeContentItemView" bundle:nil] instantiateWithOwner:nil options:nil] firstObject];

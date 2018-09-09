@@ -35,6 +35,14 @@
 @implementation XBTextEditController
 
 
+-(NSString *)fontARDisplayName
+{
+    if (_fontARDisplayName.length<=0) {
+        return _styleDisplayNameArray[0];
+    }
+    return _fontARDisplayName;
+}
+
 //    文字样式有时候不起作用 
 - (void)viewDidLoad {
     [super viewDidLoad];

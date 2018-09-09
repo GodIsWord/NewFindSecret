@@ -13,9 +13,6 @@
 #import "XBPublishRecordAudioViewController.h"
 #import "XBAVTools.h"
 
-//#import "XBPublishController.h"
-
-
 
 typedef NS_ENUM(NSUInteger, XBMakeToolbarItemType) {
     XBMakeToolbarItemTypeBack,
@@ -67,8 +64,6 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 @property (nonatomic, strong) NSMutableSet *arrFilePath;
 
-@property (nonatomic, strong) UIImage *contentImage;
-
 @end
 
 @implementation XBMakeViewController
@@ -82,9 +77,12 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     [self initCapture];
     [self initTopToolBar];
     
-    self.contentImage = [UIImage imageWithContentsOfFile:self.contentImagePath];
+    if (self.contentImage == nil ) {
+        if (self.contentImagePath) {
+            self.contentImage = [UIImage imageWithContentsOfFile:self.contentImagePath];
+        }
+    }
     self.contentImage ? [self switchAddContentMode] : [self switchCaptureMode];
-    
     self.arrFilePath = [NSMutableSet set];
 
 }

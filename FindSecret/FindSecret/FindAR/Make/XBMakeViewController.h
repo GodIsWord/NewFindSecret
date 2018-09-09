@@ -17,7 +17,7 @@
 @interface XBMakeViewController : UIViewController
 @property  (nonatomic, assign) BOOL onlyAddContentMode;
 @property  (nonatomic, copy) NSString *contentImagePath;
-
+@property (nonatomic, strong) UIImage *contentImage;
 @property (nonatomic,weak) id<XBMakeViewControllerDelegate> delegate;
 
 @end

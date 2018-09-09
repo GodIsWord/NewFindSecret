@@ -110,12 +110,12 @@
 }
 -(void)gotoMakeImage
 {
-//    XBMakeViewController *makeViewController = [[XBMakeViewController alloc] init];
-//    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535800125540&di=731771782a91456280d10eb3d363852e&imgtype=jpg&src=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2212426948%2C2448091984%26fm%3D214%26gp%3D0.jpg"]];
-//    makeViewController.contentImage = [UIImage imageWithData:data];
-//    makeViewController.onlyAddContentMode = YES;
-//    UINavigationController *navigationController1 = [[UINavigationController alloc] initWithRootViewController:makeViewController];
-//    [self presentViewController:navigationController1 animated:YES completion:nil];
+    XBMakeViewController *makeViewController = [[XBMakeViewController alloc] init];
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535800125540&di=731771782a91456280d10eb3d363852e&imgtype=jpg&src=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2212426948%2C2448091984%26fm%3D214%26gp%3D0.jpg"]];
+    makeViewController.contentImage = [UIImage imageWithData:data];
+    makeViewController.onlyAddContentMode = YES;
+    UINavigationController *navigationController1 = [[UINavigationController alloc] initWithRootViewController:makeViewController];
+    [self presentViewController:navigationController1 animated:YES completion:nil];
 }
 #pragma mark -  UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

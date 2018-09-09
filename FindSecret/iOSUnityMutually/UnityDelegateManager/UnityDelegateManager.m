@@ -36,25 +36,37 @@ static UnityDelegateManager *manager = nil;
 
 +(void)startARWindow
 {
+    UIApplication *application = [UIApplication sharedApplication];
     UIWindow *appWindow = [UIApplication sharedApplication].delegate.window;
     [appWindow resignKeyWindow];
     appWindow.hidden = YES;
     
     
     UIWindow *unityWindow = [self getUnityWindow];
+    if (!unityWindow) {
+        [self application:application didFinishLaunchingWithOptions:nil];
+        [UnityDelegateManager applicationWillResignActive:application];
+        [UnityDelegateManager applicationWillEnterForeground:application];
+        [UnityDelegateManager applicationDidBecomeActive:application];
+    }
+    unityWindow = [self getUnityWindow];
     [unityWindow makeKeyAndVisible];
     [unityWindow setHidden:NO];
+    UnityIsPaused(0);
 }
 
 +(void)stopARWindow
 {
-    UIWindow *appWindow = [UIApplication sharedApplication].delegate.window;
+    UIApplication *application = [UIApplication sharedApplication];
+    
+    UIWindow *appWindow = application.delegate.window;
     [appWindow makeKeyAndVisible];
     [appWindow setHidden:NO];
     
     UIWindow *unityWindow = [self getUnityWindow];
     [unityWindow resignKeyWindow];
     unityWindow.hidden = YES;
+    UnityIsPaused(1);
 }
 
 +(UnityView *)getUnityView
@@ -122,11 +134,17 @@ static UnityDelegateManager *manager = nil;
 
 + (void)applicationWillEnterForeground:(UIApplication*)application
 {
+    if (![self getUnityWindow]) {
+        return;
+    }
     [[UnityDelegateManager shareInstance].unityAppController applicationWillEnterForeground:application];
 }
 
 + (void)applicationDidBecomeActive:(UIApplication*)application
 {
+    if (![self getUnityWindow]) {
+        return;
+    }
     [[UnityDelegateManager shareInstance].unityAppController applicationDidBecomeActive:application];
 }
 

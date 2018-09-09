@@ -21,7 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [AMapServices sharedServices].apiKey = APIKEY;
     
-    [UnityDelegateManager application:application didFinishLaunchingWithOptions:launchOptions];
+//    [UnityDelegateManager application:application didFinishLaunchingWithOptions:launchOptions];
     
     HomeViewController *control = [[HomeViewController alloc] init];
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:control];

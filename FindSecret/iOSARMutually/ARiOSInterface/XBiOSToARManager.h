@@ -35,6 +35,8 @@ typedef enum {
 
 +(void)showNearPoint;
 
++(void)clearAR;
+
 @end
 
 

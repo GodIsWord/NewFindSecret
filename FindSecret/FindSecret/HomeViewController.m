@@ -159,6 +159,7 @@
     XBPublishController *publish = [[XBPublishController alloc] init];
     publish.jsonStr = jsonStr;
     publish.filePaths = array;
+    publish.snapshotImage = snapImage;
     [self.navigationController pushViewController:publish animated:YES];
 }
 

@@ -303,7 +303,7 @@
     self.scrollView.maximumZoomScale = 1.5;
     self.scrollView.delegate = self;
     
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.15 animations:^{
         CGRect frame = imageView.frame;
         frame.size.width = bgView.frame.size.width;
         frame.size.height = frame.size.width * (imageView.image.size.height / imageView.image.size.width);
@@ -316,7 +316,7 @@
 -(void)tapBgView:(UITapGestureRecognizer *)tapBgRecognizer
 {
     self.scrollView.contentOffset = CGPointZero;
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.15 animations:^{
         self.lastImageView.frame = self.originalFrame;
         tapBgRecognizer.view.backgroundColor = [UIColor clearColor];
     } completion:^(BOOL finished) {

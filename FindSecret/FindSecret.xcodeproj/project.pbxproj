@@ -1845,8 +1845,8 @@
 		E693157D2137F61700E7FAE3 /* RecordVideo */ = {
 			isa = PBXGroup;
 			children = (
-				E693157E2137F61700E7FAE3 /* XBCameraViewController.m */,
 				E693157F2137F61700E7FAE3 /* XBCameraViewController.h */,
+				E693157E2137F61700E7FAE3 /* XBCameraViewController.m */,
 			);
 			path = RecordVideo;
 			sourceTree = "<group>";

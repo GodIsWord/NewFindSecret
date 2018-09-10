@@ -52,7 +52,7 @@ static XBARDelegateManager *manager = nil;
     unityWindow = [self getUnityWindow];
     [unityWindow makeKeyAndVisible];
     [unityWindow setHidden:NO];
-    UnityIsPaused(0);
+//    UnityIsPaused(0);
 }
 
 +(void)stopARWindow
@@ -66,7 +66,7 @@ static XBARDelegateManager *manager = nil;
     UIWindow *unityWindow = [self getUnityWindow];
     [unityWindow resignKeyWindow];
     unityWindow.hidden = YES;
-    UnityIsPaused(1);
+//    UnityIsPaused(1);
 }
 
 +(UnityView *)getUnityView

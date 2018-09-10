@@ -12,6 +12,8 @@
 #import "XBGifImageView.h"
 #import "XBPublishLisonItemView.h"
 
+static CGFloat const MinRecorderDuration = 3;
+
 @interface XBPublishRecordAudioView () <MSRecordControlDelegate, XBAudioManagerRecoderDelegate>
 
 @property (nonatomic, strong) UIButton *backBtn;
@@ -206,7 +208,7 @@
 
 - (void)xbAudioManagerDidFinishRecording:(XBAudioManager *)recorder successfully:(BOOL)flag {
     [self stopGifAnimation];
-    if ([self.audeoManager lastAudioDuration] >0 ) {
+    if ([self.audeoManager lastAudioDuration] > MinRecorderDuration ) {
         [self openSelectAnimation];
     }
 }

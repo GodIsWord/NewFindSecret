@@ -15,6 +15,9 @@
 #define kToolBarHeight 44.0f
 #define kEditAreaViewHeight 60.0f
 
+#define MinDuration 3.0f
+#define MaxDuration 10.0f
+
 
 typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
     XBVideoEditStatusLimit,
@@ -126,7 +129,8 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
     _videoUrl = videoUrl;
     AVURLAsset *videoAsset = [AVURLAsset URLAssetWithURL:videoUrl options:@{AVURLAssetPreferPreciseDurationAndTimingKey: @(NO)}];
     // 保存帧率
-    self.isExceedTheLimit = CMTimeGetSeconds(videoAsset.duration) > 10.0;
+    NSTimeInterval duaration = CMTimeGetSeconds(videoAsset.duration);
+    self.isExceedTheLimit = (duaration > MaxDuration) || (duaration < MinDuration);
     self.totalTime = videoAsset.duration;
     self.startTime = CMTimeMake(0, videoAsset.duration.timescale);
     self.stopTime = videoAsset.duration;
@@ -191,13 +195,21 @@ typedef NS_ENUM(NSUInteger, XBVideoEditStatus) {
 
     self.bottomBarView.hidden = NO;
 
-    UIBarButtonItem *des = [[UIBarButtonItem alloc] initWithTitle:@"只能上传10秒内的视频" style:UIBarButtonItemStylePlain target:nil action:nil];
+    UIBarButtonItem *des = [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"只能上传%.0f-%.0f秒内的视频",MinDuration,MaxDuration] style:UIBarButtonItemStylePlain target:nil action:nil];
     [des setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
     UIBarButtonItem *fixItem3 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem *edit = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(updateSubViewsToEditStatus)];
-    [edit setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
-
-    [self.editToolbar setItems:@[des, fixItem3, edit] animated:NO];
+    
+    NSTimeInterval duaration = CMTimeGetSeconds(self.totalTime);
+    if (duaration < MinDuration) {
+        
+        [self.editToolbar setItems:@[des, fixItem3] animated:NO];
+        
+    }else{
+        UIBarButtonItem *edit = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(updateSubViewsToEditStatus)];
+        [edit setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
+        
+        [self.editToolbar setItems:@[des, fixItem3, edit] animated:NO];
+    }
 }
 
 - (void)updateSubViewsToEditStatus {

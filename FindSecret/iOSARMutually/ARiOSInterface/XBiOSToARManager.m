@@ -27,7 +27,7 @@
 }
 +(void)stopSaomiaoAR
 {
-    UnitySendMessage("callUnity", [@"SceneClear" UTF8String], "");
+    [self clearAR];
 }
 
 +(void)arResultShow:(NSString *)result
@@ -43,6 +43,11 @@
 +(void)showNearPoint
 {
     UnitySendMessage("callUnity", [@"SceneSwitch" UTF8String], "3");
+}
+
++(void)clearAR
+{
+    UnitySendMessage("callUnity", [@"SceneClear" UTF8String], "");
 }
 
 @end

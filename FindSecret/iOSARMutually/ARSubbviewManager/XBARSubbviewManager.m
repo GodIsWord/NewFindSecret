@@ -113,6 +113,7 @@
         if (block) {
             block();
         }
+        [XBiOSToARManager clearAR];
         [self hiddenUnityWindow];
     }];
 }
@@ -125,6 +126,7 @@
         if (block) {
             block();
         }
+        [XBiOSToARManager clearAR];
         [self hiddenUnityWindow];
     }];
 }

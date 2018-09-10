@@ -1,5 +1,5 @@
 //
-//  XBUnitySaomiaoSubbViews.h
+//  XBARSaomiaoSubbViews.h
 //  FindSecret
 //
 //  Created by yide zhang on 2018/8/31.
@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface XBUnitySaomiaoSubbViews : NSObject
+@interface XBARSaomiaoSubbViews : NSObject
 
-+(XBUnitySaomiaoSubbViews *)shareInstace;
++(XBARSaomiaoSubbViews *)shareInstace;
 
 +(void)showWithSuperView:(UIView*)superView dismisComplate:(void((^)(void)))complate;
 +(void)saomiaoSuccess:(NSString*)str;

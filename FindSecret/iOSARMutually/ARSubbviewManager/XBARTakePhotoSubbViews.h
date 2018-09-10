@@ -1,5 +1,5 @@
 //
-//  XBUnityTakePhotoSubbViews.h
+//  XBARTakePhotoSubbViews.h
 //  FindSecret
 //
 //  Created by yidezhang on 2018/8/30.
@@ -14,7 +14,7 @@ typedef NS_ENUM(NSUInteger, TakePhotoActionType) {
 
 #import <Foundation/Foundation.h>
 
-@interface XBUnityTakePhotoSubbViews : NSObject
+@interface XBARTakePhotoSubbViews : NSObject
 
 +(void)showWithSuperView:(UIView*)superView complate:(void((^)(TakePhotoActionType actionType)))block;
 

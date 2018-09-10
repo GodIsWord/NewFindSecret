@@ -1,5 +1,5 @@
 //
-//  UnityToiOSManager.h
+//  XBARToiOSManager.h
 //  Unity-iPhone
 //
 //  Created by 张义德 on 16/7/11.

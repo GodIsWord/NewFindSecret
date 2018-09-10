@@ -6,10 +6,10 @@
 //
 //
 
-#import "UnityToiOSManager.h"
-#import "XBUnitySubbviewManager.h"
+#import "XBARToiOSManager.h"
+#import "XBARSubbviewManager.h"
 
-#import "iOSToUnityManager.h"
+#import "XBiOSToARManager.h"
 
 void u3dStarted(void)
 {
@@ -29,12 +29,12 @@ void showToastMessage(void)
 void arCloudSuccess(char *metaID)
 {
     NSLog(@"metaID %s",metaID);
-    [XBUnitySubbviewManager arCloudSuccess:[NSString stringWithUTF8String:metaID]];
+    [XBARSubbviewManager arCloudSuccess:[NSString stringWithUTF8String:metaID]];
 }
 //AR扫描成功
 void arResultShowSuccess(char *mesg)
 {
-    [XBUnitySubbviewManager saomiaoSuccess:[NSString stringWithUTF8String:mesg]];
+    [XBARSubbviewManager saomiaoSuccess:[NSString stringWithUTF8String:mesg]];
 }
 //展示AR热点数据：
 void arResultShow(char *result)
@@ -44,7 +44,7 @@ void arResultShow(char *result)
 //拍照成功:
 void takePhotosSucess(char *path)
 {
-    [XBUnitySubbviewManager takePictureSuccess:[NSString stringWithUTF8String:path]];
+    [XBARSubbviewManager takePictureSuccess:[NSString stringWithUTF8String:path]];
 }
 
 

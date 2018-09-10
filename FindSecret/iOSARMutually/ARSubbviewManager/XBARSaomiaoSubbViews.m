@@ -1,18 +1,18 @@
 //
-//  XBUnitySaomiaoSubbViews.m
+//  XBARSaomiaoSubbViews.m
 //  FindSecret
 //
 //  Created by yide zhang on 2018/8/31.
 //  Copyright © 2018年 Mac. All rights reserved.
 //
 
-#import "XBUnitySaomiaoSubbViews.h"
+#import "XBARSaomiaoSubbViews.h"
 #import "XBTimer.h"
 #import <AVFoundation/AVFoundation.h>
 #import "XBWeakProxy.h"
 #import "UIButton+Block.h"
 
-@interface XBUnitySaomiaoSubbViews()
+@interface XBARSaomiaoSubbViews()
 
 //@property (nonatomic,strong) XBTimer *linkTimer;
 @property (nonatomic,strong) CADisplayLink *linkTimer;
@@ -26,13 +26,13 @@
 
 @end
 
-@implementation XBUnitySaomiaoSubbViews
-+(XBUnitySaomiaoSubbViews *)shareInstace
+@implementation XBARSaomiaoSubbViews
++(XBARSaomiaoSubbViews *)shareInstace
 {
-    static XBUnitySaomiaoSubbViews *manager = nil;
+    static XBARSaomiaoSubbViews *manager = nil;
     static dispatch_once_t once;
     dispatch_once(&once, ^{
-        manager = [[XBUnitySaomiaoSubbViews alloc] init];
+        manager = [[XBARSaomiaoSubbViews alloc] init];
     });
     return manager;
 }

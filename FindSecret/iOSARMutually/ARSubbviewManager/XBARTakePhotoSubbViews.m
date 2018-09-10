@@ -1,16 +1,16 @@
 //
-//  XBUnityTakePhotoSubbViews.m
+//  XBARTakePhotoSubbViews.m
 //  FindSecret
 //
 //  Created by yidezhang on 2018/8/30.
 //  Copyright © 2018年 Mac. All rights reserved.
 //
 
-#import "XBUnityTakePhotoSubbViews.h"
+#import "XBARTakePhotoSubbViews.h"
 #import "UIButton+Block.h"
 #import <AudioToolbox/AudioToolbox.h>
 
-@implementation XBUnityTakePhotoSubbViews
+@implementation XBARTakePhotoSubbViews
 
 +(void)showWithSuperView:(UIView*)superView complate:(void((^)(TakePhotoActionType actionType)))block
 {

@@ -1,5 +1,5 @@
 //
-//  UnityDelegateManager.h
+//  XBARDelegateManager.h
 //  ManZhouLIProject
 //
 //  Created by 张义德 on 2017/5/24.
@@ -9,10 +9,10 @@
 @class UnityAppController;
 @class UnityView;
 
-@interface UnityDelegateManager : NSObject
+@interface XBARDelegateManager : NSObject
 
 
-+(UnityDelegateManager*)shareInstance;
++(XBARDelegateManager*)shareInstance;
 
 +(void)startARWindow;
 +(void)stopARWindow;

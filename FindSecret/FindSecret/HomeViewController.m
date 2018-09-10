@@ -7,26 +7,18 @@
 //
 
 #import "HomeViewController.h"
-#import "XBVideoEditController.h"
-#import <MobileCoreServices/UTCoreTypes.h>
-#import "XBVideoEditController.h"
-#import "XBTextEditController.h"
-#import "XBTextEditController.h"
-#import "XBMakeViewController.h"
-#import "XBFindNearAddressVC.h"
-#import "XBPublishController.h"
-#import "XBUITestViewController.h"
-#import "XBPublishRecordAudioViewController.h"
 
+#import "XBMakeViewController.h"
 #import "AppDelegate.h"
-#import "XBUnitySubbviewManager.h"
+#import "XBARSubbviewManager.h"
 #import "HttpRequestServices.h"
 
+#import "XBPublishController.h"
 
 
-@interface HomeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource,XBMakeViewControllerDelegate>
 
-@property(nonatomic, strong) NSDictionary *userInfo;
+@interface HomeViewController () <UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource,XBMakeViewControllerDelegate>
+
 @property (weak,nonatomic) UILabel *addressLabel;
 
 @property(nonatomic,strong) UITableView *tableView;
@@ -36,21 +28,6 @@
 @end
 
 @implementation HomeViewController
-
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [picker dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *, id> *)info {
-    self.userInfo = info;
-    [picker dismissViewControllerAnimated:YES completion:^{
-        XBVideoEditController *videoEditController = [[XBVideoEditController alloc] init];
-        videoEditController.videoUrl = info[UIImagePickerControllerMediaURL];
-        [self presentViewController:videoEditController animated:YES completion:nil];
-    }];
-
-}
 
 
 - (void)viewDidLoad {
@@ -71,12 +48,10 @@
 }
 
 -(void)initDataSource{
-    self.dataSource = @[@"发布",
-                        @"文字",
-                        @"创作AR内容",
-                        @"UI测试",
-                        @"启动AR，制作内容并上传",
-                        @"AR扫描"];
+    self.dataSource = @[@"启动AR，制作内容并上传",
+                        @"AR扫描",
+                        @"附近的人",
+                        @"附近的内容"];
 }
 
 -(void)initTableView{
@@ -88,23 +63,11 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
-
--(void)publish{
-    XBPublishController *vc = [XBPublishController new];
-    [self.navigationController pushViewController:vc animated:NO];
-}
-- (void)gotoTextEdit {
-    XBTextEditController *textXB = [[XBTextEditController alloc] init];
-    textXB.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    [self presentViewController:textXB animated:NO completion:nil];
-    
-}
 - (void)gotoVideoEditWithImagePath:(NSString*)path {
     XBMakeViewController *makeViewController = [[XBMakeViewController alloc] init];
     makeViewController.contentImagePath = path;
     makeViewController.onlyAddContentMode = YES;
     makeViewController.delegate = self;
-//    UINavigationController *navigationController1 = [[UINavigationController alloc] initWithRootViewController:makeViewController];
     [self.navigationController presentViewController:makeViewController animated:NO completion:nil];
     
 }
@@ -144,35 +107,27 @@
     switch (indexPath.row) {
             case 0:
             {
-                [self publish];
+                [XBARSubbviewManager showTakePhotoComplate:^(NSString *path) {
+                    [self gotoVideoEditWithImagePath:path];
+                }];
             }
             break;
             case 1:{
-                
-                [self gotoTextEdit];
-                
-                
+                [XBARSubbviewManager startSaomiao];
             }
             break;
             case 2:{
-                [self gotoMakeImage];
+                [XBARSubbviewManager showNearPeopleComplate:nil];
             }
             break;
             case 3:{
-                XBUITestViewController *vc = [[XBUITestViewController alloc] initWithNibName:@"XBUITestViewController" bundle:nil];
-                [self.navigationController pushViewController:vc animated:YES];
+                [XBARSubbviewManager showNearPointComplate:nil];
             }
                 break;
             case 4:{
-                [XBUnitySubbviewManager showTakePhotoComplate:^(NSString *path) {
-                    [self gotoVideoEditWithImagePath:path];
-                }];
+                
                 
             }
-            break;
-        case 5:{
-            [XBUnitySubbviewManager startSaomiao];
-        }
             break;
 
             

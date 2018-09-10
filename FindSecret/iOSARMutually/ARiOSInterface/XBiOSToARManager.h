@@ -1,5 +1,5 @@
 //
-//  iOSToUnityManager.h
+//  XBiOSToARManager.h
 //  Unity-iPhone
 //
 //  Created by 张义德 on 16/7/11.
@@ -16,7 +16,7 @@ typedef enum {
 
 #import <Foundation/Foundation.h>
 
-@interface iOSToUnityManager : NSObject
+@interface XBiOSToARManager : NSObject
 
 
 +(void)startSaomiaoAR;
@@ -31,4 +31,14 @@ typedef enum {
 //加载poi数据( 包含扫描权限获取 )
 +(void)arResultShow:(NSString*)result;
 
++(void)showNearPeople;
+
++(void)showNearPoint;
+
 @end
+
+
+
+
+
+

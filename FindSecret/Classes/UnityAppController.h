@@ -4,7 +4,7 @@
 
 #include "PluginBase/RenderPluginDelegate.h"
 
-#import "UnityDelegateManager.h"
+#import "XBARDelegateManager.h"
 
 @class UnityView;
 @class UnityViewControllerBase;
@@ -91,7 +91,7 @@
 inline UnityAppController* GetAppController()
 {
 //    return (UnityAppController*)[[UIApplication sharedApplication] valueForKeyPath:@"delegate.unityController"];
-    return [UnityDelegateManager getUnityDelegate];
+    return [XBARDelegateManager getUnityDelegate];
 }
 
 #define APP_CONTROLLER_RENDER_PLUGIN_METHOD(method)                         \

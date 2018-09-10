@@ -1,55 +1,58 @@
 //
-//  XBUnitySubbviewManager.m
+//  XBARSubbviewManager.m
 //  FindSecret
 //
 //  Created by yidezhang on 2018/8/30.
 //  Copyright © 2018年 Mac. All rights reserved.
 //
 
-#import "XBUnitySubbviewManager.h"
-#import "XBUnityTakePhotoSubbViews.h"
-#import "UnityDelegateManager.h"
-#import "iOSToUnityManager.h"
-#import "XBUnitySaomiaoSubbViews.h"
+#import "XBARSubbviewManager.h"
+#import "XBARTakePhotoSubbViews.h"
+#import "XBARDelegateManager.h"
+#import "XBiOSToARManager.h"
+#import "XBARSaomiaoSubbViews.h"
 
 #import "HttpRequestServices.h"
 
-@interface XBUnitySubbviewManager()
+#import "XBARNearPeopleSubbviews.h"
+#import "XBARNearPointSubbviews.h"
+
+@interface XBARSubbviewManager()
 
 @property(nonatomic,copy) void((^picturBlock)(NSString *));
 
 @end
 
-@implementation XBUnitySubbviewManager
+@implementation XBARSubbviewManager
 -(void)dealloc
 {
     self.picturBlock = nil;
 }
 
-+(XBUnitySubbviewManager *)shareInstance
++(XBARSubbviewManager *)shareInstance
 {
-    static XBUnitySubbviewManager *manager = nil;
+    static XBARSubbviewManager *manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        manager = [XBUnitySubbviewManager new];
+        manager = [XBARSubbviewManager new];
     });
     return manager;
 }
 
 +(void)showUnityWindow
 {
-    [UnityDelegateManager startARWindow];
+    [XBARDelegateManager startARWindow];
 }
 +(void)hiddenUnityWindow
 {
-    [UnityDelegateManager stopARWindow];
+    [XBARDelegateManager stopARWindow];
 }
 +(void)showTakePhotoComplate:(void ((^)(NSString *)))block
 {
     [[self shareInstance] setPicturBlock:block];
     [self showUnityWindow];
-    UIView *view = (UIView*)[UnityDelegateManager getUnityView];
-    [XBUnityTakePhotoSubbViews showWithSuperView:view complate:^(TakePhotoActionType actionType) {
+    UIView *view = (UIView*)[XBARDelegateManager getUnityView];
+    [XBARTakePhotoSubbViews showWithSuperView:view complate:^(TakePhotoActionType actionType) {
         switch (actionType) {
             case TakePhotoActionTypeOK:
                 [self takePicture];
@@ -67,39 +70,63 @@
 }
 +(void)canclePicture
 {
-    [XBUnityTakePhotoSubbViews dismissWithSuperView:(UIView*)[UnityDelegateManager getUnityView]];
+    [XBARTakePhotoSubbViews dismissWithSuperView:(UIView*)[XBARDelegateManager getUnityView]];
     [self hiddenUnityWindow];
 }
 
 #pragma mark -- ios to unity
 +(void)takePicture
 {
-    [iOSToUnityManager takePhotograph];
+    [XBiOSToARManager takePhotograph];
 }
 +(void)flapCamora
 {
     static int type = 1;
-    [iOSToUnityManager setCameraPosition:type++];
+    [XBiOSToARManager setCameraPosition:type++];
     type = type % 2;
 }
 +(void)startSaomiao
 {
     [self showUnityWindow];
-    [iOSToUnityManager startSaomiaoAR];
-    [XBUnitySaomiaoSubbViews showWithSuperView:(UIView*)[UnityDelegateManager getUnityView] dismisComplate:^{
+    [XBiOSToARManager startSaomiaoAR];
+    [XBARSaomiaoSubbViews showWithSuperView:(UIView*)[XBARDelegateManager getUnityView] dismisComplate:^{
         [self stopSaomiao];
     }];
 }
 +(void)stopSaomiao
 {
     [self hiddenUnityWindow];
-    [iOSToUnityManager stopSaomiaoAR];
+    [XBiOSToARManager stopSaomiaoAR];
 }
 
 //加载poi数据( 包含扫描权限获取 )
 +(void)arResultShow:(NSString*)result
 {
-    [iOSToUnityManager arResultShow:result];
+    [XBiOSToARManager arResultShow:result];
+}
+
++(void)showNearPeopleComplate:(void((^)(void)))block
+{
+    [self showUnityWindow];
+    [XBiOSToARManager showNearPeople];
+    [XBARNearPeopleSubbviews showWithSuperView:(UIView*)[XBARDelegateManager getUnityView] dismisComplate:^{
+        if (block) {
+            block();
+        }
+        [self hiddenUnityWindow];
+    }];
+}
+
++(void)showNearPointComplate:(void((^)(void)))block
+{
+    [self showUnityWindow];
+    [XBiOSToARManager showNearPoint];
+    [XBARNearPointSubbviews showWithSuperView:(UIView*)[XBARDelegateManager getUnityView] dismisComplate:^{
+        if (block) {
+            block();
+        }
+        [self hiddenUnityWindow];
+    }];
 }
 
 #pragma mark -- unity回调
@@ -146,7 +173,7 @@
         jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@"\n" withString:@""];
         jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@" " withString:@""];
         
-        [iOSToUnityManager arResultShow:jsonStr];
+        [XBiOSToARManager arResultShow:jsonStr];
         
     } failedBlock:^(NSError *error) {
         
@@ -156,7 +183,7 @@
 +(void)saomiaoSuccess:(NSString *)mesg
 {
     NSLog(@"saomiaoSuccess:%@",mesg);
-    [XBUnitySaomiaoSubbViews saomiaoSuccess:mesg];
+    [XBARSaomiaoSubbViews saomiaoSuccess:mesg];
 }
 
 @end

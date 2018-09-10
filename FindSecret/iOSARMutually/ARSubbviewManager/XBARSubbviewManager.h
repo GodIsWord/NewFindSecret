@@ -1,5 +1,5 @@
 //
-//  XBUnitySubbviewManager.h
+//  XBARSubbviewManager.h
 //  FindSecret
 //
 //  Created by yidezhang on 2018/8/30.
@@ -8,14 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@interface XBUnitySubbviewManager : NSObject
+@interface XBARSubbviewManager : NSObject
 
-+(XBUnitySubbviewManager*) shareInstance;
++(XBARSubbviewManager*) shareInstance;
 
 +(void)showTakePhotoComplate:(void((^)(NSString *path)))block;
 
 +(void)startSaomiao;
 +(void)stopSaomiao;
+
++(void)showNearPeopleComplate:(void((^)(void)))block;
+
++(void)showNearPointComplate:(void((^)(void)))block;
 
 #pragma mark -- unity回调
 +(void)takePictureSuccess:(NSString *)path;

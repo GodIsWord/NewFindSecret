@@ -1,27 +1,27 @@
 //
-//  UnityDelegateManager.m
+//  XBARDelegateManager.m
 //  ManZhouLIProject
 //
 //  Created by 张义德 on 2017/5/24.
 //  Copyright © 2017年 张义德. All rights reserved.
 //
 
-#import "UnityDelegateManager.h"
+#import "XBARDelegateManager.h"
 #import "UnityAppController.h"
-#import "iOSToUnityManager.h"
+#import "XBiOSToARManager.h"
 
-@interface UnityDelegateManager ()
+@interface XBARDelegateManager ()
 @property (nonatomic,strong) UnityAppController *unityAppController;
 @end
 
-@implementation UnityDelegateManager
+@implementation XBARDelegateManager
 
-static UnityDelegateManager *manager = nil;
-+(UnityDelegateManager*)shareInstance
+static XBARDelegateManager *manager = nil;
++(XBARDelegateManager*)shareInstance
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        manager = [[UnityDelegateManager alloc] init];
+        manager = [[XBARDelegateManager alloc] init];
     });
     return manager;
 }
@@ -45,9 +45,9 @@ static UnityDelegateManager *manager = nil;
     UIWindow *unityWindow = [self getUnityWindow];
     if (!unityWindow) {
         [self application:application didFinishLaunchingWithOptions:nil];
-        [UnityDelegateManager applicationWillResignActive:application];
-        [UnityDelegateManager applicationWillEnterForeground:application];
-        [UnityDelegateManager applicationDidBecomeActive:application];
+        [XBARDelegateManager applicationWillResignActive:application];
+        [XBARDelegateManager applicationWillEnterForeground:application];
+        [XBARDelegateManager applicationDidBecomeActive:application];
     }
     unityWindow = [self getUnityWindow];
     [unityWindow makeKeyAndVisible];
@@ -81,55 +81,55 @@ static UnityDelegateManager *manager = nil;
 
 +(UnityAppController *)getUnityDelegate
 {
-    return [UnityDelegateManager shareInstance].unityAppController;
+    return [XBARDelegateManager shareInstance].unityAppController;
 }
 
 
 + (NSUInteger)application:(UIApplication*)application supportedInterfaceOrientationsForWindow:(UIWindow*)window
 {
-    return   [[UnityDelegateManager shareInstance].unityAppController application:application supportedInterfaceOrientationsForWindow:window];
+    return   [[XBARDelegateManager shareInstance].unityAppController application:application supportedInterfaceOrientationsForWindow:window];
 }
 
 #if !UNITY_TVOS
 + (void)application:(UIApplication*)application didReceiveLocalNotification:(UILocalNotification*)notification
 {
-    [[UnityDelegateManager shareInstance].unityAppController application:application didReceiveLocalNotification:notification];
+    [[XBARDelegateManager shareInstance].unityAppController application:application didReceiveLocalNotification:notification];
 }
 #endif
 
 + (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo
 {
-    [[UnityDelegateManager shareInstance].unityAppController application:application didReceiveRemoteNotification:userInfo];
+    [[XBARDelegateManager shareInstance].unityAppController application:application didReceiveRemoteNotification:userInfo];
 }
 
 + (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
-    [[UnityDelegateManager shareInstance].unityAppController application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+    [[XBARDelegateManager shareInstance].unityAppController application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
 }
 
 + (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
 {
-    [[UnityDelegateManager shareInstance].unityAppController application:application didFailToRegisterForRemoteNotificationsWithError:error];
+    [[XBARDelegateManager shareInstance].unityAppController application:application didFailToRegisterForRemoteNotificationsWithError:error];
 }
 
 + (BOOL)application:(UIApplication*)application openURL:(NSURL*)url sourceApplication:(NSString*)sourceApplication annotation:(id)annotation
 {
-    return [[UnityDelegateManager shareInstance].unityAppController application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+    return [[XBARDelegateManager shareInstance].unityAppController application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
 }
 
 +(BOOL)application:(UIApplication*)application willFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
-    return [[UnityDelegateManager shareInstance].unityAppController application:application willFinishLaunchingWithOptions:launchOptions];
+    return [[XBARDelegateManager shareInstance].unityAppController application:application willFinishLaunchingWithOptions:launchOptions];
 }
 
 + (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
-    return [[UnityDelegateManager shareInstance].unityAppController application:application didFinishLaunchingWithOptions:launchOptions];
+    return [[XBARDelegateManager shareInstance].unityAppController application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
 + (void)applicationDidEnterBackground:(UIApplication*)application
 {
-    [[UnityDelegateManager shareInstance].unityAppController applicationDidEnterBackground:application];
+    [[XBARDelegateManager shareInstance].unityAppController applicationDidEnterBackground:application];
 }
 
 + (void)applicationWillEnterForeground:(UIApplication*)application
@@ -137,7 +137,7 @@ static UnityDelegateManager *manager = nil;
     if (![self getUnityWindow]) {
         return;
     }
-    [[UnityDelegateManager shareInstance].unityAppController applicationWillEnterForeground:application];
+    [[XBARDelegateManager shareInstance].unityAppController applicationWillEnterForeground:application];
 }
 
 + (void)applicationDidBecomeActive:(UIApplication*)application
@@ -145,22 +145,22 @@ static UnityDelegateManager *manager = nil;
     if (![self getUnityWindow]) {
         return;
     }
-    [[UnityDelegateManager shareInstance].unityAppController applicationDidBecomeActive:application];
+    [[XBARDelegateManager shareInstance].unityAppController applicationDidBecomeActive:application];
 }
 
 + (void)applicationWillResignActive:(UIApplication*)application
 {
-    [[UnityDelegateManager shareInstance].unityAppController applicationWillResignActive:application];
+    [[XBARDelegateManager shareInstance].unityAppController applicationWillResignActive:application];
 }
 
 + (void)applicationDidReceiveMemoryWarning:(UIApplication*)application
 {
-    [[UnityDelegateManager shareInstance].unityAppController applicationDidReceiveMemoryWarning:application];
+    [[XBARDelegateManager shareInstance].unityAppController applicationDidReceiveMemoryWarning:application];
 }
 
 + (void)applicationWillTerminate:(UIApplication*)application
 {
-    [[UnityDelegateManager shareInstance].unityAppController applicationWillTerminate:application];
+    [[XBARDelegateManager shareInstance].unityAppController applicationWillTerminate:application];
 }
 
 @end

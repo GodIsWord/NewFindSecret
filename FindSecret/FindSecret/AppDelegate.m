@@ -10,7 +10,7 @@
 #import <AMapFoundationKit/AMapFoundationKit.h>
 
 #import "HomeViewController.h"
-#import "UnityDelegateManager.h"
+#import "XBARDelegateManager.h"
 
 @interface AppDelegate ()
 
@@ -20,7 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [AMapServices sharedServices].apiKey = APIKEY;
-//    [UnityDelegateManager application:application didFinishLaunchingWithOptions:launchOptions];
+//    [XBARDelegateManager application:application didFinishLaunchingWithOptions:launchOptions];
     
     HomeViewController *control = [[HomeViewController alloc] init];
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:control];
@@ -34,27 +34,27 @@
 
 
 //- (void)applicationWillResignActive:(UIApplication *)application {
-//    [UnityDelegateManager applicationWillResignActive:application];
+//    [XBARDelegateManager applicationWillResignActive:application];
 //}
 //
 //
 //- (void)applicationDidEnterBackground:(UIApplication *)application {
-//    [UnityDelegateManager applicationDidEnterBackground:application];
+//    [XBARDelegateManager applicationDidEnterBackground:application];
 //}
 //
 //
 //- (void)applicationWillEnterForeground:(UIApplication *)application {
-//    [UnityDelegateManager applicationWillEnterForeground:application];
+//    [XBARDelegateManager applicationWillEnterForeground:application];
 //}
 //
 //
 //- (void)applicationDidBecomeActive:(UIApplication *)application {
-//    [UnityDelegateManager applicationDidBecomeActive:application];
+//    [XBARDelegateManager applicationDidBecomeActive:application];
 //}
 //
 //
 //- (void)applicationWillTerminate:(UIApplication *)application {
-//    [UnityDelegateManager applicationWillTerminate:application];
+//    [XBARDelegateManager applicationWillTerminate:application];
 //}
 //
 

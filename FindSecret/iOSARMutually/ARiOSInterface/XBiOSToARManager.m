@@ -13,13 +13,12 @@
 ////拍照
 +(void)takePhotograph
 {
-//    UnitySendMessage("callUnity", [@"SceneSwitch" UTF8String], "1");
+    UnitySendMessage("callUnity", [@"SceneSwitch" UTF8String], "1");
     UnitySendMessage("callUnity", [@"Photograph" UTF8String], "");
 }
 //设置摄像头前置还是后置
 +(void)setCameraPosition:(CamraDevicePosition)position
 {
-//    UnitySendMessage("callUnity", [@"SceneSwitch" UTF8String], "1");
     UnitySendMessage("callUnity", [@"FlipCamera" UTF8String], [[NSString stringWithFormat:@"%d",position] UTF8String]);
 }
 +(void)startSaomiaoAR

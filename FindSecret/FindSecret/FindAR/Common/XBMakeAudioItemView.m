@@ -51,7 +51,7 @@
 
 - (void)startAnimation {
     [self.gifImageView startAnimation];
-    self.titleLabel.text = @"点击暂停";
+    self.titleLabel.text = @"播放中...";
 }
 - (void)stopAnimation {
     [self.gifImageView stopAnimation];

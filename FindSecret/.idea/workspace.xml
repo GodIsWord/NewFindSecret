@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5941b6a9-bc2a-4702-bf3b-18e8b2fd9f94" name="Default" comment="重构类结构" />
+    <list default="true" id="5941b6a9-bc2a-4702-bf3b-18e8b2fd9f94" name="Default" comment="" />
     <ignored path="$USER_HOME$/Library/Developer/Xcode/DerivedData/FindSecret-fumyhxgzowcicvgozmlzmkzwpvwc/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -10,38 +10,95 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_8e3ec57027e3f39887b4086a1d189ed880649c8a" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="XBVideoEditController.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XBMacroDefinition.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/XBMacroDefinition.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XBVideoEditController.m" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="237">
+              <caret line="497" column="45" lean-forward="true" selection-start-line="497" selection-start-column="45" selection-end-line="497" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#2#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XBGifImageView.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/RecordVoice/XBGifImageView.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XBGifImageView.m" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/RecordVoice/XBGifImageView.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="445">
+              <caret line="51" column="31" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XBMakeViewController.m" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7665">
+              <caret line="513" selection-start-line="513" selection-end-line="513" />
+              <folding>
+                <element signature="e#8#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="XBCameraViewController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/RecordVideo/XBCameraViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="130" column="20" lean-forward="true" selection-start-line="130" selection-start-column="20" selection-end-line="130" selection-end-column="20" />
+            <state relative-caret-position="6105">
+              <caret line="407" column="15" selection-start-line="407" selection-start-column="15" selection-end-line="407" selection-end-column="15" />
               <folding>
-                <element signature="e#8#42#0" expanded="true" />
+                <element signature="e#138#172#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XBMakeViewController.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.h">
+      <file leaf-file-name="MSRecordControl.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Common/MSRecordControl.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="58" lean-forward="true" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
+            <state relative-caret-position="330">
+              <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XBMakeViewController.m" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.m">
+      <file leaf-file-name="MSRecordControl.m" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Common/MSRecordControl.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="635">
-              <caret line="494" column="40" selection-start-line="494" selection-start-column="40" selection-end-line="494" selection-end-column="40" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="2115">
+              <caret line="141" column="1" selection-start-line="141" selection-start-column="1" selection-end-line="141" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -49,8 +106,8 @@
       <file leaf-file-name="XBCameraViewController.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/RecordVideo/XBCameraViewController.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="99" selection-start-line="24" selection-start-column="99" selection-end-line="24" selection-end-column="99" />
+            <state relative-caret-position="315">
+              <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -64,6 +121,7 @@
       <find>updateToolbarItemsWithTypes</find>
       <find>XBMakeContentStageCaptureDone</find>
       <find>viewdidA</find>
+      <find>//.*</find>
       <find>confirmAction</find>
       <find>confirmButton</find>
       <find>XBMakeToolbarItemTypeConfirm</find>
@@ -71,44 +129,29 @@
       <find>XBVideoEditControllerXBVideoEditController</find>
       <find>didProcessingCompletedWithVideoUrl</find>
       <find>XBVideoEditStatusLimit</find>
-      <find>gifImageView</find>
-      <find>self.contentLabel.layer</find>
-      <find>didClickededit</find>
-      <find>//.*</find>
-      <find>videoTrackTransform</find>
-      <find>assetWriter</find>
     </findStrings>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/FindSecret/FindAR/XBMacroDefinition.h" />
         <option value="$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.h" />
+        <option value="$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.h" />
         <option value="$PROJECT_DIR$/FindSecret/ViewController.m" />
         <option value="$PROJECT_DIR$/FindSecret/FindAR/common/XBMakeToolView.m" />
         <option value="$PROJECT_DIR$/FindSecret/FindAR/TextEdit/XBTextEditController.h" />
+        <option value="$PROJECT_DIR$/FindSecret/FindAR/TextEdit/XBTextEditController.m" />
         <option value="$PROJECT_DIR$/FindSecret/FindAR/common/XBMakeContentItemView.h" />
         <option value="$PROJECT_DIR$/FindSecret/FindAR/common/XBMakeContentItemView.m" />
+        <option value="$PROJECT_DIR$/FindSecret/FindAR/Common/XBMakeContentItemView.m" />
+        <option value="$PROJECT_DIR$/FindSecret/FindAR/Common/XBMakeContentItemView.h" />
+        <option value="$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.m" />
         <option value="$PROJECT_DIR$/FindSecret/FindAR/Common/MSRecordControl.h" />
         <option value="$PROJECT_DIR$/FindSecret/FindAR/Common/MSRecordControl.m" />
+        <option value="$PROJECT_DIR$/FindSecret/FindAR/RecordVideo/XBCameraViewController.m" />
+        <option value="$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.m" />
         <option value="$PROJECT_DIR$/FindSecret/FindAR/RecordVoice/XBGifImageView.h" />
         <option value="$PROJECT_DIR$/FindSecret/FindAR/RecordVoice/XBGifImageView.m" />
-        <option value="$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.m" />
-        <option value="$PROJECT_DIR$/FindSecret/FindAR/Common/XBAVTools.h" />
-        <option value="$PROJECT_DIR$/FindSecret/FindAR/Common/XBMakeAudioItemView.m" />
-        <option value="$PROJECT_DIR$/FindSecret/FindAR/Common/XBMakeAudioItemView.h" />
-        <option value="$PROJECT_DIR$/FindSecret/FindAR/Common/XBMakeContentItemView.h" />
-        <option value="$PROJECT_DIR$/FindSecret/FindAR/Common/XBMakeContentItemView.m" />
-        <option value="$PROJECT_DIR$/FindSecret/FindAR/Common/XBAVTools.m" />
-        <option value="$PROJECT_DIR$/FindSecret/FindAR/RecordVoice/XBPublishRecordAudioView.m" />
-        <option value="$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.m" />
-        <option value="$PROJECT_DIR$/FindSecret/FindAR/TextEdit/XBTextEditController.m" />
-        <option value="$PROJECT_DIR$/FindSecret/FindAR/RecordVideo/XBCameraViewController.h" />
-        <option value="$PROJECT_DIR$/FindSecret/FindAR/RecordVideo/XBCameraViewController.m" />
-        <option value="$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.h" />
       </list>
     </option>
   </component>
@@ -123,18 +166,13 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1360" />
-    <option name="y" value="202" />
-    <option name="width" value="80" />
-    <option name="height" value="22" />
-  </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
+    <option name="x" value="35" />
+    <option name="y" value="22" />
+    <option name="width" value="1245" />
+    <option name="height" value="778" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
-      <showMembers ProjectPane="false" />
-      <autoscrollFromSource ProjectPane="true" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -151,85 +189,6 @@
               <item name="FindSecret" type="1d218c8b:XcodeProjectNode" />
               <item name="FindSecret" type="fcab9f18:XcodeViewNode" />
             </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="FindSecret" type="1d218c8b:XcodeProjectNode" />
-              <item name="FindSecret" type="fcab9f18:XcodeViewNode" />
-              <item name="FindAR" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="FindSecret" type="1d218c8b:XcodeProjectNode" />
-              <item name="FindSecret" type="fcab9f18:XcodeViewNode" />
-              <item name="FindAR" type="fcab9f18:XcodeViewNode" />
-              <item name="Common" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="FindSecret" type="1d218c8b:XcodeProjectNode" />
-              <item name="FindSecret" type="fcab9f18:XcodeViewNode" />
-              <item name="FindAR" type="fcab9f18:XcodeViewNode" />
-              <item name="Make" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="FindSecret" type="1d218c8b:XcodeProjectNode" />
-              <item name="FindSecret" type="fcab9f18:XcodeViewNode" />
-              <item name="FindAR" type="fcab9f18:XcodeViewNode" />
-              <item name="RecordVideo" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="FindSecret" type="1d218c8b:XcodeProjectNode" />
-              <item name="FindSecret" type="fcab9f18:XcodeViewNode" />
-              <item name="FindAR" type="fcab9f18:XcodeViewNode" />
-              <item name="RecordVoice" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="FindSecret" type="1d218c8b:XcodeProjectNode" />
-              <item name="FindSecret" type="fcab9f18:XcodeViewNode" />
-              <item name="FindAR" type="fcab9f18:XcodeViewNode" />
-              <item name="TextEdit" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="FindSecret" type="1d218c8b:XcodeProjectNode" />
-              <item name="FindSecret" type="fcab9f18:XcodeViewNode" />
-              <item name="FindAR" type="fcab9f18:XcodeViewNode" />
-              <item name="VideoEdit" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="FindSecret" type="1d218c8b:XcodeProjectNode" />
-              <item name="Frameworks" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="FindSecret" type="1d218c8b:XcodeProjectNode" />
-              <item name="Frameworks" type="fcab9f18:XcodeViewNode" />
-              <item name="CoreGraphics.framework" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="FindSecret" type="1d218c8b:XcodeProjectNode" />
-              <item name="Frameworks" type="fcab9f18:XcodeViewNode" />
-              <item name="CoreGraphics.framework" type="fcab9f18:XcodeViewNode" />
-              <item name="Headers" type="bbd1f04c:XcodeFrameworkHeadersNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="FindSecret" type="1d218c8b:XcodeProjectNode" />
-              <item name="Frameworks" type="fcab9f18:XcodeViewNode" />
-              <item name="CoreMedia.framework" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="FindSecret" type="1d218c8b:XcodeProjectNode" />
-              <item name="Frameworks" type="fcab9f18:XcodeViewNode" />
-              <item name="CoreMedia.framework" type="fcab9f18:XcodeViewNode" />
-              <item name="Headers" type="bbd1f04c:XcodeFrameworkHeadersNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -239,11 +198,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="OBJC.PRESERVED_TARGET_SELECTION" value="FindSecret" />
-    <property name="SearchEverywhereHistoryKey" value="xbmakeviewcon&#9;FILE&#9;file:///Users/9f/NewFindSecret/FindSecret/FindSecret/FindAR/Make/XBMakeViewController.h&#10;xbca&#9;FILE&#9;file:///Users/9f/NewFindSecret/FindSecret/FindSecret/FindAR/RecordVideo/XBCameraViewController.m&#10;xbte&#9;FILE&#9;file:///Users/9f/NewFindSecret/FindSecret/FindSecret/FindAR/TextEdit/XBTextEditController.m&#10;XBTextEditController&#9;FILE&#9;file:///Users/9f/NewFindSecret/FindSecret/FindSecret/FindAR/TextEdit/XBTextEditController.m&#10;XBMakeContentItemView&#9;FILE&#9;file:///Users/9f/NewFindSecret/FindSecret/FindSecret/FindAR/Common/XBMakeContentItemView.h&#10;edit&#9;FILE&#9;file:///Users/pillar/Desktop/NewFindSecret/FindSecret/FindSecret/FindAR/VideoEdit/XBVideoEditController.m" />
+    <property name="SearchEverywhereHistoryKey" value="edit&#9;FILE&#9;file:///Users/pillar/Desktop/NewFindSecret/FindSecret/FindSecret/FindAR/VideoEdit/XBVideoEditController.m&#10;XBMakeContentItemView&#9;FILE&#9;file:///Users/pillar/Desktop/NewFindSecret/FindSecret/FindSecret/FindAR/common/XBMakeContentItemView.m" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++/Objective-C" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -282,42 +241,37 @@
       <workItem from="1533132410769" duration="831000" />
       <workItem from="1534524074725" duration="5366000" />
       <workItem from="1535186865949" duration="11499000" />
-      <workItem from="1535731125181" duration="533000" />
-      <workItem from="1535768089826" duration="547000" />
-      <workItem from="1535768761772" duration="7798000" />
-      <workItem from="1535785434692" duration="1927000" />
-      <workItem from="1536209920222" duration="302000" />
-      <workItem from="1536479477919" duration="2356000" />
+      <workItem from="1535731125181" duration="957000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39541000" />
+    <option name="totallyTimeSpent" value="27035000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="830" extended-state="6" />
+    <frame x="35" y="22" width="1245" height="778" extended-state="6" />
     <layout>
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49964765" weight="0.2542373" />
-      <window_info anchor="right" id="IDEtalk" order="3" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.3590844" side_tool="true" visible="true" weight="0.0" />
-      <window_info anchor="bottom" x="10" y="204" width="1419" height="442" id="Run" order="2" weight="0.35875705" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49928468" weight="0.4656992" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32909605" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.22394367" visible="true" weight="0.15164521" />
-      <window_info anchor="bottom" id="IDEtalk Messages" order="9" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.77605635" side_tool="true" visible="true" weight="0.15164521" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6409156" weight="0.3298153" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.06534091" visible="true" weight="0.2682731" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49964765" weight="0.2542373" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50321543" side_tool="true" weight="0.32954547" />
+      <window_info anchor="bottom" x="10" y="204" width="1419" height="442" id="Run" order="2" weight="0.35875705" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" weight="0.4661017" />
+      <window_info id="Structure" order="1" sideWeight="0.93465906" side_tool="true" visible="true" weight="0.2682731" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32909605" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49678457" weight="0.32954547" />
       <window_info id="Favorites" order="3" sideWeight="0.5037594" side_tool="true" weight="0.2501762" />
+      <window_info anchor="bottom" id="IDEtalk Messages" order="9" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="right" id="IDEtalk" order="3" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.48426324" weight="0.32849604" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.4959807" weight="0.32954547" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,16 +280,84 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="重构类结构" />
-    <option name="LAST_COMMIT_MESSAGE" value="重构类结构" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/FindSecret/ViewController.m" />
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="53" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindSecret/main.m" />
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVPlayer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5025">
+          <caret line="335" column="24" selection-start-line="335" selection-start-column="24" selection-end-line="335" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMedia.framework/Headers/CMTime.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1755">
+          <caret line="117" column="22" selection-start-line="117" selection-start-column="16" selection-end-line="117" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIInterface.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="33" lean-forward="true" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+          <folding>
+            <element signature="e#8#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/XBMacroDefinition.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+          <folding>
+            <element signature="e#0#2#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindSecret/main.m" />
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVPlayer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5025">
+          <caret line="335" column="24" selection-start-line="335" selection-start-column="24" selection-end-line="335" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMedia.framework/Headers/CMTime.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1755">
@@ -406,6 +428,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2355">
           <caret line="157" column="1" selection-start-line="157" selection-start-column="1" selection-end-line="157" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#2#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -438,6 +463,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FindSecret/ViewController.m" />
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="53" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/FindSecret/main.m" />
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVPlayer.h">
       <provider selected="true" editor-type-id="text-editor">
@@ -446,10 +478,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMedia.framework/Headers/CMTime.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="117" column="22" selection-start-line="117" selection-start-column="16" selection-end-line="117" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/TextEdit/XBTextEditController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="129" column="7" lean-forward="true" selection-start-line="129" selection-start-column="7" selection-end-line="129" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Common/XBMakeToolView.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="20" lean-forward="true" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Common/XBMakeToolView.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -467,7 +520,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Common/XBMakeContentItemView.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Common/XBMakeContentItemView.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Publish/WhereAreYou/pch/wh_Head.h" />
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7665">
+          <caret line="513" selection-start-line="513" selection-end-line="513" />
+          <folding>
+            <element signature="e#8#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Common/MSRecordControl.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2115">
@@ -482,31 +559,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.h">
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/RecordVideo/XBCameraViewController.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="315">
+          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIImageView.h">
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/RecordVideo/XBCameraViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="32" column="98" lean-forward="true" selection-start-line="32" selection-start-column="64" selection-end-line="32" selection-end-column="98" />
+        <state relative-caret-position="6105">
+          <caret line="407" column="15" selection-start-line="407" selection-start-column="15" selection-end-line="407" selection-end-column="15" />
+          <folding>
+            <element signature="e#138#172#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/VideoEdit/XBVideoEditController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1070">
-          <caret line="221" column="82" lean-forward="true" selection-start-line="221" selection-start-column="82" selection-end-line="221" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGBase.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="258" column="21" selection-start-line="258" selection-start-column="21" selection-end-line="258" selection-end-column="21" />
+        <state relative-caret-position="237">
+          <caret line="497" column="45" lean-forward="true" selection-start-line="497" selection-start-column="45" selection-end-line="497" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#2#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -519,150 +602,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/RecordVoice/XBGifImageView.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-54">
-          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMedia.framework/Headers/CMTime.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="242" column="4" lean-forward="true" selection-start-line="242" selection-start-column="4" selection-end-line="242" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/RecordVoice/XBAudioManager.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="54" column="26" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AVFoundation.framework/Frameworks/AVFAudio.framework/Headers/AVAudioPlayer.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Common/XBAVTools.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="4" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/RecordVoice/XBAudioManager.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="143" column="32" selection-start-line="143" selection-start-column="32" selection-end-line="143" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/RecordVoice/XBPlayAudio.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="70" column="1" selection-start-line="70" selection-start-column="1" selection-end-line="70" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Common/XBMakeContentItemView.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/TextEdit/XBTextEditController.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="335" column="12" lean-forward="true" selection-start-line="335" selection-start-column="12" selection-end-line="335" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Common/XBMakeAudioItemView.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="48" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Common/XBMakeToolView.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-221">
-          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Common/XBMakeAudioItemView.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="63" column="60" selection-start-line="63" selection-start-column="60" selection-end-line="63" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/RecordVoice/XBPublishRecordAudioView.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="634">
-          <caret line="118" column="27" selection-start-line="118" selection-start-column="27" selection-end-line="118" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/RecordVoice/XBPublishRecordAudioView.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Common/XBAVTools.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-          <folding>
-            <element signature="e#85#106#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Common/XBMakeContentItemView.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="169" column="44" selection-start-line="169" selection-start-column="44" selection-end-line="169" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/RecordVideo/XBCameraViewController.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="99" selection-start-line="24" selection-start-column="99" selection-end-line="24" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/RecordVideo/XBCameraViewController.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="130" column="20" lean-forward="true" selection-start-line="130" selection-start-column="20" selection-end-line="130" selection-end-column="20" />
-          <folding>
-            <element signature="e#8#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="58" lean-forward="true" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="635">
-          <caret line="494" column="40" selection-start-line="494" selection-start-column="40" selection-end-line="494" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="445">
+          <caret line="51" column="31" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
         </state>
       </provider>
     </entry>

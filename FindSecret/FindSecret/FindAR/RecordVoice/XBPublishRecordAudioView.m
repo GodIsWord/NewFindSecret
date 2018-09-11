@@ -12,7 +12,7 @@
 #import "XBGifImageView.h"
 #import "XBPublishLisonItemView.h"
 
-static CGFloat const MinRecorderDuration = 3;
+static CGFloat const MinRecorderDuration = 0;
 
 @interface XBPublishRecordAudioView () <MSRecordControlDelegate, XBAudioManagerRecoderDelegate>
 
@@ -59,7 +59,7 @@ static CGFloat const MinRecorderDuration = 3;
     control.layer.cornerRadius = control.xb_width / 2;
     control.layer.masksToBounds = YES;
     control.xb_centerX = self.xb_width / 2;
-    control.duration = 10;
+    control.duration = 60;
     control.delegate = self;
     [self addSubview:control];
     self.recordControl = control;
@@ -105,6 +105,7 @@ static CGFloat const MinRecorderDuration = 3;
 
 - (void)btnAction:(UIButton *)btn {
     [self closeSelectBtn];
+    [self.audeoManager stopPlay];
     if (btn == self.okBtn) {
         //确定使用 进行回调
         [self excFinishDelegate];

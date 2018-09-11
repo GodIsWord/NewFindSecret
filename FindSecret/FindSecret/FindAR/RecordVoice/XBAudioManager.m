@@ -72,13 +72,13 @@
             break;
         case 1:
         {
-            [XBRecordAudioToastView showWithVolume:self.recorder.currentVolume];
+//            [XBRecordAudioToastView showWithVolume:self.recorder.currentVolume];
             
         }
             break;
         case 2:
         {
-            [XBRecordAudioToastView showWithVolume:self.player.currentVolume];
+//            [XBRecordAudioToastView showWithVolume:self.player.currentVolume];
             NSLog(@"audioe duration:%f",[self.player duration]);
         }
             break;
@@ -96,7 +96,7 @@
     self.recorder.maxDuration = self.maxRecordDuration;
     [self.recorder start];
     _type = 1;
-    [self.timer setFireDate:[NSDate distantPast]];
+//    [self.timer setFireDate:[NSDate distantPast]];
 }
 
 -(void)endRecord{
@@ -120,7 +120,7 @@
     
     [self.player playWithContentOfURL:url error:nil];
     _type = 2;
-    [self.timer setFireDate:[NSDate distantPast]];
+//    [self.timer setFireDate:[NSDate distantPast]];
 }
 
 -(void)stopPlay{

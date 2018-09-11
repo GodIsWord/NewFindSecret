@@ -33,30 +33,30 @@
 }
 
 
-//- (void)applicationWillResignActive:(UIApplication *)application {
-//    [XBARDelegateManager applicationWillResignActive:application];
-//}
-//
-//
-//- (void)applicationDidEnterBackground:(UIApplication *)application {
-//    [XBARDelegateManager applicationDidEnterBackground:application];
-//}
-//
-//
-//- (void)applicationWillEnterForeground:(UIApplication *)application {
+- (void)applicationWillResignActive:(UIApplication *)application {
+    [XBARDelegateManager applicationWillResignActive:application];
+}
+
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    [XBARDelegateManager applicationDidEnterBackground:application];
+}
+
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
 //    [XBARDelegateManager applicationWillEnterForeground:application];
-//}
-//
-//
-//- (void)applicationDidBecomeActive:(UIApplication *)application {
+}
+
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
 //    [XBARDelegateManager applicationDidBecomeActive:application];
-//}
-//
-//
-//- (void)applicationWillTerminate:(UIApplication *)application {
-//    [XBARDelegateManager applicationWillTerminate:application];
-//}
-//
+}
+
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+    [XBARDelegateManager applicationWillTerminate:application];
+}
+
 
 
 @end

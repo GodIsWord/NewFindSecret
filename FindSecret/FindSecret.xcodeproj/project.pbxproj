@@ -14,6 +14,8 @@
 		859261CE213835E6008D0667 /* libiPhone-lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 859261CD213835E6008D0667 /* libiPhone-lib.a */; };
 		BE9484B8213ED93100E16072 /* XBVideoWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9484B7213ED93100E16072 /* XBVideoWriter.m */; };
 		CA147A422133D7D700F2F2EE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B65210C0FF100C5BFBB /* Info.plist */; };
+		CA380D372148236400C3D037 /* RequestViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CA380D352148236400C3D037 /* RequestViewModel.m */; };
+		CA380D3A214823CA00C3D037 /* UIImage+MP.m in Sources */ = {isa = PBXBuildFile; fileRef = CA380D38214823CA00C3D037 /* UIImage+MP.m */; };
 		CA42A52C2137D8390007CCD1 /* UIButton+XBEnlargeEdge.m in Sources */ = {isa = PBXBuildFile; fileRef = CA42A52A2137D8010007CCD1 /* UIButton+XBEnlargeEdge.m */; };
 		CAE746682112AC1D000D05B7 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE746672112AC1D000D05B7 /* libc++.tbd */; };
 		CAE7466A2112AC26000D05B7 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE746692112AC26000D05B7 /* libz.tbd */; };
@@ -293,37 +295,18 @@
 		E69315D62137F61800E7FAE3 /* XBBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315182137F61700E7FAE3 /* XBBaseTableViewController.m */; };
 		E69315D72137F61800E7FAE3 /* XBFindNearAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315192137F61700E7FAE3 /* XBFindNearAddressVC.m */; };
 		E69315D92137F61800E7FAE3 /* XBFindNearAddressViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E693151B2137F61700E7FAE3 /* XBFindNearAddressViewModel.m */; };
-		E69315DA2137F61800E7FAE3 /* SQActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315202137F61700E7FAE3 /* SQActionSheetView.m */; };
 		E69315DB2137F61800E7FAE3 /* UISearchBar+MP.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315212137F61700E7FAE3 /* UISearchBar+MP.m */; };
-		E69315DC2137F61800E7FAE3 /* UIImage+MP.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315222137F61700E7FAE3 /* UIImage+MP.m */; };
 		E69315DD2137F61800E7FAE3 /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315232137F61700E7FAE3 /* UIButton+Block.m */; };
 		E69315DE2137F61800E7FAE3 /* XYString.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315272137F61700E7FAE3 /* XYString.m */; };
-		E69315DF2137F61800E7FAE3 /* RequestViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315292137F61700E7FAE3 /* RequestViewModel.m */; };
 		E69315E02137F61800E7FAE3 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = E693152D2137F61700E7FAE3 /* LICENSE */; };
 		E69315E12137F61800E7FAE3 /* XHRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315322137F61700E7FAE3 /* XHRefreshControl.m */; };
-		E69315E22137F61800E7FAE3 /* XHSystemCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315372137F61700E7FAE3 /* XHSystemCollectionViewController.m */; };
-		E69315E32137F61800E7FAE3 /* XHSystemRefreshCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315382137F61700E7FAE3 /* XHSystemRefreshCollectionViewController.m */; };
-		E69315E42137F61800E7FAE3 /* XHPullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E693153E2137F61700E7FAE3 /* XHPullRefreshTableViewController.m */; };
-		E69315E52137F61800E7FAE3 /* XHPinterestPullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E693153F2137F61700E7FAE3 /* XHPinterestPullRefreshTableViewController.m */; };
-		E69315E62137F61800E7FAE3 /* XHJDPullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315402137F61700E7FAE3 /* XHJDPullRefreshTableViewController.m */; };
-		E69315E72137F61800E7FAE3 /* XHBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315412137F61700E7FAE3 /* XHBaseTableViewController.m */; };
-		E69315E82137F61800E7FAE3 /* XHFoundationCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315432137F61700E7FAE3 /* XHFoundationCommon.m */; };
-		E69315E92137F61800E7FAE3 /* XHSysatemRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315452137F61700E7FAE3 /* XHSysatemRefreshTableViewController.m */; };
-		E69315EA2137F61800E7FAE3 /* XHSystemTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315462137F61700E7FAE3 /* XHSystemTableViewController.m */; };
 		E69315EB2137F61800E7FAE3 /* XHActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E693154A2137F61700E7FAE3 /* XHActivityIndicatorView.m */; };
-		E69315EC2137F61800E7FAE3 /* XHCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E693154C2137F61700E7FAE3 /* XHCircularProgressView.m */; };
 		E69315ED2137F61800E7FAE3 /* XHActivityCircleIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315502137F61700E7FAE3 /* XHActivityCircleIndicatorView.m */; };
 		E69315EE2137F61800E7FAE3 /* XHLoadMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315522137F61700E7FAE3 /* XHLoadMoreView.m */; };
 		E69315EF2137F61800E7FAE3 /* XHRefreshActivityIndicatorContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315542137F61700E7FAE3 /* XHRefreshActivityIndicatorContainerView.m */; };
-		E69315F02137F61800E7FAE3 /* XHJDRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315562137F61700E7FAE3 /* XHJDRefreshView.m */; };
 		E69315F12137F61800E7FAE3 /* XHRefreshCircleContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315572137F61700E7FAE3 /* XHRefreshCircleContainerView.m */; };
 		E69315F22137F61800E7FAE3 /* XHCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315592137F61700E7FAE3 /* XHCircleView.m */; };
-		E69315F32137F61800E7FAE3 /* XHPinterestRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = E693155A2137F61700E7FAE3 /* XHPinterestRefreshView.m */; };
 		E69315F42137F61800E7FAE3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E693155C2137F61700E7FAE3 /* README.md */; };
-		E69315F52137F61800E7FAE3 /* WXBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E693155E2137F61700E7FAE3 /* WXBaseModel.m */; };
-		E69315F62137F61800E7FAE3 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315612137F61700E7FAE3 /* UIViewExt.m */; };
-		E69315F72137F61800E7FAE3 /* UIScrollView+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315632137F61700E7FAE3 /* UIScrollView+Addition.m */; };
-		E69315F82137F61800E7FAE3 /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315662137F61700E7FAE3 /* MKMapView+ZoomLevel.m */; };
 		E69315FB2137F61800E7FAE3 /* XBPublishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E693156D2137F61700E7FAE3 /* XBPublishCell.m */; };
 		E69315FC2137F61800E7FAE3 /* XBWhoCanSeeController.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315712137F61700E7FAE3 /* XBWhoCanSeeController.m */; };
 		E69315FD2137F61800E7FAE3 /* XBSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E69315722137F61700E7FAE3 /* XBSelectCell.m */; };
@@ -403,6 +386,10 @@
 		859261CD213835E6008D0667 /* libiPhone-lib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libiPhone-lib.a"; sourceTree = "<group>"; };
 		BE9484B6213ED93100E16072 /* XBVideoWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBVideoWriter.h; sourceTree = "<group>"; };
 		BE9484B7213ED93100E16072 /* XBVideoWriter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBVideoWriter.m; sourceTree = "<group>"; };
+		CA380D352148236400C3D037 /* RequestViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestViewModel.m; sourceTree = "<group>"; };
+		CA380D362148236400C3D037 /* RequestViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestViewModel.h; sourceTree = "<group>"; };
+		CA380D38214823CA00C3D037 /* UIImage+MP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MP.m"; sourceTree = "<group>"; };
+		CA380D39214823CA00C3D037 /* UIImage+MP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MP.h"; sourceTree = "<group>"; };
 		CA42A5292137D8010007CCD1 /* UIButton+XBEnlargeEdge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+XBEnlargeEdge.h"; sourceTree = "<group>"; };
 		CA42A52A2137D8010007CCD1 /* UIButton+XBEnlargeEdge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+XBEnlargeEdge.m"; sourceTree = "<group>"; };
 		CAE746672112AC1D000D05B7 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -725,67 +712,29 @@
 		E69315192137F61700E7FAE3 /* XBFindNearAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBFindNearAddressVC.m; sourceTree = "<group>"; };
 		E693151B2137F61700E7FAE3 /* XBFindNearAddressViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBFindNearAddressViewModel.m; sourceTree = "<group>"; };
 		E693151C2137F61700E7FAE3 /* XBBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBBaseTableViewController.h; sourceTree = "<group>"; };
-		E693151F2137F61700E7FAE3 /* SQActionSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQActionSheetView.h; sourceTree = "<group>"; };
-		E69315202137F61700E7FAE3 /* SQActionSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQActionSheetView.m; sourceTree = "<group>"; };
 		E69315212137F61700E7FAE3 /* UISearchBar+MP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISearchBar+MP.m"; sourceTree = "<group>"; };
-		E69315222137F61700E7FAE3 /* UIImage+MP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MP.m"; sourceTree = "<group>"; };
 		E69315232137F61700E7FAE3 /* UIButton+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Block.m"; sourceTree = "<group>"; };
-		E69315242137F61700E7FAE3 /* UIScrollView+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Addition.h"; sourceTree = "<group>"; };
 		E69315262137F61700E7FAE3 /* XYString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYString.h; sourceTree = "<group>"; };
 		E69315272137F61700E7FAE3 /* XYString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYString.m; sourceTree = "<group>"; };
-		E69315282137F61700E7FAE3 /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
-		E69315292137F61700E7FAE3 /* RequestViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestViewModel.m; sourceTree = "<group>"; };
-		E693152A2137F61700E7FAE3 /* UIImage+MP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MP.h"; sourceTree = "<group>"; };
 		E693152B2137F61700E7FAE3 /* UISearchBar+MP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+MP.h"; sourceTree = "<group>"; };
 		E693152D2137F61700E7FAE3 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		E69315302137F61700E7FAE3 /* XHRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHRefreshControl.h; sourceTree = "<group>"; };
 		E69315312137F61700E7FAE3 /* XHRefreshControlHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHRefreshControlHeader.h; sourceTree = "<group>"; };
 		E69315322137F61700E7FAE3 /* XHRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHRefreshControl.m; sourceTree = "<group>"; };
-		E69315352137F61700E7FAE3 /* XHSystemCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHSystemCollectionViewController.h; sourceTree = "<group>"; };
-		E69315362137F61700E7FAE3 /* XHSystemRefreshCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHSystemRefreshCollectionViewController.h; sourceTree = "<group>"; };
-		E69315372137F61700E7FAE3 /* XHSystemCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHSystemCollectionViewController.m; sourceTree = "<group>"; };
-		E69315382137F61700E7FAE3 /* XHSystemRefreshCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHSystemRefreshCollectionViewController.m; sourceTree = "<group>"; };
-		E693153A2137F61700E7FAE3 /* XHPinterestPullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHPinterestPullRefreshTableViewController.h; sourceTree = "<group>"; };
-		E693153B2137F61700E7FAE3 /* XHBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHBaseTableViewController.h; sourceTree = "<group>"; };
-		E693153C2137F61700E7FAE3 /* XHJDPullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHJDPullRefreshTableViewController.h; sourceTree = "<group>"; };
-		E693153D2137F61700E7FAE3 /* XHFoundationCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHFoundationCommon.h; sourceTree = "<group>"; };
-		E693153E2137F61700E7FAE3 /* XHPullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHPullRefreshTableViewController.m; sourceTree = "<group>"; };
-		E693153F2137F61700E7FAE3 /* XHPinterestPullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHPinterestPullRefreshTableViewController.m; sourceTree = "<group>"; };
-		E69315402137F61700E7FAE3 /* XHJDPullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHJDPullRefreshTableViewController.m; sourceTree = "<group>"; };
-		E69315412137F61700E7FAE3 /* XHBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHBaseTableViewController.m; sourceTree = "<group>"; };
-		E69315422137F61700E7FAE3 /* XHPullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHPullRefreshTableViewController.h; sourceTree = "<group>"; };
-		E69315432137F61700E7FAE3 /* XHFoundationCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHFoundationCommon.m; sourceTree = "<group>"; };
-		E69315452137F61700E7FAE3 /* XHSysatemRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHSysatemRefreshTableViewController.m; sourceTree = "<group>"; };
-		E69315462137F61700E7FAE3 /* XHSystemTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHSystemTableViewController.m; sourceTree = "<group>"; };
-		E69315472137F61700E7FAE3 /* XHSysatemRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHSysatemRefreshTableViewController.h; sourceTree = "<group>"; };
-		E69315482137F61700E7FAE3 /* XHSystemTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHSystemTableViewController.h; sourceTree = "<group>"; };
 		E693154A2137F61700E7FAE3 /* XHActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHActivityIndicatorView.m; sourceTree = "<group>"; };
-		E693154B2137F61700E7FAE3 /* XHJDRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHJDRefreshView.h; sourceTree = "<group>"; };
-		E693154C2137F61700E7FAE3 /* XHCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHCircularProgressView.m; sourceTree = "<group>"; };
 		E693154D2137F61700E7FAE3 /* XHRefreshActivityIndicatorContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHRefreshActivityIndicatorContainerView.h; sourceTree = "<group>"; };
 		E693154E2137F61700E7FAE3 /* XHCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHCircleView.h; sourceTree = "<group>"; };
-		E693154F2137F61700E7FAE3 /* XHPinterestRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHPinterestRefreshView.h; sourceTree = "<group>"; };
 		E69315502137F61700E7FAE3 /* XHActivityCircleIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHActivityCircleIndicatorView.m; sourceTree = "<group>"; };
 		E69315512137F61700E7FAE3 /* XHRefreshCircleContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHRefreshCircleContainerView.h; sourceTree = "<group>"; };
 		E69315522137F61700E7FAE3 /* XHLoadMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHLoadMoreView.m; sourceTree = "<group>"; };
 		E69315532137F61700E7FAE3 /* XHActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHActivityIndicatorView.h; sourceTree = "<group>"; };
 		E69315542137F61700E7FAE3 /* XHRefreshActivityIndicatorContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHRefreshActivityIndicatorContainerView.m; sourceTree = "<group>"; };
-		E69315552137F61700E7FAE3 /* XHCircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHCircularProgressView.h; sourceTree = "<group>"; };
-		E69315562137F61700E7FAE3 /* XHJDRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHJDRefreshView.m; sourceTree = "<group>"; };
 		E69315572137F61700E7FAE3 /* XHRefreshCircleContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHRefreshCircleContainerView.m; sourceTree = "<group>"; };
 		E69315582137F61700E7FAE3 /* XHActivityCircleIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHActivityCircleIndicatorView.h; sourceTree = "<group>"; };
 		E69315592137F61700E7FAE3 /* XHCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHCircleView.m; sourceTree = "<group>"; };
-		E693155A2137F61700E7FAE3 /* XHPinterestRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHPinterestRefreshView.m; sourceTree = "<group>"; };
 		E693155B2137F61700E7FAE3 /* XHLoadMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHLoadMoreView.h; sourceTree = "<group>"; };
 		E693155C2137F61700E7FAE3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		E693155E2137F61700E7FAE3 /* WXBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXBaseModel.m; sourceTree = "<group>"; };
-		E693155F2137F61700E7FAE3 /* WXBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXBaseModel.h; sourceTree = "<group>"; };
-		E69315612137F61700E7FAE3 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
-		E69315622137F61700E7FAE3 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
-		E69315632137F61700E7FAE3 /* UIScrollView+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Addition.m"; sourceTree = "<group>"; };
 		E69315642137F61700E7FAE3 /* UIButton+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Block.h"; sourceTree = "<group>"; };
-		E69315652137F61700E7FAE3 /* RequestViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestViewModel.h; sourceTree = "<group>"; };
-		E69315662137F61700E7FAE3 /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
 		E69315672137F61700E7FAE3 /* XBPublishController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBPublishController.h; sourceTree = "<group>"; };
 		E693156D2137F61700E7FAE3 /* XBPublishCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBPublishCell.m; sourceTree = "<group>"; };
 		E693156F2137F61700E7FAE3 /* XBWhoCanSeeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBWhoCanSeeController.h; sourceTree = "<group>"; };
@@ -1657,21 +1606,15 @@
 		E693151D2137F61700E7FAE3 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
-				E693155D2137F61700E7FAE3 /* basemodel */,
-				E69315282137F61700E7FAE3 /* MKMapView+ZoomLevel.h */,
-				E69315662137F61700E7FAE3 /* MKMapView+ZoomLevel.m */,
-				E69315652137F61700E7FAE3 /* RequestViewModel.h */,
-				E69315292137F61700E7FAE3 /* RequestViewModel.m */,
+				CA380D39214823CA00C3D037 /* UIImage+MP.h */,
+				CA380D38214823CA00C3D037 /* UIImage+MP.m */,
+				CA380D362148236400C3D037 /* RequestViewModel.h */,
+				CA380D352148236400C3D037 /* RequestViewModel.m */,
 				E693151E2137F61700E7FAE3 /* SQActionSheetView */,
 				E69315642137F61700E7FAE3 /* UIButton+Block.h */,
 				E69315232137F61700E7FAE3 /* UIButton+Block.m */,
-				E693152A2137F61700E7FAE3 /* UIImage+MP.h */,
-				E69315222137F61700E7FAE3 /* UIImage+MP.m */,
-				E69315242137F61700E7FAE3 /* UIScrollView+Addition.h */,
-				E69315632137F61700E7FAE3 /* UIScrollView+Addition.m */,
 				E693152B2137F61700E7FAE3 /* UISearchBar+MP.h */,
 				E69315212137F61700E7FAE3 /* UISearchBar+MP.m */,
-				E69315602137F61700E7FAE3 /* viewFrame */,
 				E693152C2137F61700E7FAE3 /* XHRefreshControl */,
 				E69315252137F61700E7FAE3 /* XYString */,
 			);
@@ -1681,8 +1624,6 @@
 		E693151E2137F61700E7FAE3 /* SQActionSheetView */ = {
 			isa = PBXGroup;
 			children = (
-				E693151F2137F61700E7FAE3 /* SQActionSheetView.h */,
-				E69315202137F61700E7FAE3 /* SQActionSheetView.m */,
 				CA42A5292137D8010007CCD1 /* UIButton+XBEnlargeEdge.h */,
 				CA42A52A2137D8010007CCD1 /* UIButton+XBEnlargeEdge.m */,
 			);
@@ -1712,7 +1653,6 @@
 			isa = PBXGroup;
 			children = (
 				E693152F2137F61700E7FAE3 /* Manager */,
-				E69315332137F61700E7FAE3 /* Controllers */,
 				E69315492137F61700E7FAE3 /* Views */,
 			);
 			path = RefreshControl;
@@ -1728,55 +1668,6 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		E69315332137F61700E7FAE3 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				E69315342137F61700E7FAE3 /* SystemCollectionViewController */,
-				E69315392137F61700E7FAE3 /* CustomTableViewController */,
-				E69315442137F61700E7FAE3 /* SystemTableViewController */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		E69315342137F61700E7FAE3 /* SystemCollectionViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E69315352137F61700E7FAE3 /* XHSystemCollectionViewController.h */,
-				E69315372137F61700E7FAE3 /* XHSystemCollectionViewController.m */,
-				E69315362137F61700E7FAE3 /* XHSystemRefreshCollectionViewController.h */,
-				E69315382137F61700E7FAE3 /* XHSystemRefreshCollectionViewController.m */,
-			);
-			path = SystemCollectionViewController;
-			sourceTree = "<group>";
-		};
-		E69315392137F61700E7FAE3 /* CustomTableViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E693153B2137F61700E7FAE3 /* XHBaseTableViewController.h */,
-				E69315412137F61700E7FAE3 /* XHBaseTableViewController.m */,
-				E693153D2137F61700E7FAE3 /* XHFoundationCommon.h */,
-				E69315432137F61700E7FAE3 /* XHFoundationCommon.m */,
-				E693153C2137F61700E7FAE3 /* XHJDPullRefreshTableViewController.h */,
-				E69315402137F61700E7FAE3 /* XHJDPullRefreshTableViewController.m */,
-				E693153A2137F61700E7FAE3 /* XHPinterestPullRefreshTableViewController.h */,
-				E693153F2137F61700E7FAE3 /* XHPinterestPullRefreshTableViewController.m */,
-				E69315422137F61700E7FAE3 /* XHPullRefreshTableViewController.h */,
-				E693153E2137F61700E7FAE3 /* XHPullRefreshTableViewController.m */,
-			);
-			path = CustomTableViewController;
-			sourceTree = "<group>";
-		};
-		E69315442137F61700E7FAE3 /* SystemTableViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E69315472137F61700E7FAE3 /* XHSysatemRefreshTableViewController.h */,
-				E69315452137F61700E7FAE3 /* XHSysatemRefreshTableViewController.m */,
-				E69315482137F61700E7FAE3 /* XHSystemTableViewController.h */,
-				E69315462137F61700E7FAE3 /* XHSystemTableViewController.m */,
-			);
-			path = SystemTableViewController;
-			sourceTree = "<group>";
-		};
 		E69315492137F61700E7FAE3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1786,38 +1677,14 @@
 				E693154A2137F61700E7FAE3 /* XHActivityIndicatorView.m */,
 				E693154E2137F61700E7FAE3 /* XHCircleView.h */,
 				E69315592137F61700E7FAE3 /* XHCircleView.m */,
-				E69315552137F61700E7FAE3 /* XHCircularProgressView.h */,
-				E693154C2137F61700E7FAE3 /* XHCircularProgressView.m */,
-				E693154B2137F61700E7FAE3 /* XHJDRefreshView.h */,
-				E69315562137F61700E7FAE3 /* XHJDRefreshView.m */,
 				E693155B2137F61700E7FAE3 /* XHLoadMoreView.h */,
 				E69315522137F61700E7FAE3 /* XHLoadMoreView.m */,
-				E693154F2137F61700E7FAE3 /* XHPinterestRefreshView.h */,
-				E693155A2137F61700E7FAE3 /* XHPinterestRefreshView.m */,
 				E693154D2137F61700E7FAE3 /* XHRefreshActivityIndicatorContainerView.h */,
 				E69315542137F61700E7FAE3 /* XHRefreshActivityIndicatorContainerView.m */,
 				E69315512137F61700E7FAE3 /* XHRefreshCircleContainerView.h */,
 				E69315572137F61700E7FAE3 /* XHRefreshCircleContainerView.m */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		E693155D2137F61700E7FAE3 /* basemodel */ = {
-			isa = PBXGroup;
-			children = (
-				E693155E2137F61700E7FAE3 /* WXBaseModel.m */,
-				E693155F2137F61700E7FAE3 /* WXBaseModel.h */,
-			);
-			path = basemodel;
-			sourceTree = "<group>";
-		};
-		E69315602137F61700E7FAE3 /* viewFrame */ = {
-			isa = PBXGroup;
-			children = (
-				E69315612137F61700E7FAE3 /* UIViewExt.m */,
-				E69315622137F61700E7FAE3 /* UIViewExt.h */,
-			);
-			path = viewFrame;
 			sourceTree = "<group>";
 		};
 		E693156E2137F61700E7FAE3 /* WhoCanSee */ = {
@@ -2264,9 +2131,7 @@
 				E693ED752137C21E00E7FAE3 /* ObjCRuntime.mm in Sources */,
 				E69315AC2137F61800E7FAE3 /* MJRefreshComponent.m in Sources */,
 				E6930CED2137D29900E7FAE3 /* Bulk_System_0.cpp in Sources */,
-				E69315E72137F61800E7FAE3 /* XHBaseTableViewController.m in Sources */,
 				E69315D02137F61800E7FAE3 /* MSRecordControl.m in Sources */,
-				E69315F52137F61800E7FAE3 /* WXBaseModel.m in Sources */,
 				E6930CDB2137D29900E7FAE3 /* Bulk_System_2.cpp in Sources */,
 				E69315C02137F61800E7FAE3 /* WXSTransitionManager+FlipAnimation.m in Sources */,
 				E693ED7F2137C21E00E7FAE3 /* Filesystem.mm in Sources */,
@@ -2336,13 +2201,11 @@
 				E6930D2D2137D29A00E7FAE3 /* Bulk_Assembly-CSharp_1.cpp in Sources */,
 				E6930CE62137D29900E7FAE3 /* Il2CppCompilerCalculateTypeValues_32Table.cpp in Sources */,
 				E6930CD42137D29900E7FAE3 /* Il2CppCompilerCalculateTypeValues_25Table.cpp in Sources */,
-				E69315F82137F61800E7FAE3 /* MKMapView+ZoomLevel.m in Sources */,
 				E69315ED2137F61800E7FAE3 /* XHActivityCircleIndicatorView.m in Sources */,
 				E693ED742137C21E00E7FAE3 /* DeviceSettings.mm in Sources */,
 				E69315EE2137F61800E7FAE3 /* XHLoadMoreView.m in Sources */,
 				E6930D002137D29900E7FAE3 /* Il2CppCompilerCalculateTypeValues_40Table.cpp in Sources */,
 				E693ED732137C21E00E7FAE3 /* CVTextureCache.mm in Sources */,
-				E69315E52137F61800E7FAE3 /* XHPinterestPullRefreshTableViewController.m in Sources */,
 				E6930CFE2137D29900E7FAE3 /* Il2CppCompilerCalculateTypeValues_36Table.cpp in Sources */,
 				E6930CDD2137D29900E7FAE3 /* Bulk_mscorlib_0.cpp in Sources */,
 				E693158E2137F61800E7FAE3 /* XBRecordAudioToastView.m in Sources */,
@@ -2356,7 +2219,6 @@
 				E6930CBA2137D29900E7FAE3 /* Il2CppCompilerCalculateTypeValues_29Table.cpp in Sources */,
 				E693EE1C2137C21F00E7FAE3 /* AppDelegateListener.mm in Sources */,
 				E69315BD2137F61800E7FAE3 /* UIViewController+WXSTransitionProperty.m in Sources */,
-				E69315E42137F61800E7FAE3 /* XHPullRefreshTableViewController.m in Sources */,
 				E69315A92137F61800E7FAE3 /* MJRefreshHeader.m in Sources */,
 				E693EE162137C21F00E7FAE3 /* UnityAppController+Rendering.mm in Sources */,
 				E69315C62137F61800E7FAE3 /* WXSTransitionManager+FragmentAnimation.m in Sources */,
@@ -2381,11 +2243,9 @@
 				E693158D2137F61800E7FAE3 /* XBRecordAudio.m in Sources */,
 				E693ED822137C21E00E7FAE3 /* UnityView.mm in Sources */,
 				8563F38721399B4400DBA37D /* XBMakeAudioItemView.m in Sources */,
-				E69315DF2137F61800E7FAE3 /* RequestViewModel.m in Sources */,
 				E69315A72137F61800E7FAE3 /* MJRefreshGifHeader.m in Sources */,
 				E6930D292137D29A00E7FAE3 /* Bulk_UnityEngine_5.cpp in Sources */,
 				E6930CD82137D29900E7FAE3 /* Bulk_mscorlib_4.cpp in Sources */,
-				E69315EC2137F61800E7FAE3 /* XHCircularProgressView.m in Sources */,
 				E69315BE2137F61800E7FAE3 /* WXSTransitionManager+PageAnimation.m in Sources */,
 				E6930CAE2137D29900E7FAE3 /* Bulk_UnityEngine_8.cpp in Sources */,
 				E693159C2137F61800E7FAE3 /* UIScrollView+MJExtension.m in Sources */,
@@ -2418,12 +2278,10 @@
 				E6930CFA2137D29900E7FAE3 /* Bulk_DOTween_1.cpp in Sources */,
 				E693158A2137F61800E7FAE3 /* XBPublishRecordAudioView.m in Sources */,
 				E6930D1A2137D29900E7FAE3 /* Bulk_UnityEngine_1.cpp in Sources */,
-				E69315DC2137F61800E7FAE3 /* UIImage+MP.m in Sources */,
 				E6930D1F2137D29A00E7FAE3 /* Bulk_UnityEngine_0.cpp in Sources */,
 				E69315852137F61800E7FAE3 /* XBTextEditController.m in Sources */,
 				E6930D0F2137D29900E7FAE3 /* Bulk_Generics_15.cpp in Sources */,
 				E6930CB12137D29900E7FAE3 /* Bulk_Generics_0.cpp in Sources */,
-				E69315F32137F61800E7FAE3 /* XHPinterestRefreshView.m in Sources */,
 				E6930CD32137D29900E7FAE3 /* Il2CppCompilerCalculateTypeValues_24Table.cpp in Sources */,
 				E69315BA2137F61800E7FAE3 /* WXSTransitionManager+SpreadAnimation.m in Sources */,
 				E6930CC32137D29900E7FAE3 /* Il2CppCompilerCalculateTypeValues_23Table.cpp in Sources */,
@@ -2431,7 +2289,6 @@
 				E693EE172137C21F00E7FAE3 /* CrashReporter.mm in Sources */,
 				E69315A82137F61800E7FAE3 /* MJRefreshFooter.m in Sources */,
 				E69315A42137F61800E7FAE3 /* MJRefreshAutoNormalFooter.m in Sources */,
-				E69315EA2137F61800E7FAE3 /* XHSystemTableViewController.m in Sources */,
 				E6930D282137D29A00E7FAE3 /* Bulk_Assembly-CSharp_3.cpp in Sources */,
 				E6930CC62137D29900E7FAE3 /* Il2CppGenericMethodPointerTable.cpp in Sources */,
 				E60E3B67210C0FF100C5BFBB /* main.mm in Sources */,
@@ -2441,7 +2298,6 @@
 				E6930D3F2137DDA100E7FAE3 /* XBiOSToARManager.m in Sources */,
 				E69316022137F61800E7FAE3 /* XBCameraViewController.m in Sources */,
 				E6930CB22137D29900E7FAE3 /* Bulk_Generics_1.cpp in Sources */,
-				E69315E32137F61800E7FAE3 /* XHSystemRefreshCollectionViewController.m in Sources */,
 				E69315C42137F61800E7FAE3 /* WXSTransitionManager+TypeTool.m in Sources */,
 				E6930CC72137D29900E7FAE3 /* Bulk_Generics_6.cpp in Sources */,
 				E60A09F021398C54009BC9F0 /* AFHTTPSessionManager.m in Sources */,
@@ -2450,8 +2306,6 @@
 				E6930CEE2137D29900E7FAE3 /* Il2CppCompilerCalculateTypeValues_20Table.cpp in Sources */,
 				E69315A32137F61800E7FAE3 /* MJRefreshAutoGifFooter.m in Sources */,
 				E6930CD22137D29900E7FAE3 /* Il2CppCompilerCalculateTypeValues_11Table.cpp in Sources */,
-				E69315E92137F61800E7FAE3 /* XHSysatemRefreshTableViewController.m in Sources */,
-				E69315F62137F61800E7FAE3 /* UIViewExt.m in Sources */,
 				E6930CAC2137D29900E7FAE3 /* Bulk_ICSharpCode.SharpZipLib_0.cpp in Sources */,
 				E69314512137F58C00E7FAE3 /* RegisterFeatures.cpp in Sources */,
 				E6930CFC2137D29900E7FAE3 /* Bulk_Generics_17.cpp in Sources */,
@@ -2466,12 +2320,10 @@
 				E69316002137F61800E7FAE3 /* XBVideoPreViewController.m in Sources */,
 				E693ED712137C21E00E7FAE3 /* EAGLContextHelper.mm in Sources */,
 				E6930D082137D29900E7FAE3 /* Bulk_mscorlib_8.cpp in Sources */,
-				E69315E62137F61800E7FAE3 /* XHJDPullRefreshTableViewController.m in Sources */,
 				E6930D0C2137D29900E7FAE3 /* Bulk_Generics_14.cpp in Sources */,
 				E69315882137F61800E7FAE3 /* XBPublishRecordAudioViewController.m in Sources */,
 				E6930CBE2137D29900E7FAE3 /* Bulk_System.Xml_2.cpp in Sources */,
 				E60A09B821386504009BC9F0 /* XBARSaomiaoSubbViews.m in Sources */,
-				E69315E22137F61800E7FAE3 /* XHSystemCollectionViewController.m in Sources */,
 				E69315B02137F61800E7FAE3 /* ViewController+MASAdditions.m in Sources */,
 				E6930CD52137D29900E7FAE3 /* Bulk_mscorlib_5.cpp in Sources */,
 				E693ED772137C21E00E7FAE3 /* DisplayManager.mm in Sources */,
@@ -2485,7 +2337,6 @@
 				E6930CEC2137D29900E7FAE3 /* Bulk_mscorlib_2.cpp in Sources */,
 				E693EE1B2137C21F00E7FAE3 /* RenderPluginDelegate.mm in Sources */,
 				E6930CD62137D29900E7FAE3 /* Bulk_Mono.Posix_0.cpp in Sources */,
-				E69315F72137F61800E7FAE3 /* UIScrollView+Addition.m in Sources */,
 				E6930CA62137D29900E7FAE3 /* Bulk_Generics_3.cpp in Sources */,
 				E6930CFB2137D29900E7FAE3 /* Bulk_mscorlib_9.cpp in Sources */,
 				E69315B82137F61800E7FAE3 /* MASViewAttribute.m in Sources */,
@@ -2520,7 +2371,6 @@
 				E6930CAB2137D29900E7FAE3 /* Il2CppCompilerCalculateTypeValues_8Table.cpp in Sources */,
 				E69315DB2137F61800E7FAE3 /* UISearchBar+MP.m in Sources */,
 				E60A09F821398C54009BC9F0 /* AFAutoPurgingImageCache.m in Sources */,
-				E69315E82137F61800E7FAE3 /* XHFoundationCommon.m in Sources */,
 				E6930CBC2137D29900E7FAE3 /* Bulk_Generics_5.cpp in Sources */,
 				E69315C22137F61800E7FAE3 /* UIViewController+WXSTransition.m in Sources */,
 				E6930D4C2137E03100E7FAE3 /* XBARDelegateManager.m in Sources */,
@@ -2532,9 +2382,7 @@
 				E6930D052137D29900E7FAE3 /* Il2CppCompilerCalculateTypeValues_1Table.cpp in Sources */,
 				E69315892137F61800E7FAE3 /* XBRecordAudioStorage.m in Sources */,
 				E693159E2137F61800E7FAE3 /* UIView+MJExtension.m in Sources */,
-				E69315DA2137F61800E7FAE3 /* SQActionSheetView.m in Sources */,
 				E60A09FF21398C54009BC9F0 /* UIRefreshControl+AFNetworking.m in Sources */,
-				E69315F02137F61800E7FAE3 /* XHJDRefreshView.m in Sources */,
 				E6930CBB2137D29900E7FAE3 /* Il2CppCompilerCalculateTypeValues_28Table.cpp in Sources */,
 				E6B226BE2138155400D67944 /* XBARTakePhotoSubbViews.m in Sources */,
 				E693ED702137C21E00E7FAE3 /* AVCapture.mm in Sources */,
@@ -2542,6 +2390,7 @@
 				E6930CE32137D29900E7FAE3 /* Il2CppGenericClassTable.cpp in Sources */,
 				E6930D0A2137D29900E7FAE3 /* Bulk_System.Security_0.cpp in Sources */,
 				E6930CC02137D29900E7FAE3 /* Il2CppCompilerCalculateTypeValues_16Table.cpp in Sources */,
+				CA380D3A214823CA00C3D037 /* UIImage+MP.m in Sources */,
 				E693ED762137C21E00E7FAE3 /* FullScreenVideoPlayer.mm in Sources */,
 				E69315D32137F61800E7FAE3 /* XBMakeToolView.m in Sources */,
 				E6930CA92137D29900E7FAE3 /* Bulk_Generics_2.cpp in Sources */,
@@ -2565,6 +2414,7 @@
 				E6930CF52137D29900E7FAE3 /* Bulk_Assembly-CSharp-firstpass_0.cpp in Sources */,
 				E60A09F921398C54009BC9F0 /* AFImageDownloader.m in Sources */,
 				E69315BC2137F61800E7FAE3 /* WXSTransitionManager+BoomAnimation.m in Sources */,
+				CA380D372148236400C3D037 /* RequestViewModel.m in Sources */,
 				E693ED6F2137C21E00E7FAE3 /* OnDemandResources.mm in Sources */,
 				E693ED792137C21E00E7FAE3 /* UnityReplayKit_Scripting.mm in Sources */,
 				E6930CCE2137D29900E7FAE3 /* Bulk_Generics_18.cpp in Sources */,

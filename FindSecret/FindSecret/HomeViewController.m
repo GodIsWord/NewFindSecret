@@ -14,7 +14,7 @@
 #import "HttpRequestServices.h"
 
 #import "XBPublishController.h"
-
+#import "XBFindNearAddressVC.h"
 
 
 @interface HomeViewController () <UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource,XBMakeViewControllerDelegate>
@@ -51,7 +51,8 @@
     self.dataSource = @[@"启动AR，制作内容并上传",
                         @"AR扫描",
                         @"附近的人",
-                        @"附近的内容"];
+                        @"附近的内容",
+                        @"位置"];
 }
 
 -(void)initTableView{
@@ -125,8 +126,8 @@
             }
                 break;
             case 4:{
-                
-                
+                XBPublishController *publish = [[XBPublishController alloc] init];
+                [self.navigationController pushViewController:publish animated:YES];
             }
             break;
 

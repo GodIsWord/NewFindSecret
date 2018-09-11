@@ -7,7 +7,6 @@
 //
 
 #import "XBBaseTableViewController.h"
-#import "WXBaseModel.h"
 #import "MJRefresh.h"
 #import "XYString.h"
 
@@ -58,11 +57,7 @@
 }
 
 #pragma mark - init tableView
-- (void)initBaseTableViewWithStyle:(int)style
-{
-    self.canAdd = NO;
-    _pageNumber = 1;
-}
+
 /**
  *  刷新控件进入开始刷新状态的时候调用
  */
@@ -101,13 +96,7 @@
     }
     
 }
--(void)layeNextPageWithNoDataTitle:(NSString *)title{
 
-    _nodataTitle = title;
-    [self layeNextPage];
-    
-
-}
 #pragma mark -  上拉 下拉
 - (void)endMoreOverWithMessage:(NSString *)message {
     [self.refreshCtrol endMoreOverWithMessage:message];
@@ -192,35 +181,11 @@
 
 
 
-#pragma mark -
 #pragma mark - 常见控件 创建
-- (UIImageView*)getImageView{
-    UIImageView *imageView = [[UIImageView alloc]init];
-    imageView.contentMode = UIViewContentModeScaleAspectFill;
-    imageView.layer.masksToBounds = YES;
-    return imageView;
-}
+
 - (UIButton*)getButton{
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     return button;
-}
-- (UIButton *)rl_BarBtnWithImageName:(NSString *)imgName WithIsRightBar:(BOOL)isrightBar WithImgW:(CGFloat)imgWW
-{
-    
-    CGFloat imgW = imgWW>0?imgWW:20;
-    CGFloat imgL = (NavItemW - imgW)/2;
-    CGFloat imgT = (NavItemH - imgW)/2;
-    
-    UIButton *rightBarBtn = [self getButton];
-    //[rightBarBtn setImage:[kImageNamed(imgName) imageWithTintColor:NAVtextCOLOR] forState:0];
-    rightBarBtn.frame = CGRectMake(0,0, NavItemW, NavItemH);
-    rightBarBtn.imageEdgeInsets = UIEdgeInsetsMake(imgT,0, imgT,imgL*2);
-    if (isrightBar) {
-        rightBarBtn.imageEdgeInsets = UIEdgeInsetsMake(imgT,imgL*2, imgT,0);
-    }
-    
-    return rightBarBtn;
-    
 }
 
 - (UIButton *)rl_BarBtnWithTitle:(NSString *)titleStr
@@ -235,14 +200,6 @@
     [rightBarBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
     rightBarBtn.titleLabel.font = titleFont;
     return rightBarBtn;
-}
-
-- (UILabel *)creatLabelWithTextColor:(UIColor *)color andTextFont:(UIFont *)font andFrame:(CGRect)frame{
-    UILabel *label = [[UILabel alloc]initWithFrame:frame];
-    label.textColor = color;
-    label.font = font;
-    return label;
-    
 }
 
 #pragma mark -  setter and getter
@@ -274,10 +231,4 @@
     self.tableView.mj_footer.hidden = hidden;
 }
 
-#pragma mark -
-- (void)initTaVCWithUid:(NSString *)uid andUsername:(NSString *)username andAvatar:(NSString *)avatar
-{
-    
-    
-}
 @end

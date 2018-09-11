@@ -14,17 +14,13 @@
 @property (copy,nonatomic) NSString *titleStr;
 @property (strong,nonatomic) NSMutableArray *dataArr;
 @property (nonatomic, strong) NSMutableArray *dataTempArr;
-@property (assign,nonatomic) BOOL canAdd;
 -(void)layerModelDataWithArr:(NSArray *)models;
 
 /**
  *  创建tableview
  * style tableview的样式 0:plain  1:group
  */
--(void)initBaseTableViewWithStyle:(int)style;
-
 -(void)layeNextPage;
--(void)layeNextPageWithNoDataTitle:(NSString *)title;
 -(void)layerTableFootViewWithTitle:(NSString *)titlestr andFootViewH:(CGFloat)height;
 - (void)setUpTableFootViewWithTitle:(NSString *)titlestr andFootViewH:(CGFloat)height;
 
@@ -59,13 +55,8 @@
 /**
  *  控件 创建
  */
-- (UIImageView*)getImageView;
-- (UILabel *)creatLabelWithTextColor:(UIColor *)color andTextFont:(UIFont *)font andFrame:(CGRect)frame;
+
 - (UIButton*)getButton;
-- (UIButton *)rl_BarBtnWithImageName:(NSString *)imgName WithIsRightBar:(BOOL)isrightBar WithImgW:(CGFloat)imgWW;
 - (UIButton *)rl_BarBtnWithTitle:(NSString *)titleStr;
 
-
-
-- (void)initTaVCWithUid:(NSString *)uid andUsername:(NSString *)username andAvatar:(NSString *)avatar;
 @end

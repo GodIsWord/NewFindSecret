@@ -13,10 +13,10 @@
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureRecognizer;
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 @property (nonatomic, strong) CAShapeLayer *progressLayer;
-@property (nonatomic, assign, readwrite) CGFloat progress;
 @end
 
 @implementation MSRecordControl
+@synthesize progress = _progress;
 + (instancetype)controlWithMode:(MSRecordControlMode)mode {
     MSRecordControl *control = [[self alloc] initWithFrame:CGRectZero];
     control.mode = mode;
@@ -139,5 +139,8 @@
 - (void)setProgress:(CGFloat)progress {
     _progress = progress;
     self.progressLayer.strokeEnd = progress;
+}
+- (CGFloat)progress{
+    return _progress;
 }
 @end

@@ -62,6 +62,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 @property (nonatomic, strong) NSDictionary *videoCompressionSettings;
 @property (nonatomic, strong) NSDictionary *audioCompressionSettings;
 
+@property (nonatomic, assign) CGFloat recordSecond;
 
 @end
 
@@ -539,10 +540,12 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 
 - (void)recordControlDidBeginRecord:(MSRecordControl *)recordControl {
     if (self.captureMode == XBCameraCaptureModeVideo) {
+        self.recordSecond = 0;
         self.recordControl.progressBarHidden = NO;
         self.recordLayer.frame = self.recordControl.bounds;
         self.recordLayer.cornerRadius = (CGFloat) (self.recordLayer.bounds.size.width / 2.0);
         [self startCapturing];
+
     } else if (self.captureMode == XBCameraCaptureModePhoto) {
         AVCaptureConnection *captureConnection = [self.captureStillImageOutput connectionWithMediaType:AVMediaTypeVideo];
         __weak typeof(self) wSelf = self;
@@ -559,6 +562,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 
 - (void)recordControlDurationIsMaxValue:(MSRecordControl *)recordControl {
     if (self.captureMode == XBCameraCaptureModeVideo) {
+        self.recordSecond =  recordControl.duration;
         [self stopCapturing];
     }
 }
@@ -566,13 +570,14 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 - (void)recordControl:(MSRecordControl *)recordControl didChangeGestureStatus:(UIGestureRecognizerState)state {
     if (state == UIGestureRecognizerStateEnded) {
         if (self.captureMode == XBCameraCaptureModeVideo) {
+            if (recordControl.progress < 1) {
+                self.recordSecond = recordControl.progress * recordControl.duration;
+                [self stopCapturing];
+            }
             self.recordControl.progressBarHidden = YES;
             self.recordLayer.frame = CGRectInset(self.recordControl.bounds, 8, 8);
             self.recordLayer.cornerRadius = (CGFloat) (self.recordLayer.bounds.size.width / 2.0);
             [self.recordControl reset];
-            if (recordControl.progress < 1) {
-                [self stopCapturing];
-            }
             [self handleWhenTheVideoIsProcessed];
         }
     }
@@ -590,18 +595,31 @@ static int gCheckCount = 10;
         });
         return;
     }
-    gCheckCount = 10;
     
-    if (self.videoURL) {
+    
+    gCheckCount = 10;
+    if (self.videoURL && self.recordSecond >= 3.0) {
         self.isConfirmMode = YES;
+    } else if (self.videoURL && self.recordSecond < 3.0){
+        self.isConfirmMode = NO;
+        self.videoURL = nil;
+        self.recordSecond = 0;
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"录制时间少于三秒" message:@"请重新录制" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alertView show];
     } else {
         self.isConfirmMode = NO;
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"未知错误" message:@"请尝试重新录制" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        self.videoURL = nil;
+        self.recordSecond = 0;
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"未知错误" message:@"请重新录制" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [alertView show];
     }
     [self setupUI];
 }
 
+
+- (void)checkVideoRecordDurtion {
+    
+}
 #pragma mark - TapGenstureRecognizer
 
 

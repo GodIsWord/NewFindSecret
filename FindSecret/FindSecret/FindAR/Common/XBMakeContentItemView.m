@@ -103,6 +103,11 @@
     size.width = width;
     size.height = height;
     imageView.frame = CGRectMake(0, 0, size.width, size.height);
+    
+    UIImageView *icon  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"post_icon_video_big"]];
+    icon.frame = imageView.bounds;
+    icon.contentMode = UIViewContentModeCenter;
+    [imageView addSubview:icon];
 
     XBMakeContentItemView *view = [[[UINib nibWithNibName:@"XBMakeContentItemView" bundle:nil] instantiateWithOwner:nil options:nil] firstObject];
     view.type = XBMakeContentItemTypeVideo;

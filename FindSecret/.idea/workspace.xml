@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5941b6a9-bc2a-4702-bf3b-18e8b2fd9f94" name="Default" comment="重构类结构">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FindSecret/FindAR/Common/XBMakeContentItemView.m" beforeDir="false" afterPath="$PROJECT_DIR$/FindSecret/FindAR/Common/XBMakeContentItemView.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.h" beforeDir="false" afterPath="$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/FindSecret/FindAR/Make/XBMakeViewController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FindSecret/FindAR/RecordVideo/XBCameraViewController.h" beforeDir="false" afterPath="$PROJECT_DIR$/FindSecret/FindAR/RecordVideo/XBCameraViewController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FindSecret/FindAR/RecordVideo/XBCameraViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/FindSecret/FindAR/RecordVideo/XBCameraViewController.m" afterDir="false" />
-    </list>
+    <list default="true" id="5941b6a9-bc2a-4702-bf3b-18e8b2fd9f94" name="Default" comment="重构类结构" />
     <ignored path="$USER_HOME$/Library/Developer/Xcode/DerivedData/FindSecret-fumyhxgzowcicvgozmlzmkzwpvwc/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,7 +10,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_958aa9d067568b2ce2cb9b513200e893792d7234" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="XBCameraViewController.m" pinned="false" current-in-tab="false">
@@ -294,16 +287,15 @@
       <workItem from="1535768761772" duration="7798000" />
       <workItem from="1535785434692" duration="1927000" />
       <workItem from="1536209920222" duration="302000" />
-      <workItem from="1536479477919" duration="2192000" />
+      <workItem from="1536479477919" duration="2356000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39377000" />
+    <option name="totallyTimeSpent" value="39541000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="831" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="22" width="1440" height="830" extended-state="6" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49964765" weight="0.2542373" />
       <window_info anchor="right" id="IDEtalk" order="3" />
@@ -313,9 +305,9 @@
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49928468" weight="0.4656992" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32909605" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.22362868" visible="true" weight="0.15164521" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.22394367" visible="true" weight="0.15164521" />
       <window_info anchor="bottom" id="IDEtalk Messages" order="9" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.7763713" side_tool="true" visible="true" weight="0.15164521" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.77605635" side_tool="true" visible="true" weight="0.15164521" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6409156" weight="0.3298153" />
       <window_info id="Favorites" order="3" sideWeight="0.5037594" side_tool="true" weight="0.2501762" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />

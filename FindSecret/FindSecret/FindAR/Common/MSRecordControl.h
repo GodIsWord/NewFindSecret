@@ -21,7 +21,7 @@ typedef NS_ENUM(NSUInteger, MSRecordControlMode) {
 @end
 
 @interface MSRecordControl : UIView
-@property (nonatomic, assign, readonly) CGFloat progress;
+@property (nonatomic, assign) CGFloat progress;
 @property (nonatomic, assign) CGFloat edge;
 @property (nonatomic, assign) CGFloat lineWidth;
 @property (nonatomic, strong) UIColor *progressBarColor;

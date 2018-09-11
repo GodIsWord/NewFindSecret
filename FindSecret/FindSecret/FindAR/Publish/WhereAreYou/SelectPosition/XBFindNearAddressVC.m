@@ -12,12 +12,9 @@
 #import <MAMapKit/MAMapKit.h>
 #import <AMapSearchKit/AMapSearchKit.h>
 #import <AMapFoundationKit/AMapFoundationKit.h>
-
 #import "MJRefresh.h"
 #import "XBNoResultHeadView.h"
-
 #import "UIButton+Block.h"
-
 
 @interface XBFindNearAddressVC ()<UITableViewDataSource,UITableViewDelegate,UISearchDisplayDelegate,MAMapViewDelegate,AMapSearchDelegate>
 {
@@ -43,11 +40,9 @@
 @property (nonatomic, strong) MAMapView *mapView;
 @property (nonatomic, strong) AMapSearchAPI *search;
 @property (nonatomic, strong) CLLocation *currentLocation;
-
 @property (nonatomic, strong) CLLocation *dingLocation;
-
 @property (strong,nonatomic) UIActivityIndicatorView *reloadView;
-@property (strong,nonatomic) UIView *reloadBGView;
+
 
 @end
 
@@ -63,9 +58,7 @@
     [self initMapView];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
 
-    //[self.view addSubview:self.reloadBGView];
     [self.view addSubview:self.reloadView];
-    _reloadBGView.hidden = YES;
     
 }
 #pragma mark - initTableView
@@ -74,30 +67,20 @@
     UIImageView *imageBack = [[UIImageView alloc]initWithFrame:self.view.bounds];
     imageBack.backgroundColor = TABLE_BG_COLOR;
     self.tableView.backgroundView = imageBack;
-    
-    //self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
-    //self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
-    //self.tableView.sectionIndexColor = [UIColor darkGrayColor];
-    //self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.dataSource = self.requestViewModel;
     self.tableView.delegate = self.requestViewModel;
     self.tableView.backgroundColor = TABLE_BG_COLOR;
-    self.tableView.separatorColor = LINECOLOR;
-    self.tableView.separatorInset = UIEdgeInsetsZero;
-    
     self.tableView.tableHeaderView = self.searchBar;
     
-    
     [self setUpTableFootViewWithTitle:@"定位中..." andFootViewH:60];
-    _searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
+    _searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     [self setUpRefreshViewWithView:self.tableView];
-    self.refreshControl = nil;
+
     
 }
-- (void)initNavView
-{
+- (void)initNavView{
     
     self.titleStr = @"所在位置";
     
@@ -174,7 +157,6 @@
 {
     [self baseEndRefresh];
     [_reloadView stopAnimating];
-    _reloadBGView.hidden = YES;
 }
 
 - (void)onPOISearchDone:(AMapPOISearchBaseRequest *)request response:(AMapPOISearchResponse *)response
@@ -182,7 +164,6 @@
     if ([request isKindOfClass:[AMapPOIAroundSearchRequest class]]) {
         
         [_reloadView stopAnimating];
-        _reloadBGView.hidden = YES;
         [self baseEndRefresh];
         
         [self layerModelDataWithArr:response.pois];
@@ -449,22 +430,10 @@
         UIActivityIndicatorView *testActivityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         testActivityIndicator.backgroundColor = [UIColor whiteColor];
         testActivityIndicator.frame = CGRectMake(0, top, ScreenWidth, height);
-        //[testActivityIndicator startAnimating]; // 开始旋转
-        //[testActivityIndicator stopAnimating]; // 结束旋转
         [testActivityIndicator setHidesWhenStopped:YES]; //当旋转结束时隐藏
         _reloadView = testActivityIndicator;
     }
     return _reloadView;
-}
-- (UIView *)reloadBGView
-{
-    
-    if (_reloadBGView == nil) {
-        _reloadBGView = [[UIView alloc]initWithFrame:self.view.bounds];
-        _reloadBGView.backgroundColor = [UIColor whiteColor];
-        
-    }
-    return _reloadBGView;
 }
 
 @end

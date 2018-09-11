@@ -13,7 +13,6 @@
 
 @property(nonatomic,strong) XBAudioManager *manager;
 
--(void)reset;
 -(void)reloadView;
 
 @end

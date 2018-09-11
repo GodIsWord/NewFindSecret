@@ -715,8 +715,8 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
             NSMutableDictionary *info = [NSMutableDictionary dictionary];
             info[@"x"] = @(itemView.center.x / backWidth);
             info[@"y"] = @(itemView.center.y / backHeight);
-            info[@"width"] = @((itemView.frame.size.width-40) / backWidth);
-            info[@"height"] = @((itemView.frame.size.height-40) / backHeight);
+            info[@"width"] = @((itemView.contentView.bounds.size.width) / backWidth);
+            info[@"height"] = @((itemView.contentView.bounds.size.height) / backHeight);
             info[@"type"] = @(itemView.type);
             if (itemView.type == XBMakeContentItemTypeText) {
                 NSAttributedString *attributedText = itemView.attributedText;

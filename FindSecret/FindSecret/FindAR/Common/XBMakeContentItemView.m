@@ -91,7 +91,25 @@
     view.center = CGPointMake((CGFloat) (SCREEN_WIDTH / 2.0), (CGFloat) (SCREEN_HEIGHT / 2.0));
     return view;
 }
+- (void)layoutWithAttributedText:(NSAttributedString *)attributedText {
+    if (attributedText.length) {
+        for (UIView *view in self.contentView.subviews) {
+            if ([view isKindOfClass:UILabel.self]) {
+                UILabel *lab = (UILabel *)view;
+                [lab setAttributedText:attributedText];
+                self.attributedText = attributedText;
+                CGSize size = [lab sizeThatFits:CGSizeMake(SCREEN_WIDTH - 80, MAXFLOAT)];
+                lab.frame = CGRectMake(0, 0, size.width, size.height);
+                CGRect oldFrame = self.frame;
+                self.frame = CGRectMake(oldFrame.origin.x, oldFrame.origin.y, lab.bounds.size.width + 40, lab.bounds.size.height + 40);
+                
+                return;
+            }
+        }
 
+    }
+    
+}
 + (instancetype)contentItemViewWithVideoUrl:(NSURL *)videoURL {
 
     UIImageView *imageView = [[UIImageView alloc] init];

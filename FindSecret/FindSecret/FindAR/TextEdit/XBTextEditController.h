@@ -18,4 +18,5 @@
 @property (nonatomic, strong, readonly) UILabel *contentLabel;
 @property (nonatomic, strong, readonly) NSString *fontARDisplayName;
 @property (nonatomic, weak) id<XBTextEditControllerDelegate> delegate;
+@property (nonatomic, weak) id textPreView;
 @end

@@ -39,6 +39,47 @@
     NSTimeInterval audioDurationSeconds = CMTimeGetSeconds(audioDuration);
     return (CGFloat) audioDurationSeconds;
 }
++ (BOOL)isPlayingWithPath:(NSString *)path {
+   NSDictionary *item = [XBAVTools sharedInstance].playerRecord[path];
+    if (item) {
+        if (item[@"player"]) {
+            id player = item[@"player"];
+            if (player && [player isKindOfClass:(Class) AVAudioPlayer.self]) {
+                return [player isPlaying];
+            }
+        }
+        if (item[@"playerlayer"]) {
+            id playerLayer = item[@"playerlayer"];
+            if (playerLayer && [playerLayer isKindOfClass:(Class) AVPlayerLayer.self]) {
+                return [(AVPlayerLayer *)playerLayer player].rate != 0;
+            }
+        }
+    } else {
+        return NO;
+    }
+}
++ (void)stopPlayingWithPath:(NSString *)path {
+    NSDictionary *item = [XBAVTools sharedInstance].playerRecord[path];
+    if (item) {
+        if (item[@"player"]) {
+            id player = item[@"player"];
+            if (player && [player isKindOfClass:(Class) AVAudioPlayer.self]) {
+                if ([player isPlaying]) {
+                    [player stop];
+                }
+            }
+        }
+        if (item[@"playerlayer"]) {
+            id playerLayer = item[@"playerlayer"];
+            if (playerLayer && [playerLayer isKindOfClass:(Class) AVPlayerLayer.self]) {
+                if ([(AVPlayerLayer *)playerLayer player].rate != 0) {
+                    [[(AVPlayerLayer *)playerLayer player] pause];
+                }
+                [(AVPlayerLayer *)playerLayer setHidden:YES];
+            }
+        }
+    }
+}
 
 + (void)playAudioWithFilePath:(NSString *)path independent:(BOOL)independent completedHandle:(void (^)(NSError *error))completedHandle {
     
@@ -79,6 +120,7 @@
     
     AVPlayerLayer *playerLayer = [XBAVTools sharedInstance].playerRecord[path][@"playerlayer"];
     if (playerLayer) {
+        [playerLayer setHidden:NO];
         if (playerLayer.player.rate != 0) {
             NSLog(@"正在播放");
         }else {
@@ -93,6 +135,7 @@
         playerLayer = [AVPlayerLayer playerLayerWithPlayer:player];
         playerLayer.frame = view.bounds;
         [view.layer addSublayer:playerLayer];
+        [playerLayer setHidden:NO];
         
         NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
         dictionary[@"playerlayer"] = playerLayer;
@@ -114,7 +157,9 @@
         }
     }
 }
-
++ (void)stopAllPlayer {
+    [[XBAVTools sharedInstance] stopAllPlayer];
+}
 - (void)stopAllPlayer {
     for (NSDictionary *item in self.playerRecord.allValues) {
         if (item[@"player"]) {

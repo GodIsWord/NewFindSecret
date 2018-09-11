@@ -23,12 +23,14 @@ typedef NS_ENUM(NSUInteger, XBMakeContentItemType) {
 @property (nonatomic, strong, readonly) NSURL *audioURL;
 @property (nonatomic, copy) NSString *arFontName;
 
+
 @property (nonatomic, copy) void (^didClickedContentView)(void);
 @property (nonatomic, copy) void (^didClickedCloseBtn)(void);
 @property (nonatomic, copy) void (^didClickedEditBtn)(void);
 + (instancetype)contentItemViewWithAttributedString:(NSAttributedString *)attributedString;
 + (instancetype)contentItemViewWithVideoUrl:(NSURL *)videoUrl;
 + (instancetype)contentItemViewWithAudioURL:(NSURL *)audioURL;
+- (void)layoutWithAttributedText:(NSAttributedString *)attributedText;
 - (void)startVoiceAnimation;
 - (void)stopVoiceAnimation;
 //- (void)playVideo;

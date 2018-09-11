@@ -298,7 +298,7 @@
 
     CGSize size = [self.contentLabel sizeThatFits:CGSizeMake(SCREEN_WIDTH - 30, MAXFLOAT)];
 
-    self.contentLabel.frame = CGRectMake(0, STATUSBAR_And_NAVIGATIONBAR_HEIGHT, size.width + 20, size.height + 30);
+    self.contentLabel.frame = CGRectMake(0, STATUSBAR_And_NAVIGATIONBAR_HEIGHT, size.width + 20, size.height + 20);
     self.contentLabel.xb_centerX = self.backGroundView.xb_centerX;
 
 

@@ -354,6 +354,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 
 - (void)addVideo {
+    [XBAVTools stopAllPlayer];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *camera = [UIAlertAction actionWithTitle:@"拍摄" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
 
@@ -386,17 +387,21 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 }
 
 - (void)addText{
-    [self addTextWithAttributedText:nil];
+    [XBAVTools stopAllPlayer];
+    [self addTextWithAttributedText:nil itemView:nil];
 }
-- (void)addTextWithAttributedText:(NSAttributedString *)attributedText {
+- (void)addTextWithAttributedText:(NSAttributedString *)attributedText itemView:(id)itemView {
+    [XBAVTools stopAllPlayer];
     XBTextEditController *textEditController = [[XBTextEditController alloc] init];
     textEditController.contentLabel.attributedText = attributedText;
     textEditController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     textEditController.delegate = self;
+    textEditController.textPreView = itemView;
     [self presentViewController:textEditController animated:NO completion:nil];
 }
 
 - (void)addAudio {
+    [XBAVTools stopAllPlayer];
     XBPublishRecordAudioViewController *controll = [[XBPublishRecordAudioViewController alloc] init];
     controll.delegate = self;
     controll.modalPresentationStyle = UIModalPresentationOverCurrentContext;
@@ -404,7 +409,6 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 }
 - (void)goBackAndAlert {
-
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"确认要放弃本次编辑吗？" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
     UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
@@ -490,29 +494,44 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 - (void)didEdited:(XBTextEditController *)textEditController{
     NSAttributedString *attributedString = textEditController.contentLabel.attributedText;
     if (attributedString.length > 0) {
-        XBMakeContentItemView *itemView = [XBMakeContentItemView contentItemViewWithAttributedString:attributedString];
+        XBMakeContentItemView *itemView;
+        if (textEditController.textPreView) {
+            itemView = textEditController.textPreView;
+            itemView.hidden = NO;
+            [itemView layoutWithAttributedText:attributedString];
+        } else {
+            itemView = [XBMakeContentItemView contentItemViewWithAttributedString:attributedString];
+            __weak typeof(self)wSelf = self;
+            __weak typeof(itemView)wItemView = itemView;
+            itemView.didClickedEditBtn = ^{
+                wItemView.hidden = YES;
+                [wSelf addTextWithAttributedText:wItemView.attributedText itemView:wItemView];
+            };
+            [self.captureImageView addSubview:itemView];
+
+        }
+        
         itemView.arFontName = textEditController.fontARDisplayName;
-        __weak typeof(self)wSelf = self;
-        __weak typeof(itemView)wItemView = itemView;
-        itemView.didClickedEditBtn = ^{
-            [wItemView removeFromSuperview];
-            [wSelf addTextWithAttributedText:attributedString];
-        };
-        [self.captureImageView addSubview:itemView];
-    }
+  }
 }
+
 #pragma mark - XBAudioManagerPlayDelegate, XBAudioManagerRecoderDelegate
 
 - (void)XBPublishRecordFinish:(id)audioView audioPath:(NSString *)path duration:(NSTimeInterval)duration {
     XBMakeContentItemView *itemView = [XBMakeContentItemView contentItemViewWithAudioURL:[NSURL URLWithString:path]];
     __weak typeof(itemView)wItemView = itemView;
     itemView.didClickedContentView = ^{
-        NSLog(@"audio playing.....");
-        [wItemView startVoiceAnimation];
-        [XBAVTools playAudioWithFilePath:path independent:NO completedHandle:^(NSError *error) {
+        if ([XBAVTools isPlayingWithPath:path]) {
             [wItemView stopVoiceAnimation];
-            NSLog(@"audio played");
-        }];
+            [XBAVTools stopPlayingWithPath:path];
+        } else {
+            [wItemView startVoiceAnimation];
+            [XBAVTools playAudioWithFilePath:path independent:NO completedHandle:^(NSError *error) {
+                [wItemView stopVoiceAnimation];
+                NSLog(@"audio played");
+            }];
+
+        }
     };
     [self.captureImageView addSubview:itemView];
 
@@ -528,10 +547,14 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     XBMakeContentItemView *itemView = [XBMakeContentItemView contentItemViewWithVideoUrl:url];
     __weak typeof(itemView) wItemView = itemView;
     itemView.didClickedContentView = ^{
-        NSLog(@"play url:%@",url.absoluteString);
-        [XBAVTools playVideoWithFilePath:url.absoluteString inView:wItemView.contentView independent:NO completedHandle:^(NSError *error) {
-            NSLog(@"哈哈");
-        }];
+        
+        if ([XBAVTools isPlayingWithPath:url.absoluteString]) {
+            [XBAVTools stopPlayingWithPath:url.absoluteString];
+        } else {
+            [XBAVTools playVideoWithFilePath:url.absoluteString inView:wItemView.contentView independent:NO completedHandle:^(NSError *error) {
+            }];
+
+        }
     };
     [self.captureImageView addSubview:itemView];
 
@@ -596,12 +619,13 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 }
 
 - (void)nextStepAction {
+    [XBAVTools stopAllPlayer];
     [self requestJson];
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (void)cancelAction {
-
+    [XBAVTools stopAllPlayer];
     for (UIView *view in self.view.subviews) {
         if ([view isKindOfClass:[XBMakeContentItemView class]]) {
             [view removeFromSuperview];

@@ -352,9 +352,16 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 }
 
-
-- (void)addVideo {
+- (void)resetAllPlayer {
     [XBAVTools stopAllPlayer];
+    for (XBMakeContentItemView *itemView in self.captureImageView.subviews) {
+        if ([itemView isKindOfClass:XBMakeContentItemView.self]) {
+            [itemView stopVoiceAnimation];
+        }
+    }
+}
+- (void)addVideo {
+    [self resetAllPlayer];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *camera = [UIAlertAction actionWithTitle:@"拍摄" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
 
@@ -387,11 +394,11 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 }
 
 - (void)addText{
-    [XBAVTools stopAllPlayer];
+    [self resetAllPlayer];;
     [self addTextWithAttributedText:nil itemView:nil];
 }
 - (void)addTextWithAttributedText:(NSAttributedString *)attributedText itemView:(id)itemView {
-    [XBAVTools stopAllPlayer];
+    [self resetAllPlayer];;
     XBTextEditController *textEditController = [[XBTextEditController alloc] init];
     textEditController.contentLabel.attributedText = attributedText;
     textEditController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
@@ -401,7 +408,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 }
 
 - (void)addAudio {
-    [XBAVTools stopAllPlayer];
+    [self resetAllPlayer];;
     XBPublishRecordAudioViewController *controll = [[XBPublishRecordAudioViewController alloc] init];
     controll.delegate = self;
     controll.modalPresentationStyle = UIModalPresentationOverCurrentContext;
@@ -619,13 +626,13 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 }
 
 - (void)nextStepAction {
-    [XBAVTools stopAllPlayer];
+    [self resetAllPlayer];;
     [self requestJson];
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (void)cancelAction {
-    [XBAVTools stopAllPlayer];
+    [self resetAllPlayer];;
     for (UIView *view in self.view.subviews) {
         if ([view isKindOfClass:[XBMakeContentItemView class]]) {
             [view removeFromSuperview];

@@ -693,6 +693,24 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     _contentImage = contentImage;
     
 }
+- (void)handleUselessElementHidden:(BOOL)hidden {
+    for (XBMakeContentItemView *itemView in self.captureImageView.subviews) {
+        if ([itemView isKindOfClass:XBMakeContentItemView.self]) {
+            for (UIView *view in itemView.subviews) {
+                if ([view isKindOfClass:UIButton.self]) {
+                    view.hidden = hidden;
+                } else {
+                    for (CALayer *subLayer in view.layer.sublayers) {
+                        if ([subLayer isKindOfClass:CAShapeLayer.self]) {
+                            subLayer.hidden = hidden;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
 - (void)requestJson {
     
     // clear
@@ -716,9 +734,12 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     markerImageData[@"height"] = @(CGRectGetHeight(self.captureImageView.frame) * scale);
     markerImageData[@"width"] = @(CGRectGetWidth(self.captureImageView.frame) * scale);
     
+    [self handleUselessElementHidden:YES];
     
     // 加工后的截图
     UIImage *imageSnapshot = snapshotImageWithView(self.captureImageView);
+    
+    [self handleUselessElementHidden:NO];
     
     NSString *markerFilePath;
     if (self.contentImagePath) {

@@ -17,9 +17,12 @@
 #import "XBARNearPeopleSubbviews.h"
 #import "XBARNearPointSubbviews.h"
 
+#import "XBARVisitCardSubbViews.h"
+
 @interface XBARSubbviewManager()
 
 @property(nonatomic,copy) void((^picturBlock)(NSString *));
+@property(nonatomic,assign) BOOL isARCardPicture;
 
 @end
 
@@ -59,7 +62,7 @@
                 break;
             case TakePhotoActionTypeCancle:
             {
-                [self canclePicture];
+                [self cancleTakePhoto];
             }
                 break;
             case TakePhotoActionTypeFlapCamra:
@@ -68,10 +71,45 @@
         }
     }];
 }
-+(void)canclePicture
++(void)cancleTakePhoto
 {
     [XBARTakePhotoSubbViews dismissWithSuperView:(UIView*)[XBARDelegateManager getUnityView]];
     [self hiddenUnityWindow];
+}
+
+
+#pragma mark -- ar名片的view
++(void)showTakeARCardPhotoComplate:(void ((^)(NSString *)))block
+{
+    [[self shareInstance] setPicturBlock:block];
+    [self showUnityWindow];
+    UIView *view = (UIView*)[XBARDelegateManager getUnityView];
+    [self shareInstance].isARCardPicture = YES;
+    [XBARVisitCardSubbViews showWithSuperView:view complate:^(TakeCardPhotoActionType actionType,NSString *path) {
+        switch (actionType) {
+            case TakeCardPhotoActionTypePicture:
+            {
+                [self takePicture];
+            }
+                break;
+            case TakeCardPhotoActionTypeOK:
+            {
+                if (block) {
+                    block(path);
+                }
+                [self hiddenUnityWindow];
+            }
+                break;
+            case TakeCardPhotoActionTypeCancle:
+            {
+                [self hiddenUnityWindow];
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }];
 }
 
 #pragma mark -- ios to unity
@@ -135,11 +173,16 @@
 +(void)takePictureSuccess:(NSString*)path
 {
     NSLog(@"picture path:%@",path);
-    [self canclePicture];
-    if ([self shareInstance].picturBlock) {
-        [self shareInstance].picturBlock(path);
-        [self shareInstance].picturBlock = nil;
+    if ([self shareInstance].isARCardPicture) {
+        [XBARVisitCardSubbViews setImageWithSuperView:(UIView*)[XBARDelegateManager getUnityView] path:path];
+    }else{
+        [self cancleTakePhoto];
+        if ([self shareInstance].picturBlock) {
+            [self shareInstance].picturBlock(path);
+            [self shareInstance].picturBlock = nil;
+        }
     }
+    
 }
 
 /**

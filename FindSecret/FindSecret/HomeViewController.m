@@ -52,7 +52,8 @@
                         @"AR扫描",
                         @"附近的人",
                         @"附近的内容",
-                        @"位置"];
+                        @"位置",
+                        @"AR名片"];
 }
 
 -(void)initTableView{
@@ -129,6 +130,12 @@
                 XBPublishController *publish = [[XBPublishController alloc] init];
                 [self.navigationController pushViewController:publish animated:YES];
             }
+            break;
+        case 5:{
+            [XBARSubbviewManager showTakeARCardPhotoComplate:^(NSString *path) {
+                [self gotoVideoEditWithImagePath:path];
+            }];
+        }
             break;
 
             

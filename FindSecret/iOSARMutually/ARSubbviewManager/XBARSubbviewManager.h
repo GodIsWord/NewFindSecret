@@ -14,6 +14,8 @@
 
 +(void)showTakePhotoComplate:(void((^)(NSString *path)))block;
 
++(void)showTakeARCardPhotoComplate:(void((^)(NSString *path)))block;
+
 +(void)startSaomiao;
 +(void)stopSaomiao;
 

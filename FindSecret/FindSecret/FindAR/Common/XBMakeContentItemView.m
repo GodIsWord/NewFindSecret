@@ -51,7 +51,12 @@
         }
         case UIGestureRecognizerStateChanged: {
             CGPoint translation = [recognizer translationInView:recognizer.view];
-            recognizer.view.center = CGPointMake(recognizer.view.center.x + translation.x, recognizer.view.center.y + translation.y);
+            CGRect frame = recognizer.view.frame;
+            frame = CGRectOffset(frame, translation.x, translation.y);
+            CGRect superFrame = self.superview.bounds;
+            if (CGRectContainsRect(superFrame, frame)) {
+                recognizer.view.center = CGPointMake(recognizer.view.center.x + translation.x, recognizer.view.center.y + translation.y);
+            }
             [recognizer setTranslation:CGPointMake(0, 0) inView:recognizer.view];
             break;
         }

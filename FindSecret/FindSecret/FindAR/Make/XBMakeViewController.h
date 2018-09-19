@@ -15,9 +15,12 @@
 @end
 
 @interface XBMakeViewController : UIViewController
-@property (nonatomic, assign) BOOL onlyAddContentMode;
 @property (nonatomic, copy) NSString *contentImagePath;
 @property (nonatomic, strong) UIImage *contentImage;
 @property (nonatomic, weak) id <XBMakeViewControllerDelegate> delegate;
+// 是否只启用编辑模式（没有拍照流程）
+@property (nonatomic, assign) BOOL onlyAddContentMode;
 
+// AR 模式
+@property (nonatomic, assign) BOOL isARCardMode;
 @end

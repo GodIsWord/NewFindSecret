@@ -76,7 +76,8 @@
 -(void)gotoMakeImage
 {
     XBMakeViewController *makeViewController = [[XBMakeViewController alloc] init];
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535800125540&di=731771782a91456280d10eb3d363852e&imgtype=jpg&src=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2212426948%2C2448091984%26fm%3D214%26gp%3D0.jpg"]];
+//    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535800125540&di=731771782a91456280d10eb3d363852e&imgtype=jpg&src=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2212426948%2C2448091984%26fm%3D214%26gp%3D0.jpg"]];
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1537378101630&di=523faa8c412f3e35660ee6ba1e81c91c&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F00e93901213fb80edc3498fe3dd12f2eb9389436.jpg"]];
     makeViewController.contentImage = [UIImage imageWithData:data];
     makeViewController.onlyAddContentMode = YES;
     UINavigationController *navigationController1 = [[UINavigationController alloc] initWithRootViewController:makeViewController];
@@ -109,9 +110,10 @@
     switch (indexPath.row) {
             case 0:
             {
-                [XBARSubbviewManager showTakePhotoComplate:^(NSString *path) {
-                    [self gotoVideoEditWithImagePath:path];
-                }];
+                [self gotoMakeImage];
+//                [XBARSubbviewManager showTakePhotoComplate:^(NSString *path) {
+//                    [self gotoVideoEditWithImagePath:path];
+//                }];
             }
             break;
             case 1:{

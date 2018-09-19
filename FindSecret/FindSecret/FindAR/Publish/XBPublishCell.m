@@ -16,7 +16,7 @@
     if (self) {
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        self.accessoryType = UITableViewCellAccessoryNone;
         self.detailTextLabel.textColor = [UIColor grayColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
      
@@ -45,7 +45,7 @@
     }];
     
     cell.title = [[UILabel alloc]init];
-    cell.title.textColor = [UIColor grayColor];
+    cell.title.textColor = [UIColor xb_colorFromString:@"#333333"];
     [cell addSubview:cell.title];
     [cell.title mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(cell.pictureImageView.mas_right).offset(10);
@@ -53,7 +53,7 @@
     }];
     
     cell.detail = [[UILabel alloc]init];
-    cell.detail.textColor = [UIColor grayColor];
+    cell.detail.textColor = [UIColor xb_colorFromString:@"#333333"];
     cell.detail.textAlignment = NSTextAlignmentRight;
     [cell addSubview:cell.detail];
     [cell.detail mas_makeConstraints:^(MASConstraintMaker *make) {

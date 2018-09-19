@@ -28,6 +28,7 @@ static NSString* const cellID = @"steCellID";
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.currSelectIndex = -1;
+    [self loadNavigationItem];
     [self initDataSource];
     [self initTextField];
     [self initTableView];
@@ -35,7 +36,22 @@ static NSString* const cellID = @"steCellID";
 -(void)initDataSource{
     self.dataSource = @[@"测试的管带",@"测试的管带",@"测试的管带",@"测试的管带",@"测试的管带",@"测试的管带",@"测试的管带",@"测试的管带",@"测试的管带",@"测试的管带",@"测试的管带",@"测试的管带",@"测试的管带"];
 }
-
+-(void)loadNavigationItem
+{
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(confirmAction)];
+    [item setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor xb_colorFromString:@"#333333"]} forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = item;
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"nav_icon_scanning_normal"] style:UIBarButtonItemStyleDone target:self action:@selector(backAction)];
+}
+-(void)backAction
+{
+    if (self.navigationController) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
 -(void)initTextField{
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(20, 68, ScreenWidth-40, 40)];
     textField.placeholder = @"输入昵称";

@@ -11,8 +11,9 @@
 #import "XBFindNearAddressVC.h"
 #import "XBPublishCell.h"
 #import "XBWhoCanSeeController.h"
-#import "Masonry.h"
 #import "HttpRequestServices.h"
+#import "UIColor+XBHEX.h"
+
 
 @interface XBPublishController ()<UITextViewDelegate,UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,XBWhoCanSeeControllerDelegate>
 @property (nonatomic, strong) UITextView *editTextView;
@@ -39,17 +40,44 @@
     
     static NSString *ID = @"cell";
     
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(20, 20, SCREEN_WIDTH-40, 80*3+2) style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(20, 20, SCREEN_WIDTH-40, ScreenHeight-64-49) style:UITableViewStyleGrouped];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor whiteColor];
     
     self.titleDataSource = @[@"所在位置",@"谁可以看",@"在哪里可以看"];
-    self.imageDataSource = [NSMutableArray arrayWithArray:@[@"3",@"3",@"3"]];
+    self.imageDataSource = [NSMutableArray arrayWithArray:@[@"post_icon_loaction_normal",@"post_icon_headerPic_normal",@"post_icon_loaction_normal2"]];
     self.detailDataSource = [NSMutableArray array];
     [self.detailDataSource addObjectsFromArray:@[@"",@"点对点发送",@"不限地点"]];
-    self.userImageDataSource = [NSMutableArray arrayWithObjects:@"",@"",@"", nil];
+    self.userImageDataSource = [NSMutableArray arrayWithObjects:@"post_icon_right_arrow",@"post_icon_right_arrow",@"post_icon_right_arrow", nil];
+    
+    [self creatPublish];
+    
+    [self initBackButton];
+    
+}
+
+-(void)initBackButton
+{
+    if (self.navigationController) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"nav_icon_scanning_normal"] style:UIBarButtonItemStyleDone target:self action:@selector(backAction)];
+    }else{
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [btn setImage:[UIImage imageNamed:@"nav_icon_scanning_normal"] forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+        btn.frame = CGRectMake(10, 20, 44, 44);
+        [self.view addSubview:btn];
+    }
+}
+
+-(void)backAction
+{
+    if (self.navigationController) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 -(void)popToHome
@@ -175,26 +203,67 @@
     
 }
 
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    UIView *view = [[UIView alloc]init];
-    view.backgroundColor = [UIColor whiteColor];
-    view.userInteractionEnabled = YES;
+
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.editTextView resignFirstResponder];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 64;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.row == 0){
+        XBFindNearAddressVC *vc = [XBFindNearAddressVC new];
+        [self.navigationController pushViewController:vc animated:YES];
+        [vc setReturnBlock:^(NSString *city,NSString *name,NSString *address,CGFloat latitude,CGFloat longitude,NSString *phone,UIImage *img){
+            if (name) {
+                
+                XBPublishCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+                if (name.length>0) {
+                    cell.title.text = name;
+                    cell.title.textColor = [UIColor blueColor];
+                }else{
+                    cell.title.text = @"所在位置";
+                    cell.title.textColor = [UIColor grayColor];
+                }
+            }
+            
+        }];
+    }else if (indexPath.row == 1){
+        XBWhoCanSeeController *vc = [XBWhoCanSeeController new];
+        vc.type = 1;
+        vc.delegate = self;
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }else if (indexPath.row == 2){
+        XBWhoCanSeeController *vc = [XBWhoCanSeeController new];
+        vc.type = 2;
+        vc.delegate = self;
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
+    
+}
+
+#pragma mark - publish
+
+-(void)creatPublish
+{
     UIButton *publish = [[UIButton alloc] init];
-    publish.backgroundColor = [UIColor orangeColor];
-    [publish setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    publish.backgroundColor = [UIColor xb_colorFromString:@"#272727"];
+    [publish setTitleColor:[UIColor xb_colorFromString:@"#FFFFFF"] forState:UIControlStateNormal];
     [publish setTitle:@"发布" forState:UIControlStateNormal];
     publish.backgroundColor = [UIColor yellowColor];
     [publish addTarget:self action:@selector(publishBUttonDidClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [view addSubview:publish];
-    [publish mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(view).offset(30);
-        make.top.equalTo(view).offset(30);
-        make.height.mas_equalTo(49);
-        make.right.equalTo(view).offset(-30);
-    }];
+    [self.view addSubview:publish];
+    publish.frame = CGRectMake(0, ScreenHeight-49, ScreenWidth, 49);
     
-    return view;
 }
+
 -(void)publishBUttonDidClicked:(UIButton *)sender{
     [self uploadData];
 }
@@ -219,59 +288,6 @@
     }];
 }
 
--(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-    [self.editTextView resignFirstResponder];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 49+60;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 64;
-}
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if(indexPath.row == 0){
-        XBFindNearAddressVC *vc = [XBFindNearAddressVC new];
-        [self.navigationController pushViewController:vc animated:YES];
-        [vc setReturnBlock:^(NSString *city,NSString *name,NSString *address,CGFloat latitude,CGFloat longitude,NSString *phone,UIImage *img){
-            if (name) {
-                
-                XBPublishCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-                if (name.length>0) {
-                    cell.title.text = name;
-                    cell.title.textColor = [UIColor blueColor];
-                }else{
-                    cell.title.text = @"所在位置";
-                    cell.title.textColor = [UIColor grayColor];
-                }
-               
-                //                self.addressLabel.width = ScreenWidth - 40;
-                //                cell.text = [NSString stringWithFormat:@"longitude = %.10f\nlatitude = %.10f\n%@",longitude,latitude,name];
-                //                [self.addressLabel sizeToFit];
-                
-            }
-            
-        }];
-    }else if (indexPath.row == 1){
-        XBWhoCanSeeController *vc = [XBWhoCanSeeController new];
-        vc.type = 1;
-        vc.delegate = self;
-        [self.navigationController pushViewController:vc animated:YES];
-        
-    }else if (indexPath.row == 2){
-        XBWhoCanSeeController *vc = [XBWhoCanSeeController new];
-        vc.type = 2;
-        vc.delegate = self;
-        [self.navigationController pushViewController:vc animated:YES];
-        
-    }
-    
-}
 
 #pragma mark == 放大图片
 

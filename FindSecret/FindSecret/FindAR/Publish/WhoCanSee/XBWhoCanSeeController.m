@@ -31,10 +31,21 @@ static NSString* const cellID = @"cellID";
     [self initDataSource];
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(confirmAction)];
-    [item setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor blueColor]} forState:UIControlStateNormal];
+    [item setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor xb_colorFromString:@"#333333"]} forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = item;
     
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"nav_icon_scanning_normal"] style:UIBarButtonItemStyleDone target:self action:@selector(backAction)];
+    
     [self.tableView registerClass:XBSelectCell.class forCellReuseIdentifier:cellID];
+}
+
+-(void)backAction
+{
+    if (self.navigationController) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 -(void)confirmAction
@@ -83,7 +94,7 @@ static NSString* const cellID = @"cellID";
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 64;
+    return 60;
 }
 
 

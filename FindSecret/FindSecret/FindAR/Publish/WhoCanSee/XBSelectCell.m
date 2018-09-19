@@ -30,27 +30,29 @@
 
     self.pictureImageView = [[UIImageView alloc]init];
     [self.contentView addSubview:self.pictureImageView];
-    self.pictureImageView.frame = CGRectMake(5, 12, 40, 40);
+    self.pictureImageView.frame = CGRectMake(5, 18, 22, 22);
     self.pictureImageView.backgroundColor = self.backgroundColor;
-    self.pictureImageView.image = [UIImage imageNamed:@"unselected.png"];
-    self.pictureImageView.highlightedImage = [UIImage imageNamed:@"selected.png"];
+    self.pictureImageView.image = [UIImage imageNamed:@"post_icon_selection_normal"];
+    self.pictureImageView.highlightedImage = [UIImage imageNamed:@"post_icon_selection_selected"];
     
     self.titleLabel = [[UILabel alloc]init];
     [self.contentView addSubview:self.titleLabel];
+    self.titleLabel.font = [UIFont systemFontOfSize:15];
+    self.titleLabel.textColor = [UIColor xb_colorFromString:@"#333333"];
     self.titleLabel.frame = CGRectMake(self.pictureImageView.xb_right+5, 10, ScreenWidth-self.pictureImageView.xb_right-20, 20);
     
     
     self.detailLabel = [[UILabel alloc]init];
     [self.contentView addSubview:self.detailLabel];
     self.detailLabel.frame = CGRectMake(self.titleLabel.xb_x, self.titleLabel.xb_bottom+3, ScreenWidth-self.pictureImageView.xb_right-20, 20);
-    self.detailLabel.textColor = [UIColor lightGrayColor];
-    self.detailLabel.font = [UIFont systemFontOfSize:14];
+    self.detailLabel.textColor = [UIColor xb_colorFromString:@"#999999"];
+    self.detailLabel.font = [UIFont systemFontOfSize:12];
     
     UIView *line = [[UIView alloc] init];
     [self.contentView addSubview:line];
     [line mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView.mas_left).offset(20);
-        make.right.equalTo(self.contentView.mas_right).offset(-20);
+        make.left.equalTo(self.titleLabel.mas_left);
+        make.right.equalTo(self.contentView.mas_right).offset(-15);
         make.bottom.equalTo(self.contentView.mas_bottom).offset(-0.5);
         make.height.mas_equalTo(0.5);
     }];

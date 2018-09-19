@@ -71,27 +71,64 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor blackColor];
+    
     self.buttonsSize = CGSizeMake(60, 60);
     self.buttonsCenterY = SCREEN_HEIGHT - BOTTOM_MARGIN - 80;
-
-    [self initCapture];
-    [self initTopToolBar];
-    
-    if (self.contentImage == nil  && self.contentImagePath) {
-        self.contentImage = [UIImage imageWithContentsOfFile:self.contentImagePath];
-    } else if ( self.contentImage && self.contentImagePath == nil ){
-        self.contentImagePath = filePathFromImage(self.contentImage);
-    }
-    self.contentImage ? [self switchAddContentMode] : [self switchCaptureMode];
     self.arrFilePath = [NSMutableSet set];
+    // 如果是AR名片
+    if (self.isARCardMode) {
+        self.title = @"AR名片";
+        self.view.backgroundColor = [UIColor whiteColor];
+        self.contentImage = nil;
+        self.contentImagePath = nil;
+        [self initCaptureLayerWithFrame:[self captureLayerFrame]];
+        [self switchCaptureMode];
+    } else {
+        self.view.backgroundColor = [UIColor blackColor];
+        [self initCaptureLayerWithFrame:[self captureLayerFrame]];
+        // 初始化自定义导航栏
+        [self initTopToolBar];
+        if (self.contentImage == nil  && self.contentImagePath) {
+            self.contentImage = [UIImage imageWithContentsOfFile:self.contentImagePath];
+        } else if ( self.contentImage && self.contentImagePath == nil ){
+            self.contentImagePath = filePathFromImage(self.contentImage);
+        }
+        self.contentImage ? [self switchAddContentMode] : [self switchCaptureMode];
+    }
+    
+    
 
+}
+
+
+
+- (CGRect)captureLayerFrame {
+    if (self.isARCardMode) {
+        return CGRectMake(0, STATUSBAR_And_NAVIGATIONBAR_HEIGHT, self.view.bounds.size.width, self.view.bounds.size.width);
+    }else {
+        return self.view.bounds;
+    }
+}
+
+- (CGRect)displayImageViewFrame {
+    if (self.isARCardMode) {
+        return [self captureLayerFrame];
+    } else {
+        if (self.onlyAddContentMode) {
+            if (self.contentImage) {
+                return CGRectFitWithContentMode(self.view.bounds, self.contentImage.size, UIViewContentModeScaleAspectFit);
+            }else {
+                return self.view.bounds;
+            }
+        }
+        
+    }
 }
 
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    self.isARCardMode?:[self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -105,11 +142,11 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    self.isARCardMode?:[self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
 
-- (void)initCapture {
+- (void)initCaptureLayerWithFrame:(CGRect)frame {
 
     AVCaptureSession *session = [[AVCaptureSession alloc] init];
     self.session = session;
@@ -152,7 +189,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
     }
 
     AVCaptureVideoPreviewLayer *videoLayer = [AVCaptureVideoPreviewLayer layerWithSession:session];
-    videoLayer.frame = self.view.bounds;
+    videoLayer.frame = frame;
     videoLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
 
     [self.view.layer addSublayer:videoLayer];
@@ -256,7 +293,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
             self.captureImageView = [UIImageView new];
             self.captureImageView.userInteractionEnabled = YES;
             self.captureImageView.backgroundColor = [UIColor clearColor];
-            self.captureImageView.frame = self.view.bounds;
+            self.captureImageView.frame = [self displayImageViewFrame];
         }
         if (!self.captureImageView.superview) {
             [self.view insertSubview:self.captureImageView atIndex:0];
@@ -314,7 +351,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
         if (!self.captureImageView) {
             self.captureImageView = [UIImageView new];
             self.captureImageView.backgroundColor = [UIColor clearColor];
-            self.captureImageView.frame = self.view.bounds;
+            self.captureImageView.frame = [self displayImageViewFrame];
             self.captureImageView.userInteractionEnabled = YES;
         }
         if (!self.captureImageView.superview) {
@@ -514,6 +551,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
                 wItemView.hidden = YES;
                 [wSelf addTextWithAttributedText:wItemView.attributedText itemView:wItemView];
             };
+            itemView.center = CGPointMake(CGRectGetMidX(self.captureImageView.bounds), CGRectGetMidY(self.captureImageView.bounds));
             [self.captureImageView addSubview:itemView];
 
         }
@@ -540,6 +578,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
         }
     };
+    itemView.center = CGPointMake(CGRectGetMidX(self.captureImageView.bounds), CGRectGetMidY(self.captureImageView.bounds));
     [self.captureImageView addSubview:itemView];
 
 }
@@ -563,6 +602,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
 
         }
     };
+    itemView.center = CGPointMake(CGRectGetMidX(self.captureImageView.bounds), CGRectGetMidY(self.captureImageView.bounds));
     [self.captureImageView addSubview:itemView];
 
 }
@@ -578,6 +618,7 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
             NSLog(@"哈哈");
         }];
     };
+    itemView.center = CGPointMake(CGRectGetMidX(self.captureImageView.bounds), CGRectGetMidY(self.captureImageView.bounds));
     [self.captureImageView addSubview:itemView];
 }
 
@@ -642,7 +683,9 @@ typedef NS_ENUM(NSUInteger, XBMakeContentStage) {
         self.onlyAddContentMode ? [self dismissNotAlert] : [self reCapture];
     }
 }
-
+- (void)finished {
+    
+}
 
 #pragma mark - Camera
 
@@ -856,5 +899,85 @@ static inline NSString *HEXStringFromColor(UIColor *color) {
 #pragma mark - dealloc
 - (void)dealloc {
     NSLog(@"%s", __func__);
+}
+
+CGRect CGRectFitWithContentMode(CGRect rect, CGSize size, UIViewContentMode mode) {
+    rect = CGRectStandardize(rect);
+    size.width = size.width < 0 ? -size.width : size.width;
+    size.height = size.height < 0 ? -size.height : size.height;
+    CGPoint center = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
+    switch (mode) {
+        case UIViewContentModeScaleAspectFit:
+        case UIViewContentModeScaleAspectFill: {
+            if (rect.size.width < 0.01 || rect.size.height < 0.01 ||
+                size.width < 0.01 || size.height < 0.01) {
+                rect.origin = center;
+                rect.size = CGSizeZero;
+            } else {
+                CGFloat scale;
+                if (mode == UIViewContentModeScaleAspectFit) {
+                    if (size.width / size.height < rect.size.width / rect.size.height) {
+                        scale = rect.size.height / size.height;
+                    } else {
+                        scale = rect.size.width / size.width;
+                    }
+                } else {
+                    if (size.width / size.height < rect.size.width / rect.size.height) {
+                        scale = rect.size.width / size.width;
+                    } else {
+                        scale = rect.size.height / size.height;
+                    }
+                }
+                size.width *= scale;
+                size.height *= scale;
+                rect.size = size;
+                rect.origin = CGPointMake(center.x - size.width * 0.5, center.y - size.height * 0.5);
+            }
+        } break;
+        case UIViewContentModeCenter: {
+            rect.size = size;
+            rect.origin = CGPointMake(center.x - size.width * 0.5, center.y - size.height * 0.5);
+        } break;
+        case UIViewContentModeTop: {
+            rect.origin.x = center.x - size.width * 0.5;
+            rect.size = size;
+        } break;
+        case UIViewContentModeBottom: {
+            rect.origin.x = center.x - size.width * 0.5;
+            rect.origin.y += rect.size.height - size.height;
+            rect.size = size;
+        } break;
+        case UIViewContentModeLeft: {
+            rect.origin.y = center.y - size.height * 0.5;
+            rect.size = size;
+        } break;
+        case UIViewContentModeRight: {
+            rect.origin.y = center.y - size.height * 0.5;
+            rect.origin.x += rect.size.width - size.width;
+            rect.size = size;
+        } break;
+        case UIViewContentModeTopLeft: {
+            rect.size = size;
+        } break;
+        case UIViewContentModeTopRight: {
+            rect.origin.x += rect.size.width - size.width;
+            rect.size = size;
+        } break;
+        case UIViewContentModeBottomLeft: {
+            rect.origin.y += rect.size.height - size.height;
+            rect.size = size;
+        } break;
+        case UIViewContentModeBottomRight: {
+            rect.origin.x += rect.size.width - size.width;
+            rect.origin.y += rect.size.height - size.height;
+            rect.size = size;
+        } break;
+        case UIViewContentModeScaleToFill:
+        case UIViewContentModeRedraw:
+        default: {
+            rect = rect;
+        }
+    }
+    return rect;
 }
 @end

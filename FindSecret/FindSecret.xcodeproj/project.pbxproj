@@ -12,6 +12,7 @@
 		8592617A212F07AB008D0667 /* XBUITestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85926178212F07AB008D0667 /* XBUITestViewController.m */; };
 		8592617B212F07AB008D0667 /* XBUITestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85926179212F07AB008D0667 /* XBUITestViewController.xib */; };
 		859261CE213835E6008D0667 /* libiPhone-lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 859261CD213835E6008D0667 /* libiPhone-lib.a */; };
+		85ED635421529A5400D19694 /* XBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 85ED635321529A5400D19694 /* XBUtil.m */; };
 		BE9484B8213ED93100E16072 /* XBVideoWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9484B7213ED93100E16072 /* XBVideoWriter.m */; };
 		CA147A422133D7D700F2F2EE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E60E3B65210C0FF100C5BFBB /* Info.plist */; };
 		CA380D372148236400C3D037 /* RequestViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CA380D352148236400C3D037 /* RequestViewModel.m */; };
@@ -385,6 +386,8 @@
 		85926178212F07AB008D0667 /* XBUITestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBUITestViewController.m; sourceTree = "<group>"; };
 		85926179212F07AB008D0667 /* XBUITestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBUITestViewController.xib; sourceTree = "<group>"; };
 		859261CD213835E6008D0667 /* libiPhone-lib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libiPhone-lib.a"; sourceTree = "<group>"; };
+		85ED635221529A5400D19694 /* XBUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBUtil.h; sourceTree = "<group>"; };
+		85ED635321529A5400D19694 /* XBUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBUtil.m; sourceTree = "<group>"; };
 		BE9484B6213ED93100E16072 /* XBVideoWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBVideoWriter.h; sourceTree = "<group>"; };
 		BE9484B7213ED93100E16072 /* XBVideoWriter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBVideoWriter.m; sourceTree = "<group>"; };
 		CA380D352148236400C3D037 /* RequestViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestViewModel.m; sourceTree = "<group>"; };
@@ -1555,6 +1558,8 @@
 				74D10EB52A8A7BD784F2CF4E /* XBAVTools.h */,
 				E60A0A08213AD1FA009BC9F0 /* NSString+XBMD5.h */,
 				E60A0A09213AD1FA009BC9F0 /* NSString+XBMD5.m */,
+				85ED635221529A5400D19694 /* XBUtil.h */,
+				85ED635321529A5400D19694 /* XBUtil.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -2238,6 +2243,7 @@
 				E69315C62137F61800E7FAE3 /* WXSTransitionManager+FragmentAnimation.m in Sources */,
 				E6930D0D2137D29900E7FAE3 /* Bulk_DOTween46_0.cpp in Sources */,
 				E6930CC22137D29900E7FAE3 /* GenericMethods2.cpp in Sources */,
+				85ED635421529A5400D19694 /* XBUtil.m in Sources */,
 				E69315A52137F61800E7FAE3 /* MJRefreshNormalHeader.m in Sources */,
 				E6930CDE2137D29900E7FAE3 /* Bulk_mscorlib_1.cpp in Sources */,
 				E6930D222137D29A00E7FAE3 /* Bulk_UnityEngine.UI_0.cpp in Sources */,

@@ -798,19 +798,11 @@ extern "C" void EnumPair_t3148109467_marshal_pinvoke_cleanup(void* marshaledStru
 extern const Il2CppType EnumPair_t3148109467_0_0_0;
 extern "C" void DelegatePInvokeWrapper_laterCallback_t804133219();
 extern const Il2CppType laterCallback_t804133219_0_0_0;
-extern "C" void PosStringTuple_t2741341376_marshal_pinvoke(void* managedStructure, void* marshaledStructure);
-extern "C" void PosStringTuple_t2741341376_marshal_pinvoke_back(void* marshaledStructure, void* managedStructure);
-extern "C" void PosStringTuple_t2741341376_marshal_pinvoke_cleanup(void* marshaledStructure);
-extern const Il2CppType PosStringTuple_t2741341376_0_0_0;
 extern "C" void DelegatePInvokeWrapper_AssetsUpdateComplete_t2519181758();
 extern const Il2CppType AssetsUpdateComplete_t2519181758_0_0_0;
 extern "C" void DelegatePInvokeWrapper_ZGPointerCallback_t2999669792();
 extern const Il2CppType ZGPointerCallback_t2999669792_0_0_0;
-extern "C" void PosStringTuple_t3884979041_marshal_pinvoke(void* managedStructure, void* marshaledStructure);
-extern "C" void PosStringTuple_t3884979041_marshal_pinvoke_back(void* marshaledStructure, void* managedStructure);
-extern "C" void PosStringTuple_t3884979041_marshal_pinvoke_cleanup(void* marshaledStructure);
-extern const Il2CppType PosStringTuple_t3884979041_0_0_0;
-extern Il2CppInteropData g_Il2CppInteropData[229] = 
+extern Il2CppInteropData g_Il2CppInteropData[227] = 
 {
 	{ NULL, NULL, NULL, NULL, NULL, &IStream_t2767586507::IID, &IStream_t2767586507_0_0_0 } /* System.Runtime.InteropServices.ComTypes.IStream */,
 	{ NULL, Context_t1744531130_marshal_pinvoke, Context_t1744531130_marshal_pinvoke_back, Context_t1744531130_marshal_pinvoke_cleanup, NULL, NULL, &Context_t1744531130_0_0_0 } /* Mono.Globalization.Unicode.SimpleCollator/Context */,
@@ -1036,9 +1028,7 @@ extern Il2CppInteropData g_Il2CppInteropData[229] =
 	{ NULL, NodeEnumerator_t333658572_marshal_pinvoke, NodeEnumerator_t333658572_marshal_pinvoke_back, NodeEnumerator_t333658572_marshal_pinvoke_cleanup, NULL, NULL, &NodeEnumerator_t333658572_0_0_0 } /* ProtoBuf.Meta.BasicList/NodeEnumerator */,
 	{ NULL, EnumPair_t3148109467_marshal_pinvoke, EnumPair_t3148109467_marshal_pinvoke_back, EnumPair_t3148109467_marshal_pinvoke_cleanup, NULL, NULL, &EnumPair_t3148109467_0_0_0 } /* ProtoBuf.Serializers.EnumSerializer/EnumPair */,
 	{ DelegatePInvokeWrapper_laterCallback_t804133219, NULL, NULL, NULL, NULL, NULL, &laterCallback_t804133219_0_0_0 } /* CallLaterUtil/laterCallback */,
-	{ NULL, PosStringTuple_t2741341376_marshal_pinvoke, PosStringTuple_t2741341376_marshal_pinvoke_back, PosStringTuple_t2741341376_marshal_pinvoke_cleanup, NULL, NULL, &PosStringTuple_t2741341376_0_0_0 } /* TextContent/PosStringTuple */,
 	{ DelegatePInvokeWrapper_AssetsUpdateComplete_t2519181758, NULL, NULL, NULL, NULL, NULL, &AssetsUpdateComplete_t2519181758_0_0_0 } /* ZGGame.AssetsUpdateComplete */,
 	{ DelegatePInvokeWrapper_ZGPointerCallback_t2999669792, NULL, NULL, NULL, NULL, NULL, &ZGPointerCallback_t2999669792_0_0_0 } /* ZGGame.ZGPointerCallback */,
-	{ NULL, PosStringTuple_t3884979041_marshal_pinvoke, PosStringTuple_t3884979041_marshal_pinvoke_back, PosStringTuple_t3884979041_marshal_pinvoke_cleanup, NULL, NULL, &PosStringTuple_t3884979041_0_0_0 } /* ShowOffEmoji/PosStringTuple */,
 	NULL,
 };

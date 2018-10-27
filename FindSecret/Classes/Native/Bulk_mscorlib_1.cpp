@@ -1042,10 +1042,6 @@ extern const uint32_t Char_System_IConvertible_ToUInt64_m3536560782_MetadataUsag
 extern Il2CppCodeGenString* _stringLiteral1920911092;
 extern const uint32_t Char_CompareTo_m42489266_MetadataUsageId;
 extern const uint32_t Char_Equals_m1279957088_MetadataUsageId;
-extern Il2CppCodeGenString* _stringLiteral1778249823;
-extern Il2CppCodeGenString* _stringLiteral2354794577;
-extern Il2CppCodeGenString* _stringLiteral4034890030;
-extern const uint32_t Char_ConvertFromUtf32_m2726544766_MetadataUsageId;
 extern const uint32_t Char_GetUnicodeCategory_m57882613_MetadataUsageId;
 extern const uint32_t Char_IsDigit_m3646673943_MetadataUsageId;
 extern const uint32_t Char_IsDigit_m891258618_MetadataUsageId;
@@ -3098,10 +3094,6 @@ extern "C"  int32_t Char_CompareTo_m42489266 (Il2CppChar* __this, Il2CppObject *
 extern "C"  bool Char_Equals_m1279957088 (Il2CppChar* __this, Il2CppObject * ___obj0, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // System.Int32 System.Char::CompareTo(System.Char)
 extern "C"  int32_t Char_CompareTo_m1035527789 (Il2CppChar* __this, Il2CppChar ___value0, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// System.String System.String::CreateString(System.Char,System.Int32)
-extern "C"  String_t* String_CreateString_m1262864254 (String_t* __this, Il2CppChar ___c0, int32_t ___count1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// System.String System.String::CreateString(System.Char[])
-extern "C"  String_t* String_CreateString_m2818852475 (String_t* __this, CharU5BU5D_t3528271667* ___val0, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // System.Boolean System.Char::Equals(System.Char)
 extern "C"  bool Char_Equals_m198757577 (Il2CppChar* __this, Il2CppChar ___obj0, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // System.Int32 System.Char::GetHashCode()
@@ -3118,6 +3110,8 @@ extern "C"  CultureInfo_t4157843068 * CultureInfo_get_CurrentCulture_m1632690660
 extern "C"  Il2CppChar Char_ToLowerInvariant_m1926695830 (Il2CppObject * __this /* static, unused */, Il2CppChar ___c0, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // System.Char System.Char::ToUpperInvariant(System.Char)
 extern "C"  Il2CppChar Char_ToUpperInvariant_m3658711221 (Il2CppObject * __this /* static, unused */, Il2CppChar ___c0, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+// System.String System.String::CreateString(System.Char,System.Int32)
+extern "C"  String_t* String_CreateString_m1262864254 (String_t* __this, Il2CppChar ___c0, int32_t ___count1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // System.String System.Char::ToString()
 extern "C"  String_t* Char_ToString_m3588025615 (Il2CppChar* __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // System.String System.Char::ToString(System.IFormatProvider)
@@ -20167,88 +20161,6 @@ extern "C"  int32_t Char_CompareTo_m1035527789_AdjustorThunk (Il2CppObject * __t
 {
 	Il2CppChar* _thisAdjusted = reinterpret_cast<Il2CppChar*>(__this + 1);
 	return Char_CompareTo_m1035527789(_thisAdjusted, ___value0, method);
-}
-// System.String System.Char::ConvertFromUtf32(System.Int32)
-extern "C"  String_t* Char_ConvertFromUtf32_m2726544766 (Il2CppObject * __this /* static, unused */, int32_t ___utf320, const MethodInfo* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (Char_ConvertFromUtf32_m2726544766_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		int32_t L_0 = ___utf320;
-		if ((((int32_t)L_0) < ((int32_t)0)))
-		{
-			goto IL_0012;
-		}
-	}
-	{
-		int32_t L_1 = ___utf320;
-		if ((((int32_t)L_1) <= ((int32_t)((int32_t)1114111))))
-		{
-			goto IL_0022;
-		}
-	}
-
-IL_0012:
-	{
-		ArgumentOutOfRangeException_t777629997 * L_2 = (ArgumentOutOfRangeException_t777629997 *)il2cpp_codegen_object_new(ArgumentOutOfRangeException_t777629997_il2cpp_TypeInfo_var);
-		ArgumentOutOfRangeException__ctor_m282481429(L_2, _stringLiteral1778249823, _stringLiteral2354794577, /*hidden argument*/NULL);
-		IL2CPP_RAISE_MANAGED_EXCEPTION(L_2);
-	}
-
-IL_0022:
-	{
-		int32_t L_3 = ___utf320;
-		if ((((int32_t)((int32_t)55296)) > ((int32_t)L_3)))
-		{
-			goto IL_0048;
-		}
-	}
-	{
-		int32_t L_4 = ___utf320;
-		if ((((int32_t)L_4) > ((int32_t)((int32_t)57343))))
-		{
-			goto IL_0048;
-		}
-	}
-	{
-		ArgumentOutOfRangeException_t777629997 * L_5 = (ArgumentOutOfRangeException_t777629997 *)il2cpp_codegen_object_new(ArgumentOutOfRangeException_t777629997_il2cpp_TypeInfo_var);
-		ArgumentOutOfRangeException__ctor_m282481429(L_5, _stringLiteral1778249823, _stringLiteral4034890030, /*hidden argument*/NULL);
-		IL2CPP_RAISE_MANAGED_EXCEPTION(L_5);
-	}
-
-IL_0048:
-	{
-		int32_t L_6 = ___utf320;
-		if ((((int32_t)L_6) >= ((int32_t)((int32_t)65536))))
-		{
-			goto IL_005c;
-		}
-	}
-	{
-		int32_t L_7 = ___utf320;
-		String_t* L_8 = String_CreateString_m1262864254(NULL, (((int32_t)((uint16_t)L_7))), 1, /*hidden argument*/NULL);
-		return L_8;
-	}
-
-IL_005c:
-	{
-		int32_t L_9 = ___utf320;
-		___utf320 = ((int32_t)((int32_t)L_9-(int32_t)((int32_t)65536)));
-		CharU5BU5D_t3528271667* L_10 = ((CharU5BU5D_t3528271667*)SZArrayNew(CharU5BU5D_t3528271667_il2cpp_TypeInfo_var, (uint32_t)2));
-		int32_t L_11 = ___utf320;
-		NullCheck(L_10);
-		(L_10)->SetAt(static_cast<il2cpp_array_size_t>(0), (Il2CppChar)(((int32_t)((uint16_t)((int32_t)((int32_t)((int32_t)((int32_t)L_11>>(int32_t)((int32_t)10)))+(int32_t)((int32_t)55296)))))));
-		CharU5BU5D_t3528271667* L_12 = L_10;
-		int32_t L_13 = ___utf320;
-		NullCheck(L_12);
-		(L_12)->SetAt(static_cast<il2cpp_array_size_t>(1), (Il2CppChar)(((int32_t)((uint16_t)((int32_t)((int32_t)((int32_t)((int32_t)L_13%(int32_t)((int32_t)1024)))+(int32_t)((int32_t)56320)))))));
-		String_t* L_14 = String_CreateString_m2818852475(NULL, L_12, /*hidden argument*/NULL);
-		return L_14;
-	}
 }
 // System.Boolean System.Char::Equals(System.Char)
 extern "C"  bool Char_Equals_m198757577 (Il2CppChar* __this, Il2CppChar ___obj0, const MethodInfo* method)

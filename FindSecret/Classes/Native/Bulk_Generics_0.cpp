@@ -123,8 +123,6 @@
 #include "mscorlib_System_Collections_Generic_Dictionary_2_E2086727927.h"
 #include "mscorlib_System_Action_1_gen3899908068.h"
 #include "LitJson_LitJson_PropertyMetadata3727440473.h"
-#include "mscorlib_System_Action_1_gen4057446636.h"
-#include "AssemblyU2DCSharpU2Dfirstpass_ShowOffEmoji_PosStri3884979041.h"
 #include "mscorlib_System_Action_1_gen1450963500.h"
 #include "SimpleGif_SimpleGif_Data_Color321278495905.h"
 #include "mscorlib_System_Action_1_gen269755560.h"
@@ -146,8 +144,6 @@
 #include "mscorlib_System_Action_1_gen1569734369.h"
 #include "mscorlib_System_Action_1_gen2350192553.h"
 #include "mscorlib_System_UInt162177724958.h"
-#include "mscorlib_System_Action_1_gen2913808971.h"
-#include "AssemblyU2DCSharp_TextContent_PosStringTuple2741341376.h"
 #include "mscorlib_System_Action_1_gen1486051460.h"
 #include "UnityEngine_UnityEngine_AI_NavMeshBuildMarkup1313583865.h"
 #include "mscorlib_System_Action_1_gen860653820.h"
@@ -188,6 +184,9 @@
 #include "UnityEngine_UnityEngine_UIVertex4057497605.h"
 #include "mscorlib_System_Action_1_gen2328697118.h"
 #include "mscorlib_System_Action_1_gen3894781059.h"
+#include "mscorlib_System_Action_1_gen3491496532.h"
+#include "System_Core_System_Action_2_gen3550511846.h"
+#include "EasyAR_Unity_EasyAR_CameraDevice_PermissionStatus3501946708.h"
 
 // DG.Tweening.Core.DOGetter`1<DG.Tweening.Color2>
 struct DOGetter_1_t2840439279;
@@ -341,8 +340,6 @@ struct IEnumerator_1_t2962787787;
 struct IEnumerator_t1853284238;
 // System.Action`1<LitJson.PropertyMetadata>
 struct Action_1_t3899908068;
-// System.Action`1<ShowOffEmoji/PosStringTuple>
-struct Action_1_t4057446636;
 // System.Action`1<SimpleGif.Data.Color32>
 struct Action_1_t1450963500;
 // System.Action`1<System.Boolean>
@@ -369,8 +366,6 @@ struct Action_1_t2895617752;
 struct Action_1_t1569734369;
 // System.Action`1<System.UInt16>
 struct Action_1_t2350192553;
-// System.Action`1<TextContent/PosStringTuple>
-struct Action_1_t2913808971;
 // System.Action`1<UnityEngine.AI.NavMeshBuildMarkup>
 struct Action_1_t1486051460;
 // System.Action`1<UnityEngine.AI.NavMeshBuildSource>
@@ -415,6 +410,10 @@ struct Action_1_t4229965200;
 struct Action_1_t2328697118;
 // System.Action`1<UnityEngine.Vector3>
 struct Action_1_t3894781059;
+// System.Action`1<UnityEngine.Vector4>
+struct Action_1_t3491496532;
+// System.Action`2<EasyAR.CameraDevice/PermissionStatus,System.Object>
+struct Action_2_t3550511846;
 extern Il2CppClass* Color2_t3097643075_il2cpp_TypeInfo_var;
 extern const uint32_t DOSetter_1_BeginInvoke_m628755982_MetadataUsageId;
 extern Il2CppClass* Int32_t2950945753_il2cpp_TypeInfo_var;
@@ -552,8 +551,6 @@ extern const uint32_t ThreadSafeDictionary_2_get_IsReadOnly_m3905792839_Metadata
 extern const uint32_t ThreadSafeDictionary_2_Remove_m3568190946_MetadataUsageId;
 extern Il2CppClass* PropertyMetadata_t3727440473_il2cpp_TypeInfo_var;
 extern const uint32_t Action_1_BeginInvoke_m3795076494_MetadataUsageId;
-extern Il2CppClass* PosStringTuple_t3884979041_il2cpp_TypeInfo_var;
-extern const uint32_t Action_1_BeginInvoke_m419196325_MetadataUsageId;
 extern Il2CppClass* Color32_t1278495905_il2cpp_TypeInfo_var;
 extern const uint32_t Action_1_BeginInvoke_m3496833588_MetadataUsageId;
 extern Il2CppClass* Boolean_t97287965_il2cpp_TypeInfo_var;
@@ -576,8 +573,6 @@ extern const uint32_t Action_1_BeginInvoke_m2417191024_MetadataUsageId;
 extern const uint32_t Action_1_BeginInvoke_m3066011033_MetadataUsageId;
 extern Il2CppClass* UInt16_t2177724958_il2cpp_TypeInfo_var;
 extern const uint32_t Action_1_BeginInvoke_m1733230816_MetadataUsageId;
-extern Il2CppClass* PosStringTuple_t2741341376_il2cpp_TypeInfo_var;
-extern const uint32_t Action_1_BeginInvoke_m2193169397_MetadataUsageId;
 extern Il2CppClass* NavMeshBuildMarkup_t1313583865_il2cpp_TypeInfo_var;
 extern const uint32_t Action_1_BeginInvoke_m3722384331_MetadataUsageId;
 extern Il2CppClass* NavMeshBuildSource_t688186225_il2cpp_TypeInfo_var;
@@ -618,6 +613,9 @@ extern Il2CppClass* UIVertex_t4057497605_il2cpp_TypeInfo_var;
 extern const uint32_t Action_1_BeginInvoke_m1305512730_MetadataUsageId;
 extern const uint32_t Action_1_BeginInvoke_m4003445064_MetadataUsageId;
 extern const uint32_t Action_1_BeginInvoke_m2251050024_MetadataUsageId;
+extern const uint32_t Action_1_BeginInvoke_m1662208378_MetadataUsageId;
+extern Il2CppClass* PermissionStatus_t3501946708_il2cpp_TypeInfo_var;
+extern const uint32_t Action_2_BeginInvoke_m4287152765_MetadataUsageId;
 
 // System.Object[]
 struct ObjectU5BU5D_t2843939325  : public Il2CppArray
@@ -753,8 +751,6 @@ extern "C"  void TweenCallback_1_Invoke_m1886855032_gshared (TweenCallback_1_t31
 extern "C"  Il2CppObject * ThreadSafeDictionaryValueFactory_2_Invoke_m1116933141_gshared (ThreadSafeDictionaryValueFactory_2_t1268671514 * __this, Il2CppObject * ___key0, const MethodInfo* method);
 // System.Void System.Action`1<LitJson.PropertyMetadata>::Invoke(T)
 extern "C"  void Action_1_Invoke_m1117018106_gshared (Action_1_t3899908068 * __this, PropertyMetadata_t3727440473  ___obj0, const MethodInfo* method);
-// System.Void System.Action`1<ShowOffEmoji/PosStringTuple>::Invoke(T)
-extern "C"  void Action_1_Invoke_m2751978748_gshared (Action_1_t4057446636 * __this, PosStringTuple_t3884979041  ___obj0, const MethodInfo* method);
 // System.Void System.Action`1<SimpleGif.Data.Color32>::Invoke(T)
 extern "C"  void Action_1_Invoke_m1768178296_gshared (Action_1_t1450963500 * __this, Color32_t1278495905  ___obj0, const MethodInfo* method);
 // System.Void System.Action`1<System.Boolean>::Invoke(T)
@@ -781,8 +777,6 @@ extern "C"  void Action_1_Invoke_m617571463_gshared (Action_1_t2895617752 * __th
 extern "C"  void Action_1_Invoke_m763265009_gshared (Action_1_t1569734369 * __this, float ___obj0, const MethodInfo* method);
 // System.Void System.Action`1<System.UInt16>::Invoke(T)
 extern "C"  void Action_1_Invoke_m3302275272_gshared (Action_1_t2350192553 * __this, uint16_t ___obj0, const MethodInfo* method);
-// System.Void System.Action`1<TextContent/PosStringTuple>::Invoke(T)
-extern "C"  void Action_1_Invoke_m519407186_gshared (Action_1_t2913808971 * __this, PosStringTuple_t2741341376  ___obj0, const MethodInfo* method);
 // System.Void System.Action`1<UnityEngine.AI.NavMeshBuildMarkup>::Invoke(T)
 extern "C"  void Action_1_Invoke_m1668177189_gshared (Action_1_t1486051460 * __this, NavMeshBuildMarkup_t1313583865  ___obj0, const MethodInfo* method);
 // System.Void System.Action`1<UnityEngine.AI.NavMeshBuildSource>::Invoke(T)
@@ -827,6 +821,10 @@ extern "C"  void Action_1_Invoke_m3569619222_gshared (Action_1_t4229965200 * __t
 extern "C"  void Action_1_Invoke_m1179104721_gshared (Action_1_t2328697118 * __this, Vector2_t2156229523  ___obj0, const MethodInfo* method);
 // System.Void System.Action`1<UnityEngine.Vector3>::Invoke(T)
 extern "C"  void Action_1_Invoke_m2231225499_gshared (Action_1_t3894781059 * __this, Vector3_t3722313464  ___obj0, const MethodInfo* method);
+// System.Void System.Action`1<UnityEngine.Vector4>::Invoke(T)
+extern "C"  void Action_1_Invoke_m3313647926_gshared (Action_1_t3491496532 * __this, Vector4_t3319028937  ___obj0, const MethodInfo* method);
+// System.Void System.Action`2<EasyAR.CameraDevice/PermissionStatus,System.Object>::Invoke(T1,T2)
+extern "C"  void Action_2_Invoke_m1579851732_gshared (Action_2_t3550511846 * __this, int32_t ___arg10, Il2CppObject * ___arg21, const MethodInfo* method);
 
 // T DG.Tweening.Core.DOGetter`1<DG.Tweening.Color2>::Invoke()
 #define DOGetter_1_Invoke_m880692365(__this, method) ((  Color2_t3097643075  (*) (DOGetter_1_t2840439279 *, const MethodInfo*))DOGetter_1_Invoke_m880692365_gshared)(__this, method)
@@ -908,8 +906,6 @@ extern "C"  void NotImplementedException__ctor_m3058704252 (NotImplementedExcept
 #define ThreadSafeDictionaryValueFactory_2_Invoke_m1116933141(__this, ___key0, method) ((  Il2CppObject * (*) (ThreadSafeDictionaryValueFactory_2_t1268671514 *, Il2CppObject *, const MethodInfo*))ThreadSafeDictionaryValueFactory_2_Invoke_m1116933141_gshared)(__this, ___key0, method)
 // System.Void System.Action`1<LitJson.PropertyMetadata>::Invoke(T)
 #define Action_1_Invoke_m1117018106(__this, ___obj0, method) ((  void (*) (Action_1_t3899908068 *, PropertyMetadata_t3727440473 , const MethodInfo*))Action_1_Invoke_m1117018106_gshared)(__this, ___obj0, method)
-// System.Void System.Action`1<ShowOffEmoji/PosStringTuple>::Invoke(T)
-#define Action_1_Invoke_m2751978748(__this, ___obj0, method) ((  void (*) (Action_1_t4057446636 *, PosStringTuple_t3884979041 , const MethodInfo*))Action_1_Invoke_m2751978748_gshared)(__this, ___obj0, method)
 // System.Void System.Action`1<SimpleGif.Data.Color32>::Invoke(T)
 #define Action_1_Invoke_m1768178296(__this, ___obj0, method) ((  void (*) (Action_1_t1450963500 *, Color32_t1278495905 , const MethodInfo*))Action_1_Invoke_m1768178296_gshared)(__this, ___obj0, method)
 // System.Void System.Action`1<System.Boolean>::Invoke(T)
@@ -936,8 +932,6 @@ extern "C"  void NotImplementedException__ctor_m3058704252 (NotImplementedExcept
 #define Action_1_Invoke_m763265009(__this, ___obj0, method) ((  void (*) (Action_1_t1569734369 *, float, const MethodInfo*))Action_1_Invoke_m763265009_gshared)(__this, ___obj0, method)
 // System.Void System.Action`1<System.UInt16>::Invoke(T)
 #define Action_1_Invoke_m3302275272(__this, ___obj0, method) ((  void (*) (Action_1_t2350192553 *, uint16_t, const MethodInfo*))Action_1_Invoke_m3302275272_gshared)(__this, ___obj0, method)
-// System.Void System.Action`1<TextContent/PosStringTuple>::Invoke(T)
-#define Action_1_Invoke_m519407186(__this, ___obj0, method) ((  void (*) (Action_1_t2913808971 *, PosStringTuple_t2741341376 , const MethodInfo*))Action_1_Invoke_m519407186_gshared)(__this, ___obj0, method)
 // System.Void System.Action`1<UnityEngine.AI.NavMeshBuildMarkup>::Invoke(T)
 #define Action_1_Invoke_m1668177189(__this, ___obj0, method) ((  void (*) (Action_1_t1486051460 *, NavMeshBuildMarkup_t1313583865 , const MethodInfo*))Action_1_Invoke_m1668177189_gshared)(__this, ___obj0, method)
 // System.Void System.Action`1<UnityEngine.AI.NavMeshBuildSource>::Invoke(T)
@@ -982,6 +976,10 @@ extern "C"  void NotImplementedException__ctor_m3058704252 (NotImplementedExcept
 #define Action_1_Invoke_m1179104721(__this, ___obj0, method) ((  void (*) (Action_1_t2328697118 *, Vector2_t2156229523 , const MethodInfo*))Action_1_Invoke_m1179104721_gshared)(__this, ___obj0, method)
 // System.Void System.Action`1<UnityEngine.Vector3>::Invoke(T)
 #define Action_1_Invoke_m2231225499(__this, ___obj0, method) ((  void (*) (Action_1_t3894781059 *, Vector3_t3722313464 , const MethodInfo*))Action_1_Invoke_m2231225499_gshared)(__this, ___obj0, method)
+// System.Void System.Action`1<UnityEngine.Vector4>::Invoke(T)
+#define Action_1_Invoke_m3313647926(__this, ___obj0, method) ((  void (*) (Action_1_t3491496532 *, Vector4_t3319028937 , const MethodInfo*))Action_1_Invoke_m3313647926_gshared)(__this, ___obj0, method)
+// System.Void System.Action`2<EasyAR.CameraDevice/PermissionStatus,System.Object>::Invoke(T1,T2)
+#define Action_2_Invoke_m1579851732(__this, ___arg10, ___arg21, method) ((  void (*) (Action_2_t3550511846 *, int32_t, Il2CppObject *, const MethodInfo*))Action_2_Invoke_m1579851732_gshared)(__this, ___arg10, ___arg21, method)
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
@@ -8593,51 +8591,6 @@ extern "C"  void Action_1_EndInvoke_m3441614049_gshared (Action_1_t3899908068 * 
 {
 	il2cpp_codegen_delegate_end_invoke((Il2CppAsyncResult*) ___result0, 0);
 }
-// System.Void System.Action`1<ShowOffEmoji/PosStringTuple>::.ctor(System.Object,System.IntPtr)
-extern "C"  void Action_1__ctor_m372893378_gshared (Action_1_t4057446636 * __this, Il2CppObject * ___object0, IntPtr_t ___method1, const MethodInfo* method)
-{
-	__this->set_method_ptr_0((Il2CppMethodPointer)((MethodInfo*)___method1.get_m_value_0())->methodPointer);
-	__this->set_method_3(___method1);
-	__this->set_m_target_2(___object0);
-}
-// System.Void System.Action`1<ShowOffEmoji/PosStringTuple>::Invoke(T)
-extern "C"  void Action_1_Invoke_m2751978748_gshared (Action_1_t4057446636 * __this, PosStringTuple_t3884979041  ___obj0, const MethodInfo* method)
-{
-	if(__this->get_prev_9() != NULL)
-	{
-		Action_1_Invoke_m2751978748((Action_1_t4057446636 *)__this->get_prev_9(),___obj0, method);
-	}
-	il2cpp_codegen_raise_execution_engine_exception_if_method_is_not_found((MethodInfo*)(__this->get_method_3().get_m_value_0()));
-	bool ___methodIsStatic = MethodIsStatic((MethodInfo*)(__this->get_method_3().get_m_value_0()));
-	if (__this->get_m_target_2() != NULL && ___methodIsStatic)
-	{
-		typedef void (*FunctionPointerType) (Il2CppObject *, void* __this, PosStringTuple_t3884979041  ___obj0, const MethodInfo* method);
-		((FunctionPointerType)__this->get_method_ptr_0())(NULL,__this->get_m_target_2(),___obj0,(MethodInfo*)(__this->get_method_3().get_m_value_0()));
-	}
-	else
-	{
-		typedef void (*FunctionPointerType) (void* __this, PosStringTuple_t3884979041  ___obj0, const MethodInfo* method);
-		((FunctionPointerType)__this->get_method_ptr_0())(__this->get_m_target_2(),___obj0,(MethodInfo*)(__this->get_method_3().get_m_value_0()));
-	}
-}
-// System.IAsyncResult System.Action`1<ShowOffEmoji/PosStringTuple>::BeginInvoke(T,System.AsyncCallback,System.Object)
-extern "C"  Il2CppObject * Action_1_BeginInvoke_m419196325_gshared (Action_1_t4057446636 * __this, PosStringTuple_t3884979041  ___obj0, AsyncCallback_t3962456242 * ___callback1, Il2CppObject * ___object2, const MethodInfo* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (Action_1_BeginInvoke_m419196325_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	void *__d_args[2] = {0};
-	__d_args[0] = Box(PosStringTuple_t3884979041_il2cpp_TypeInfo_var, &___obj0);
-	return (Il2CppObject *)il2cpp_codegen_delegate_begin_invoke((Il2CppDelegate*)__this, __d_args, (Il2CppDelegate*)___callback1, (Il2CppObject*)___object2);
-}
-// System.Void System.Action`1<ShowOffEmoji/PosStringTuple>::EndInvoke(System.IAsyncResult)
-extern "C"  void Action_1_EndInvoke_m463301849_gshared (Action_1_t4057446636 * __this, Il2CppObject * ___result0, const MethodInfo* method)
-{
-	il2cpp_codegen_delegate_end_invoke((Il2CppAsyncResult*) ___result0, 0);
-}
 // System.Void System.Action`1<SimpleGif.Data.Color32>::.ctor(System.Object,System.IntPtr)
 extern "C"  void Action_1__ctor_m356246593_gshared (Action_1_t1450963500 * __this, Il2CppObject * ___object0, IntPtr_t ___method1, const MethodInfo* method)
 {
@@ -9219,51 +9172,6 @@ extern "C"  Il2CppObject * Action_1_BeginInvoke_m1733230816_gshared (Action_1_t2
 }
 // System.Void System.Action`1<System.UInt16>::EndInvoke(System.IAsyncResult)
 extern "C"  void Action_1_EndInvoke_m2840330267_gshared (Action_1_t2350192553 * __this, Il2CppObject * ___result0, const MethodInfo* method)
-{
-	il2cpp_codegen_delegate_end_invoke((Il2CppAsyncResult*) ___result0, 0);
-}
-// System.Void System.Action`1<TextContent/PosStringTuple>::.ctor(System.Object,System.IntPtr)
-extern "C"  void Action_1__ctor_m868104607_gshared (Action_1_t2913808971 * __this, Il2CppObject * ___object0, IntPtr_t ___method1, const MethodInfo* method)
-{
-	__this->set_method_ptr_0((Il2CppMethodPointer)((MethodInfo*)___method1.get_m_value_0())->methodPointer);
-	__this->set_method_3(___method1);
-	__this->set_m_target_2(___object0);
-}
-// System.Void System.Action`1<TextContent/PosStringTuple>::Invoke(T)
-extern "C"  void Action_1_Invoke_m519407186_gshared (Action_1_t2913808971 * __this, PosStringTuple_t2741341376  ___obj0, const MethodInfo* method)
-{
-	if(__this->get_prev_9() != NULL)
-	{
-		Action_1_Invoke_m519407186((Action_1_t2913808971 *)__this->get_prev_9(),___obj0, method);
-	}
-	il2cpp_codegen_raise_execution_engine_exception_if_method_is_not_found((MethodInfo*)(__this->get_method_3().get_m_value_0()));
-	bool ___methodIsStatic = MethodIsStatic((MethodInfo*)(__this->get_method_3().get_m_value_0()));
-	if (__this->get_m_target_2() != NULL && ___methodIsStatic)
-	{
-		typedef void (*FunctionPointerType) (Il2CppObject *, void* __this, PosStringTuple_t2741341376  ___obj0, const MethodInfo* method);
-		((FunctionPointerType)__this->get_method_ptr_0())(NULL,__this->get_m_target_2(),___obj0,(MethodInfo*)(__this->get_method_3().get_m_value_0()));
-	}
-	else
-	{
-		typedef void (*FunctionPointerType) (void* __this, PosStringTuple_t2741341376  ___obj0, const MethodInfo* method);
-		((FunctionPointerType)__this->get_method_ptr_0())(__this->get_m_target_2(),___obj0,(MethodInfo*)(__this->get_method_3().get_m_value_0()));
-	}
-}
-// System.IAsyncResult System.Action`1<TextContent/PosStringTuple>::BeginInvoke(T,System.AsyncCallback,System.Object)
-extern "C"  Il2CppObject * Action_1_BeginInvoke_m2193169397_gshared (Action_1_t2913808971 * __this, PosStringTuple_t2741341376  ___obj0, AsyncCallback_t3962456242 * ___callback1, Il2CppObject * ___object2, const MethodInfo* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (Action_1_BeginInvoke_m2193169397_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	void *__d_args[2] = {0};
-	__d_args[0] = Box(PosStringTuple_t2741341376_il2cpp_TypeInfo_var, &___obj0);
-	return (Il2CppObject *)il2cpp_codegen_delegate_begin_invoke((Il2CppDelegate*)__this, __d_args, (Il2CppDelegate*)___callback1, (Il2CppObject*)___object2);
-}
-// System.Void System.Action`1<TextContent/PosStringTuple>::EndInvoke(System.IAsyncResult)
-extern "C"  void Action_1_EndInvoke_m1148915442_gshared (Action_1_t2913808971 * __this, Il2CppObject * ___result0, const MethodInfo* method)
 {
 	il2cpp_codegen_delegate_end_invoke((Il2CppAsyncResult*) ___result0, 0);
 }
@@ -10254,6 +10162,97 @@ extern "C"  Il2CppObject * Action_1_BeginInvoke_m2251050024_gshared (Action_1_t3
 }
 // System.Void System.Action`1<UnityEngine.Vector3>::EndInvoke(System.IAsyncResult)
 extern "C"  void Action_1_EndInvoke_m2101971507_gshared (Action_1_t3894781059 * __this, Il2CppObject * ___result0, const MethodInfo* method)
+{
+	il2cpp_codegen_delegate_end_invoke((Il2CppAsyncResult*) ___result0, 0);
+}
+// System.Void System.Action`1<UnityEngine.Vector4>::.ctor(System.Object,System.IntPtr)
+extern "C"  void Action_1__ctor_m3482616127_gshared (Action_1_t3491496532 * __this, Il2CppObject * ___object0, IntPtr_t ___method1, const MethodInfo* method)
+{
+	__this->set_method_ptr_0((Il2CppMethodPointer)((MethodInfo*)___method1.get_m_value_0())->methodPointer);
+	__this->set_method_3(___method1);
+	__this->set_m_target_2(___object0);
+}
+// System.Void System.Action`1<UnityEngine.Vector4>::Invoke(T)
+extern "C"  void Action_1_Invoke_m3313647926_gshared (Action_1_t3491496532 * __this, Vector4_t3319028937  ___obj0, const MethodInfo* method)
+{
+	if(__this->get_prev_9() != NULL)
+	{
+		Action_1_Invoke_m3313647926((Action_1_t3491496532 *)__this->get_prev_9(),___obj0, method);
+	}
+	il2cpp_codegen_raise_execution_engine_exception_if_method_is_not_found((MethodInfo*)(__this->get_method_3().get_m_value_0()));
+	bool ___methodIsStatic = MethodIsStatic((MethodInfo*)(__this->get_method_3().get_m_value_0()));
+	if (__this->get_m_target_2() != NULL && ___methodIsStatic)
+	{
+		typedef void (*FunctionPointerType) (Il2CppObject *, void* __this, Vector4_t3319028937  ___obj0, const MethodInfo* method);
+		((FunctionPointerType)__this->get_method_ptr_0())(NULL,__this->get_m_target_2(),___obj0,(MethodInfo*)(__this->get_method_3().get_m_value_0()));
+	}
+	else
+	{
+		typedef void (*FunctionPointerType) (void* __this, Vector4_t3319028937  ___obj0, const MethodInfo* method);
+		((FunctionPointerType)__this->get_method_ptr_0())(__this->get_m_target_2(),___obj0,(MethodInfo*)(__this->get_method_3().get_m_value_0()));
+	}
+}
+// System.IAsyncResult System.Action`1<UnityEngine.Vector4>::BeginInvoke(T,System.AsyncCallback,System.Object)
+extern "C"  Il2CppObject * Action_1_BeginInvoke_m1662208378_gshared (Action_1_t3491496532 * __this, Vector4_t3319028937  ___obj0, AsyncCallback_t3962456242 * ___callback1, Il2CppObject * ___object2, const MethodInfo* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_method (Action_1_BeginInvoke_m1662208378_MetadataUsageId);
+		s_Il2CppMethodInitialized = true;
+	}
+	void *__d_args[2] = {0};
+	__d_args[0] = Box(Vector4_t3319028937_il2cpp_TypeInfo_var, &___obj0);
+	return (Il2CppObject *)il2cpp_codegen_delegate_begin_invoke((Il2CppDelegate*)__this, __d_args, (Il2CppDelegate*)___callback1, (Il2CppObject*)___object2);
+}
+// System.Void System.Action`1<UnityEngine.Vector4>::EndInvoke(System.IAsyncResult)
+extern "C"  void Action_1_EndInvoke_m4173881597_gshared (Action_1_t3491496532 * __this, Il2CppObject * ___result0, const MethodInfo* method)
+{
+	il2cpp_codegen_delegate_end_invoke((Il2CppAsyncResult*) ___result0, 0);
+}
+// System.Void System.Action`2<EasyAR.CameraDevice/PermissionStatus,System.Object>::.ctor(System.Object,System.IntPtr)
+extern "C"  void Action_2__ctor_m4013047204_gshared (Action_2_t3550511846 * __this, Il2CppObject * ___object0, IntPtr_t ___method1, const MethodInfo* method)
+{
+	__this->set_method_ptr_0((Il2CppMethodPointer)((MethodInfo*)___method1.get_m_value_0())->methodPointer);
+	__this->set_method_3(___method1);
+	__this->set_m_target_2(___object0);
+}
+// System.Void System.Action`2<EasyAR.CameraDevice/PermissionStatus,System.Object>::Invoke(T1,T2)
+extern "C"  void Action_2_Invoke_m1579851732_gshared (Action_2_t3550511846 * __this, int32_t ___arg10, Il2CppObject * ___arg21, const MethodInfo* method)
+{
+	if(__this->get_prev_9() != NULL)
+	{
+		Action_2_Invoke_m1579851732((Action_2_t3550511846 *)__this->get_prev_9(),___arg10, ___arg21, method);
+	}
+	il2cpp_codegen_raise_execution_engine_exception_if_method_is_not_found((MethodInfo*)(__this->get_method_3().get_m_value_0()));
+	bool ___methodIsStatic = MethodIsStatic((MethodInfo*)(__this->get_method_3().get_m_value_0()));
+	if (__this->get_m_target_2() != NULL && ___methodIsStatic)
+	{
+		typedef void (*FunctionPointerType) (Il2CppObject *, void* __this, int32_t ___arg10, Il2CppObject * ___arg21, const MethodInfo* method);
+		((FunctionPointerType)__this->get_method_ptr_0())(NULL,__this->get_m_target_2(),___arg10, ___arg21,(MethodInfo*)(__this->get_method_3().get_m_value_0()));
+	}
+	else
+	{
+		typedef void (*FunctionPointerType) (void* __this, int32_t ___arg10, Il2CppObject * ___arg21, const MethodInfo* method);
+		((FunctionPointerType)__this->get_method_ptr_0())(__this->get_m_target_2(),___arg10, ___arg21,(MethodInfo*)(__this->get_method_3().get_m_value_0()));
+	}
+}
+// System.IAsyncResult System.Action`2<EasyAR.CameraDevice/PermissionStatus,System.Object>::BeginInvoke(T1,T2,System.AsyncCallback,System.Object)
+extern "C"  Il2CppObject * Action_2_BeginInvoke_m4287152765_gshared (Action_2_t3550511846 * __this, int32_t ___arg10, Il2CppObject * ___arg21, AsyncCallback_t3962456242 * ___callback2, Il2CppObject * ___object3, const MethodInfo* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_method (Action_2_BeginInvoke_m4287152765_MetadataUsageId);
+		s_Il2CppMethodInitialized = true;
+	}
+	void *__d_args[3] = {0};
+	__d_args[0] = Box(PermissionStatus_t3501946708_il2cpp_TypeInfo_var, &___arg10);
+	__d_args[1] = ___arg21;
+	return (Il2CppObject *)il2cpp_codegen_delegate_begin_invoke((Il2CppDelegate*)__this, __d_args, (Il2CppDelegate*)___callback2, (Il2CppObject*)___object3);
+}
+// System.Void System.Action`2<EasyAR.CameraDevice/PermissionStatus,System.Object>::EndInvoke(System.IAsyncResult)
+extern "C"  void Action_2_EndInvoke_m4091311474_gshared (Action_2_t3550511846 * __this, Il2CppObject * ___result0, const MethodInfo* method)
 {
 	il2cpp_codegen_delegate_end_invoke((Il2CppAsyncResult*) ___result0, 0);
 }

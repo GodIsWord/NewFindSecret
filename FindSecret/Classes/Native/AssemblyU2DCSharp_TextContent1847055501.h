@@ -18,12 +18,6 @@ struct Text_t1901882714;
 struct Image_t2670269651;
 // UnityEngine.UI.ScrollRect
 struct ScrollRect_t4137855814;
-// UnityEngine.TextAsset
-struct TextAsset_t3022178571;
-// UnityEngine.UI.RawImage
-struct RawImage_t3182918964;
-// System.Collections.Generic.Dictionary`2<System.String,UnityEngine.Rect>
-struct Dictionary_2_t2145736158;
 
 
 
@@ -46,12 +40,6 @@ public:
 	Image_t2670269651 * ___bg_4;
 	// UnityEngine.UI.ScrollRect TextContent::srect
 	ScrollRect_t4137855814 * ___srect_5;
-	// UnityEngine.TextAsset TextContent::textAsset
-	TextAsset_t3022178571 * ___textAsset_6;
-	// UnityEngine.UI.RawImage TextContent::rawImageToClone
-	RawImage_t3182918964 * ___rawImageToClone_7;
-	// System.Collections.Generic.Dictionary`2<System.String,UnityEngine.Rect> TextContent::emojiRects
-	Dictionary_2_t2145736158 * ___emojiRects_8;
 
 public:
 	inline static int32_t get_offset_of_title_2() { return static_cast<int32_t>(offsetof(TextContent_t1847055501, ___title_2)); }
@@ -88,49 +76,6 @@ public:
 	{
 		___srect_5 = value;
 		Il2CppCodeGenWriteBarrier(&___srect_5, value);
-	}
-
-	inline static int32_t get_offset_of_textAsset_6() { return static_cast<int32_t>(offsetof(TextContent_t1847055501, ___textAsset_6)); }
-	inline TextAsset_t3022178571 * get_textAsset_6() const { return ___textAsset_6; }
-	inline TextAsset_t3022178571 ** get_address_of_textAsset_6() { return &___textAsset_6; }
-	inline void set_textAsset_6(TextAsset_t3022178571 * value)
-	{
-		___textAsset_6 = value;
-		Il2CppCodeGenWriteBarrier(&___textAsset_6, value);
-	}
-
-	inline static int32_t get_offset_of_rawImageToClone_7() { return static_cast<int32_t>(offsetof(TextContent_t1847055501, ___rawImageToClone_7)); }
-	inline RawImage_t3182918964 * get_rawImageToClone_7() const { return ___rawImageToClone_7; }
-	inline RawImage_t3182918964 ** get_address_of_rawImageToClone_7() { return &___rawImageToClone_7; }
-	inline void set_rawImageToClone_7(RawImage_t3182918964 * value)
-	{
-		___rawImageToClone_7 = value;
-		Il2CppCodeGenWriteBarrier(&___rawImageToClone_7, value);
-	}
-
-	inline static int32_t get_offset_of_emojiRects_8() { return static_cast<int32_t>(offsetof(TextContent_t1847055501, ___emojiRects_8)); }
-	inline Dictionary_2_t2145736158 * get_emojiRects_8() const { return ___emojiRects_8; }
-	inline Dictionary_2_t2145736158 ** get_address_of_emojiRects_8() { return &___emojiRects_8; }
-	inline void set_emojiRects_8(Dictionary_2_t2145736158 * value)
-	{
-		___emojiRects_8 = value;
-		Il2CppCodeGenWriteBarrier(&___emojiRects_8, value);
-	}
-};
-
-struct TextContent_t1847055501_StaticFields
-{
-public:
-	// System.Char TextContent::emSpace
-	Il2CppChar ___emSpace_9;
-
-public:
-	inline static int32_t get_offset_of_emSpace_9() { return static_cast<int32_t>(offsetof(TextContent_t1847055501_StaticFields, ___emSpace_9)); }
-	inline Il2CppChar get_emSpace_9() const { return ___emSpace_9; }
-	inline Il2CppChar* get_address_of_emSpace_9() { return &___emSpace_9; }
-	inline void set_emSpace_9(Il2CppChar value)
-	{
-		___emSpace_9 = value;
 	}
 };
 

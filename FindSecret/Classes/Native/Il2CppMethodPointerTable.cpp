@@ -1069,7 +1069,6 @@ extern "C" void Char_GetDataTablePointers_m754571594 ();
 extern "C" void Char_CompareTo_m42489266_AdjustorThunk ();
 extern "C" void Char_Equals_m1279957088_AdjustorThunk ();
 extern "C" void Char_CompareTo_m1035527789_AdjustorThunk ();
-extern "C" void Char_ConvertFromUtf32_m2726544766 ();
 extern "C" void Char_Equals_m198757577_AdjustorThunk ();
 extern "C" void Char_GetHashCode_m2163065211_AdjustorThunk ();
 extern "C" void Char_GetUnicodeCategory_m57882613 ();
@@ -32689,6 +32688,10 @@ extern "C" void U3CRandomSpawnsCoroutineU3Ec__Iterator0_System_Collections_Gener
 extern "C" void U3CRandomSpawnsCoroutineU3Ec__Iterator0_System_Collections_IEnumerator_get_Current_m3047993453 ();
 extern "C" void U3CRandomSpawnsCoroutineU3Ec__Iterator0_Dispose_m2915051331 ();
 extern "C" void U3CRandomSpawnsCoroutineU3Ec__Iterator0_Reset_m1379422764 ();
+extern "C" void ClipboardHelper_GetSystemCopyBufferProperty_m4132176457 ();
+extern "C" void ClipboardHelper_get_clipBoard_m1419648168 ();
+extern "C" void ClipboardHelper_set_clipBoard_m2110807896 ();
+extern "C" void ClipboardHelper__cctor_m790337182 ();
 extern "C" void CreateBalls__ctor_m3983330950 ();
 extern "C" void CreateBalls_Start_m432305840 ();
 extern "C" void CreateBalls_Update_m3336109008 ();
@@ -33279,12 +33282,14 @@ extern "C" void N_Data__ctor_m2616104250 ();
 extern "C" void NativeForUnity__ctor_m2397164601 ();
 extern "C" void NativeForUnity_Start_m2815773254 ();
 extern "C" void NativeForUnity_SceneSwitch_m1142455115 ();
+extern "C" void NativeForUnity_NearByContent_m2594032600 ();
 extern "C" void NativeForUnity_SceneClear_m2893280150 ();
 extern "C" void NativeForUnity_NearbyPeople_m2313096860 ();
 extern "C" void NativeForUnity_NearbyContent_m2574207677 ();
 extern "C" void NativeForUnity_FreeAR_m2589862295 ();
 extern "C" void NativeForUnity_ScanAR_m427841830 ();
 extern "C" void NativeForUnity_arResultShow_m3239587340 ();
+extern "C" void NativeForUnity_CreateMarker_m2499340957 ();
 extern "C" void NativeForUnity_ARMakeStart_m3696720144 ();
 extern "C" void NativeForUnity_Photograph_m1110700146 ();
 extern "C" void NativeForUnity_FlipCamera_m3878931594 ();
@@ -33299,12 +33304,24 @@ extern "C" void NativeForUnity_StartRecorder_m1829879002 ();
 extern "C" void NativeForUnity_StopRecorder_m1105380416 ();
 extern "C" void NativeForUnity_OnRecorderStopped_m2336565538 ();
 extern "C" void NativeForUnity__cctor_m874163748 ();
-extern "C" void U3CCaptureScreenshot2U3Ec__Iterator1__ctor_m2932029085 ();
-extern "C" void U3CCaptureScreenshot2U3Ec__Iterator1_MoveNext_m4222396248 ();
-extern "C" void U3CCaptureScreenshot2U3Ec__Iterator1_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m1717883214 ();
-extern "C" void U3CCaptureScreenshot2U3Ec__Iterator1_System_Collections_IEnumerator_get_Current_m3677513361 ();
-extern "C" void U3CCaptureScreenshot2U3Ec__Iterator1_Dispose_m1375245802 ();
-extern "C" void U3CCaptureScreenshot2U3Ec__Iterator1_Reset_m1188710029 ();
+extern "C" void U3CCaptureScreenshot2U3Ec__Iterator3__ctor_m1880957671 ();
+extern "C" void U3CCaptureScreenshot2U3Ec__Iterator3_MoveNext_m3807029095 ();
+extern "C" void U3CCaptureScreenshot2U3Ec__Iterator3_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m1339892017 ();
+extern "C" void U3CCaptureScreenshot2U3Ec__Iterator3_System_Collections_IEnumerator_get_Current_m793401716 ();
+extern "C" void U3CCaptureScreenshot2U3Ec__Iterator3_Dispose_m1728892852 ();
+extern "C" void U3CCaptureScreenshot2U3Ec__Iterator3_Reset_m3867955907 ();
+extern "C" void U3CCreateMarkerU3Ec__Iterator2__ctor_m1453115786 ();
+extern "C" void U3CCreateMarkerU3Ec__Iterator2_MoveNext_m2143449383 ();
+extern "C" void U3CCreateMarkerU3Ec__Iterator2_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m726097492 ();
+extern "C" void U3CCreateMarkerU3Ec__Iterator2_System_Collections_IEnumerator_get_Current_m1598929872 ();
+extern "C" void U3CCreateMarkerU3Ec__Iterator2_Dispose_m1846054932 ();
+extern "C" void U3CCreateMarkerU3Ec__Iterator2_Reset_m1681163366 ();
+extern "C" void U3CNearByContentU3Ec__Iterator1__ctor_m3397869049 ();
+extern "C" void U3CNearByContentU3Ec__Iterator1_MoveNext_m2549762827 ();
+extern "C" void U3CNearByContentU3Ec__Iterator1_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m2095052476 ();
+extern "C" void U3CNearByContentU3Ec__Iterator1_System_Collections_IEnumerator_get_Current_m555833359 ();
+extern "C" void U3CNearByContentU3Ec__Iterator1_Dispose_m517002351 ();
+extern "C" void U3CNearByContentU3Ec__Iterator1_Reset_m2599811192 ();
 extern "C" void U3CStartU3Ec__Iterator0__ctor_m49184010 ();
 extern "C" void U3CStartU3Ec__Iterator0_MoveNext_m3816683052 ();
 extern "C" void U3CStartU3Ec__Iterator0_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m1386200543 ();
@@ -33491,13 +33508,7 @@ extern "C" void TelWindowUI_onView_m2468052480 ();
 extern "C" void TelWindowUI_callNum_m2326134143 ();
 extern "C" void Test__ctor_m1854393510 ();
 extern "C" void Test_Start_m2130910232 ();
-extern "C" void Test_LoadFont_m3809401579 ();
-extern "C" void U3CLoadFontU3Ec__Iterator0__ctor_m2926041997 ();
-extern "C" void U3CLoadFontU3Ec__Iterator0_MoveNext_m3461204326 ();
-extern "C" void U3CLoadFontU3Ec__Iterator0_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m1448734625 ();
-extern "C" void U3CLoadFontU3Ec__Iterator0_System_Collections_IEnumerator_get_Current_m955276725 ();
-extern "C" void U3CLoadFontU3Ec__Iterator0_Dispose_m1203684282 ();
-extern "C" void U3CLoadFontU3Ec__Iterator0_Reset_m3051023241 ();
+extern "C" void Test_Update_m782915918 ();
 extern "C" void TestCompass__ctor_m96768310 ();
 extern "C" void TestCompass_Start_m2949280402 ();
 extern "C" void TestCompass_Update_m3906877031 ();
@@ -33518,24 +33529,8 @@ extern "C" void TextContent__ctor_m1830518405 ();
 extern "C" void TextContent_Awake_m4051810181 ();
 extern "C" void TextContent_SetSize_m1741314274 ();
 extern "C" void TextContent_Set_m228517898 ();
-extern "C" void TextContent_LoadFont_m3081723612 ();
-extern "C" void TextContent_GetConvertedString_m1157088729 ();
-extern "C" void TextContent_ParseEmojiInfo_m2464518576 ();
-extern "C" void TextContent_SetUITextThatHasEmoji_m3673371875 ();
-extern "C" void TextContent__cctor_m924357266 ();
-extern "C" void U3CLoadFontU3Ec__Iterator0__ctor_m487466824 ();
-extern "C" void U3CLoadFontU3Ec__Iterator0_MoveNext_m739265659 ();
-extern "C" void U3CLoadFontU3Ec__Iterator0_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m2718738276 ();
-extern "C" void U3CLoadFontU3Ec__Iterator0_System_Collections_IEnumerator_get_Current_m2601237949 ();
-extern "C" void U3CLoadFontU3Ec__Iterator0_Dispose_m887287120 ();
-extern "C" void U3CLoadFontU3Ec__Iterator0_Reset_m111942281 ();
-extern "C" void U3CSetUITextThatHasEmojiU3Ec__Iterator1__ctor_m2921954466 ();
-extern "C" void U3CSetUITextThatHasEmojiU3Ec__Iterator1_MoveNext_m2512949653 ();
-extern "C" void U3CSetUITextThatHasEmojiU3Ec__Iterator1_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m952442907 ();
-extern "C" void U3CSetUITextThatHasEmojiU3Ec__Iterator1_System_Collections_IEnumerator_get_Current_m754822630 ();
-extern "C" void U3CSetUITextThatHasEmojiU3Ec__Iterator1_Dispose_m4071547252 ();
-extern "C" void U3CSetUITextThatHasEmojiU3Ec__Iterator1_Reset_m2344719994 ();
-extern "C" void PosStringTuple__ctor_m4047722431_AdjustorThunk ();
+extern "C" void TextContent_LoadFont_m1151217365 ();
+extern "C" void TextExtension_SetTextWithEllipsis_m2226810910 ();
 extern "C" void TextureUtility__ctor_m44620641 ();
 extern "C" void TextureUtility_ScalePoint_m3747227917 ();
 extern "C" void TextureUtility_ScaleBilinear_m2279499353 ();
@@ -33619,7 +33614,6 @@ extern "C" void AddressData_get_url_m2897909235 ();
 extern "C" void AppBase__ctor_m2024093112 ();
 extern "C" void AppBase_OnEnable_m2507375349 ();
 extern "C" void AppBase_Start_m2611528444 ();
-extern "C" void AppBase_OnLevelWasLoaded_m673865279 ();
 extern "C" void AppBase_addEvent_m540181915 ();
 extern "C" void AppBase_delEvent_m2328740099 ();
 extern "C" void AppBase_eventHandler_m1412732328 ();
@@ -33628,6 +33622,7 @@ extern "C" void AppBase_onAppReady_m1203212174 ();
 extern "C" void AppBase_onAppEvent_m1150007431 ();
 extern "C" void AppBase_onLevelComplete_m3309959830 ();
 extern "C" void AppBase_loadScene_m2463309742 ();
+extern "C" void AppBase_U3CStartU3Em__0_m4003156704 ();
 extern "C" void AssetData__ctor_m1223591263 ();
 extern "C" void AssetListData__ctor_m1976099990 ();
 extern "C" void AssetLoadData__ctor_m2835434930 ();
@@ -34111,25 +34106,10 @@ extern "C" void RECBarTest__ctor_m2133159320 ();
 extern "C" void RECClassicTest__ctor_m274795098 ();
 extern "C" void ShareRECTest__ctor_m620415909 ();
 extern "C" void ShareRECTest_Start_m3372732957 ();
-extern "C" void ShowOffEmoji__ctor_m3696398417 ();
-extern "C" void ShowOffEmoji_Awake_m2045736570 ();
-extern "C" void ShowOffEmoji_Start_m828208353 ();
-extern "C" void ShowOffEmoji_GetConvertedString_m1158887467 ();
-extern "C" void ShowOffEmoji_ParseEmojiInfo_m1413580435 ();
-extern "C" void ShowOffEmoji_SetReceipeTextFromJavascript_m298100337 ();
-extern "C" void ShowOffEmoji_SetUITextThatHasEmoji_m409537997 ();
-extern "C" void ShowOffEmoji__cctor_m1465116210 ();
-extern "C" void U3CSetUITextThatHasEmojiU3Ec__Iterator0__ctor_m1144270979 ();
-extern "C" void U3CSetUITextThatHasEmojiU3Ec__Iterator0_MoveNext_m569496711 ();
-extern "C" void U3CSetUITextThatHasEmojiU3Ec__Iterator0_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m492480697 ();
-extern "C" void U3CSetUITextThatHasEmojiU3Ec__Iterator0_System_Collections_IEnumerator_get_Current_m3842364762 ();
-extern "C" void U3CSetUITextThatHasEmojiU3Ec__Iterator0_Dispose_m2555751442 ();
-extern "C" void U3CSetUITextThatHasEmojiU3Ec__Iterator0_Reset_m1783969714 ();
-extern "C" void PosStringTuple__ctor_m3742832524_AdjustorThunk ();
 extern "C" void GLOBAL__ctor_m2915080325 ();
 extern "C" void GLOBAL__cctor_m2035644331 ();
 extern "C" void GLOBAL_Main_m2115380267 ();
-extern const Il2CppMethodPointer g_MethodPointers[34115] = 
+extern const Il2CppMethodPointer g_MethodPointers[34095] = 
 {
 	Locale_GetText_m3374010885,
 	Locale_GetText_m1601577974,
@@ -35186,7 +35166,6 @@ extern const Il2CppMethodPointer g_MethodPointers[34115] =
 	Char_CompareTo_m42489266_AdjustorThunk,
 	Char_Equals_m1279957088_AdjustorThunk,
 	Char_CompareTo_m1035527789_AdjustorThunk,
-	Char_ConvertFromUtf32_m2726544766,
 	Char_Equals_m198757577_AdjustorThunk,
 	Char_GetHashCode_m2163065211_AdjustorThunk,
 	Char_GetUnicodeCategory_m57882613,
@@ -66806,6 +66785,10 @@ extern const Il2CppMethodPointer g_MethodPointers[34115] =
 	U3CRandomSpawnsCoroutineU3Ec__Iterator0_System_Collections_IEnumerator_get_Current_m3047993453,
 	U3CRandomSpawnsCoroutineU3Ec__Iterator0_Dispose_m2915051331,
 	U3CRandomSpawnsCoroutineU3Ec__Iterator0_Reset_m1379422764,
+	ClipboardHelper_GetSystemCopyBufferProperty_m4132176457,
+	ClipboardHelper_get_clipBoard_m1419648168,
+	ClipboardHelper_set_clipBoard_m2110807896,
+	ClipboardHelper__cctor_m790337182,
 	CreateBalls__ctor_m3983330950,
 	CreateBalls_Start_m432305840,
 	CreateBalls_Update_m3336109008,
@@ -67396,12 +67379,14 @@ extern const Il2CppMethodPointer g_MethodPointers[34115] =
 	NativeForUnity__ctor_m2397164601,
 	NativeForUnity_Start_m2815773254,
 	NativeForUnity_SceneSwitch_m1142455115,
+	NativeForUnity_NearByContent_m2594032600,
 	NativeForUnity_SceneClear_m2893280150,
 	NativeForUnity_NearbyPeople_m2313096860,
 	NativeForUnity_NearbyContent_m2574207677,
 	NativeForUnity_FreeAR_m2589862295,
 	NativeForUnity_ScanAR_m427841830,
 	NativeForUnity_arResultShow_m3239587340,
+	NativeForUnity_CreateMarker_m2499340957,
 	NativeForUnity_ARMakeStart_m3696720144,
 	NativeForUnity_Photograph_m1110700146,
 	NativeForUnity_FlipCamera_m3878931594,
@@ -67416,12 +67401,24 @@ extern const Il2CppMethodPointer g_MethodPointers[34115] =
 	NativeForUnity_StopRecorder_m1105380416,
 	NativeForUnity_OnRecorderStopped_m2336565538,
 	NativeForUnity__cctor_m874163748,
-	U3CCaptureScreenshot2U3Ec__Iterator1__ctor_m2932029085,
-	U3CCaptureScreenshot2U3Ec__Iterator1_MoveNext_m4222396248,
-	U3CCaptureScreenshot2U3Ec__Iterator1_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m1717883214,
-	U3CCaptureScreenshot2U3Ec__Iterator1_System_Collections_IEnumerator_get_Current_m3677513361,
-	U3CCaptureScreenshot2U3Ec__Iterator1_Dispose_m1375245802,
-	U3CCaptureScreenshot2U3Ec__Iterator1_Reset_m1188710029,
+	U3CCaptureScreenshot2U3Ec__Iterator3__ctor_m1880957671,
+	U3CCaptureScreenshot2U3Ec__Iterator3_MoveNext_m3807029095,
+	U3CCaptureScreenshot2U3Ec__Iterator3_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m1339892017,
+	U3CCaptureScreenshot2U3Ec__Iterator3_System_Collections_IEnumerator_get_Current_m793401716,
+	U3CCaptureScreenshot2U3Ec__Iterator3_Dispose_m1728892852,
+	U3CCaptureScreenshot2U3Ec__Iterator3_Reset_m3867955907,
+	U3CCreateMarkerU3Ec__Iterator2__ctor_m1453115786,
+	U3CCreateMarkerU3Ec__Iterator2_MoveNext_m2143449383,
+	U3CCreateMarkerU3Ec__Iterator2_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m726097492,
+	U3CCreateMarkerU3Ec__Iterator2_System_Collections_IEnumerator_get_Current_m1598929872,
+	U3CCreateMarkerU3Ec__Iterator2_Dispose_m1846054932,
+	U3CCreateMarkerU3Ec__Iterator2_Reset_m1681163366,
+	U3CNearByContentU3Ec__Iterator1__ctor_m3397869049,
+	U3CNearByContentU3Ec__Iterator1_MoveNext_m2549762827,
+	U3CNearByContentU3Ec__Iterator1_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m2095052476,
+	U3CNearByContentU3Ec__Iterator1_System_Collections_IEnumerator_get_Current_m555833359,
+	U3CNearByContentU3Ec__Iterator1_Dispose_m517002351,
+	U3CNearByContentU3Ec__Iterator1_Reset_m2599811192,
 	U3CStartU3Ec__Iterator0__ctor_m49184010,
 	U3CStartU3Ec__Iterator0_MoveNext_m3816683052,
 	U3CStartU3Ec__Iterator0_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m1386200543,
@@ -67608,13 +67605,7 @@ extern const Il2CppMethodPointer g_MethodPointers[34115] =
 	TelWindowUI_callNum_m2326134143,
 	Test__ctor_m1854393510,
 	Test_Start_m2130910232,
-	Test_LoadFont_m3809401579,
-	U3CLoadFontU3Ec__Iterator0__ctor_m2926041997,
-	U3CLoadFontU3Ec__Iterator0_MoveNext_m3461204326,
-	U3CLoadFontU3Ec__Iterator0_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m1448734625,
-	U3CLoadFontU3Ec__Iterator0_System_Collections_IEnumerator_get_Current_m955276725,
-	U3CLoadFontU3Ec__Iterator0_Dispose_m1203684282,
-	U3CLoadFontU3Ec__Iterator0_Reset_m3051023241,
+	Test_Update_m782915918,
 	TestCompass__ctor_m96768310,
 	TestCompass_Start_m2949280402,
 	TestCompass_Update_m3906877031,
@@ -67635,24 +67626,8 @@ extern const Il2CppMethodPointer g_MethodPointers[34115] =
 	TextContent_Awake_m4051810181,
 	TextContent_SetSize_m1741314274,
 	TextContent_Set_m228517898,
-	TextContent_LoadFont_m3081723612,
-	TextContent_GetConvertedString_m1157088729,
-	TextContent_ParseEmojiInfo_m2464518576,
-	TextContent_SetUITextThatHasEmoji_m3673371875,
-	TextContent__cctor_m924357266,
-	U3CLoadFontU3Ec__Iterator0__ctor_m487466824,
-	U3CLoadFontU3Ec__Iterator0_MoveNext_m739265659,
-	U3CLoadFontU3Ec__Iterator0_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m2718738276,
-	U3CLoadFontU3Ec__Iterator0_System_Collections_IEnumerator_get_Current_m2601237949,
-	U3CLoadFontU3Ec__Iterator0_Dispose_m887287120,
-	U3CLoadFontU3Ec__Iterator0_Reset_m111942281,
-	U3CSetUITextThatHasEmojiU3Ec__Iterator1__ctor_m2921954466,
-	U3CSetUITextThatHasEmojiU3Ec__Iterator1_MoveNext_m2512949653,
-	U3CSetUITextThatHasEmojiU3Ec__Iterator1_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m952442907,
-	U3CSetUITextThatHasEmojiU3Ec__Iterator1_System_Collections_IEnumerator_get_Current_m754822630,
-	U3CSetUITextThatHasEmojiU3Ec__Iterator1_Dispose_m4071547252,
-	U3CSetUITextThatHasEmojiU3Ec__Iterator1_Reset_m2344719994,
-	PosStringTuple__ctor_m4047722431_AdjustorThunk,
+	TextContent_LoadFont_m1151217365,
+	TextExtension_SetTextWithEllipsis_m2226810910,
 	TextureUtility__ctor_m44620641,
 	TextureUtility_ScalePoint_m3747227917,
 	TextureUtility_ScaleBilinear_m2279499353,
@@ -67736,7 +67711,6 @@ extern const Il2CppMethodPointer g_MethodPointers[34115] =
 	AppBase__ctor_m2024093112,
 	AppBase_OnEnable_m2507375349,
 	AppBase_Start_m2611528444,
-	AppBase_OnLevelWasLoaded_m673865279,
 	AppBase_addEvent_m540181915,
 	AppBase_delEvent_m2328740099,
 	AppBase_eventHandler_m1412732328,
@@ -67745,6 +67719,7 @@ extern const Il2CppMethodPointer g_MethodPointers[34115] =
 	AppBase_onAppEvent_m1150007431,
 	AppBase_onLevelComplete_m3309959830,
 	AppBase_loadScene_m2463309742,
+	AppBase_U3CStartU3Em__0_m4003156704,
 	AssetData__ctor_m1223591263,
 	AssetListData__ctor_m1976099990,
 	AssetLoadData__ctor_m2835434930,
@@ -68228,21 +68203,6 @@ extern const Il2CppMethodPointer g_MethodPointers[34115] =
 	RECClassicTest__ctor_m274795098,
 	ShareRECTest__ctor_m620415909,
 	ShareRECTest_Start_m3372732957,
-	ShowOffEmoji__ctor_m3696398417,
-	ShowOffEmoji_Awake_m2045736570,
-	ShowOffEmoji_Start_m828208353,
-	ShowOffEmoji_GetConvertedString_m1158887467,
-	ShowOffEmoji_ParseEmojiInfo_m1413580435,
-	ShowOffEmoji_SetReceipeTextFromJavascript_m298100337,
-	ShowOffEmoji_SetUITextThatHasEmoji_m409537997,
-	ShowOffEmoji__cctor_m1465116210,
-	U3CSetUITextThatHasEmojiU3Ec__Iterator0__ctor_m1144270979,
-	U3CSetUITextThatHasEmojiU3Ec__Iterator0_MoveNext_m569496711,
-	U3CSetUITextThatHasEmojiU3Ec__Iterator0_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m492480697,
-	U3CSetUITextThatHasEmojiU3Ec__Iterator0_System_Collections_IEnumerator_get_Current_m3842364762,
-	U3CSetUITextThatHasEmojiU3Ec__Iterator0_Dispose_m2555751442,
-	U3CSetUITextThatHasEmojiU3Ec__Iterator0_Reset_m1783969714,
-	PosStringTuple__ctor_m3742832524_AdjustorThunk,
 	GLOBAL__ctor_m2915080325,
 	GLOBAL__cctor_m2035644331,
 	GLOBAL_Main_m2115380267,

@@ -46,12 +46,16 @@ public:
 	GameObject_t1113636619 * ___planeContent_6;
 	// UnityEngine.GameObject NativeForUnity::planePeople
 	GameObject_t1113636619 * ___planePeople_7;
+	// UnityEngine.GameObject NativeForUnity::bulletScreen
+	GameObject_t1113636619 * ___bulletScreen_8;
+	// System.Boolean NativeForUnity::isJustCreat
+	bool ___isJustCreat_10;
 	// System.Collections.Generic.Stack`1<UnityEngine.GameObject> NativeForUnity::clone
-	Stack_1_t1957026074 * ___clone_9;
+	Stack_1_t1957026074 * ___clone_11;
 	// CreateCityBehaviour NativeForUnity::cb
-	CreateCityBehaviour_t534178945 * ___cb_10;
+	CreateCityBehaviour_t534178945 * ___cb_12;
 	// CreatePeopleBehaviour NativeForUnity::cp
-	CreatePeopleBehaviour_t1964588929 * ___cp_11;
+	CreatePeopleBehaviour_t1964588929 * ___cp_13;
 
 public:
 	inline static int32_t get_offset_of_roadObj_2() { return static_cast<int32_t>(offsetof(NativeForUnity_t420844349, ___roadObj_2)); }
@@ -108,31 +112,48 @@ public:
 		Il2CppCodeGenWriteBarrier(&___planePeople_7, value);
 	}
 
-	inline static int32_t get_offset_of_clone_9() { return static_cast<int32_t>(offsetof(NativeForUnity_t420844349, ___clone_9)); }
-	inline Stack_1_t1957026074 * get_clone_9() const { return ___clone_9; }
-	inline Stack_1_t1957026074 ** get_address_of_clone_9() { return &___clone_9; }
-	inline void set_clone_9(Stack_1_t1957026074 * value)
+	inline static int32_t get_offset_of_bulletScreen_8() { return static_cast<int32_t>(offsetof(NativeForUnity_t420844349, ___bulletScreen_8)); }
+	inline GameObject_t1113636619 * get_bulletScreen_8() const { return ___bulletScreen_8; }
+	inline GameObject_t1113636619 ** get_address_of_bulletScreen_8() { return &___bulletScreen_8; }
+	inline void set_bulletScreen_8(GameObject_t1113636619 * value)
 	{
-		___clone_9 = value;
-		Il2CppCodeGenWriteBarrier(&___clone_9, value);
+		___bulletScreen_8 = value;
+		Il2CppCodeGenWriteBarrier(&___bulletScreen_8, value);
 	}
 
-	inline static int32_t get_offset_of_cb_10() { return static_cast<int32_t>(offsetof(NativeForUnity_t420844349, ___cb_10)); }
-	inline CreateCityBehaviour_t534178945 * get_cb_10() const { return ___cb_10; }
-	inline CreateCityBehaviour_t534178945 ** get_address_of_cb_10() { return &___cb_10; }
-	inline void set_cb_10(CreateCityBehaviour_t534178945 * value)
+	inline static int32_t get_offset_of_isJustCreat_10() { return static_cast<int32_t>(offsetof(NativeForUnity_t420844349, ___isJustCreat_10)); }
+	inline bool get_isJustCreat_10() const { return ___isJustCreat_10; }
+	inline bool* get_address_of_isJustCreat_10() { return &___isJustCreat_10; }
+	inline void set_isJustCreat_10(bool value)
 	{
-		___cb_10 = value;
-		Il2CppCodeGenWriteBarrier(&___cb_10, value);
+		___isJustCreat_10 = value;
 	}
 
-	inline static int32_t get_offset_of_cp_11() { return static_cast<int32_t>(offsetof(NativeForUnity_t420844349, ___cp_11)); }
-	inline CreatePeopleBehaviour_t1964588929 * get_cp_11() const { return ___cp_11; }
-	inline CreatePeopleBehaviour_t1964588929 ** get_address_of_cp_11() { return &___cp_11; }
-	inline void set_cp_11(CreatePeopleBehaviour_t1964588929 * value)
+	inline static int32_t get_offset_of_clone_11() { return static_cast<int32_t>(offsetof(NativeForUnity_t420844349, ___clone_11)); }
+	inline Stack_1_t1957026074 * get_clone_11() const { return ___clone_11; }
+	inline Stack_1_t1957026074 ** get_address_of_clone_11() { return &___clone_11; }
+	inline void set_clone_11(Stack_1_t1957026074 * value)
 	{
-		___cp_11 = value;
-		Il2CppCodeGenWriteBarrier(&___cp_11, value);
+		___clone_11 = value;
+		Il2CppCodeGenWriteBarrier(&___clone_11, value);
+	}
+
+	inline static int32_t get_offset_of_cb_12() { return static_cast<int32_t>(offsetof(NativeForUnity_t420844349, ___cb_12)); }
+	inline CreateCityBehaviour_t534178945 * get_cb_12() const { return ___cb_12; }
+	inline CreateCityBehaviour_t534178945 ** get_address_of_cb_12() { return &___cb_12; }
+	inline void set_cb_12(CreateCityBehaviour_t534178945 * value)
+	{
+		___cb_12 = value;
+		Il2CppCodeGenWriteBarrier(&___cb_12, value);
+	}
+
+	inline static int32_t get_offset_of_cp_13() { return static_cast<int32_t>(offsetof(NativeForUnity_t420844349, ___cp_13)); }
+	inline CreatePeopleBehaviour_t1964588929 * get_cp_13() const { return ___cp_13; }
+	inline CreatePeopleBehaviour_t1964588929 ** get_address_of_cp_13() { return &___cp_13; }
+	inline void set_cp_13(CreatePeopleBehaviour_t1964588929 * value)
+	{
+		___cp_13 = value;
+		Il2CppCodeGenWriteBarrier(&___cp_13, value);
 	}
 };
 
@@ -140,15 +161,15 @@ struct NativeForUnity_t420844349_StaticFields
 {
 public:
 	// System.Single NativeForUnity::jingdu
-	float ___jingdu_8;
+	float ___jingdu_9;
 
 public:
-	inline static int32_t get_offset_of_jingdu_8() { return static_cast<int32_t>(offsetof(NativeForUnity_t420844349_StaticFields, ___jingdu_8)); }
-	inline float get_jingdu_8() const { return ___jingdu_8; }
-	inline float* get_address_of_jingdu_8() { return &___jingdu_8; }
-	inline void set_jingdu_8(float value)
+	inline static int32_t get_offset_of_jingdu_9() { return static_cast<int32_t>(offsetof(NativeForUnity_t420844349_StaticFields, ___jingdu_9)); }
+	inline float get_jingdu_9() const { return ___jingdu_9; }
+	inline float* get_address_of_jingdu_9() { return &___jingdu_9; }
+	inline void set_jingdu_9(float value)
 	{
-		___jingdu_8 = value;
+		___jingdu_9 = value;
 	}
 };
 

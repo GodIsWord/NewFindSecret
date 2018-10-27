@@ -43,7 +43,7 @@
 #include "AssemblyU2DCSharp_N_JsonData_c_step604841154.h"
 #include "AssemblyU2DCSharp_N_JsonData_c_polyline1459694163.h"
 #include "AssemblyU2DCSharp_Test650638817.h"
-#include "AssemblyU2DCSharp_Test_U3CLoadFontU3Ec__Iterator0851535555.h"
+#include "AssemblyU2DCSharp_ClipboardHelper3024197262.h"
 #include "AssemblyU2DCSharp_TG_Controller1178080763.h"
 #include "AssemblyU2DCSharp_TG_Gyroscope3139330722.h"
 #include "AssemblyU2DCSharp_TG_JsonData3604617854.h"
@@ -56,9 +56,6 @@
 #include "AssemblyU2DCSharp_U3CPrivateImplementationDetailsU3120960362.h"
 #include "AssemblyU2DCSharp_U3CPrivateImplementationDetailsU1681885142.h"
 #include "AssemblyU2DCSharpU2Dfirstpass_U3CModuleU3E692745525.h"
-#include "AssemblyU2DCSharpU2Dfirstpass_ShowOffEmoji1647905396.h"
-#include "AssemblyU2DCSharpU2Dfirstpass_ShowOffEmoji_PosStri3884979041.h"
-#include "AssemblyU2DCSharpU2Dfirstpass_ShowOffEmoji_U3CSetU3411623261.h"
 #include "AssemblyU2DCSharpU2Dfirstpass_RECBarTest265949979.h"
 #include "AssemblyU2DCSharpU2Dfirstpass_RECClassicTest988054969.h"
 #include "AssemblyU2DCSharpU2Dfirstpass_ShareRECTest574630358.h"
@@ -285,14 +282,10 @@ extern const int32_t g_FieldOffsetTable4126[2] =
 	c_polyline_t1459694163::get_offset_of_longitude_1(),
 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4127 = { sizeof (Test_t650638817), -1, 0, 0 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4128 = { sizeof (U3CLoadFontU3Ec__Iterator0_t851535555), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable4128[5] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4128 = { sizeof (ClipboardHelper_t3024197262), -1, sizeof(ClipboardHelper_t3024197262_StaticFields), 0 };
+extern const int32_t g_FieldOffsetTable4128[1] = 
 {
-	U3CLoadFontU3Ec__Iterator0_t851535555::get_offset_of_path_0(),
-	U3CLoadFontU3Ec__Iterator0_t851535555::get_offset_of_U3CrequestU3E__0_1(),
-	U3CLoadFontU3Ec__Iterator0_t851535555::get_offset_of_U24current_2(),
-	U3CLoadFontU3Ec__Iterator0_t851535555::get_offset_of_U24disposing_3(),
-	U3CLoadFontU3Ec__Iterator0_t851535555::get_offset_of_U24PC_4(),
+	ClipboardHelper_t3024197262_StaticFields::get_offset_of_m_systemCopyBufferProperty_0(),
 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4129 = { sizeof (TG_Controller_t1178080763), -1, 0, 0 };
 extern const int32_t g_FieldOffsetTable4129[7] = 
@@ -354,58 +347,27 @@ extern const int32_t g_FieldOffsetTable4137[3] =
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4138 = { sizeof (U24ArrayTypeU3D36_t120960362)+ sizeof (Il2CppObject), sizeof(U24ArrayTypeU3D36_t120960362 ), 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4139 = { sizeof (U24ArrayTypeU3D72_t1681885142)+ sizeof (Il2CppObject), sizeof(U24ArrayTypeU3D72_t1681885142 ), 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4140 = { sizeof (U3CModuleU3E_t692745547), -1, 0, 0 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4141 = { sizeof (ShowOffEmoji_t1647905396), -1, sizeof(ShowOffEmoji_t1647905396_StaticFields), 0 };
-extern const int32_t g_FieldOffsetTable4141[7] = 
-{
-	ShowOffEmoji_t1647905396::get_offset_of_textAsset_2(),
-	ShowOffEmoji_t1647905396::get_offset_of_bicycleAndUSFlagText_3(),
-	ShowOffEmoji_t1647905396::get_offset_of_footballText_4(),
-	ShowOffEmoji_t1647905396::get_offset_of_receipeText_5(),
-	ShowOffEmoji_t1647905396::get_offset_of_rawImageToClone_6(),
-	ShowOffEmoji_t1647905396::get_offset_of_emojiRects_7(),
-	ShowOffEmoji_t1647905396_StaticFields::get_offset_of_emSpace_8(),
-};
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4142 = { sizeof (PosStringTuple_t3884979041)+ sizeof (Il2CppObject), sizeof(PosStringTuple_t3884979041_marshaled_pinvoke), 0, 0 };
-extern const int32_t g_FieldOffsetTable4142[2] = 
-{
-	PosStringTuple_t3884979041::get_offset_of_pos_0() + static_cast<int32_t>(sizeof(Il2CppObject)),
-	PosStringTuple_t3884979041::get_offset_of_emoji_1() + static_cast<int32_t>(sizeof(Il2CppObject)),
-};
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4143 = { sizeof (U3CSetUITextThatHasEmojiU3Ec__Iterator0_t3411623261), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable4143[10] = 
-{
-	U3CSetUITextThatHasEmojiU3Ec__Iterator0_t3411623261::get_offset_of_U3CemojiReplacementsU3E__0_0(),
-	U3CSetUITextThatHasEmojiU3Ec__Iterator0_t3411623261::get_offset_of_U3CsbU3E__0_1(),
-	U3CSetUITextThatHasEmojiU3Ec__Iterator0_t3411623261::get_offset_of_U3CiU3E__0_2(),
-	U3CSetUITextThatHasEmojiU3Ec__Iterator0_t3411623261::get_offset_of_inputString_3(),
-	U3CSetUITextThatHasEmojiU3Ec__Iterator0_t3411623261::get_offset_of_textToEdit_4(),
-	U3CSetUITextThatHasEmojiU3Ec__Iterator0_t3411623261::get_offset_of_U3CtextGenU3E__0_5(),
-	U3CSetUITextThatHasEmojiU3Ec__Iterator0_t3411623261::get_offset_of_U24this_6(),
-	U3CSetUITextThatHasEmojiU3Ec__Iterator0_t3411623261::get_offset_of_U24current_7(),
-	U3CSetUITextThatHasEmojiU3Ec__Iterator0_t3411623261::get_offset_of_U24disposing_8(),
-	U3CSetUITextThatHasEmojiU3Ec__Iterator0_t3411623261::get_offset_of_U24PC_9(),
-};
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4144 = { sizeof (RECBarTest_t265949979), -1, 0, 0 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4145 = { sizeof (RECClassicTest_t988054969), -1, 0, 0 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4146 = { sizeof (ShareRECTest_t574630358), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable4146[1] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4141 = { sizeof (RECBarTest_t265949979), -1, 0, 0 };
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4142 = { sizeof (RECClassicTest_t988054969), -1, 0, 0 };
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4143 = { sizeof (ShareRECTest_t574630358), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable4143[1] = 
 {
 	ShareRECTest_t574630358::get_offset_of_type_2(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4147 = { sizeof (DemoType_t3198103624)+ sizeof (Il2CppObject), sizeof(int32_t), 0, 0 };
-extern const int32_t g_FieldOffsetTable4147[3] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4144 = { sizeof (DemoType_t3198103624)+ sizeof (Il2CppObject), sizeof(int32_t), 0, 0 };
+extern const int32_t g_FieldOffsetTable4144[3] = 
 {
 	DemoType_t3198103624::get_offset_of_value___1() + static_cast<int32_t>(sizeof(Il2CppObject)),
 	0,
 	0,
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4148 = { sizeof (JavaInterface_t1531722286), -1, 0, 0 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4149 = { sizeof (MP4_t1579591958), -1, 0, 0 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4150 = { sizeof (ShareREC_t3964485922), -1, 0, 0 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4151 = { sizeof (ShareRECImpl_t3269527766), -1, 0, 0 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4152 = { sizeof (U3CModuleU3E_t692745548), -1, 0, 0 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4153 = { sizeof (GLOBAL_t4231566697), -1, sizeof(GLOBAL_t4231566697_StaticFields), 0 };
-extern const int32_t g_FieldOffsetTable4153[2] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4145 = { sizeof (JavaInterface_t1531722286), -1, 0, 0 };
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4146 = { sizeof (MP4_t1579591958), -1, 0, 0 };
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4147 = { sizeof (ShareREC_t3964485922), -1, 0, 0 };
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4148 = { sizeof (ShareRECImpl_t3269527766), -1, 0, 0 };
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4149 = { sizeof (U3CModuleU3E_t692745548), -1, 0, 0 };
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4150 = { sizeof (GLOBAL_t4231566697), -1, sizeof(GLOBAL_t4231566697_StaticFields), 0 };
+extern const int32_t g_FieldOffsetTable4150[2] = 
 {
 	GLOBAL_t4231566697_StaticFields::get_offset_of_isJSConnected_2(),
 	GLOBAL_t4231566697_StaticFields::get_offset_of_isJSExtended_3(),
